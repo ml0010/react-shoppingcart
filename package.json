@@ -1,7 +1,7 @@
 {
   "name": "react-shoppingcart",
   "version": "0.1.0",
-  "homepage": "https://ml0010.github.io/react-shoppingcart/",
+  "homepage": "https://ml0010.github.io/react-shoppingcart",
   "private": true,
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

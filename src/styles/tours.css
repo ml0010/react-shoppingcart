@@ -4,7 +4,6 @@
 }
 
 .tourList {
-    height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
@@ -12,7 +11,7 @@
 
 .tour {
     border-radius: 55px;
-    width: 300px;
+    width: 400px;
     height: 350px;
     margin-top: 60px;
     padding: 80px;
@@ -69,6 +68,17 @@
 }
 @media only screen and (max-width: 900px) {
     .tourList {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
-  }
+}
+@media only screen and (max-width: 600px) {
+    .tourList {
+        grid-template-columns: 1fr;
+    }
+    .tour {
+        width: 310px;
+    }
+    .tour img {
+        width: 300px;
+    }
+}

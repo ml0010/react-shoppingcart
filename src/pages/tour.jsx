@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ClockIcon, GlobeSimpleIcon, MapPinLineIcon, PiggyBankIcon } from '@phosphor-icons/react'
+import { TourContext } from '../context/tour-context';
 
 export const Tour = (props) => {
-    const {tourName, img, description, duration, languages, meetingPoint, price} = props.data;
+    const {id, tourName, img, description, duration, languages, meetingPoint, price} = props.data;
+    const {addToCart, cartItems} = useContext(TourContext);
 
     return (
         <div className='tour'>
             <div className='tourName'>
                 <p><b>{tourName}</b></p>
                 <img src={img} alt={tourName} />                
-                <p className='description'>{description}</p>          
+                <p className='description'>{description}</p>
             </div>
             <div className='tourInfo'>
                 <p><ClockIcon size={20} /> Duration {duration} hours</p>
@@ -17,7 +19,7 @@ export const Tour = (props) => {
                 <p><MapPinLineIcon size={20} />Tour starts in {meetingPoint}</p>
                 <p><PiggyBankIcon size={20} />{price}€ per person</p>
             </div>
-            <button className='selectBttn'>Select Tour</button>
+            <button className='selectBttn' onClick={()=>addToCart(id)}>Select Tour</button>
         </div>
     )
 }

@@ -11,7 +11,7 @@ export const Tours = () => {
       </div>
       <div className='tourList'>
         {TOURS.map((tour)=> (
-          <p><Tour data={tour} /></p>
+          <Tour data={tour} key={tour.id} />
         ))}
       </div>
     </div>

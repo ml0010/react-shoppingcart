@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 .App {
-  text-align: center;
+    text-align: center;
+    font-family: Raleway, Geneva, Tahoma, sans-serif;
+    background-color: #CCD8BB;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    color: #262E1B;
+}
+
+
+@media only screen and (max-width: 900px) {
+  
+}
+  
+@media only screen and (max-width: 600px) {
+
+}
+  
+@media only screen and (min-width: 600px) {
+
 }

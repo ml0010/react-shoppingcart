@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-shoppingcart/static/css/main.3456d83a.css",
-    "main.js": "/react-shoppingcart/static/js/main.cbf19534.js",
+    "main.css": "/react-shoppingcart/static/css/main.79c9e1e7.css",
+    "main.js": "/react-shoppingcart/static/js/main.3ce27aa0.js",
     "static/js/453.e5f97dca.chunk.js": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js",
     "static/media/cuber.jpg": "/react-shoppingcart/static/media/cuber.0ed35e5cc938d53b05b8.jpg",
     "index.html": "/react-shoppingcart/index.html",
-    "main.3456d83a.css.map": "/react-shoppingcart/static/css/main.3456d83a.css.map",
-    "main.cbf19534.js.map": "/react-shoppingcart/static/js/main.cbf19534.js.map",
+    "main.79c9e1e7.css.map": "/react-shoppingcart/static/css/main.79c9e1e7.css.map",
+    "main.3ce27aa0.js.map": "/react-shoppingcart/static/js/main.3ce27aa0.js.map",
     "453.e5f97dca.chunk.js.map": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3456d83a.css",
-    "static/js/main.cbf19534.js"
+    "static/css/main.79c9e1e7.css",
+    "static/js/main.3ce27aa0.js"
   ]
 }

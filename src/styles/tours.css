@@ -70,8 +70,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: 75%;
+    margin: 10px;
 
+}
+.tour .countHandler {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+.tour .bttns {
+    padding: 20px;
 }
 @media only screen and (max-width: 1300px) {
     .tourList {

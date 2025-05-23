@@ -9,22 +9,21 @@ const cartDefault = () => {
     return cart;
 }
 
-
 export const TourContextProvider = (props) => {
 
-    const [cartItem, setCartItem] = useState(cartDefault());
-    console.log(cartItem);
+    const [cartItems, setCartItems] = useState(cartDefault());
 
     const addToCart = (tourId) => {
-        setCartItem((prev) => ({...prev, [tourId]: cartItem[tourId] + 1}));
-
-    console.log(cartItem);
+        setCartItems((prev) => ({...prev, [tourId]: cartItems[tourId] + 1}));
     }    
     const removeFromCart = (tourId) => {
-        setCartItem((prev) => ({...prev, [tourId]: cartItem[tourId] - 1}));
+        setCartItems((prev) => ({...prev, [tourId]: cartItems[tourId] - 1}));
+    }
+    const deleteFromCart = (tourId) => {
+        setCartItems((prev) => ({...prev, [tourId]: cartItems[tourId] = 0}));
     }
 
-    const contextValue = {cartItem, addToCart, removeFromCart};
+    const contextValue = {cartItems, addToCart, removeFromCart, deleteFromCart};
     return (
         <TourContext.Provider value={contextValue}>{props.children}</TourContext.Provider>
     )

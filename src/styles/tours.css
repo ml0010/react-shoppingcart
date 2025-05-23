@@ -11,14 +11,14 @@
 }
 
 .tour {
-    border-radius: 55px;
-    padding: 15px;
-    margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    border-radius: 55px;
+    padding: 15px;
+    margin: 20px;
+    width: 400px;
     background-color: rgba(255,255,255,0.3);
     border-radius: 12px;
 }
@@ -62,6 +62,16 @@
     background-color: white;
     opacity: 60%;
     transition: 0.5s ease-in;
+}
+
+.tour .tourDetail {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+
 }
 @media only screen and (max-width: 1300px) {
     .tourList {

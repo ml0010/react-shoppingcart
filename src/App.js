@@ -1,12 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/navbar';
+import { Footer } from './components/footer.jsx';
 import { Cart } from './pages/cart';
 import { Tours } from './pages/tours.jsx';
 import { Home } from './pages/home.jsx';
 import { Contact } from './pages/contact.jsx';
-import { TourContext, TourContextProvider } from './context/tour-context'
-import { Footer } from './context/footer.jsx';
+import { TourContextProvider } from './context/tour-context'
+
 
 function App() {
   return (

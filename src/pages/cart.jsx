@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useNavigate } from "react-router-dom";
 import { TOURS } from '../tours'
 import { TourContext } from '../context/tour-context'
 import { CartItem } from './cart-item';
@@ -6,7 +7,10 @@ import '../styles/cart.css'
 
 export const Cart = () => {
 
-  const { cartItems } = useContext (TourContext);
+  const { cartItems, getTotalCartAmount } = useContext (TourContext);
+  const totalAmount = getTotalCartAmount();
+
+  const navigate = useNavigate();
 
   return (
     <div className='cart'>
@@ -14,11 +18,24 @@ export const Cart = () => {
         <h1>Your basket</h1>
       </div>
       <div className='cartItems'>
-        {TOURS.map((tour)=>{
+        {TOURS.map((tour) => {
           if (cartItems[tour.id] > 0) {
             return <CartItem data={tour} key={tour.id} />;
-          }
+          } else { return null; }
         })}
+      </div>
+      <div className='checkout'>
+        {totalAmount > 0 ? (
+          <>
+            <p>Subtotal: {totalAmount} €</p>
+            <button onClick={() => navigate('/tours')}> See more tours </button>
+            <button onClick={() => navigate('/checkout')}> Book my tours</button>
+          </>
+        ) : (
+          <>
+            <h1>No plans yet?</h1>
+          </>
+        )}
       </div>
     </div>
   )

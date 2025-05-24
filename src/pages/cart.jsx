@@ -19,7 +19,7 @@ export const Cart = () => {
       </div>
       <div className='cartItems'>
         {TOURS.map((tour) => {
-          if (cartItems[tour.id] > 0) {
+          if (cartItems[tour.id]["pax"] > 0) {
             return <CartItem data={tour} key={tour.id} />;
           } else { return null; }
         })}

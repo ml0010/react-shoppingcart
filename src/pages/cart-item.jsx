@@ -11,7 +11,8 @@ export const CartItem = (props) => {
             <img src={img} alt={tourName} />
             <div className='description'>
                 <p><b>{tourName}</b></p>
-                <p>{price}€{cartItems[id] > 1 && <> X {cartItems[id]} people</>}</p>
+                <p>{price}€{cartItems[id].pax > 1 && <> X {cartItems[id].pax} people</>}</p>
+                <p>Date: {cartItems[id].date.toISOString(0).split('T')[0]}</p>
                 <div className='deleteBttn'>
                     <button onClick={()=>deleteFromCart(id)}>Delete</button>
                 </div>

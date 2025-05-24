@@ -79,9 +79,19 @@
     grid-template-columns: 1fr 1fr;
     place-items: center;
 }
+.tour .dateHandler {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
 .tour .bttns {
     padding: 20px;
 }
+.tour .MuiFormControl-root {
+    width: 160px;
+    height: 20px;
+}
+
 @media only screen and (max-width: 1300px) {
     .tourList {
         grid-template-columns: 1fr 1fr;

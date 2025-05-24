@@ -3,18 +3,20 @@ import { TOURS } from '../tours'
 
 export const TourContext =  createContext(null);
 
-const cartDefault = () => {
+const getCartDefault = () => {
     let cart = {};
-    TOURS.map((tour) => cart[tour.id] = 0)
+    TOURS.map((tour) => {
+        cart[tour.id] = {pax: 0, date: null};
+    })
     return cart;
 }
 
 export const TourContextProvider = (props) => {
 
-    const [cartItems, setCartItems] = useState(cartDefault());
+    const [cartItems, setCartItems] = useState(getCartDefault());
 
-    const addToCart = (tourId) => {
-        setCartItems((prev) => ({...prev, [tourId]: cartItems[tourId] + 1}));
+    const addToCart = (tourId, paxValue, dateValue) => {
+        setCartItems((prev) => ({...prev, [tourId]: {pax: paxValue, date: dateValue}}));
     }    
     const removeFromCart = (tourId) => {
         setCartItems((prev) => ({...prev, [tourId]: cartItems[tourId] - 1}));
@@ -25,9 +27,10 @@ export const TourContextProvider = (props) => {
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
-            if (cartItems[item] > 0) {
+            if (cartItems[item].pax > 0) {
                 let tourInfo = TOURS.find((tour) => (tour.id === Number(item)));
-                totalAmount += cartItems[item] * tourInfo.price;
+                totalAmount += cartItems[item].pax * tourInfo.price;
+                console.log("Total pax: " + cartItems[item].pax);
             }
         }
         return totalAmount;

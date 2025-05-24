@@ -28,3 +28,14 @@ a:hover {
     color: white;
     transition: 0.2s ease-in;
 }
+
+.scrollToTop {
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+}
+
+.scrollToTop .scrollBttn {
+    background-color: transparent;
+    border: none;
+}

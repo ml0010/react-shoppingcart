@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { CartSummary } from '../pages/cart-summary'
 import { Link } from 'react-router-dom'
 import { ArrowCircleUpIcon, ShoppingBagIcon } from '@phosphor-icons/react'
 import '../styles/navbar.css'
 
 export const Navbar = () => {
 
-  const [ showBttn, setShowBttn ] = useState(false);
+  const [ showScrollBttn, setShowScrollBttn ] = useState(false);
+  const [ showCartSummary, setShowCartSummary ] = useState(false);
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth'});
@@ -13,7 +15,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScrollBttnVisibility = () => {
-      window.pageYOffset > 300 ? setShowBttn(true) : setShowBttn(false);
+      window.pageYOffset > 300 ? setShowScrollBttn(true) : setShowScrollBttn(false);
     };
 
     window.addEventListener('scroll', handleScrollBttnVisibility);
@@ -29,12 +31,15 @@ export const Navbar = () => {
         <Link to='/'> About </Link>
         <Link to='/tours'> Tours </Link>
         <Link to='/contact'> Contact </Link>
-        <Link to='/cart'><ShoppingBagIcon size={28} /></Link>
+        <button className='cartSummaryBttn' onClick={()=> setShowCartSummary(!showCartSummary)}><ShoppingBagIcon size={28} /></button>
       </div>
-      {showBttn && (
+      {showScrollBttn && (
         <div className='scrollToTop'>
           <button className='scrollBttn' onClick={handleScrollToTop}><ArrowCircleUpIcon size={50} /></button>
         </div>
+      )}
+      {showCartSummary && (
+        <CartSummary closeCartSummary={()=>setShowCartSummary(false)} />
       )}
     </div>
   )

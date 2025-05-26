@@ -3,93 +3,11 @@
     width: 100%;
 }
 
-.tourList {
+.toursList {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
     padding: 20px;
-}
-
-.tour {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 55px;
-    padding: 15px;
-    margin: 20px;
-    width: 400px;
-    background-color: rgba(255,255,255,0.3);
-    border-radius: 12px;
-}
-
-.tour img {
-    width: 400px;
-}
-
-.tour:hover {
-    transition: 0.3s ease-in;
-    cursor: pointer;
-}
-
-.tourInfo p {
-    font-size: 15px;
-    display: flex;
-    margin: 8px;
-    font-weight: 600;
-}
-
-.description {
-    font-size: 15px;
-}
-
-.selectBttn {
-    background-color: transparent;
-    border: 1px solid rgb(19, 19, 19);
-    min-width: 100px;
-    margin-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 15px;
-}
-
-.selectBttn:hover {
-    color: black;
-    cursor: pointer;
-
-    background-color: white;
-    opacity: 60%;
-    transition: 0.5s ease-in;
-}
-
-.tour .tourDetail {
-    background-color: white;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 75%;
-    margin: 10px;
-
-}
-.tour .countHandler {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
-}
-.tour .dateHandler {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
-}
-.tour .bttns {
-    padding: 20px;
-}
-.tour .MuiFormControl-root {
-    width: 160px;
-    height: 20px;
 }
 
 @media only screen and (max-width: 1300px) {

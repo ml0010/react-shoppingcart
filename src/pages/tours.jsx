@@ -6,10 +6,10 @@ import { Tour } from './tour'
 export const Tours = () => {
   return (
     <div className='tours'>
-      <div className='tourTitle'>
+      <div className='toursTitle'>
         <h1> Available Tours</h1>
       </div>
-      <div className='tourList'>
+      <div className='toursList'>
         {TOURS.map((tour)=> (
           <Tour data={tour} key={tour.id} />
         ))}

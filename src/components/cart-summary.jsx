@@ -15,15 +15,17 @@ export const CartSummary = () => {
     let cartSummaryRef = useRef();
 
     useEffect(() => {
-        let handler = (e)=>{
-            if(!cartSummaryRef.current.contains(e.target)){
-                setShowCartSummary(false);
-                console.log(cartSummaryRef.current);
-            }      
-        };
-        document.addEventListener("mousedown", handler);
-        return() =>{
-            document.removeEventListener("mousedown", handler);
+        if(showCartSummary === true) {
+            let handler = (e)=>{
+                if(!cartSummaryRef.current.contains(e.target)){
+                    setShowCartSummary(false);
+                    console.log(cartSummaryRef.current);
+                }      
+            };
+            document.addEventListener("mousedown", handler);
+            return() =>{
+                document.removeEventListener("mousedown", handler);
+            }
         }
     }, [showCartSummary]);
 

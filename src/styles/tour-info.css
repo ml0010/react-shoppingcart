@@ -1,0 +1,108 @@
+.tourInfo {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 80%;
+    margin: 10px;
+    overflow: scroll;
+    align-items: center;
+}
+.tourInfo .title {
+    position: sticky;
+    align-items: center;
+    top: 0px;
+    width: 100%;
+    height: 30px;
+    background-color: #6C7E53;
+    color: white;
+}
+
+
+.tourInfo .tourInfoHandler {
+    text-align: left;
+    padding: 10%;
+}
+
+.tourInfo p {
+    font-size: 15px;
+    display: flex;
+    margin: 8px;
+    font-weight: 600;
+}
+
+.tourInfo h2 {
+    width: 100%;
+    background-color: beige;
+}
+
+.tourInfo .countHandler {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+.tourInfo .dateHandler {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+
+.tourInfo .MuiFormControl-root {
+    width: 140px;
+    height: 15px;
+}
+.MuiFormControl-root span {
+    font-size: 13px;
+}
+
+.tourInfo .bttns {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding: 30px;
+}
+
+.addToCartBttn {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+}
+
+.addToCartBttn::before {
+    width: 160px;
+    height: 130px;
+    position: absolute;
+    content: "";
+    background-color: white;
+    border-radius: 50%;
+    left: -100%;
+    top: 0;
+    transition-duration: .3s;
+    mix-blend-mode: difference;
+    
+}
+
+.addToCartBttn:hover::before {
+    transition-duration: .3s;
+    transform: translate(100%,-50%);
+    border-radius: 0;
+}
+
+.addToCartBttn:active {
+    transform: translate(5px,5px);
+    transition-duration: .3s;
+}

@@ -9,6 +9,16 @@
 
 }
 
+.cartSummary.active {
+    transform: translateY(0);
+    transition: 500ms ease;
+}
+
+.cartSummary.inactive{
+  transform: translateY(-20px);
+  transition: 500ms ease;
+}
+
 .cartSummary .closeCartSummaryBttn {
     background-color: transparent;
     border: none;

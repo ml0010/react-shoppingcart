@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import '../styles/cart-summary.css'
 import { TOURS } from '../tours';
 import { TourContext } from '../context/tour-context'
@@ -10,11 +10,27 @@ export const CartSummary = () => {
 
 
     const { cartItems, getTotalCartAmount } = useContext(TourContext);
-    const { setShowCartSummary } = useContext(CartContext);
+    const { showCartSummary, setShowCartSummary } = useContext(CartContext);
     const totalAmount = getTotalCartAmount();
 
+    let cartSummaryRef = useRef();
+
+    useEffect(() => {
+        let handler = (e)=>{
+            if(!cartSummaryRef.current.contains(e.target)){
+                setShowCartSummary(false);
+                console.log(cartSummaryRef.current);
+            }      
+        };
+        document.addEventListener("mousedown", handler);
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
+    }, [showCartSummary]);
+
+   
     return (
-        <div className='cartSummary'>
+        <div className={`cartSummary ${showCartSummary? 'active' : 'inactive'}`} ref={cartSummaryRef}>
             <button className='closeCartSummaryBttn' onClick={() => setShowCartSummary(false)}><XSquareIcon size={20} /></button>
             {totalAmount > 0 ? (
             <div className='cartSummaryItems'>

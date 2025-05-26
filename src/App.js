@@ -8,6 +8,8 @@ import { Home } from './pages/home.jsx';
 import { Contact } from './pages/contact.jsx';
 import { TourContextProvider } from './context/tour-context.jsx'
 import { CartContextProvider } from './context/cart-context.jsx';
+import { CartSummary } from './components/cart-summary.jsx';
+import { ScrollToTop } from './components/scroll-to-top.jsx';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <CartContextProvider>
           <Router>
             <Navbar />
+            <CartSummary />
+            <ScrollToTop />
             <Routes>
               <Route>
                 <Route path='/' exact element={<Home />}></Route>

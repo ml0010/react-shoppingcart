@@ -30,7 +30,6 @@ export const TourContextProvider = (props) => {
             if (cartItems[item].pax > 0) {
                 let tourInfo = TOURS.find((tour) => (tour.id === Number(item)));
                 totalAmount += cartItems[item].pax * tourInfo.price;
-                console.log("Total pax: " + cartItems[item].pax);
             }
         }
         return totalAmount;

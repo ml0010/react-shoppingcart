@@ -3,19 +3,22 @@ import { TourContext } from '../context/tour-context';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { CartContext } from '../context/cart-context';
 
 
 export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 
-  const {id, tourName, img, description, duration, languages, meetingPoint, price} = props.data;
-  
-  const {cartItems, addToCart, removeFromCart} = useContext(TourContext);
+  const { id, tourName, img, description, duration, languages, meetingPoint, price } = props.data;
+
+  const { addToCart } = useContext(TourContext);
+  const { setShowCartSummary } = useContext(CartContext);
 
   const [pax, setPax] = useState(1);
   const [dateValue, setDateValue] = useState(null);
 
   const addTourToCart = () => {
     addToCart(id, pax, dateValue);
+    setShowCartSummary(true);
     setPax(1);
     setDateValue(null);
     closeTourInfo();

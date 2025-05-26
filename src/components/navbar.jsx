@@ -1,30 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { CartSummary } from '../pages/cart-summary'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowCircleUpIcon, ShoppingBagIcon } from '@phosphor-icons/react'
+import { ShoppingBagIcon } from '@phosphor-icons/react'
 import '../styles/navbar.css'
 import { CartContext } from '../context/cart-context'
 
 export const Navbar = () => {
 
-  const [ showScrollBttn, setShowScrollBttn ] = useState(false);
   const { showCartSummary, setShowCartSummary } = useContext(CartContext);
+  const [ buttonAvtive, setButtonActive ] = useState(false);
   
-  const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth'});
+  const handleShowCartSummary = () => {
+    if(buttonAvtive === false) {
+      setButtonActive(true);
+      setShowCartSummary(!showCartSummary);
+    } else {
+      setButtonActive(false);
+    }
   };
-
-  useEffect(() => {
-    const handleScrollBttnVisibility = () => {
-      window.pageYOffset > 300 ? setShowScrollBttn(true) : setShowScrollBttn(false);
-    };
-
-    window.addEventListener('scroll', handleScrollBttnVisibility);
-
-    return () => {
-     window.addEventListener('scroll', handleScrollBttnVisibility);
-    };
-  });
 
   return (
     <div className='navbar'>
@@ -32,16 +24,8 @@ export const Navbar = () => {
         <Link to='/'> About </Link>
         <Link to='/tours'> Tours </Link>
         <Link to='/contact'> Contact </Link>
-        <button className='cartSummaryBttn' onClick={()=> setShowCartSummary(!showCartSummary)}><ShoppingBagIcon size={28} /></button>
+        <button className='cartSummaryBttn' onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
       </div>
-      {showScrollBttn && (
-        <div className='scrollToTop'>
-          <button className='scrollBttn' onClick={handleScrollToTop}><ArrowCircleUpIcon size={50} /></button>
-        </div>
-      )}
-      {showCartSummary && (
-        <CartSummary />
-      )}
     </div>
   )
 }

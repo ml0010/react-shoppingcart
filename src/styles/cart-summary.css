@@ -1,22 +1,24 @@
 .cartSummary {
-    position: fixed;
-    top: 70px;
-    right: 20px;
-    width: 800px;
-    padding: 30px;
     background-color: white;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    padding: 30px;
     width: 200px;
-
 }
 
 .cartSummary.active {
+    opacity: 1;
+    visibility: visible;
     transform: translateY(0);
     transition: 500ms ease;
 }
 
 .cartSummary.inactive{
-  transform: translateY(-20px);
-  transition: 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 500ms ease;
 }
 
 .cartSummary .closeCartSummaryBttn {

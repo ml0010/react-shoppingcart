@@ -1,19 +1,21 @@
 import React, { useContext } from 'react'
+import '../styles/cart-summary.css'
 import { TOURS } from '../tours';
 import { TourContext } from '../context/tour-context'
-import '../styles/cart-summary.css'
 import { Link } from 'react-router-dom';
 import { XSquareIcon } from '@phosphor-icons/react';
+import { CartContext } from '../context/cart-context';
 
-export const CartSummary = ({closeCartSummary}) => {
+export const CartSummary = () => {
 
 
     const { cartItems, getTotalCartAmount } = useContext(TourContext);
+    const { setShowCartSummary } = useContext(CartContext);
     const totalAmount = getTotalCartAmount();
 
     return (
         <div className='cartSummary'>
-            <button className='closeCartSummaryBttn' onClick={closeCartSummary}><XSquareIcon size={20} /></button>
+            <button className='closeCartSummaryBttn' onClick={() => setShowCartSummary(false)}><XSquareIcon size={20} /></button>
             {totalAmount > 0 ? (
             <div className='cartSummaryItems'>
                 <h1>Your Basket Summary</h1>

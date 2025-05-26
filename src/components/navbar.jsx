@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CartSummary } from '../pages/cart-summary'
 import { Link } from 'react-router-dom'
 import { ArrowCircleUpIcon, ShoppingBagIcon } from '@phosphor-icons/react'
 import '../styles/navbar.css'
+import { CartContext } from '../context/cart-context'
 
 export const Navbar = () => {
 
   const [ showScrollBttn, setShowScrollBttn ] = useState(false);
-  const [ showCartSummary, setShowCartSummary ] = useState(false);
-
+  const { showCartSummary, setShowCartSummary } = useContext(CartContext);
+  
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth'});
   };
@@ -39,7 +40,7 @@ export const Navbar = () => {
         </div>
       )}
       {showCartSummary && (
-        <CartSummary closeCartSummary={()=>setShowCartSummary(false)} />
+        <CartSummary />
       )}
     </div>
   )

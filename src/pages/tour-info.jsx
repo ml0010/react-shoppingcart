@@ -16,6 +16,8 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 
   const addTourToCart = () => {
     addToCart(id, pax, dateValue);
+    setPax(1);
+    setDateValue(null);
     closeTourInfo();
   }
 
@@ -31,7 +33,7 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 
       <div className='countHandler'>
         <p>Number of People: </p>
-        <div><button onClick={()=>setPax(pax-1)}> - </button> {pax} <button onClick={()=>setPax(pax+1)}> + </button></div>
+        <div><button onClick={()=>setPax(pax-1)}> - </button>  {pax}  <button onClick={()=>setPax(pax+1)}> + </button></div>
         
       </div>
 

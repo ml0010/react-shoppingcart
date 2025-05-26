@@ -6,25 +6,28 @@ import { Cart } from './pages/cart';
 import { Tours } from './pages/tours.jsx';
 import { Home } from './pages/home.jsx';
 import { Contact } from './pages/contact.jsx';
-import { TourContextProvider } from './context/tour-context'
+import { TourContextProvider } from './context/tour-context.jsx'
+import { CartContextProvider } from './context/cart-context.jsx';
 
 
 function App() {
   return (
     <div className="App">
       <TourContextProvider>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route>
-              <Route path='/' exact element={<Home />}></Route>
-              <Route path='/tours' element={<Tours />}></Route>
-              <Route path='/contact' element={<Contact />}></Route>
-              <Route path='/cart' element={<Cart />}></Route>
-            </Route>
-          </Routes>
-          <Footer />
-        </Router>
+        <CartContextProvider>
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route>
+                <Route path='/' exact element={<Home />}></Route>
+                <Route path='/tours' element={<Tours />}></Route>
+                <Route path='/contact' element={<Contact />}></Route>
+                <Route path='/cart' element={<Cart />}></Route>
+              </Route>
+            </Routes>
+            <Footer />
+          </Router>
+        </CartContextProvider>
       </TourContextProvider>
     </div>
   );

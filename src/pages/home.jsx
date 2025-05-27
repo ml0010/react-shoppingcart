@@ -1,12 +1,17 @@
 import React from 'react'
-import Cuber from '../assets/cuber.jpg'
+import MainPhoto from '../assets/4.jpg'
 import '../styles/home.css'
 
 export const Home = () => {
   return (
     <div className='home'>
-        <h1>Home page</h1>
-        <img src={Cuber} alt='cuber' />
+        <div className='pageMain' style={{ backgroundImage: `url(${MainPhoto})` }}>
+          <div>
+            <h1 className='pageTitle'>HOME PAGE</h1>
+            <p className='pageDescription'>home description</p>
+          </div>
+        </div>
+        <div>HOME PAGE CONTENTS</div>
     </div>
   )
 }

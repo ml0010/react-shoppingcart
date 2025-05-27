@@ -86,13 +86,7 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
           <DatePicker slotProps={{ textField: { size: 'small' } }} format="DD-MM-YYYY" value={dateValue} onChange={(newDateValue) => setDateValue(newDateValue)} />
         </LocalizationProvider>
       </div>
-      <div className='bttns'>
-          <button class="addToCartBttn" onClick={handleAddToCart}>
-          Add To Basket
-          <BasketIcon size={22} />
-      </button>
-      </div>
-
+      <button class='addToBasketBttn' onClick={handleAddToCart}>ADD TO BASKET <BasketIcon size={22} /></button>
     </div>
   )
 }

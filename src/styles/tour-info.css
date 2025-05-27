@@ -1,5 +1,5 @@
 .tourInfo {
-    background-color: white;
+    background-color: rgb(245, 245, 245);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -16,7 +16,7 @@
     top: 0px;
     width: 100%;
     height: 30px;
-    background-color: #6C7E53;
+    background-color: rgba(216, 207, 188, 0.279);
     color: white;
 }
 
@@ -57,52 +57,22 @@
     font-size: 13px;
 }
 
-.tourInfo .bttns {
-    display: grid;
-    grid-template-columns: 1fr;
+.addToBasketBttn {
     place-items: center;
-    padding: 30px;
-}
-
-.addToCartBttn {
-    width: 160px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(15, 15, 15);
-    border: none;
+    background-color: rgb(30, 40, 68);
     color: white;
-    font-weight: 600;
-    gap: 8px;
+    min-width: 180px;
+    min-height: 40px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+}
+
+.addToBasketBttn:hover {
     cursor: pointer;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
-    position: relative;
-    overflow: hidden;
-    transition-duration: .3s;
-}
-
-.addToCartBttn::before {
-    width: 160px;
-    height: 130px;
-    position: absolute;
-    content: "";
-    background-color: white;
-    border-radius: 50%;
-    left: -100%;
-    top: 0;
-    transition-duration: .3s;
-    mix-blend-mode: difference;
-    
-}
-
-.addToCartBttn:hover::before {
-    transition-duration: .3s;
-    transform: translate(100%,-50%);
-    border-radius: 0;
-}
-
-.addToCartBttn:active {
-    transform: translate(5px,5px);
-    transition-duration: .3s;
+    background-color: rgb(128, 113, 98);
+    transition: 0.2s ease-in;
 }

@@ -6,6 +6,7 @@
   align-items: center;
   flex-direction: column;
   padding-top: 10px;
+  border-top: 1px solid black;
 }
 
 .socialMedia svg {
@@ -18,3 +19,4 @@
 .footer p {
   color: white; 
 }
+

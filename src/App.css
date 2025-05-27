@@ -1,17 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,300;1,75..100,300&display=swap');
+
 
 .App {
     text-align: center;
-    font-family: Raleway, Geneva, Tahoma, sans-serif;
-    background-color: #CCD8BB;
+    font-family: 'Roboto', 'Times New Roman', Times, serif;
+    background-color: rgb(245, 245, 245);
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
-    color: #262E1B;
 }
 
+.pageMain {
+    top: 0px;
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pageMain .pageTitle {
+    color: white;
+}
+.pageMain .pageDescription {
+    color: white;
+}
 
 @media only screen and (max-width: 900px) {
   

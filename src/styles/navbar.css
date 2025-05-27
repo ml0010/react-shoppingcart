@@ -6,8 +6,9 @@
     align-items: center;
     position: fixed;
     top: 0px;
-    background-color: #CCD8BB;
-    opacity: 97%;
+    background-image: linear-gradient(rgb(0, 0, 0), transparent);
+
+    opacity: 70%;
 }
 
 .links {
@@ -19,12 +20,13 @@
 
 .links a {
     text-decoration: none;
-    color: #6C7E53;
+    color: white;
     margin-left: 20px;
     font-size: 20px;
 }
 .links button {
-    color: #6C7E53;
+    color: white;
+    cursor: pointer;
 }
 .cartSummaryBttn {
     background-color: transparent;
@@ -36,3 +38,15 @@ a:hover {
     color: white;
     transition: 0.2s ease-in;
 }
+
+.scrollToTop {
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+}
+
+.scrollToTop .scrollBttn {
+    background-color: transparent;
+    border: none;
+}
+

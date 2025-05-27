@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/react-shoppingcart/static/css/main.217c916c.css",
-    "main.js": "/react-shoppingcart/static/js/main.e4397099.js",
+    "main.css": "/react-shoppingcart/static/css/main.dfc914bf.css",
+    "main.js": "/react-shoppingcart/static/js/main.70c0c0d9.js",
     "static/js/453.e5f97dca.chunk.js": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js",
-    "static/media/cuber.jpg": "/react-shoppingcart/static/media/cuber.0ed35e5cc938d53b05b8.jpg",
+    "static/media/2.jpg": "/react-shoppingcart/static/media/2.40840a04604f80eda21c.jpg",
+    "static/media/1.jpg": "/react-shoppingcart/static/media/1.80f0d8cc29ea07ecdee8.jpg",
+    "static/media/4.jpg": "/react-shoppingcart/static/media/4.f9759333e251f76abc19.jpg",
     "index.html": "/react-shoppingcart/index.html",
-    "main.217c916c.css.map": "/react-shoppingcart/static/css/main.217c916c.css.map",
-    "main.e4397099.js.map": "/react-shoppingcart/static/js/main.e4397099.js.map",
+    "main.dfc914bf.css.map": "/react-shoppingcart/static/css/main.dfc914bf.css.map",
+    "main.70c0c0d9.js.map": "/react-shoppingcart/static/js/main.70c0c0d9.js.map",
     "453.e5f97dca.chunk.js.map": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.217c916c.css",
-    "static/js/main.e4397099.js"
+    "static/css/main.dfc914bf.css",
+    "static/js/main.70c0c0d9.js"
   ]
 }

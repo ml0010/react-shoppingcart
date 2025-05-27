@@ -18,16 +18,23 @@ export const Tour = (props) => {
             <img className='tourImg' src={img} alt={tourName} />
             
             <div className='tourDetail'>
-                <p className='tourName'>{tourName}</p>           
+                <p className='tourName'>{tourName}</p>
+                <hr class="separator" />
                 <p className='description'>{description}</p>
-                <p><ClockIcon size={20} /> Duration {duration} hours</p>
-                <p><GlobeSimpleIcon size={20} />{languages}</p>
-                <p><MapPinLineIcon size={20} />Tour starts in {meetingPoint}</p>
-                <p><PiggyBankIcon size={20} />{price}€ per person</p>
-                <button className='selectBttn' onClick={()=>setShowTourInfo(true)}>MORE DETAILS</button>
+                <hr class="separator" />
+                <div className='subInfo'>
+                    <ClockIcon size={15} />
+                    <p>Duration {duration} hours</p>
+                    <MapPinLineIcon size={15} />
+                    <p>Tour starts in {meetingPoint}</p>
+                    <PiggyBankIcon size={15} />
+                    <p>{price}€ per person</p>
+                </div>
+                <button className='selectBttn' onClick={()=>setShowTourInfo(true)}>DETAILS & BOOK</button>
             </div>
 
-            {showTourInfo? (                <>
+            {showTourInfo? (
+                <>
                     <div className={`backdrop ${showTourInfo? 'active' : 'inactive'}`}>
                         <TourInfo props={props} showTourInfo={showTourInfo} closeTourInfo={() => setShowTourInfo(false)} />
                     </div>

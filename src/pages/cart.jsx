@@ -27,10 +27,10 @@ export const Cart = () => {
       <div className='checkout'>
         {totalAmount > 0 ? (
           <>
-            <p>Total: {totalAmount} €</p>
+            <p className='totalAmount'>Total Amount: {totalAmount} €</p>
             <div className='bttns'>
-              <button className='moerTourBttn' onClick={() => navigate('/tours')}>More tours</button>
-              <button className='checkoutBttn' onClick={() => navigate('/checkout')}>Checkout</button>
+              <button className='moerTourBttn' onClick={() => navigate('/tours')}>MORE TOURS</button>
+              <button className='checkoutBttn' onClick={() => navigate('/checkout')}>CHECKOUT</button>
             </div>
           </>
         ) : (

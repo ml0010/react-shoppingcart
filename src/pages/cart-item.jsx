@@ -1,21 +1,30 @@
 import React, { useContext } from 'react'
 import { TourContext } from '../context/tour-context';
 import '../styles/cart-item.css'
+import { XSquareIcon } from '@phosphor-icons/react';
 
 export const CartItem = (props) => {
-    const { id, tourName, img, description, duration, languages, meetingPoint, price } = props.data;
+    const { id, tourName, img, duration, meetingPoint, price } = props.data;
     const { cartItems, deleteFromCart } = useContext(TourContext);
 
+    const subtotal = () => {
+        console.log(cartItems[id].pax * price);
+        return cartItems[id].pax * price;
+    };
+
     return (
-        <div className='cartItem'>
+        <div className='cartItem' key={id}>
             <img src={img} alt={tourName} />
             <div className='description'>
-                <p><b>{tourName}</b></p>
-                <p>{price}€{cartItems[id].pax > 1 && <> X {cartItems[id].pax} people</>}</p>
-                <p>Date: {cartItems[id].date.toISOString(0).split('T')[0]}</p>
-                <div className='deleteBttn'>
-                    <button onClick={()=>deleteFromCart(id)}>Delete</button>
-                </div>
+                <button className='deleteBttn' onClick={()=>deleteFromCart(id)}><XSquareIcon size={20} /></button>
+                <p className='name'>{tourName}</p>
+                <hr />
+                <div className='detail'>
+                    <p>Date: {cartItems[id].date.toISOString(0).split('T')[0]}</p>
+                    <p>Pax: {price}€{cartItems[id].pax > 1 && <> x {cartItems[id].pax} people</>}{cartItems[id].pax == 1 && <> x {cartItems[id].pax} person</>}</p>
+                </div>                
+                <hr />
+                <p><b>Subtotal: {subtotal()} €</b></p>
             </div>
         </div>
     )

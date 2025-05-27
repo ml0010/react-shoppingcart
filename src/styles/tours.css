@@ -1,9 +1,12 @@
 .tours {
     height: auto;
     width: 100%;
+    display: grid;
+    place-items: center;
 }
 
 .toursList {
+    width: 95%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;

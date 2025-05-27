@@ -1,11 +1,18 @@
 .scrollToTop {
     position: fixed;
     bottom: 60px;
-    right: 30px;
+    right: 20px;
 }
 
 .scrollToTop .scrollBttn {
     background-color: transparent;
     border: none;
+    color: var(--taupe);
 }
 
+
+.scrollToTop .scrollBttn:hover {
+    cursor: pointer;
+    color: var(--navy);
+    transition: 0.2s ease-in;
+}

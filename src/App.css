@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,300;1,75..100,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap'); 
 
+:root {
+    --cream: rgb(245, 245, 245);
+    --navy: rgb(30, 40, 68);
+    --taupe: rgb(128, 113, 98);
+    --taupe-trans: rgba(216, 207, 188, 0.279);
+
+}
 
 .App {
     text-align: center;
     font-family: 'Roboto', 'Times New Roman', Times, serif;
-    background-color: rgb(245, 245, 245);
+    background-color: var(--cream);
     width: 100%;
     height: auto;
     display: flex;

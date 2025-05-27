@@ -23,8 +23,15 @@
 
 .cartSummary .closeCartSummaryBttn {
     background-color: transparent;
+    color: var(--taupe);
     border: none;
     float: right;
+}
+
+.cartSummary .closeCartSummaryBttn:hover {
+    cursor: pointer;
+    color: var(--navy);
+    transition: 0.2s ease-in;
 }
 
 h1 {

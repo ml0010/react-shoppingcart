@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ShoppingBagIcon } from '@phosphor-icons/react'
 import '../styles/navbar.css'
@@ -6,15 +6,14 @@ import { CartContext } from '../context/cart-context'
 
 export const Navbar = () => {
 
-  const { showCartSummary, setShowCartSummary } = useContext(CartContext);
-  const [ buttonAvtive, setButtonActive ] = useState(false);
-  
+  const { showCartSummary, setShowCartSummary, isButtonActive, setIsButtonActive } = useContext(CartContext);
+
   const handleShowCartSummary = () => {
-    if(buttonAvtive === false) {
-      setButtonActive(true);
+    if(isButtonActive === false) {
+      setIsButtonActive(true);
       setShowCartSummary(!showCartSummary);
     } else {
-      setButtonActive(false);
+      setIsButtonActive(false);
     }
   };
 

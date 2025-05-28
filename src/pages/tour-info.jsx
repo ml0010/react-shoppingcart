@@ -52,11 +52,12 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
   if (!showTourInfo) {return null;}
   return (
     <div className='tourInfo' key={id} ref={scrollRef}>
-      <div className='title'>
-          <h1 className='tourName'>{tourName}</h1>
+      <div className='titleBar'>
+          <h1 className='name'>{tourName}</h1>
           <button className='closeBttn' onClick={handleClose}><XSquareIcon size={20} /></button>
       </div>
-      <img src={img} alt={tourName} />
+      <img className='photo' src={img} alt={tourName} />
+      <hr class="separator" />
       <div className='tourInfoHandler'>
         <h2><BookOpenTextIcon size={20} /> Description</h2>
         <p>{description}</p>
@@ -65,31 +66,30 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
         <p>{duration} hours</p>
 
         <h2><GlobeIcon size={20} /> Language</h2>
-        <ul>{getLanguages()}</ul>
+        <ul className='languageList'>{getLanguages()}</ul>
 
-        <h2><MapPinLineIcon size={20} /> Meeting Poing</h2>
+        <h2><MapPinLineIcon size={20} /> Meeting Point</h2>
         <p>{meetingPoint}</p>
 
         <h2><PiggyBankIcon size={20} /> Price</h2>
-        <p>{price}</p>
+        <p>{price} € per person</p>
       </div>
       <hr class="separator" />
       <div className='countHandler'>
-        <p>Number of People: </p>
+        <p>Number of People:</p>
         <div>
           <button onClick={()=>setPax(pax-1)}><MinusCircleIcon size={15} /></button>
           <input className='pax' value={pax}></input>
-          <button onClick={()=>setPax(pax+1)}><PlusCircleIcon size={15} /></button></div>
-        
+          <button onClick={()=>setPax(pax+1)}><PlusCircleIcon size={15} /></button>
+        </div>
       </div>
-
       <div className='dateHandler'>
-        <p>Date: </p>
+        <p>Date:</p>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker slotProps={{ textField: { size: 'small' } }} format="DD-MM-YYYY" value={dateValue} onChange={(newDateValue) => setDateValue(newDateValue)} />
         </LocalizationProvider>
       </div>
-      <div className='bttn'>
+      <div className='bttnHandler'>
         <button class='addToBasketBttn' onClick={handleAddToCart}>
           ADD TO BASKET <BasketIcon size={20} />
         </button>

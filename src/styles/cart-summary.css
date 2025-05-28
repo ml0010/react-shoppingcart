@@ -4,7 +4,7 @@
     top: 80px;
     right: 20px;
     padding: 30px;
-    width: 200px;
+    width: 400px;
 }
 
 .cartSummary.active {
@@ -34,6 +34,37 @@
     transition: 0.2s ease-in;
 }
 
+.cartSummaryItem p {
+    font-size: 15px;
+}
+
 h1 {
     font-size: 18px;
+    font-family: 'Lustria';
+}
+
+.goToBasketBttn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--navy);
+    color: white;
+    min-width: 180px;
+    min-height: 40px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+}
+
+.goToBasketBttn:hover {
+    cursor: pointer;
+    background-color: rgb(128, 113, 98);
+    transition: 0.2s ease-in;
+}
+
+a:hover {
+    text-decoration: none;
 }

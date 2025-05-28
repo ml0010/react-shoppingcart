@@ -1,5 +1,5 @@
 .cartItem {
-    width: 600px;
+    width: 550px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -13,7 +13,7 @@
 }
 
 .cartItem .description {
-    width: 400px;
+    width: 350px;
     height: 150px;
     border-radius: 0px 12px 12px 0px;
     background-color: var(--taupe-trans);

@@ -1,5 +1,5 @@
 .cartSummary {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.966);
     position: fixed;
     top: 80px;
     right: 20px;
@@ -38,10 +38,19 @@
     font-size: 15px;
 }
 
+.cartSummary .cartSummaryTotal {    
+    font-family: 'Lustria';
+}
+
 h1 {
     font-size: 18px;
     font-family: 'Lustria';
 }
+
+a {
+    text-decoration: none;
+}
+
 
 .goToBasketBttn {
     display: flex;
@@ -65,6 +74,3 @@ h1 {
     transition: 0.2s ease-in;
 }
 
-a:hover {
-    text-decoration: none;
-}

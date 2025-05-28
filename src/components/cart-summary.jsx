@@ -57,7 +57,7 @@ export const CartSummary = () => {
                         } else { return null; }
                     })}
                 </div>
-                <p>Total: {totalAmount}€</p>
+                <p className='cartSummaryTotal'>Total: {totalAmount}€</p>
             </div>) : (
                 <>
                     <h1 className='emptyBasket'>Your Basket is Empty</h1>

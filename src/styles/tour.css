@@ -39,13 +39,15 @@
     grid-template-columns: 1fr 7fr;
     grid-auto-rows: 25px;
     place-items: center;
-    font-family: 'Lustria';
+    font-family: 'Atkinson Hyperlegible Next';
 }
 
 .description {
     height: 60px;
     font-size: 13px;
-    
+    font-family: 'Atkinson Hyperlegible Next';
+    font-weight: 200;
+    color: var(--taupe);
 }
 
 .selectBttn {

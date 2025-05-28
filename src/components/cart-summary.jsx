@@ -42,7 +42,7 @@ export const CartSummary = () => {
 
             {totalAmount > 0 ? (
             <div className='cartSummaryItems'>
-                <h1>Your Basket Summary</h1>
+                <h1>Your Basket</h1>
                 <hr />
                 <div className='cartSummaryItem'>
                     {TOURS.map((tour) => {
@@ -58,7 +58,7 @@ export const CartSummary = () => {
                         } else { return null; }
                     })}
                 </div>
-                <p className='cartSummaryTotal'>Total: {totalAmount}€</p>
+                <p className='cartSummaryTotal'>Total Amount: {totalAmount}€</p>
             </div>) : (
                 <>
                     <h1 className='emptyBasket'>Your Basket is Empty</h1>

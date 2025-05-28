@@ -61,10 +61,16 @@
 
 .pageDevider h3 {
     font-size: 20px;
-    font-family: 'Lustria';
+    font-family: 'Atkinson Hyperlegible Next';
 }
+.pageContent p {
+    font-size: 16px;
+    letter-spacing: 0.08em;
+}
+
 .contactMethods p {
     font-size: 13px;
+    letter-spacing: 0.08em;
 }
 
 .sendMsgBttn {

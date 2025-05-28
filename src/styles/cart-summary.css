@@ -36,10 +36,12 @@
 
 .cartSummaryItem p {
     font-size: 15px;
+    font-family: 'Atkinson Hyperlegible Next';
+    font-weight: 200;
 }
 
 .cartSummary .cartSummaryTotal {    
-    font-family: 'Lustria';
+    font-family: 'Atkinson Hyperlegible Next';
 }
 
 h1 {

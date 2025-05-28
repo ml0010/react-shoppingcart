@@ -15,7 +15,8 @@ export const Contact = () => {
       </div>
       <div className='pageContent'>
         <h2>GET IN TOUCH WITH US</h2>
-        <p>Any enquiries please contact us!</p>
+        <p>We operate from 9am to 6pm everyday.</p>
+        <p>If tou have any enquiries do not hesitate to contact us!</p>
         <div className='pageDevider'>
 
           <div className='pageLeft'>
@@ -24,8 +25,8 @@ export const Contact = () => {
                 <MapPinLineIcon size={40} />
               </div>
               <div>
-                <h3>Our Location</h3>
-                <p>Selva<br/>Mallorca, Illes Balears 07313</p>
+                <h3>Location</h3>
+                <p>Palma de Mallorca, Illes Balears</p>
               </div>
 
               <div className='icons'>

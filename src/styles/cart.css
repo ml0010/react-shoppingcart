@@ -4,6 +4,16 @@
     font-family: 'Lustria';
 }
 
+.cart p {
+    font-family: 'Atkinson Hyperlegible Next';
+    font-weight: 300;
+}
+
+.cart h2 {
+    font-family: 'Atkinson Hyperlegible Next';
+    font-weight: 100;
+}
+
 .cartItems {
     display: flex;
     flex-direction: column;
@@ -11,10 +21,9 @@
     align-items: center;
 }
 
-
 .checkout .totalAmount {
     padding-top: 20px;
-    font-family: 'Lustria';
+    font-family: 'Atkinson Hyperlegible Next';
     color: var(--navy);
     font-size: 20px;
 }

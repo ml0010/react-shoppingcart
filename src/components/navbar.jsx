@@ -19,13 +19,21 @@ export const Navbar = () => {
     console.log("cart show :" + showCartSummary);
   };
 
+  const handleScreenToTop = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className='navbar'>
       <div className='navbarWrapper'></div>
         <div className='links'>
-          <Link to='/'> ABOUT </Link>
-          <Link to='/tours'> OUR TOURS </Link>
-          <Link to='/contact'> CONTACT US </Link>
+          <Link to='/home' onClick={handleScreenToTop}> ABOUT </Link>
+          <Link to='/tours' onClick={handleScreenToTop}> OUR TOURS </Link>
+          <Link to='/contact' onClick={handleScreenToTop}> CONTACT US </Link>
           <button className='cartSummaryBttn' disabled={!isButtonActive} onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
         </div>
     </div>

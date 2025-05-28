@@ -14,16 +14,16 @@ export const Home = () => {
         </div>
         <div>
           <div className='service'>
-            <h2>Included Services</h2>
+            <h2>SERVICES INCLUDED</h2>
             <hr />
             <div className='serviceList'>
               <div className='serviceItems'>
                 <CheersIcon size={28} />
-                <p>Welcome drinks</p>
+                <p>Welcome drink</p>
               </div>
               <div className='serviceItems'>
                 <DropIcon size={28} />
-                <p>Drinking Water</p>
+                <p>Drinking water</p>
               </div>
               <div className='serviceItems'>
                 <CoffeeIcon size={28} />
@@ -39,15 +39,15 @@ export const Home = () => {
               </div>
               <div className='serviceItems'>
                 <ForkKnifeIcon size={28} />
-                <p>Light Snacks</p>
+                <p>Light snacks</p>
               </div>
               <div className='serviceItems'>
                 <FirstAidKitIcon size={28} />
-                <p>First Aid</p>
+                <p>First aid kit</p>
               </div>
               <div className='serviceItems'>
                 <UsersThreeIcon size={28} />
-                <p>Authentic, cultured and intuitive service</p>
+                <p>Authentic, knowledged and friendly service</p>
               </div>
               <div className='serviceItems'>
                 <CameraIcon size={28} />
@@ -56,7 +56,8 @@ export const Home = () => {
             </div>
             <hr />
             <h3>* Availability may change. If there is any change we will inform you minimum 24 hours before your journey begins.</h3>
-            <h3>** Shuttle service only available within the distance of 5km of Palma.</h3>
+            <h3>** Shuttle service is only available within the distance of 5km of our office (Palma de Mallorca).</h3>
+            <h3>*** Snacks are provided your tour's duration is more than 3 hours.</h3>
           </div>
         </div>
     </div>

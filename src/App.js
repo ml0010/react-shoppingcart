@@ -11,7 +11,6 @@ import { CartContextProvider } from './context/cart-context.jsx';
 import { CartSummary } from './components/cart-summary.jsx';
 import { ScrollToTop } from './components/scroll-to-top.jsx';
 
-
 function App() {
   return (
     <div className="App">
@@ -24,6 +23,7 @@ function App() {
             <Routes>
               <Route>
                 <Route path='/' exact element={<Home />}></Route>
+                <Route path='/home' element={<Home />}></Route>
                 <Route path='/tours' element={<Tours />}></Route>
                 <Route path='/contact' element={<Contact />}></Route>
                 <Route path='/cart' element={<Cart />}></Route>

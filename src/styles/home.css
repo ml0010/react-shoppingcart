@@ -23,8 +23,7 @@
     grid-row-gap: 20px;
     padding: 20px;
 }
-.service h2 {
-    font-family: 'Lustria';
+.service h2 {font-family: 'Atkinson Hyperlegible Next';
     color: var(--taupe);
 }
 .service h3 {
@@ -33,7 +32,7 @@
 }
 
 .serviceList p {
-    font-family: 'Lustria';
+    font-family: 'Atkinson Hyperlegible Next';
     font-size: 13px;
 }
 

@@ -79,7 +79,7 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
         <p>Number of People:</p>
         <div>
           <button onClick={()=>setPax(pax-1)}><MinusCircleIcon size={15} /></button>
-          <input className='pax' value={pax}></input>
+          <input className='pax' value={pax} onChange={(e)=> setPax(Number(e.target.value))}></input>
           <button onClick={()=>setPax(pax+1)}><PlusCircleIcon size={15} /></button>
         </div>
       </div>

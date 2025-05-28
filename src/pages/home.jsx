@@ -1,6 +1,7 @@
 import React from 'react'
 import MainPhoto from '../assets/4.jpg'
 import '../styles/home.css'
+import { BusIcon, CameraIcon, CheersIcon, CoffeeIcon, DropIcon, FirstAidKitIcon, ForkKnifeIcon, TowelIcon, UsersThreeIcon } from '@phosphor-icons/react'
 
 export const Home = () => {
   return (
@@ -11,7 +12,53 @@ export const Home = () => {
             <p className='pageDescription'>home description</p>
           </div>
         </div>
-        <div>HOME PAGE CONTENTS</div>
+        <div>
+          <div className='service'>
+            <h2>Included Services</h2>
+            <hr />
+            <div className='serviceList'>
+              <div className='serviceItems'>
+                <CheersIcon size={28} />
+                <p>Welcome drinks</p>
+              </div>
+              <div className='serviceItems'>
+                <DropIcon size={28} />
+                <p>Drinking Water</p>
+              </div>
+              <div className='serviceItems'>
+                <CoffeeIcon size={28} />
+                <p>Coffee</p>
+              </div>
+              <div className='serviceItems'>
+                <TowelIcon size={28} />
+                <p>Towel</p>
+              </div>
+              <div className='serviceItems'>
+                <BusIcon size={28} />
+                <p>Shuttle service</p>
+              </div>
+              <div className='serviceItems'>
+                <ForkKnifeIcon size={28} />
+                <p>Light Snacks</p>
+              </div>
+              <div className='serviceItems'>
+                <FirstAidKitIcon size={28} />
+                <p>First Aid</p>
+              </div>
+              <div className='serviceItems'>
+                <UsersThreeIcon size={28} />
+                <p>Authentic, cultured and intuitive service</p>
+              </div>
+              <div className='serviceItems'>
+                <CameraIcon size={28} />
+                <p>Photo</p>
+              </div>
+            </div>
+            <hr />
+            <h3>* Availability may change. If there is any change we will inform you minimum 24 hours before your journey begins.</h3>
+            <h3>** Shuttle service only available within the distance of 5km of Palma.</h3>
+          </div>
+        </div>
     </div>
   )
 }

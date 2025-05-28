@@ -14,31 +14,35 @@ export const Cart = () => {
 
   return (
     <div className='cart'>
-      <div>
-        <h1>Your basket</h1>
-      </div>
-      <div className='cartItems'>
-        {TOURS.map((tour) => {
-          if (cartItems[tour.id]["pax"] > 0) {
-            return <CartItem data={tour} key={tour.id} />;
-          } else { return null; }
-        })}
-      </div>
-      <div className='checkout'>
-        {totalAmount > 0 ? (
-          <>
+      {totalAmount > 0 ? (
+        <>
+          <h1>Your basket</h1>
+          <div className='cartItems'>
+            {TOURS.map((tour) => {
+              if (cartItems[tour.id]["pax"] > 0) {
+                return <CartItem data={tour} key={tour.id} />;
+              } else { return null; }
+            })}
+          </div>
+          <div className='checkout'>
             <p className='totalAmount'>Total Amount: {totalAmount} €</p>
             <div className='bttns'>
               <button className='moerTourBttn' onClick={() => navigate('/tours')}>MORE TOURS</button>
               <button className='checkoutBttn' onClick={() => navigate('/checkout')}>CHECKOUT</button>
             </div>
-          </>
-        ) : (
-          <>
-            <h1>No plans yet?</h1>
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <h1>Your Basket is Empty.</h1>
+          <h2>No plans yet?</h2>
+          <p>Click MORE TOURS button below to see available tours.</p>
+          <div className='bttns'>
+            <button className='moerTourBttn' onClick={() => navigate('/tours')}>MORE TOURS</button>
+            <button className='checkoutBttn' onClick={() => navigate('/home')}>GO TO HOME</button>
+          </div>
+        </>
+      )}
     </div>
   )
 }

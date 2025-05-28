@@ -33,7 +33,7 @@ export const Contact = () => {
               </div>
               <div>
                 <h3>Whattsapp</h3>
-                <p>+(34)666-000-0000</p>
+                <p>+(34) 666-000-000</p>
               </div>
 
               <div className='icons'>

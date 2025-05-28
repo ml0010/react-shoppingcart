@@ -1,5 +1,40 @@
+.home {
+
+    display: grid;
+    place-items: center;
+}
+
 .home img {
     width: 800px;
+}
+
+.home .service {
+    max-width: 800px;
+    background-color: var(--taupe-trans);
+    padding: 20px;
+    margin: 40px;
+    border-radius: 15px;
+}
+
+.service .serviceList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    grid-row-gap: 20px;
+    padding: 20px;
+}
+.service h2 {
+    font-family: 'Lustria';
+    color: var(--taupe);
+}
+.service h3 {
+    font-size: 10px;
+    color: var(--taupe);
+}
+
+.serviceList p {
+    font-family: 'Lustria';
+    font-size: 13px;
 }
 
 

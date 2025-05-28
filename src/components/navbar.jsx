@@ -9,22 +9,25 @@ export const Navbar = () => {
   const { showCartSummary, setShowCartSummary, isButtonActive, setIsButtonActive } = useContext(CartContext);
 
   const handleShowCartSummary = () => {
-    if(isButtonActive === false) {
-      setIsButtonActive(true);
-      setShowCartSummary(!showCartSummary);
-    } else {
+    if(isButtonActive === true && showCartSummary === false) {
       setIsButtonActive(false);
+      setShowCartSummary(true);
+    } else {
+      setIsButtonActive(true);
     }
+    console.log("button clicked :" + isButtonActive);
+    console.log("cart show :" + showCartSummary);
   };
 
   return (
     <div className='navbar'>
-      <div className='links'>
-        <Link to='/'> About </Link>
-        <Link to='/tours'> Tours </Link>
-        <Link to='/contact'> Contact </Link>
-        <button className='cartSummaryBttn' onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
-      </div>
+      <div className='navbarWrapper'></div>
+        <div className='links'>
+          <Link to='/'> ABOUT </Link>
+          <Link to='/tours'> OUR TOURS </Link>
+          <Link to='/contact'> CONTACT US </Link>
+          <button className='cartSummaryBttn' disabled={!isButtonActive} onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
+        </div>
     </div>
   )
 }

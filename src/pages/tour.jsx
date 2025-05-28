@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/tour.css'
-import { ClockIcon, GlobeSimpleIcon, MapPinLineIcon, PiggyBankIcon } from '@phosphor-icons/react'
+import { ClockIcon, MapPinLineIcon, PiggyBankIcon } from '@phosphor-icons/react'
 //import { TourContext } from '../context/tour-context';
 import { TourInfo } from './tour-info';
 
 export const Tour = (props) => {
-    const { id, tourName, img, description, duration, languages, meetingPoint, price } = props.data;
+    const { id, tourName, img, description, duration, meetingPoint, price } = props.data;
     const [ showTourInfo, setShowTourInfo ] = useState(false);
 
     useEffect(() => {

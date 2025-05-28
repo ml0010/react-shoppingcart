@@ -1,9 +1,10 @@
+
 .navbar {
+    font-family: 'Atkinson Hyperlegible Next';
+}
+.navbarWrapper {
     width: 100%;
     height: 120px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     position: fixed;
     top: 0px;
     background-image: linear-gradient(rgb(0, 0, 0), transparent);
@@ -11,41 +12,63 @@
 }
 
 .links {
-    margin-right: 50px;
+    width: 100%;
+    height: 60px;    
+    position: fixed;
+    top: 0px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    font-weight: 600;
+    border-bottom: 1px solid var(--cream);
+    transition: 0.8s ease-in-out;
+}
+
+.links:hover {
+    background-color: var(--cream);
+    color: var(--navy);
+    border-bottom: 1px solid black;
+    transition: 0.2s ease-in-out;
+}
+
+.links:hover a {
+    transition: 0.2s ease-in-out;
+    color: var(--navy);
+}
+
+.links:hover button {
+    transition: 0.2s ease-in-out;
+    color: var(--navy);
 }
 
 .links a {
+    margin-right: 40px;
+    font-size: 15px;
     text-decoration: none;
-    color: white;
-    margin-left: 20px;
-    font-size: 20px;
+    border-bottom: transparent 0.125em solid;
+    color: var(--cream);
+    letter-spacing: 0.2em;
 }
+
+.links a:hover {
+    color: var(--taupe);
+    border-bottom: var(--taupe) 0.125em solid;
+    transition: 0.2s ease-in-out;
+}
+
 .links button {
-    color: white;
+    color: var(--cream);
     cursor: pointer;
 }
+
+.links button:hover {
+    color: var(--taupe);
+    transition: 0.2s ease-in-out;
+}
+
 .cartSummaryBttn {
     background-color: transparent;
     border: none;
-    margin-left: 30px;
+    margin-right: 40px;
+    width: 40px;
+    height: 40px;
 }
-
-a:hover {
-    color: white;
-    transition: 0.2s ease-in;
-}
-
-.scrollToTop {
-    position: fixed;
-    bottom: 60px;
-    right: 30px;
-}
-
-.scrollToTop .scrollBttn {
-    background-color: transparent;
-    border: none;
-}
-

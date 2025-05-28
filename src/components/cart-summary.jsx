@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useCallback, useContext, useEffect, useRef } from 'react'
 import '../styles/cart-summary.css'
 import { Link } from 'react-router-dom';
 import { TOURS } from '../tours';
@@ -13,10 +13,10 @@ export const CartSummary = () => {
     
     const totalAmount = getTotalCartAmount();
 
-    const handleShowCartSummary = () => {
-        setIsButtonActive(true);
+    const handleShowCartSummary = useCallback(() => {
         setShowCartSummary(false);
-    };
+        setIsButtonActive(true);
+    }, [setIsButtonActive, setShowCartSummary]);
 
     let cartSummaryRef = useRef();
 
@@ -25,7 +25,7 @@ export const CartSummary = () => {
             let handler = (e)=>{
                 if(!cartSummaryRef.current.contains(e.target)){
                     handleShowCartSummary();
-                    //console.log(cartSummaryRef.current);
+                    console.log(cartSummaryRef.current);
                 }
             };
             document.addEventListener("mousedown", handler);
@@ -33,11 +33,12 @@ export const CartSummary = () => {
                 document.removeEventListener("mousedown", handler);
             }
         }
-    }, [showCartSummary]);
+    }, [showCartSummary, handleShowCartSummary]);
    
     return (
         <div className={`cartSummary ${showCartSummary? 'active' : 'inactive'}`} ref={cartSummaryRef}>
-            <button className='closeCartSummaryBttn' onClick={() => setShowCartSummary(false)}><XSquareIcon size={20} /></button>
+
+            <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XSquareIcon size={20} /></button>
 
             {totalAmount > 0 ? (
             <div className='cartSummaryItems'>
@@ -50,7 +51,7 @@ export const CartSummary = () => {
                             return (
                                 <>
                                     <p>{tour.tourName} X {cartItems[tour.id]["pax"]}</p>
-                                    <p>Date: {cartItems[tour.id].date.toISOString(0).split('T')[0]}</p>
+                                    <p>Date: {cartItems[tour.id].date}</p>
                                     <hr />
                                 </>
                             );

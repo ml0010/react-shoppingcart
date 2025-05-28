@@ -4,7 +4,7 @@ import '../styles/cart-item.css'
 import { XSquareIcon } from '@phosphor-icons/react';
 
 export const CartItem = (props) => {
-    const { id, tourName, img, duration, meetingPoint, price } = props.data;
+    const { id, tourName, img, price } = props.data;
     const { cartItems, deleteFromCart } = useContext(TourContext);
 
     const subtotal = () => {
@@ -20,8 +20,8 @@ export const CartItem = (props) => {
                 <p className='name'>{tourName}</p>
                 <hr />
                 <div className='detail'>
-                    <p>Date: {cartItems[id].date.toISOString(0).split('T')[0]}</p>
-                    <p>Pax: {price}€{cartItems[id].pax > 1 && <> x {cartItems[id].pax} people</>}{cartItems[id].pax == 1 && <> x {cartItems[id].pax} person</>}</p>
+                    <p>Date: {cartItems[id].date}</p>
+                    <p>Pax: {price}€{cartItems[id].pax > 1 && <> x {cartItems[id].pax} people</>}{cartItems[id].pax === 1 && <> x {cartItems[id].pax} person</>}</p>
                 </div>                
                 <hr />
                 <p><b>Subtotal: {subtotal()} €</b></p>

@@ -17,6 +17,7 @@ export const TourContextProvider = (props) => {
 
     const addToCart = (tourId, paxValue, dateValue) => {
         setCartItems((prev) => ({...prev, [tourId]: {pax: paxValue, date: dateValue}}));
+        console.log(cartItems);
     }    
     /*
     const removeFromCart = (tourId) => {

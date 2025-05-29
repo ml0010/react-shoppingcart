@@ -1,2 +1,4 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://mimi:1234@cluster0.imwt8e3.mongodb.net/?retryWrites=true&w=majority')
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGO_URI).then(()=>console.log("Successfully connected to MongoDB")).catch((error)=>console.log("Couldn't connect to MongoDB"));

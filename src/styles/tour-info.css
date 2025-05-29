@@ -18,7 +18,7 @@
     top: 0px;
     width: 100%;
     height: 40px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--taupe);
     background-color: var(--cream);
     margin-top:10px;
 }
@@ -27,6 +27,7 @@
     font-family: 'Lustria';
     font-size: 25px;
     display: inline;
+    color: var(--taupe)
 }
 
 .titleBar .closeBttn {
@@ -54,13 +55,17 @@
 }
 
 .tourInfoHandler h2 {
-    font-family: 'Lustria';
+    font-family: 'Atkinson Hyperlegible Next';
     font-size: 20px;
+    font-weight: 400;
     width: 100%;
+    background-color: var(--taupe-trans);
+    color: var(--navy);
 }
 
 .tourInfoHandler p {
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .tourInfoHandler .languageList {
@@ -72,6 +77,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
+    font-family: 'Atkinson Hyperlegible Next';
 }
 
 .countHandler .pax {
@@ -92,6 +98,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
+    font-family: 'Atkinson Hyperlegible Next';
+
 }
 
 .MuiFormControl-root {

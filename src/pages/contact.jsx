@@ -1,10 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/contact.css'
 
 import MainPhoto from '../assets/2.jpg'
 import { EnvelopeSimpleIcon, MapPinLineIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
 
 export const Contact = () => {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [comment, setComment] = useState("");
+
+  const resetState = () => {
+    setName("");
+    setEmail("");
+    setPhone("");
+    setComment("");
+  };
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    let result = await fetch('http://localhost:4000/', {
+        method: "post",
+        body: JSON.stringify({ name, email, phone, comment }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    result = await result.json();
+    localStorage.setItem("contact", JSON.stringify(result));
+
+    console.log("CONTACT FORM SUBMIT");
+    console.log(result);
+    resetState();
+  }    
+
   return (
     <div className='contact'>
       <div className='pageMain' style={{ backgroundImage: `url(${MainPhoto})` }}>
@@ -49,13 +79,13 @@ export const Contact = () => {
 
           <div className='pageRight'>
             <h3>Contact form</h3>
-            <form>
-              <input className='nameInput' name='name' placeholder='Your Name' type='text'></input>
-              <input className='emailInput' name='email' placeholder='Your Email' type='email'></input>
-              <input className='phoneInput' name='phone' placeholder='Your Contact Number' type='text'></input>
-              <textarea className='commentInput' name='comment' placeholder='Your Message'></textarea>
+            <form onSubmit={handleOnSubmit}>
+              <input className='nameInput' type='text' name='name' placeholder='Your Name' value={name} onChange={(e)=>setName(e.target.value)}></input>
+              <input className='emailInput' type='email' name='email' placeholder='Your Email' value={email} onChange={(e)=>setEmail(e.target.value)}></input>
+              <input className='phoneInput' type='text' name='phone' placeholder='Your Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)}></input>
+              <textarea className='commentInput' name='comment' placeholder='Your Message' value={comment} onChange={(e)=>setComment(e.target.value)}></textarea>
+              <button className='sendMsgBttn' type='submit'>SEND MESSAGE</button>
             </form>
-            <button className='sendMsgBttn' type='submit'>SEND MESSAGE</button>
           </div>
         </div>
       </div>

@@ -1,0 +1,2 @@
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://mimi:1234@cluster0.imwt8e3.mongodb.net/?retryWrites=true&w=majority')

@@ -10,9 +10,11 @@ import { TourContextProvider } from './context/tour-context.jsx'
 import { CartContextProvider } from './context/cart-context.jsx';
 import { CartSummary } from './components/cart-summary.jsx';
 import { ScrollToTop } from './components/scroll-to-top.jsx';
+import { useEffect, useState } from 'react';
 
 function App() {
-  return (
+
+   return (
     <div className="App">
       <TourContextProvider>
         <CartContextProvider>

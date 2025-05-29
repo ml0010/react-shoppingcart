@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 
-git rm ./backend/.env --cached
+git rm backend/.env --cached
 git commit -m "Stopped tracking .env File"

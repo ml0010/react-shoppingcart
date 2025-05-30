@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
-import { TOURS } from '../tours'
+import { TOURS } from '../tourlist'
 import { TourContext } from '../context/tour-context'
 import { CartItem } from './cart-item';
 import '../styles/cart.css'

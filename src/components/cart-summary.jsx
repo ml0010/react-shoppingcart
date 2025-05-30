@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useRef } from 'react'
 import '../styles/cart-summary.css'
 import { Link } from 'react-router-dom';
-import { TOURS } from '../tours';
+import { TOURS } from '../tourlist';
 import { TourContext } from '../context/tour-context'
 import { CartContext } from '../context/cart-context';
 import { XSquareIcon } from '@phosphor-icons/react';

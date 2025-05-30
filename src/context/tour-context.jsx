@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import { TOURS } from '../tours'
+import { TOURS } from '../tourlist'
 
 export const TourContext =  createContext(null);
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/tours.css'
-import { TOURS } from '../tours'
+import { TOURS } from '../tourlist'
 import { Tour } from './tour'
 
 import MainPhoto from '../assets/1.jpg'

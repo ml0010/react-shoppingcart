@@ -15,7 +15,7 @@ export const Tour = (props) => {
 
     return (
         <div className='tour' key={id}>
-            <img className='tourImg' src={img} alt={tourName} />
+            <img className='tourImg' src={img[0]} alt={tourName} />
             
             <div className='tourDetail'>
                 <p className='tourName'>{tourName}</p>

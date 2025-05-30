@@ -5,7 +5,7 @@ export const TOURS = [
     {
         id: 0,
         tourName: "Sunset Boat Tour",
-        img: "https://cdn.getyourguide.com/img/tour/749a85658f508a8b.jpeg/99.jpg",        
+        img: [ "https://cdn.getyourguide.com/img/tour/749a85658f508a8b.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/66181da04cff059aa19c47188bfddbffaeaf64e59b5641d741ca681c9478e8eb.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/749a85658f508a8b.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/66181da04cff059aa19c47188bfddbffaeaf64e59b5641d741ca681c9478e8eb.jpeg/99.jpg"],
         description: "Watch the sunset over the Bay of Palma de Mallorca on a 3-hour evening boat trip. Take part in a night of fun as you dance, listen to a live DJ, sip on drinks, and soak up the coastal views.",
         duration: 3,
         languages: ["English", "Spanish", "German", "French", "Arabic", "Russian"],
@@ -23,7 +23,7 @@ export const TOURS = [
     },{
         id: 2,
         tourName: "Sea Cave Kayaking Tour with Snorkeling and a Snack",
-        img: "https://cdn.getyourguide.com/img/tour/d31e63cf73899b00.jpeg/99.jpg",
+        img: [ "https://cdn.getyourguide.com/img/tour/d31e63cf73899b00.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/d31e63cf73899b00.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/d31e63cf73899b00.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/d31e63cf73899b00.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/d31e63cf73899b00.jpeg/99.jpg"],
         description: "Experience the sea caves and cliffs of Mallorca on a kayaking tour. Venture to caves of extraordinary colors and marvel at the marine life on the seafloor.",
         duration: 6,
         languages: ["English", "Spanish", "German"],

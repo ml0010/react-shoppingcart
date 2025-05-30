@@ -71,22 +71,20 @@ export const Navbar = () => {
             <div className={`navbarWrapper ${scroll ? 'active' : 'inactive'}`}>
                 <div className='backgroundGradient'></div>
                 <div className='links'>
+                    <button className={`menuBttn ${scroll ? 'menubar' : 'navbar'}`} onClick={handleMenuClick}><ListIcon size={40} /></button>
                     <Link to='/home' onClick={handleScreenToTop}> ABOUT </Link>
                     <Link to='/tours' onClick={handleScreenToTop}> OUR TOURS </Link>
                     <Link to='/contact' onClick={handleScreenToTop}> CONTACT US </Link>
                     <button className='cartSummaryBttn' disabled={!isButtonActive} onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
                 </div>
             </div>
-            <div ref={menuRef}>
-                <div className={`menuIcon ${scroll ? 'active' : 'inactive'}`}>
-                    <button className='menuBttn' onClick={handleMenuClick}><ListIcon size={40} /></button>
-                </div>
+            <div className='menubarWrapper' ref={menuRef}>
                 <div className={`menuContent ${menuOpen ? 'open' : 'close'}`}>
-                    <h1>MENU</h1>
-                    <Link to='/home' onClick={handleScreenToTop}> ABOUT </Link>
-                    <Link to='/tours' onClick={handleScreenToTop}> OUR TOURS </Link>
+                    <h1>MENU BAR</h1>
+                    <Link to='/home' onClick={handleScreenToTop}> ABOUT US </Link>
+                    <Link to='/tours' onClick={handleScreenToTop}> SEE AVAILABLE TOURS </Link>
                     <Link to='/contact' onClick={handleScreenToTop}> CONTACT US </Link>
-                    <Link to='/cart' onClick={handleScreenToTop}> BASKET </Link>
+                    <Link to='/cart' onClick={handleScreenToTop}> SEE BASKET </Link>
                 </div>
             </div>
         </div>

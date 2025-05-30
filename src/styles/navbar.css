@@ -23,6 +23,17 @@
     transition: 0.5s ease-in-out;
 }
 
+.links .menuBttn {
+    position: fixed;
+    left: 50px;
+    top: 10px;
+    transition: 0.5s ease-in-out;
+
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
 .links:hover {
     background-color: var(--cream);
     color: var(--navy);
@@ -39,6 +50,11 @@
     transition: 0.2s ease-in-out;
     color: var(--navy);
 }
+
+.menuBttn.menubar:hover {
+    color: var(--cream);
+}
+
 
 .links a {
     margin-right: 40px;
@@ -77,38 +93,19 @@
     top: -80px;
 }
 
-.menuIcon {
-    position: fixed;
-    right: 50px;
-    top: -50px;
-    transition: 0.5s ease-in-out;
-    opacity: 0;
-}
-.menuIcon svg {
-    color: var(--cream);
-}
-.menuIcon.active {
-    top: 20px;
-    opacity: 1;
-}
-.menuIcon .menuBttn {
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-}
-
 .menuContent {
     position: fixed;
     top: 0px;
     height: 100%;
-    width: 400px;
-    right: -400px;
+    width: 350px;
+    left: -400px;
     transition: 0.5s ease-in-out;
     background-color: var(--cream);
     opacity: 0;
     display: grid;
+    align-items: center;
 }
 .menuContent.open {
     opacity: 1;
-    right: 0px;
+    left: 0px;
 }

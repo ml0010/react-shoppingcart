@@ -10,13 +10,15 @@
     color: var(--cream);
     opacity: 0;
     position: fixed;
-    top: -50px;
+    top: 10px;
     transition: 0.5s ease-in-out;
+    pointer-events: none;
 }
 
 .scrollBttn.active {
     top: 20px;
     opacity: 1;
+    pointer-events: auto;
 }
 
 .scrollBttn:hover {

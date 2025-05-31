@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { TOURS } from '../tourlist';
 import { TourContext } from '../context/tour-context'
 import { CartContext } from '../context/cart-context';
-import { XSquareIcon } from '@phosphor-icons/react';
+import { XIcon } from '@phosphor-icons/react';
 
 export const CartSummary = () => {
 
@@ -38,7 +38,7 @@ export const CartSummary = () => {
     return (
         <div className={`cartSummary ${showCartSummary? 'active' : 'inactive'}`} ref={cartSummaryRef}>
 
-            <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XSquareIcon size={20} /></button>
+            <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XIcon size={35} weight="bold" /></button>
 
             {totalAmount > 0 ? (
             <div className='cartSummaryItems'>

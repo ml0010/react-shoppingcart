@@ -10,7 +10,6 @@ export const Tour = (props) => {
 
     useEffect(() => {
         document.body.style.overflow = showTourInfo ? 'hidden' : 'unset';
-        document.body.style.backgroundColor = showTourInfo? 'black' : 'transparent';
     }, [showTourInfo]);
 
     return (

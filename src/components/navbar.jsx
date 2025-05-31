@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ListIcon, ShoppingBagIcon } from '@phosphor-icons/react'
+import { ListIcon, ShoppingBagIcon, XIcon } from '@phosphor-icons/react'
 import '../styles/navbar.css'
 import { CartContext } from '../context/cart-context'
 
@@ -65,10 +65,16 @@ export const Navbar = () => {
         }
     });
 
+    // background effect when menu items are displayed
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? 'hidden' : 'unset';
+    }, [menuOpen]);
 
     return (
         <div className='navbar'>
-            <div className={`navbarWrapper ${scroll ? 'active' : 'inactive'}`}>
+
+            {menuOpen ? (<div className='backdrop'></div>) : (<></>)}
+            <div className={`navbarWrapper ${scroll ? 'active' : 'inactive'} ${menuOpen ? 'menuOpen' : 'menuClosed'}`}>
                 <div className='backgroundGradient'></div>
                 <div className='links'>
                     <button className={`menuBttn ${scroll ? 'menubar' : 'navbar'}`} onClick={handleMenuClick}><ListIcon size={40} /></button>
@@ -79,12 +85,16 @@ export const Navbar = () => {
                 </div>
             </div>
             <div className='menubarWrapper' ref={menuRef}>
-                <div className={`menuContent ${menuOpen ? 'open' : 'close'}`}>
-                    <h1>MENU BAR</h1>
-                    <Link to='/home' onClick={handleScreenToTop}> ABOUT US </Link>
-                    <Link to='/tours' onClick={handleScreenToTop}> SEE AVAILABLE TOURS </Link>
-                    <Link to='/contact' onClick={handleScreenToTop}> CONTACT US </Link>
-                    <Link to='/cart' onClick={handleScreenToTop}> SEE BASKET </Link>
+                <div className={`menuContent ${menuOpen ? 'open' : 'closed'}`}>
+                    <button onClick={handleMenuClick}>
+                        <XIcon size={40} weight="bold" />
+                    </button>
+                    <span className='menuLinks'>
+                        <Link to='/home' onClick={handleScreenToTop}> ABOUT US </Link>
+                        <Link to='/tours' onClick={handleScreenToTop}> SEE AVAILABLE TOURS </Link>
+                        <Link to='/contact' onClick={handleScreenToTop}> CONTACT US </Link>
+                        <Link to='/cart' onClick={handleScreenToTop}> SEE BASKET </Link>
+                    </span>
                 </div>
             </div>
         </div>

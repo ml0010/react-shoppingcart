@@ -14,7 +14,7 @@ export const CartItem = (props) => {
 
     return (
         <div className='cartItem' key={id}>
-            <img src={img} alt={tourName} />
+            <img src={img[0]} alt={tourName} />
             <div className='description'>
                 <button className='deleteBttn' onClick={()=>deleteFromCart(id)}><XSquareIcon size={20} /></button>
                 <p className='name'>{tourName}</p>

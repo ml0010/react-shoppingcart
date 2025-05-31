@@ -24,16 +24,16 @@
 }
 .titleBar .name {
     font-family: 'Lustria';
-    font-size: 25px;
+    font-size: 22px;
     display: inline;
-    color: var(--taupe)
+    color: var(--taupe);
 }
 .titleBar .closeBttn {
     background-color: transparent;
     color: var(--taupe);
     border: none;
     float: right;
-    display: inline;
+    padding-right: 20px;
 }
 .titleBar .closeBttn:hover {
     cursor: pointer;
@@ -55,6 +55,7 @@
     border: none;
     background-color: transparent;
     color: var(--taupe);
+    cursor: pointer;
 }
 .tourPhotoHandler button:hover {
     color: var(--navy);

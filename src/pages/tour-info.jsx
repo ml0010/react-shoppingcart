@@ -1,8 +1,8 @@
-import React, { useState, useContext, useRef } from 'react'
+import React, { useState, useContext, useRef, useEffect } from 'react'
 import '../styles/tour-info.css';
 import { TourContext } from '../context/tour-context';
 import { CartContext } from '../context/cart-context';
-import { AsteriskSimpleIcon, BasketIcon, BookOpenTextIcon, CaretCircleLeftIcon, CaretCircleRightIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XSquareIcon } from '@phosphor-icons/react';
+import { AsteriskSimpleIcon, BasketIcon, BookOpenTextIcon, CaretCircleLeftIcon, CaretCircleRightIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
 
 export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 
@@ -15,8 +15,6 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 	const [dateValue, setDateValue] = useState(null);
     const [dateNullMsg, setDateNullMsg] = useState(null);
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-
-	const scrollRef = useRef(null);
 
     const paxMin = 1;
     const paxMax = 12;
@@ -73,44 +71,59 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 		return languageList;
 	}
 
+    const closeRef = useRef(null);
+
+    useEffect(() => {
+        let handler = (e)=>{
+            if(!closeRef.current.contains(e.target)){
+                handleClose();
+                console.log(closeRef.current);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
+    });
+
 	if (!showTourInfo) {return null;}
 	
 	return (
-    	<div className='tourInfo' key={id} ref={scrollRef}>
+    	<div className='tourInfo' key={id} ref={closeRef}>
         	<div className='titleBar'>
                 <h1 className='name'>{tourName}</h1>
-                <button className='closeBttn' onClick={handleClose}><XSquareIcon size={20} /></button>
+                <button className='closeBttn' onClick={handleClose}><XIcon size={35} weight="bold" /></button>
       	    </div>
             <div className='tourPhotoHandler'>
-                <button onClick={handlePreviusPhotoIndex}><CaretCircleLeftIcon size={35} /></button>
+                <button onClick={handlePreviusPhotoIndex}><CaretCircleLeftIcon size={35} weight="fill" /></button>
                 <img className='photo' src={img[`${currentPhotoIndex}`]} alt={tourName} />
-                <button onClick={handleNextPhotoIndex}><CaretCircleRightIcon size={35} /></button>
+                <button onClick={handleNextPhotoIndex}><CaretCircleRightIcon size={35} weight="fill" /></button>
             </div>
             <div className='dotContainer'>
                 {createDots()}
             </div>
             <hr className="separator" />
             <div className='tourInfoHandler'>
-                <div>
+                <span>
                     <h2><BookOpenTextIcon size={20} /> Description</h2>
                     <p>{description}</p>
-                </div>
-                <div>
+                </span>
+                <span>
                     <h2><ClockIcon size={20} /> Duration</h2>                                
                     <p>{duration} hours</p>
-                </div>
-                <div>
+                </span>
+                <span>
                     <h2><GlobeIcon size={20} /> Language</h2>
                     <ul className='languageList'>{getLanguages()}</ul>
-                </div>
-                <div>
+                </span>
+                <span>
                     <h2><MapPinLineIcon size={20} /> Meeting Point</h2>
                     <p>{meetingPoint}</p>
-                </div>
-                <div>
+                </span>
+                <span>
                     <h2><PiggyBankIcon size={20} /> Price</h2>
                     <p>{price} € per person</p>
-                </div>
+                </span>
             </div>
 			<hr className="separator" />
             <div className='guestInfo'>

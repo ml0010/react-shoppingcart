@@ -5,15 +5,14 @@
     right: 10px;
     padding: 30px;
     width: 300px;
+    overflow: scroll;
 }
-
 .cartSummary.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     transition: 500ms ease;
 }
-
 .cartSummary.inactive{
     opacity: 0;
     visibility: hidden;
@@ -27,7 +26,6 @@
     border: none;
     float: right;
 }
-
 .cartSummary .closeCartSummaryBttn:hover {
     cursor: pointer;
     color: var(--navy);
@@ -44,12 +42,12 @@
     font-family: 'Atkinson Hyperlegible Next';
 }
 
-h1 {
+.cartSummary h1 {
     font-size: 18px;
     font-family: 'Lustria';
 }
 
-a {
+.cartSummary a {
     text-decoration: none;
 }
 

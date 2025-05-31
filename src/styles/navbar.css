@@ -28,7 +28,6 @@
     left: 50px;
     top: 10px;
     transition: 0.5s ease-in-out;
-
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -92,6 +91,9 @@
 .navbarWrapper.active .links{
     top: -80px;
 }
+.navbarWrapper.menuOpen .links{
+    top: -80px;
+}
 
 .menuContent {
     position: fixed;
@@ -102,10 +104,34 @@
     transition: 0.5s ease-in-out;
     background-color: var(--cream);
     opacity: 0;
-    display: grid;
-    align-items: center;
+    border-right: 1px solid var(--navy);
 }
 .menuContent.open {
     opacity: 1;
     left: 0px;
+}
+
+.menuContent button {
+    float: right;
+    padding: 10px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+.menuContent .menuLinks {
+    display: grid;
+    align-items: center;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backdrop);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/navbar';
 import { Footer } from './components/footer.jsx';
 import { Cart } from './pages/cart';
@@ -17,21 +17,20 @@ function App() {
     <div className="App">
       <TourContextProvider>
         <CartContextProvider>
-          <Router>
+          <BrowserRouter>
             <Navbar />
             <CartSummary />
             <ScrollToTop />
             <Routes>
-              <Route>
-                <Route path='/' exact element={<Home />}></Route>
+                <Route index element={<Navigate to="/home" />} />
+                <Route path='/*' element={<Home />}></Route>
                 <Route path='/home' element={<Home />}></Route>
                 <Route path='/tours' element={<Tours />}></Route>
                 <Route path='/contact' element={<Contact />}></Route>
                 <Route path='/cart' element={<Cart />}></Route>
-              </Route>
             </Routes>
             <Footer />
-          </Router>
+          </BrowserRouter>
         </CartContextProvider>
       </TourContextProvider>
     </div>

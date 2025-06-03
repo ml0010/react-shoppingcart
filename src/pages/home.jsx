@@ -1,5 +1,5 @@
 import React from 'react'
-import MainPhoto from '../assets/olive.jpg'
+import MainPhoto from '../assets/orange.jpg'
 import '../styles/home.css'
 import { BusIcon, CameraIcon, CheersIcon, CoffeeIcon, DropIcon, FirstAidKitIcon, ForkKnifeIcon, TowelIcon, UsersThreeIcon } from '@phosphor-icons/react'
 
@@ -8,13 +8,23 @@ export const Home = () => {
         <div className='home'>
             <div className='pageMain' style={{ backgroundImage: `url(${MainPhoto})` }}>
                 <div>
-                <h1 className='pageTitle'>HOME PAGE</h1>
-                <p className='pageDescription'>home description</p>
+                <h1 className='pageTitle'>EXPLORE MALLORCA LIKE A LOCAL</h1>
+                <p className='pageDescription'>EXPLORE MALLORCA invites you to discover our beautiful island of Mallorca!</p>
                 </div>
+            </div>
+            <div className='title' id='title'>
+                <h1>EXPLORE MALLORCA</h1>
+            </div>
+            <div className='pageSummary'>
+                <p>We specialise in authentic day trips within the island of Mallorca, Balearic Islands.</p>
+                <p>Our team of 5 memebers has been operating since April 2025 and we are continuously working on showing you real side of the island.</p>
+                <p>With our tours we try our best to repect the nature, environment, also the local people and we would love you to be a part of this journey whilest you are exploring destinations with us.</p>
+                <p>We can assure you these journeys will be the best ways to discover beautiful island of Mallorca.</p>
+                <p>In case we do not offer trips that is suited to your interest, please contact us. We will be happy to discuss taylor-made tour options with you.</p>
             </div>
             <div>
                 <div className='service'>
-                    <h2>SERVICES INCLUDED</h2>
+                    <h2>ALL OUR TOURS INCLUDE</h2>
                     <hr />
                     <div className='serviceList'>
                         <span className='serviceItems'>

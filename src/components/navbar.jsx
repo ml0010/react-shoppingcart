@@ -62,15 +62,14 @@ export const Navbar = () => {
 
     return (
         <div className='navbar'>
-
             {menuOpen ? (<div className='backdrop'></div>) : (<></>)}
             <div className={`navbarWrapper ${scroll ? 'active' : 'inactive'} ${menuOpen ? 'menuOpen' : 'menuClosed'}`}>
                 <div className='backgroundGradient'></div>
                 <div className='links'>
                     <button className={`menuBttn ${scroll ? 'menubar' : 'navbar'}`} onClick={handleMenuClick}><ListIcon size={40} /></button>
                     <Link to='/home'> ABOUT </Link>
-                    <Link to='/tours'> OUR TOURS </Link>
-                    <Link to='/contact'> CONTACT US </Link>
+                    <Link to='/tours'> TOURS </Link>
+                    <Link to='/contact'> CONTACT </Link>
                     <button className='cartSummaryBttn' disabled={!isButtonActive} onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
                 </div>
             </div>

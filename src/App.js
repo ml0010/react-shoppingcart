@@ -11,6 +11,7 @@ import { CartContextProvider } from './context/cart-context.jsx';
 import { CartSummary } from './components/cart-summary.jsx';
 import { ScrollToTop } from './components/scroll-to-top.jsx';
 import { useLayoutEffect } from 'react';
+import { SkipPage } from './components/skip-page.jsx';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
             <Navbar />
             <CartSummary />
             <ScrollToTop />
+            <SkipPage />
             <PageTopWrapper>
                 <Routes>
                     <Route index element={<Navigate to="/home" />} />

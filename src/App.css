@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
 
 
+
 :root {
     --cream: rgb(245, 245, 245);
     --navy: rgb(30, 40, 68);
@@ -35,11 +36,20 @@
 }
 .pageMain .pageTitle {
     color: white;
-    font-size: 40px;
-    font-family: var(--font3);
+    font-size: 60px;
+    text-shadow: var(--taupe) 1px 0 10px;
+    font-family: var(--font2);
 }
 .pageMain .pageDescription {
     color: white;
+    font-size: 25px;
+    text-shadow: black 1px 0 10px;
+}
+.title {
+    margin-top: 70px;
+    font-size: 23px;
+    font-family: var(--font3);
+    color: var(--taupe);
 }
 
 @media only screen and (max-width: 900px) {

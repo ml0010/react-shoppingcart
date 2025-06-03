@@ -1,16 +1,16 @@
 .cart h1 {
     padding-top: 100px;
     font-size: 30px;
-    font-family: 'Lustria';
+    font-family: var(--font2);
 }
 
-.cart p {
-    font-family: 'Atkinson Hyperlegible Next';
+.cart p {    
+    font-family: var(--font3);
     font-weight: 300;
 }
 
-.cart h2 {
-    font-family: 'Atkinson Hyperlegible Next';
+.cart h2 {    
+    font-family: var(--font3);
     font-weight: 100;
 }
 
@@ -23,7 +23,7 @@
 
 .checkout .totalAmount {
     padding-top: 20px;
-    font-family: 'Atkinson Hyperlegible Next';
+    font-family: var(--font3);
     color: var(--navy);
     font-size: 20px;
 }

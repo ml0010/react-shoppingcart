@@ -1,5 +1,5 @@
 .navbar {
-    font-family: 'Atkinson Hyperlegible Next';
+    font-family: var(--font3);
 }
 
 .backgroundGradient {
@@ -139,8 +139,6 @@
     color: var(--taupe);
     transition: 0.2s ease-in-out;
 }
-
-
 
 .backdrop {
     position: fixed;

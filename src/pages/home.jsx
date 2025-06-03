@@ -1,5 +1,5 @@
 import React from 'react'
-import MainPhoto from '../assets/4.jpg'
+import MainPhoto from '../assets/olive.jpg'
 import '../styles/home.css'
 import { BusIcon, CameraIcon, CheersIcon, CoffeeIcon, DropIcon, FirstAidKitIcon, ForkKnifeIcon, TowelIcon, UsersThreeIcon } from '@phosphor-icons/react'
 

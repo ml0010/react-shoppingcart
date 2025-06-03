@@ -4,7 +4,7 @@
 
 .pageContent h2 {
     font-size: 40px;
-    font-family: 'Lustria';
+    font-family: var(--font2);
 }
 
 .pageDevider {
@@ -61,7 +61,7 @@
 
 .pageDevider h3 {
     font-size: 20px;
-    font-family: 'Atkinson Hyperlegible Next';
+    font-family: var(--font3);
 }
 .pageContent p {
     font-size: 16px;

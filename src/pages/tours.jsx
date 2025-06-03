@@ -3,7 +3,7 @@ import '../styles/tours.css'
 import { TOURS } from '../tourlist'
 import { Tour } from './tour'
 
-import MainPhoto from '../assets/1.jpg'
+import MainPhoto from '../assets/tree.jpg'
 
 export const Tours = () => {
 

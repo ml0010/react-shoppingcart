@@ -23,7 +23,7 @@
 }
 .description .name {
     height: 30px;
-    font-family: 'Lustria';
+    font-family: var(--font2);
     vertical-align: middle;
 }
 

@@ -75,7 +75,7 @@
     padding-top: 3px;
     padding-bottom: 3px;
     padding-left: 7px;
-    font-family: 'Atkinson Hyperlegible Next';
+    font-family: var(--font3);
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 0.05em;
@@ -104,7 +104,7 @@
 
 .guestInfo h3 {
     font-size: 15px;
-    font-family: 'Lustria';
+    font-family: var(--font2);
     color: var(--taupe);
 }
 
@@ -112,7 +112,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    font-family: 'Atkinson Hyperlegible Next';
+    font-family: var(--font3);
 }
 
 
@@ -158,7 +158,7 @@ input[type=number] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    font-family: 'Atkinson Hyperlegible Next';
+    font-family: var(--font3);
 }
 .dateHandler .dateWarning {
     margin-top: -10%;

@@ -34,17 +34,17 @@
 
 .cartSummaryItem p {
     font-size: 15px;
-    font-family: 'Atkinson Hyperlegible Next';
+    font-family: var(--font3);
     font-weight: 200;
 }
 
 .cartSummary .cartSummaryTotal {    
-    font-family: 'Atkinson Hyperlegible Next';
+    font-family: var(--font3);
 }
 
 .cartSummary h1 {
     font-size: 18px;
-    font-family: 'Lustria';
+    font-family: var(--font2);
 }
 
 .cartSummary a {

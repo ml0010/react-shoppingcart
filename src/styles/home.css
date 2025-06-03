@@ -22,7 +22,8 @@
     grid-row-gap: 20px;
     padding: 20px;
 }
-.service h2 {font-family: 'Atkinson Hyperlegible Next';
+.service h2 {
+    font-family: var(--font3);
     color: var(--taupe);
 }
 .service h3 {
@@ -31,7 +32,7 @@
 }
 
 .serviceList p {
-    font-family: 'Atkinson Hyperlegible Next';
+    font-family: var(--font3);
     font-size: 13px;
 }
 

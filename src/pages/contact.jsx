@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../styles/contact.css'
-import MainPhoto from '../assets/2.jpg'
+import MainPhoto from '../assets/orange.jpg'
 import { EnvelopeSimpleIcon, MapPinLineIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
 
 export const Contact = () => {

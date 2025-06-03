@@ -10,7 +10,7 @@ export const Footer = () => {
         <InstagramLogoIcon size={28} />
         <FacebookLogoIcon size={28} />
       </div>
-      <div> &copy; 2025 XXX Tours.</div>
+      <div> &copy; 2025 ExploreMallorca Tours.</div>
     </div>
   )
 }

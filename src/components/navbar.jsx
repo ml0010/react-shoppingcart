@@ -21,15 +21,7 @@ export const Navbar = () => {
         console.log("cart show :" + showCartSummary);
     };
 
-    const handleScreenToTop = () => {
-        window.scroll({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-        });
-        setMenuOpen(false);
-    };
-
+    // open/close the menu left
     const handleMenuClick = () => {
         setMenuOpen(!menuOpen);
     };
@@ -38,14 +30,12 @@ export const Navbar = () => {
     useEffect(() => {
         const handleChangeNavbar = () => {
             window.pageYOffset > 250 ? setScroll(true) : setScroll(false);
-            console.log("scrolled");
         };
         window.addEventListener('scroll', handleChangeNavbar);
         return () => {
             window.addEventListener('scroll', handleChangeNavbar);
         };
     });
-
 
     // menuIcon open/close
     let menuRef = useRef();
@@ -78,9 +68,9 @@ export const Navbar = () => {
                 <div className='backgroundGradient'></div>
                 <div className='links'>
                     <button className={`menuBttn ${scroll ? 'menubar' : 'navbar'}`} onClick={handleMenuClick}><ListIcon size={40} /></button>
-                    <Link to='/home' onClick={handleScreenToTop}> ABOUT </Link>
-                    <Link to='/tours' onClick={handleScreenToTop}> OUR TOURS </Link>
-                    <Link to='/contact' onClick={handleScreenToTop}> CONTACT US </Link>
+                    <Link to='/home'> ABOUT </Link>
+                    <Link to='/tours'> OUR TOURS </Link>
+                    <Link to='/contact'> CONTACT US </Link>
                     <button className='cartSummaryBttn' disabled={!isButtonActive} onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
                 </div>
             </div>
@@ -90,10 +80,10 @@ export const Navbar = () => {
                         <XIcon size={40} weight="bold" />
                     </button>
                     <span className='menuLinks'>
-                        <Link to='/home' onClick={handleScreenToTop}> ABOUT US </Link>
-                        <Link to='/tours' onClick={handleScreenToTop}> SEE AVAILABLE TOURS </Link>
-                        <Link to='/contact' onClick={handleScreenToTop}> CONTACT US </Link>
-                        <Link to='/cart' onClick={handleScreenToTop}> SEE BASKET </Link>
+                        <Link to='/home' onClick={handleMenuClick}> ABOUT US </Link>
+                        <Link to='/tours' onClick={handleMenuClick}> TOURS </Link>
+                        <Link to='/contact' onClick={handleMenuClick}> CONTACT US </Link>
+                        <Link to='/cart' onClick={handleMenuClick}> YOUR BASKET </Link>
                     </span>
                 </div>
             </div>

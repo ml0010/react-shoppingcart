@@ -13,6 +13,20 @@
     padding: 20px;
 }
 
+.filterHandler {
+    color: var(--taupe);
+}
+
+.filterHandler .filters {
+    font-size: 14px;
+    margin-right: 12px;
+}
+
+input[type=checkbox]{
+  accent-color:  var(--taupe);  
+  }
+
+
 @media only screen and (max-width: 1300px) {
     .toursList {
         grid-template-columns: 1fr 1fr;

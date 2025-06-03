@@ -54,7 +54,6 @@
     color: var(--cream);
 }
 
-
 .links a {
     margin-right: 40px;
     font-size: 15px;
@@ -99,7 +98,7 @@
     position: fixed;
     top: 0px;
     height: 100%;
-    width: 350px;
+    width: 370px;
     left: -400px;
     transition: 0.5s ease-in-out;
     background-color: var(--cream);
@@ -120,9 +119,28 @@
     border: none;
 }
 .menuContent .menuLinks {
+    padding-top: 50px;
+    padding-left: 30px;
     display: grid;
     align-items: center;
 }
+
+.menuContent .menuLinks a{
+    padding-top:20px;
+    font-size: 27px;
+    font-weight: 500;
+    color: var(--navy);
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+}
+
+.menuContent .menuLinks a:hover{
+    color: var(--taupe);
+    transition: 0.2s ease-in-out;
+}
+
+
 
 .backdrop {
     position: fixed;

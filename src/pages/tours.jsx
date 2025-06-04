@@ -40,12 +40,12 @@ export const Tours = () => {
         <div className='tours'>
             <div className='pageMain' style={{ backgroundImage: `url(${MainPhoto})` }}>
                 <div>
-                <h1 className='pageTitle'>FOR EXPLORERS</h1>
+                <h1 className='pageTitle'>DISCOVER EXPERIENCES</h1>
                 <p className='pageDescription'>Curated activities and memorable experiences, complementing your time in Mallorca.</p>
                 </div>
             </div>
             <div className='title'>
-                <h1>Discover Experiences</h1>
+                <h1>Available Tours</h1>
             </div>
             <div className='filterHandler'>
                 <label className='filters'>

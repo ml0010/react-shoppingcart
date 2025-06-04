@@ -6,6 +6,45 @@
 .pageSummary {
     font-family: var(--font3);
     font-weight: 200;
+    max-width: 700px;
+    grid-template-columns: 1fr;
+}
+
+.pageSummary h2 {
+    color: var(--taupe);
+    font-family: var(--font2);
+}
+
+.pageSummary p {
+    font-size: 15px;
+    color: rgb(74, 74, 74);
+}
+.refund {
+    padding: 10px;
+    margin: 40px;
+    border-radius: 15px;
+    max-width: 800px;
+    background-color: rgba(203, 203, 203, 0.341);
+    border-radius: 10px;
+    color: var(--navy);
+
+}
+.refund li {
+    text-align: left;
+}
+
+.img1 {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    padding-top: 20px;
+}
+.img2 {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: top;
+    padding-top: 20px;
 }
 .home .service {
     max-width: 800px;
@@ -21,21 +60,29 @@
     place-items: center;
     grid-row-gap: 20px;
     padding: 20px;
+    max-width: 550px;
 }
-.service h2 {
-    font-family: var(--font3);
+.home .service h2 {
+    font-family: var(--font2);
     color: var(--taupe);
 }
-.service h3 {
+.home .service h3 {
     font-size: 10px;
     color: var(--taupe);
 }
 
-.serviceList p {
+.home .serviceList p {
     font-family: var(--font3);
     font-size: 13px;
 }
 
+.home .separator {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+a {
+    text-decoration: none;
+}
 
 @media only screen and (max-width: 1300px) {
 }

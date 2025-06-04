@@ -1,0 +1,15 @@
+.booking {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    max-width: 800px;
+}
+
+.tourSummary {
+    background-color: white;
+}
+
+.infoInput {
+    display: grid;
+    grid-template-columns: 1fr;
+}

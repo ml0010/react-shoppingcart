@@ -45,7 +45,7 @@ export const Contact = () => {
                 <h1>CONTACT US</h1>
             </div>
                 <div className='pageContent'>
-                <p>If tou have any enquiries do not hesitate to contact us!</p>
+                <p>If you have any enquiries do not hesitate to contact us.</p>
                 <div className='pageDevider'>
 
                     <div className='pageLeft'>
@@ -57,6 +57,7 @@ export const Contact = () => {
                                 <h3>Location</h3>
                                 <p>Palma de Mallorca, Illes Balears</p>
                             </span>
+                            
                             <span className='icons'>
                                 <WhatsappLogoIcon size={40} />
                             </span>
@@ -69,7 +70,7 @@ export const Contact = () => {
                             </span>
                             <span className='contacts'>
                                 <h3>Email</h3>
-                                <p>abc@gmail.com</p>
+                                <p>contact@exploremallorca.com</p>
                             </span>
                         </div>
                     </div>

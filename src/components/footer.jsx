@@ -8,9 +8,9 @@ export const Footer = () => {
         <div className="footer">
             <div className='footerContent'>
                 <div className='footerLinks'>
-                    <Link>ABOUT US</Link>
-                    <Link>TOURS</Link>
-                    <Link>CONTACT</Link>
+                    <Link to='/home'>ABOUT US</Link>
+                    <Link to='/tours'>TOURS</Link>
+                    <Link to='/contact'>CONTACT</Link>
                 </div>
                 <div className="socialMedia">
                     <XLogoIcon size={28} />
@@ -18,8 +18,8 @@ export const Footer = () => {
                     <FacebookLogoIcon size={28} />
                 </div>
                 <div className='contactDetails'>
-                    <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'><WhatsappLogoIcon size={40} /></a>
-                    <p>contactus@exploremallorca.com</p>
+                    <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'><WhatsappLogoIcon size={50} /></a>
+                    <p>contact@exploremallorca.com</p>
                     <p>+(34) 666-000-000</p>
                 </div>
             </div>

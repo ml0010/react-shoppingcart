@@ -1,3 +1,10 @@
+.cart {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .cart h1 {
     padding-top: 100px;
     font-size: 30px;

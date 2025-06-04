@@ -12,6 +12,7 @@ import { CartSummary } from './components/cart-summary.jsx';
 import { ScrollToTop } from './components/scroll-to-top.jsx';
 import { useLayoutEffect } from 'react';
 import { SkipPage } from './components/skip-page.jsx';
+import { Booking } from './pages/booking.jsx';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
                     <Route path='/tours' element={<Tours />}></Route>
                     <Route path='/contact' element={<Contact />}></Route>
                     <Route path='/cart' element={<Cart />}></Route>
+                    <Route path='/booking' element={<Booking />}></Route>
                 </Routes>
             </PageTopWrapper>
             <Footer />

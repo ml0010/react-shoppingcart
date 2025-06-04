@@ -28,7 +28,7 @@ export const Cart = () => {
                 <p className='totalAmount'>Total Amount: {totalAmount} €</p>
                 <div className='bttns'>
                 <button className='moerTourBttn' onClick={() => navigate('/tours')}>MORE TOURS</button>
-                <button className='checkoutBttn' onClick={() => navigate('/checkout')}>CHECKOUT</button>
+                <button className='checkoutBttn' onClick={() => navigate('/booking')}>CHECKOUT</button>
                 </div>
             </div>
             </>

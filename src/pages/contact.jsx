@@ -8,12 +8,14 @@ export const Contact = () => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [comment, setComment] = useState("");
+    const [showSubmitMsg, setShowSubmitMsg ] = useState(false);
 
     const resetState = () => {
         setName("");
         setEmail("");
         setPhone("");
         setComment("");
+        setShowSubmitMsg(true);
     };
 
     const handleOnSubmit = async (e) => {
@@ -44,10 +46,10 @@ export const Contact = () => {
             <div className='title'>
                 <h1>CONTACT US</h1>
             </div>
-                <div className='pageContent'>
-                <p>If you have any enquiries do not hesitate to contact us.</p>
+            <div className='pageContent'>
+                <p>Our office agents operate from Monday to Friday between 9am and 6pm.</p>
+                <p>If you contact after our operation days/hours we will get back to you the next working day.</p>
                 <div className='pageDevider'>
-
                     <div className='pageLeft'>
                         <div className='contactMethods'>
                             <span className='icons'>
@@ -76,18 +78,22 @@ export const Contact = () => {
                     </div>
 
                     <div className='pageRight'>
-                        <h3>Contact form</h3>
-                        <form onSubmit={handleOnSubmit}>
-                            <input className='nameInput' type='text' name='name' placeholder='Your Name' value={name} onChange={(e)=>setName(e.target.value)}></input>
-                            <input className='emailInput' type='email' name='email' placeholder='Your Email' value={email} onChange={(e)=>setEmail(e.target.value)}></input>
-                            <input className='phoneInput' type='text' name='phone' placeholder='Your Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)}></input>
-                            <textarea className='commentInput' name='comment' placeholder='Your Message' value={comment} onChange={(e)=>setComment(e.target.value)}></textarea>
-                            <button className='sendMsgBttn' type='submit'>SEND MESSAGE</button>
-                        </form>
+                        <h3>Contact form</h3>                        
+                        {showSubmitMsg?
+                            <>
+                                <p>We have successfully received your message.</p>
+                                <p>We will get back to you as soon as possible.</p>
+                            </>: 
+                            <form onSubmit={handleOnSubmit}>
+                                <input className='nameInput' type='text' name='name' placeholder='Your Name' value={name} onChange={(e)=>setName(e.target.value)} required></input>
+                                <input className='emailInput' type='email' name='email' placeholder='Your Email' value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
+                                <input className='phoneInput' type='text' name='phone' placeholder='Your Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required></input>
+                                <textarea className='commentInput' name='comment' placeholder='Your Message' value={comment} onChange={(e)=>setComment(e.target.value)} required></textarea>
+                                <button className='sendMsgBttn' type='submit'>SEND MESSAGE</button>
+                            </form>
+                        }
                     </div>
                 </div>
-                <p>Our office agents operate from Monday to Friday between 9am and 6pm.</p>
-                <p>If you contact after our operation days/hours we will get back to you the next working day.</p>
             </div>
         </div>
     )

@@ -17,7 +17,7 @@ export const TourContextProvider = (props) => {
 
     const addToCart = (tourId, paxValue, dateValue) => {
         setCartItems((prev) => ({...prev, [tourId]: {pax: paxValue, date: dateValue}}));
-        console.log(cartItems);
+        //console.log(cartItems);
     }    
     /*
     const removeFromCart = (tourId) => {
@@ -42,7 +42,7 @@ export const TourContextProvider = (props) => {
         return totalAmount;
     }
 
-    const contextValue = {cartItems, addToCart, deleteFromCart, getTotalCartAmount};
+    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, getCartDefault};
     return (
         <TourContext.Provider value={contextValue}>{props.children}</TourContext.Provider>
     )

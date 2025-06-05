@@ -17,8 +17,8 @@ export const Navbar = () => {
         } else {
             setIsButtonActive(true);
         }
-        console.log("button clicked :" + isButtonActive);
-        console.log("cart show :" + showCartSummary);
+        //console.log("button clicked :" + isButtonActive);
+        //console.log("cart show :" + showCartSummary);
     };
 
     // open/close the menu left

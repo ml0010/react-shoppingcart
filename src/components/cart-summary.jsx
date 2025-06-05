@@ -47,7 +47,7 @@ export const CartSummary = () => {
                 <div className='cartSummaryItem'>
                     {TOURS.map((tour) => {
                         if (cartItems[tour.id]["pax"] > 0) {
-                            console.log(cartItems[tour.id]);
+                            //console.log(cartItems[tour.id]);
                             return (
                                 <>
                                     <p>{tour.tourName} X {cartItems[tour.id]["pax"]}</p>

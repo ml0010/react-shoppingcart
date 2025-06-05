@@ -8,7 +8,7 @@ export const CartItem = (props) => {
     const { cartItems, deleteFromCart } = useContext(TourContext);
 
     const subtotal = () => {
-        console.log(cartItems[id].pax * price);
+        //console.log(cartItems[id].pax * price);
         return cartItems[id].pax * price;
     };
 

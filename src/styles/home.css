@@ -77,12 +77,24 @@
 }
 
 .home .separator {
+    height: 0.5px;
+    width: 80%;
+    background-color: var(--taupe);
+    border: none;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 a {
     text-decoration: none;
 }
+
+.separator {
+  height: 0.5px;
+  width: 80%;
+  background-color: var(--taupe);
+  border: none;
+}
+
 
 @media only screen and (max-width: 1300px) {
 }

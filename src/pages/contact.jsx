@@ -18,7 +18,7 @@ export const Contact = () => {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        let result = await fetch('http://localhost:4000/', {
+        let result = await fetch('http://localhost:4000/contact', {
             method: "post",
             body: JSON.stringify({ name, email, phone, comment }),
             headers: {

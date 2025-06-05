@@ -8,7 +8,7 @@ app.use(cors());
 require('./db/connection');
 const Contacts = require('./Models/Contact');
 
-app.post("/", async(req, res) => {
+app.post("/contact", async(req, res) => {
     let contact = new Contacts(req.body);
     let result = await contact.save();
     res.send(result);

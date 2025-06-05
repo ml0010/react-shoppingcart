@@ -22,6 +22,8 @@ export const Booking = () => {
     };
     const handleOnSubmit = () => {};
 
+    
+    
     return (
         <div className='booking'>
             <div className='tourSummary'>
@@ -30,7 +32,8 @@ export const Booking = () => {
                     if (cartItems[tour.id]["pax"] > 0) {
                         return (
                         <div className='tours'>
-                            <p>{tour.tourName} x {cartItems[tour.id]["pax"]}</p>
+                            <hr className='separator' />
+                            <p><b>{tour.tourName}</b> x {cartItems[tour.id]["pax"]}</p>
                             <p>Date: {cartItems[tour.id]["date"]}</p>
                         </div>
                         );
@@ -39,13 +42,13 @@ export const Booking = () => {
             </div>
             <div className='info'>
                 <h3>Booking Information</h3>
-                <form onSubmit={handleOnSubmit} className='infoInput'>
-                    <input className='nameInput' type='text' name='name' placeholder='Your Name' value={name} onChange={(e)=>setName(e.target.value)}></input>
-                    <input className='emailInput' type='email' name='email' placeholder='Your Email' value={email} onChange={(e)=>setEmail(e.target.value)}></input>
-                    <input className='phoneInput' type='text' name='phone' placeholder='Your Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)}></input>
-                    <textarea className='commentInput' name='comment' placeholder='Your Message' value={comment} onChange={(e)=>setComment(e.target.value)}></textarea>
-                    <button className='bookBttn' type='submit'>SUBMIT BOOKING</button>
+                <form className='infoInput' onSubmit={handleOnSubmit}>
+                    <label>Name </label><input className='nameInput' type='text' name='name' placeholder='Main Guest' value={name} onChange={(e)=>setName(e.target.value)} required></input>
+                    <label>Email </label><input className='emailInput' type='email' name='email' placeholder='Contact Email Address' value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
+                    <label>Mobile Number </label><input className='phoneInput' type='text' name='phone' placeholder='Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required></input>
+                    <label>Comments </label><textarea className='commentInput' name='comment' placeholder='If you have any comments...(ex. dietary requirements)' value={comment} onChange={(e)=>setComment(e.target.value)}></textarea>
                 </form>
+                <button className='bookBttn' type='submit'>SUBMIT BOOKING</button>
             </div>
         </div>
     )

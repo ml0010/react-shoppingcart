@@ -2,14 +2,87 @@
     width: 100%;
     display: grid;
     place-items: center;
-    max-width: 800px;
+    padding-bottom: 80px;
+    color: var(--navy);
+}
+
+.booking h3 {
+    font-family: var(--font2);
+    font-size: 25px;
+}
+.booking p {
+    font-size: 14px;
+    color: var(--navy);
+    margin: 3px;
+    padding: 5px;
+    color: var(--taupe);
 }
 
 .tourSummary {
-    background-color: white;
+    background-color: var(--taupe-trans);
+    width: 80%;
+    max-width: 600px;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 15px;
 }
+.info {
+    background-color: var(--taupe-trans);
+    width: 80%;
+    max-width: 600px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    padding-bottom: 30px;
+    margin: 20px;
+    border-radius: 15px;
+}
+
 
 .infoInput {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 2.5fr;
+    row-gap: 15px;
+}
+.infoInput .commentInput {
+    width: 350px;
+    height: 100px;
+    border: none;
+    resize: none;
+}
+.infoInput input {
+    width: 200px;
+    height: 23px;
+    border: none;
+}
+.infoInput label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--taupe);
+}
+
+.bookBttn {
+    background-color: var(--navy);
+    color: white;
+    width: 250px;
+    min-height: 40px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+}
+.bookBttn:hover {
+    cursor: pointer;
+    background-color: var(--taupe);
+    transition: 0.2s ease-in;
+}
+
+.separator {
+  height: 0.5px;
+  width: 80%;
+  background-color: var(--taupe);
+  border: none;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../styles/tours.css'
 import { TOURS } from '../tourlist'
-import { Tour } from './tour'
+import { Tour } from '../components/tour'
 
 import MainPhoto from '../assets/olive.jpg'
 
@@ -46,6 +46,7 @@ export const Tours = () => {
             </div>
             <div className='title'>
                 <h1>EXPLORE MALLORCA TOURS</h1>
+                <hr className='separator' />
             </div>
             <div className='filterHandler'>
                 <label className='filters'>

@@ -13,17 +13,19 @@ export const Footer = () => {
                     <Link to='/contact'>CONTACT</Link>
                 </div>
                 <div className="socialMedia">
-                    <XLogoIcon size={28} />
                     <InstagramLogoIcon size={28} />
                     <FacebookLogoIcon size={28} />
+                    <XLogoIcon size={28} />
                 </div>
                 <div className='contactDetails'>
-                    <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'><WhatsappLogoIcon size={50} /></a>
-                    <a href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
-                    <p>+(34) 666-000-000</p>
+                    <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>
+                        <WhatsappLogoIcon size={50} />
+                        <p className='phone'>+(34) 666-000-000</p>
+                    </a>
+                    <a className='email' href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
                 </div>
             </div>
-            <p>&copy; 2025 EXPLORE MALLORCA. All rights reserved.</p>
+            <p>&copy; COPYRIGHT 2025 EXPLORE MALLORCA</p>
         </div>
     )
 }

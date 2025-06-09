@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import '../styles/booking.css';
 import { TOURS } from '../tourlist';
 import { TourContext } from '../context/tour-context';
+import { Link } from 'react-router-dom';
+import { ArrowCounterClockwiseIcon } from '@phosphor-icons/react';
 
 export const Booking = () => {
     const { cartItems, setCartItems, getCartDefault } = useContext(TourContext);
@@ -55,6 +57,7 @@ export const Booking = () => {
     return (
         <div className='booking'>
             <div className='tourSummary'>
+                <Link to='/cart'><ArrowCounterClockwiseIcon size={20} />BACK TO BASKET</Link>
                 <h3>Tour Summary</h3>
                 {TOURS.map((tour) => {
                     if (cartItems[tour.id]["pax"] > 0) {

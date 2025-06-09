@@ -10,7 +10,7 @@ export const SkipPage = () => {
     };
     useEffect(() => {
         const handleScrollBttnVisibility = () => {
-            window.pageYOffset > '120' ? setShowScrollBttn(false) : setShowScrollBttn(true);
+            window.pageYOffset > '80' ? setShowScrollBttn(false) : setShowScrollBttn(true);
         };
         window.addEventListener('scroll', handleScrollBttnVisibility);
         return () => {

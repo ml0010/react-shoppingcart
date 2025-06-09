@@ -30,10 +30,6 @@ function App() {
       <TourContextProvider>
         <CartContextProvider>
           <BrowserRouter>
-            <Navbar />
-            <CartSummary />
-            <ScrollToTop />
-            <SkipPage />
             <PageTopWrapper>
                 <Routes>
                     <Route index element={<Navigate to="/home" />} />
@@ -45,7 +41,11 @@ function App() {
                     <Route path='/booking' element={<Booking />}></Route>
                 </Routes>
             </PageTopWrapper>
+            <SkipPage />
             <Footer />
+            <Navbar />
+            <ScrollToTop />
+            <CartSummary />
           </BrowserRouter>
         </CartContextProvider>
       </TourContextProvider>

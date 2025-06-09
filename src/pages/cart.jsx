@@ -2,8 +2,9 @@ import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import { TOURS } from '../tourlist'
 import { TourContext } from '../context/tour-context'
-import { CartItem } from './cart-item';
-import '../styles/cart.css'
+import { CartItem } from '../components/cart-item';
+import '../styles/cart.css';
+import Logo from '../assets/map.webp';
 
 export const Cart = () => {
 
@@ -35,7 +36,7 @@ export const Cart = () => {
         ) : (
             <>
             <h1>Your Basket is Empty.</h1>
-            <h2>No plans yet?</h2>
+            <img className='logo' src={Logo} alt='map' />
             <p>Click MORE TOURS button below to see available tours.</p>
             <div className='bttns'>
                 <button className='moerTourBttn' onClick={() => navigate('/tours')}>MORE TOURS</button>

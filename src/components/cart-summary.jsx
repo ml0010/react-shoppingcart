@@ -63,6 +63,7 @@ export const CartSummary = () => {
                 <>
                     <h1 className='emptyBasket'>Your Basket is Empty</h1>
                     <hr />
+                    <Link to='/tours' onClick={handleShowCartSummary}><div className='goToToursBttn'>MORE TOURS</div></Link>
                 </>
             )}
             <Link to='/cart' onClick={handleShowCartSummary}><div className='goToBasketBttn'>GO TO BASKET</div></Link>

@@ -9,6 +9,7 @@
 .booking h3 {
     font-family: var(--font2);
     font-size: 25px;
+    margin-top: 5px;
 }
 .booking p {
     font-size: 14px;
@@ -22,10 +23,22 @@
     background-color: var(--light-trans2);
     width: 80%;
     max-width: 600px;
-    margin-top: 100px;
+    margin-top: 80px;
     padding: 25px;
     border-radius: 15px;
     padding-bottom: 50px;
+}
+
+.tourSummary a {
+    font-size: 11px;
+    display: flex;
+    place-items: center;
+}
+.tourSummary a:hover {
+    color: var(--light);
+}
+.tourSummary svg {
+    margin-right: 5px;
 }
 .info {
     background-color: var(--light-trans2);

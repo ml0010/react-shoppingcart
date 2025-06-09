@@ -18,14 +18,30 @@
 }
 
 .filterHandler .filters {
-    font-size: 13px;
-    margin-right: 12px;
+    font-size: 14px;
+    margin-right: 20px;
+    font-family: var(--font3);
+}
+.tours .separator {
+  height: 0.5px;
+  width: 100%;
+  background-color: var(--light);
+  border: none;
+  opacity: 0.5;
 }
 
+.tours .separator {
+    height: 0.5px;
+    width: 85%;
+    background-color: var(--light);
+    border: none;
+    opacity: 0.4;
+}
 input[type=checkbox]{
     accent-color: var(--dark);
   }
 
+  
 
 @media only screen and (max-width: 1300px) {
     .toursList {

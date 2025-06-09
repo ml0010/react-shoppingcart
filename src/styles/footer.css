@@ -13,6 +13,9 @@
 .footer p {
     font-weight: 300;
     font-size: 13px;
+    font-family: var(--font2);
+    font-weight: 400;
+    color: var(--dark);
 }
 .footerContent {
     width: 100%;
@@ -33,15 +36,17 @@
     letter-spacing: 0.05em;
 }
 .footerLinks a:hover {
-    color: var(--dark);
+    color: var(--light);
     transition: 0.2s ease-in-out;
 }
-
-.socialMedia {
+.footerLinks .phone {
+    color: var(--dark);
+}
+.footer .socialMedia {
     align-self: flex-end;
 }
-.socialMedia svg {
-    color: var(--light);
+.footer .socialMedia svg {
+    color: var(--dark);
     margin: 20px;
     font-size: 70px;
     cursor: pointer;
@@ -51,13 +56,17 @@
     font-weight: 600;
     font-size: 16px;
 }
+.contactDetails p {
+    color: var(--dark);
+}
+
 .contactDetails svg {
     color: rgb(32, 214, 32);
     cursor: pointer;
     border: none;
     display: block;
     margin: auto;
-    padding-bottom: 15px;
+    padding-top: 15px;
 }
 .contactDetails a {
     color: var(--dark);
@@ -65,3 +74,4 @@
     font-weight: 300;
     font-size: 13px;
 }
+

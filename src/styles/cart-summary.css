@@ -7,6 +7,7 @@
     padding-right: 30px;
     padding-left: 30px;
     width: 380px;
+    z-index: 100;
 }
 .cartSummary.active {
     opacity: 1;
@@ -53,9 +54,9 @@
     justify-content: center;
     background-color: var(--dark);
     color: white;
-    min-width: 180px;
-    min-height: 40px;
-    margin-top: 20px;
+    min-width: 90px;
+    min-height: 30px;
+    margin: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 6px;
@@ -64,6 +65,28 @@
 }
 
 .goToBasketBttn:hover {
+    cursor: pointer;
+    background-color: var(--light);
+    transition: 0.2s ease-in;
+}
+
+.goToToursBttn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    color: white;
+    min-width: 90px;
+    min-height: 30px;
+    margin: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+}
+
+.goToToursBttn:hover {
     cursor: pointer;
     background-color: var(--light);
     transition: 0.2s ease-in;

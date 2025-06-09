@@ -15,10 +15,10 @@
 }
 
 .cart p {    
-    font-family: var(--font1);
+    font-family: var(--font4);
+    font-size: 14px;
     font-weight: 300;
 }
-
 
 .cartItems {
     display: flex;
@@ -34,12 +34,18 @@
     font-size: 20px;
 }
 
-.bttns {
+.cart .logo {
+    width: 170px;
+    display: block;
+    margin: auto;
+}
+
+.cart .bttns {
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
     column-gap: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 150px;
 }
 
 .moerTourBttn {

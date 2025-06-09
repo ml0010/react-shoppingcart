@@ -2,6 +2,7 @@ import React from 'react'
 import MainPhoto from '../assets/orange.jpg'
 import Photo1 from '../assets/llaut.jpg'
 import Photo2 from '../assets/selva.jpg'
+import Logo from '../assets/map.webp'
 import '../styles/home.css'
 import { BusIcon, CameraIcon, CheersIcon, CoffeeIcon, DropIcon, FirstAidKitIcon, ForkKnifeIcon, TowelIcon, UsersThreeIcon } from '@phosphor-icons/react'
 import { Link } from 'react-router-dom'
@@ -11,8 +12,8 @@ export const Home = () => {
         <div className='home'>
             <div className='pageMain' style={{ backgroundImage: `url(${MainPhoto})` }}>
                 <div>
-                <h1 className='pageTitle'>EXPLORE MALLORCA LIKE A LOCAL</h1>
-                <p className='pageDescription'>EXPLORE MALLORCA invites you to discover our beautiful island of Mallorca!</p>
+                    <h1 className='pageTitle'>EXPLORE MALLORCA</h1>
+                    <img className='Logo' src={Logo} alt='map' />
                 </div>
             </div>
             <div className='title' id='title'>
@@ -20,6 +21,7 @@ export const Home = () => {
                 <h1>EXPLORE MALLORCA</h1>
             </div>
             <div className='pageSummary'>
+                <hr className='separator' />
                 <div className='aboutUs'>
                     <h2>ABOUT US</h2>
                     <p>We specialise in authentic day trips within the island of Mallorca, Balearic Islands. Our team has been operating since April 2025 and we are continuously working on showing you real side of the island.</p>
@@ -48,10 +50,9 @@ export const Home = () => {
                     </div>
                 </div>
                 <hr className='separator' />
-                <div className='service'>
-                    <h2>ALL OUR TOURS INCLUDE</h2>
-                    <hr />
-                    <div className='serviceList'>
+                <h2>ALL OUR TOURS INCLUDE</h2>
+
+                <div className='service'>                    <div className='serviceList'>
                         <span className='serviceItems'>
                             <CheersIcon size={28} />
                             <p>Welcome drink</p>
@@ -94,7 +95,8 @@ export const Home = () => {
                     <h3>- Shuttle service is only available within the distance of 5km of our office (Palma de Mallorca).</h3>
                     <h3>- Snacks are provided your tour's duration is more than 3 hours.</h3>
                 </div>
-                <p>Any further enquiries are always welcome.</p>
+                <hr className='separator' />
+                <p>Further enquiries are always welcome.</p>
                 <p>To communicate with us please visit our <Link to='/contact'>CONTACT US</Link> page.</p>
             </div>
             <img className='img2' src={Photo2} alt='selva'/>

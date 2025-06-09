@@ -6,7 +6,7 @@
     padding: 15px;
     padding-right: 30px;
     padding-left: 30px;
-    width: 300px;
+    width: 380px;
 }
 .cartSummary.active {
     opacity: 1;
@@ -23,28 +23,23 @@
 
 .cartSummary .closeCartSummaryBttn {
     background-color: transparent;
-    color: var(--taupe);
+    color: var(--dark);
     border: none;
     float: right;
 }
 .cartSummary .closeCartSummaryBttn:hover {
     cursor: pointer;
-    color: var(--navy);
+    color: var(--light);
     transition: 0.2s ease-in;
 }
 
 .cartSummaryItem p {
-    font-size: 15px;
-    font-family: var(--font3);
-    font-weight: 200;
-}
-
-.cartSummary .cartSummaryTotal {    
-    font-family: var(--font3);
+    font-size: 14px;
+    color: var(--grey);
 }
 
 .cartSummary h1 {
-    font-size: 18px;
+    font-size: 25px;
     font-family: var(--font2);
 }
 
@@ -56,7 +51,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--navy);
+    background-color: var(--dark);
     color: white;
     min-width: 180px;
     min-height: 40px;
@@ -70,7 +65,7 @@
 
 .goToBasketBttn:hover {
     cursor: pointer;
-    background-color: rgb(128, 113, 98);
+    background-color: var(--light);
     transition: 0.2s ease-in;
 }
 

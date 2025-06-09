@@ -5,16 +5,17 @@
 
 :root {
     --cream: rgb(245, 245, 245);
-    --navy: rgb(30, 40, 68);
-    --taupe: rgb(128, 113, 98);
-    --taupe-trans: rgba(216, 207, 188, 0.279);
-    --backdrop: rgba(141, 135, 122, 0.546);
-    --grey: color: rgb(74, 74, 74);
+    --dark: #333d32;
+    --light: #83a67d;
+    --light-trans1: #83a67d1e;
+    --light-trans2: #83a67d0f;
+    --backdrop: rgba(56, 58, 55, 0.546);
+    --grey: rgb(74, 74, 74);
 
     --font1: 'Roboto';
     --font2: 'Bellota Text';
     --font3: 'Atkinson Hyperlegible Next';
-    --font4: 'Lustria';
+    --font4: 'Helvetica';
 }
 
 .App {
@@ -36,11 +37,13 @@
     justify-content: center;
     align-items: center;
 }
+
 .pageMain .pageTitle {
-    color: white;
-    font-size: 65px;
-    text-shadow: var(--taupe) 1px 0 10px;
+    color: #ddffd7;
+    font-size: 75px;
     font-family: var(--font2);
+    text-shadow: var(--light) 1px 1px 1px;
+    -webkit-text-stroke: 1px var(--dark);
 }
 .pageMain .pageDescription {
     color: white;
@@ -51,9 +54,10 @@
 }
 .title {
     margin-top: 70px;
-    font-size: 23px;
+    margin-bottom: 30px;
+    font-size: 27px;
     font-family: var(--font2);
-    color: var(--taupe);
+    color: var(--light);
 }
 
 @media only screen and (max-width: 900px) {

@@ -10,16 +10,15 @@
     font-size: 30px;
     font-family: var(--font2);
 }
+.cart h2 {
+    font-weight: 100;
+}
 
 .cart p {    
-    font-family: var(--font3);
+    font-family: var(--font1);
     font-weight: 300;
 }
 
-.cart h2 {    
-    font-family: var(--font3);
-    font-weight: 100;
-}
 
 .cartItems {
     display: flex;
@@ -31,7 +30,7 @@
 .checkout .totalAmount {
     padding-top: 20px;
     font-family: var(--font3);
-    color: var(--navy);
+    color: var(--dark);
     font-size: 20px;
 }
 
@@ -54,7 +53,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--navy);
+    background-color: var(--dark);
     color: white;
     min-width: 180px;
     min-height: 40px;
@@ -68,6 +67,6 @@
 
 .bttns button:hover {
     cursor: pointer;
-    background-color: rgb(128, 113, 98);
+    background-color: var(--light);
     transition: 0.2s ease-in;
 }

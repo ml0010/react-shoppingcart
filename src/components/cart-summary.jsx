@@ -50,7 +50,7 @@ export const CartSummary = () => {
                             //console.log(cartItems[tour.id]);
                             return (
                                 <>
-                                    <p>{tour.tourName} X {cartItems[tour.id]["pax"]}</p>
+                                    <p><b>{tour.tourName}</b> X {cartItems[tour.id]["pax"]}</p>
                                     <p>Date: {cartItems[tour.id].date}</p>
                                     <hr />
                                 </>

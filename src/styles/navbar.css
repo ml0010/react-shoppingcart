@@ -35,19 +35,19 @@
 
 .links:hover {
     background-color: var(--cream);
-    color: var(--navy);
+    color: var(--dark);
     border-bottom: 1px solid black;
     transition: 0.2s ease-in-out;
 }
 
 .links:hover a {
     transition: 0.2s ease-in-out;
-    color: var(--navy);
+    color: var(--dark);
 }
 
 .links:hover button {
     transition: 0.2s ease-in-out;
-    color: var(--navy);
+    color: var(--dark);
 }
 
 .menuBttn.menubar:hover {
@@ -64,8 +64,8 @@
 }
 
 .links a:hover {
-    color: var(--taupe);
-    border-bottom: var(--taupe) 0.125em solid;
+    color: var(--light);
+    border-bottom: var(--light) 0.125em solid;
     transition: 0.2s ease-in-out;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .links button:hover {
-    color: var(--taupe);
+    color: var(--light);
     transition: 0.2s ease-in-out;
 }
 
@@ -103,13 +103,30 @@
     transition: 0.5s ease-in-out;
     background-color: var(--cream);
     opacity: 0;
-    border-right: 1px solid var(--navy);
+    border-right: 1px solid var(--dark);
 }
 .menuContent.open {
     opacity: 1;
     left: 0px;
 }
 
+.menuContent .menuLogo {
+    width: 100px;
+    color: var(--light);
+    display: block;
+    margin: auto;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+.menuContent .menuTitle {
+    font-family: var(--font2);
+    color: var(--light);
+    font-size: 50px;
+    -webkit-text-stroke: 0.8px var(--dark);
+    font-weight: 800;
+    margin-top: 0px;
+
+}
 .menuContent button {
     float: right;
     padding: 10px;
@@ -118,8 +135,9 @@
     background-color: transparent;
     border: none;
 }
-
-
+.menuContent button:hover {
+    color: var(--light);
+}
 
 .menuContent .menuLinks {
     padding-top: 50px;
@@ -133,29 +151,17 @@
     padding-top:20px;
     font-size: 27px;
     font-weight: 500;
-    color: var(--navy);
+    color: var(--dark);
     cursor: pointer;
     text-decoration: none;
     letter-spacing: 0.2em;
 }
 
 .menuContent .menuLinks a:hover{
-    color: var(--taupe);
+    color: var(--light);
     transition: 0.2s ease-in-out;
 }
 
-.menuLogo {
-    width: 100px;
-    color: var(--taupe);
-    display: block;
-    margin: auto;
-    margin-bottom: 20px;
-}
-.menuTitle {
-    font-family: var(--font2);
-    color: var(--taupe);
-    font-size: 25px;
-}
 
 .backdrop {
     position: fixed;

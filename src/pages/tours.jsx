@@ -49,12 +49,12 @@ export const Tours = () => {
             </div>
             <div className='filterHandler'>
                 <label className='filters'>
-                    <input type='checkbox' checked={'all' === tourCategorySelected} value='all' onChange={(e)=>handleFilterTours(e.target.value)} /> ALL TOURS
+                    <input type='checkbox' checked={'all' === tourCategorySelected} value='all' onChange={(e)=>handleFilterTours(e.target.value)} /> ALL TOURS {`(${TOURS.length})`}
                 </label>
                 {getCategory().map((category, index)=> {
                     return (
                     <label className='filters' key={index}>
-                        <input type='checkbox' checked={category === tourCategorySelected} value={category} onChange={(e)=>handleFilterTours(e.target.value)} /> {category}
+                        <input type='checkbox' checked={category === tourCategorySelected} value={category} onChange={(e)=>handleFilterTours(e.target.value)} />{` ${category} (${TOURS.filter(tour => tour.category===category).length})`}
                     </label>)
                 })}
             </div>

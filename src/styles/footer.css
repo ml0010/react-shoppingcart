@@ -6,9 +6,9 @@
     align-items: center;
     flex-direction: column;
     padding-top: 20px;
-    border-top: 1px solid var(--taupe);
+    border-top: 1px solid var(--dark);
     font-family: var(--font3);
-    color: var(--taupe);
+    color: var(--dark);
 }
 .footer p {
     font-weight: 300;
@@ -28,12 +28,12 @@
 }
 .footerLinks a {
     cursor: pointer;
-    color: var(--taupe);
+    color: var(--dark);
     text-decoration: none;
     letter-spacing: 0.05em;
 }
 .footerLinks a:hover {
-    color: var(--navy);
+    color: var(--dark);
     transition: 0.2s ease-in-out;
 }
 
@@ -41,7 +41,7 @@
     align-self: flex-end;
 }
 .socialMedia svg {
-    color: var(--taupe);
+    color: var(--light);
     margin: 20px;
     font-size: 70px;
     cursor: pointer;
@@ -60,7 +60,7 @@
     padding-bottom: 15px;
 }
 .contactDetails a {
-    color: var(--taupe);
+    color: var(--dark);
     text-decoration: none;
     font-weight: 300;
     font-size: 13px;

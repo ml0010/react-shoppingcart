@@ -2,8 +2,8 @@
     width: 550px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-
     padding: 10px;
+    color: var(--grey);
 }
 .cartItem img {
     width: 200px;
@@ -16,15 +16,18 @@
     width: 350px;
     height: 150px;
     border-radius: 0px 12px 12px 0px;
-    background-color: var(--taupe-trans);
+    background-color: var(--light-trans2);
     padding: 10px;
     padding-left: 20px;
     text-align: left;
 }
 .description .name {
-    height: 30px;
-    font-family: var(--font2);
+    height: 20px;
+    font-family: var(--font4);
+    color: var(--grey);
     vertical-align: middle;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .cartItem .detail {
@@ -33,19 +36,19 @@
 
 .deleteBttn {
     background-color: transparent;
-    color: var(--taupe);
+    color: var(--light);
     border: none;
     float: right;
 }
 
 .deleteBttn:hover {
     cursor: pointer;
-    color: var(--navy);
+    color: var(--dark);
     transition: 0.2s ease-in;
 }
 
 hr {
   height: 0.5px;
-  background-color: var(--taupe);
+  background-color: var(--light);
   border: none;
 }

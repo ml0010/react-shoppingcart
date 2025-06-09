@@ -2,6 +2,14 @@
     display: grid;
     place-items: center;
 }
+.home .title {
+    margin-bottom: -40px;
+    text-shadow: -0.5px -0.5px 0 var(--dark), 0.5px -0.5px 0 var(--dark), -0.5px 0.5px 0 var(--dark), 0.5px 0.5px 0 var(--dark);
+}
+
+.Logo {
+    width: 200px;
+}
 
 .pageSummary {
     font-family: var(--font);
@@ -11,7 +19,7 @@
 }
 
 .pageSummary h2 {
-    color: var(--taupe);
+    color: var(--light);
     font-family: var(--font2);
     font-weight: 800;
 }
@@ -26,9 +34,9 @@
     margin: 40px;
     border-radius: 15px;
     max-width: 800px;
-    background-color: rgba(203, 203, 203, 0.341);
+    background-color: rgba(203, 203, 203, 0.126);
     border-radius: 10px;
-    color: var(--navy);
+    color: var(--dark);
 }
 .refund li {
     text-align: left;
@@ -49,7 +57,7 @@
 }
 .home .service {
     max-width: 800px;
-    background-color: var(--taupe-trans);
+    background-color: var(--light-trans2);
     padding: 20px;
     margin: 40px;
     border-radius: 15px;
@@ -65,11 +73,11 @@
 }
 .home .service h2 {
     font-family: var(--font2);
-    color: var(--taupe);
+    color: var(--light);
 }
 .home .service h3 {
     font-size: 10px;
-    color: var(--taupe);
+    color: var(--light);
     font-weight: 300;
 }
 
@@ -80,7 +88,7 @@
 .home .separator {
     height: 0.5px;
     width: 80%;
-    background-color: var(--taupe);
+    background-color: var(--light);
     border: none;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -91,11 +99,12 @@ a {
     font-weight: 500;
 }
 
-.separator {
+.home .separator {
   height: 0.5px;
-  width: 80%;
-  background-color: var(--taupe);
+  width: 90%;
+  background-color: var(--light);
   border: none;
+  opacity: 0.2;
 }
 .refund li {
     font-size: 14px;

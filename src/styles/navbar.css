@@ -118,11 +118,15 @@
     background-color: transparent;
     border: none;
 }
+
+
+
 .menuContent .menuLinks {
     padding-top: 50px;
     padding-left: 30px;
     display: grid;
     align-items: center;
+    
 }
 
 .menuContent .menuLinks a{
@@ -138,6 +142,19 @@
 .menuContent .menuLinks a:hover{
     color: var(--taupe);
     transition: 0.2s ease-in-out;
+}
+
+.menuLogo {
+    width: 100px;
+    color: var(--taupe);
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.menuTitle {
+    font-family: var(--font2);
+    color: var(--taupe);
+    font-size: 25px;
 }
 
 .backdrop {

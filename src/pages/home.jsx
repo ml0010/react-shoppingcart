@@ -39,7 +39,7 @@ export const Home = () => {
                     <p>When making reservation, you will only need to fill in the name, contact information of primary guest.</p>
                     <p>In case of no-show, we do not offer any compensation or refund.</p>
                     <div className='refund'>
-                        <b>REFUND POLICY</b>
+                        <p><b>REFUND POLICY</b></p>
                         <ul>
                             <li>Cancellations more then 3 days in advance: Total amount. </li>
                             <li>Cancellation between 48- 24 hours prior to tour date: 50% of the total amount.</li>
@@ -90,9 +90,9 @@ export const Home = () => {
                         </span>
                     </div>
                     <hr />
-                    <h3>* Availability may change. If there is any change we will inform you minimum 24 hours before your journey begins.</h3>
-                    <h3>** Shuttle service is only available within the distance of 5km of our office (Palma de Mallorca).</h3>
-                    <h3>*** Snacks are provided your tour's duration is more than 3 hours.</h3>
+                    <h3>- Availability may change. If there is any change we will inform you minimum 24 hours before your journey begins.</h3>
+                    <h3>- Shuttle service is only available within the distance of 5km of our office (Palma de Mallorca).</h3>
+                    <h3>- Snacks are provided your tour's duration is more than 3 hours.</h3>
                 </div>
                 <p>Any further enquiries are always welcome.</p>
                 <p>To communicate with us please visit our <Link to='/contact'>CONTACT US</Link> page.</p>

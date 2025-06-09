@@ -45,7 +45,7 @@ export const Tours = () => {
                 </div>
             </div>
             <div className='title'>
-                <h1>Available Tours</h1>
+                <h1>EXPLORE MALLORCA TOURS</h1>
             </div>
             <div className='filterHandler'>
                 <label className='filters'>

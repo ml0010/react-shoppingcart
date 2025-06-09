@@ -29,7 +29,7 @@
 .tour .tourName {
     height: 40px;
     font-size: 20px;
-    font-family: var(--font2);
+    font-family: var(--font3);
 }
 
 .tour .subInfo {
@@ -47,7 +47,6 @@
     font-size: 13px;
     font-family: var(--font3);
     font-weight: 200;
-    color: var(--taupe);
 }
 
 .selectBttn {

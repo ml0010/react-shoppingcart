@@ -19,7 +19,7 @@ export const Footer = () => {
                 </div>
                 <div className='contactDetails'>
                     <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'><WhatsappLogoIcon size={50} /></a>
-                    <p>contact@exploremallorca.com</p>
+                    <a href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
                     <p>+(34) 666-000-000</p>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ListIcon, ShoppingBagIcon, XIcon } from '@phosphor-icons/react'
 import '../styles/navbar.css'
+import Logo from '../assets/map.webp'
 import { CartContext } from '../context/cart-context'
 
 export const Navbar = () => {
@@ -79,10 +80,14 @@ export const Navbar = () => {
                         <XIcon size={40} weight="bold" />
                     </button>
                     <span className='menuLinks'>
+                        <p className='menuTitle'>EXPLORE MALLORCA</p>
+                        <img className='menuLogo' src={Logo} alt='map'></img>
+
                         <Link to='/home' onClick={handleMenuClick}> ABOUT US </Link>
                         <Link to='/tours' onClick={handleMenuClick}> TOURS </Link>
                         <Link to='/contact' onClick={handleMenuClick}> CONTACT US </Link>
                         <Link to='/cart' onClick={handleMenuClick}> YOUR BASKET </Link>
+
                     </span>
                 </div>
             </div>

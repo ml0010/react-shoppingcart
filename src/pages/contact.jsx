@@ -57,7 +57,7 @@ export const Contact = () => {
                             </span>
                             <span className='contacts'>
                                 <h3>Location</h3>
-                                <p>Palma de Mallorca, Illes Balears</p>
+                                <a href='https://maps.app.goo.gl/id588dXKnyucx9ai7' target='_blank' rel='noreferrer'>Palma de Mallorca, Illes Balears</a>
                             </span>
                             
                             <span className='icons'>
@@ -65,20 +65,20 @@ export const Contact = () => {
                             </span>
                             <span className='contacts'>
                                 <h3>Whattsapp</h3>
-                                <p>+(34) 666-000-000</p>
+                                <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>+(34) 666-000-000</a>
                             </span>
                             <span className='icons'>
                                 <EnvelopeSimpleIcon size={40} />
                             </span>
                             <span className='contacts'>
                                 <h3>Email</h3>
-                                <p>contact@exploremallorca.com</p>
+                                <a href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
                             </span>
                         </div>
                     </div>
 
                     <div className='pageRight'>
-                        <h3>Contact form</h3>                        
+                        <h3>Conctact Form</h3>                        
                         {showSubmitMsg?
                             <>
                                 <p>We have successfully received your message.</p>

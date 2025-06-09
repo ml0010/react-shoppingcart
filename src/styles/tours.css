@@ -14,16 +14,16 @@
 }
 
 .filterHandler {
-    color: var(--taupe);
+    color: black;
 }
 
 .filterHandler .filters {
-    font-size: 14px;
+    font-size: 13px;
     margin-right: 12px;
 }
 
 input[type=checkbox]{
-  accent-color:  var(--taupe);  
+    accent-color: var(--navy);
   }
 
 

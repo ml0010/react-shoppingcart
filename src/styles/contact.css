@@ -1,7 +1,7 @@
 .pageContent {
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
 }
 .pageContent p {
     font-size: 14px;
@@ -15,7 +15,7 @@
 }
 
 .pageLeft {
-    padding: 20px;
+    margin: 20px;
 }
 .pageLeft .icons {
     display: flex;
@@ -26,8 +26,9 @@
     height: 70px;
     border-radius: 70px;
 }
-.pageLeft p {
-    font-size: 16px;
+.pageLeft a {
+    color: black;
+    font-size: 13px;
     letter-spacing: 0.08em;
 }
 
@@ -36,6 +37,7 @@
     justify-self: start;
     background-color: var(--taupe-trans);
     padding: 20px;
+    margin-top: 30px;
     border-radius: 10px;
     width: 400px;
     height: 400px;
@@ -67,8 +69,8 @@
 .pageDevider .contactMethods {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    row-gap: 35px;
     place-items: center;
-    padding: 30px;
 }
 
 .pageDevider h3 {
@@ -76,10 +78,6 @@
     font-family: var(--font3);
 }
 
-.contactMethods p {
-    font-size: 13px;
-    letter-spacing: 0.08em;
-}
 
 .sendMsgBttn {
     background-color: var(--navy);

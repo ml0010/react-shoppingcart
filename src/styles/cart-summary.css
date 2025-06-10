@@ -92,3 +92,10 @@
     transition: 0.2s ease-in;
 }
 
+.cartSummary .separator {
+    height: 0.5px;
+    width: 90%;
+    background-color: var(--light);
+    border: none;
+    opacity: 0.5;
+}

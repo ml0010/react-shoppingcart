@@ -1,0 +1,67 @@
+.bookingSearch {
+    min-height: 80vh;
+    background-color: var(--light-trans2);
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    color: var(--grey);
+}
+
+.bookingSearch .searchHandler {
+    padding: 25px;
+    font-size: 15px;
+    font-family: var(--font2);
+    background-color: var(--cream);
+    border-radius: 15px;
+    margin: 30px;
+}
+
+.bookingSearch .bookingReferenceInput {
+    width: 75%;
+    height: 40px;
+    font-size: 25px;
+    text-align: center;
+    color: var(--light);    
+}
+.bookingSearch p {
+    margin-top: 0px;
+    font-size: 13px;
+}
+.bookingSearch h1 {
+    display: flex;
+    font-size: 28px;
+}
+.bookingSearch svg {
+    margin-right: 8px;
+}
+.bookingSearch a {
+    text-decoration: none;
+    color: var(--grey);
+    font-weight: 500;
+}
+.bookingSearch a:hover {
+    background-color: var(--light-trans1);
+}
+
+.findBttn {
+    background-color: var(--dark);
+    color: white;
+    min-width: 80%;
+    min-height: 40px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+}
+
+.findBttn:hover {
+    cursor: pointer;
+    background-color: var(--light);
+    transition: 0.2s ease-in;
+}
+
+.errorMsg {
+    color: var(--red);
+}

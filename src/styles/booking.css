@@ -40,7 +40,7 @@
 .tourSummary svg {
     margin-right: 5px;
 }
-.info {
+.booking .info {
     background-color: var(--light-trans2);
     width: 80%;
     max-width: 600px;
@@ -99,4 +99,10 @@
   width: 80%;
   background-color: var(--light);
   border: none;
+}
+
+.booking a {
+    text-decoration: none;
+    color: var(--grey);
+    font-weight: 500;
 }

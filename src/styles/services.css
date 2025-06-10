@@ -1,0 +1,39 @@
+.service {
+    max-width: 800px;
+    background-color: var(--light-trans2);
+    padding: 20px;
+    margin: 40px;
+    border-radius: 15px;
+}
+
+.service .serviceList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    grid-row-gap: 20px;
+    padding: 20px;
+    max-width: 550px;
+}
+.service h2 {
+    font-family: var(--font2);
+    color: var(--light);
+}
+.service h3 {
+    font-size: 10px;
+    color: var(--light);
+    font-weight: 300;
+}
+
+.serviceList p {
+    font-size: 13px;
+}
+
+.service .separator {
+    height: 0.5px;
+    width: 90%;
+    background-color: var(--light);
+    border: none;
+    opacity: 0.5;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}

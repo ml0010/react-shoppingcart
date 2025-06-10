@@ -47,7 +47,7 @@
     transition: 0.2s ease-in;
 }
 
-hr {
+.cartItem hr {
   height: 0.5px;
   background-color: var(--light);
   border: none;

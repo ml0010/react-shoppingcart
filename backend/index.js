@@ -9,12 +9,17 @@ require('./db/connection');
 const Contacts = require('./Models/Contact');
 const Bookings = require('./Models/Booking');
 
+app.get('/', async(req, res) => {
+    res.json("welcome to our server");
+});
+
+
 app.post("/contact", async(req, res) => {
     let contact = new Contacts(req.body);
     let result = await contact.save();
     res.send(result);
     console.log("CONTACT FORM SUBMIT");
-    console.log(result);
+    //console.log(result);
 });
 
 app.post("/booking", async(req, res) => {
@@ -22,14 +27,14 @@ app.post("/booking", async(req, res) => {
     let result = await booking.save();
     res.send(result);
     console.log("BOOKING FORM SUBMIT");
-    console.log(result);
+    //console.log(result);
 });
 
-app.get('/confirmation', async(req, res) => {
+app.get('/confirmation/:reference', async(req, res) => {
+    const bookingReference = req.params.reference;
     try {
-        const bookings = await Bookings.find();
-        console.log('Fetched data:', bookings); // Log the data
-        res.json(bookings);
+       const booking = await Bookings.findOne({reference: bookingReference}).exec();;
+        res.json(booking);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }

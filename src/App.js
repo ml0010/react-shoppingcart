@@ -14,9 +14,11 @@ import { useLayoutEffect } from 'react';
 import { SkipPage } from './components/skip-page.jsx';
 import { Booking } from './pages/booking.jsx';
 import { BookingConfirmation } from './components/booking-confirmation.jsx';
+import { BookingSearch } from './pages/booking-search.jsx';
+import { BookingContextProvider } from './context/booking-context.jsx';
 
 function App() {
-
+    
     const PageTopWrapper = ({ children }) => {
         const location = useLocation();
         useLayoutEffect(() => {
@@ -26,33 +28,36 @@ function App() {
         return children;
     };
 
-   return (
-    <div className="App">
-      <TourContextProvider>
-        <CartContextProvider>
-          <BrowserRouter>
-            <PageTopWrapper>
-                <Routes>
-                    <Route index element={<Navigate to="/home" />} />
-                    <Route path='/*' element={<Home />}></Route>
-                    <Route path='/home' element={<Home />}></Route>
-                    <Route path='/tours' element={<Tours />}></Route>
-                    <Route path='/contact' element={<Contact />}></Route>
-                    <Route path='/cart' element={<Cart />}></Route>
-                    <Route path='/booking' element={<Booking />}></Route>
-                    <Route path='/confirmation' element={<BookingConfirmation />}></Route>
-                </Routes>
-            </PageTopWrapper>
-            <SkipPage />
-            <Footer />
-            <Navbar />
-            <ScrollToTop />
-            <CartSummary />
-          </BrowserRouter>
-        </CartContextProvider>
-      </TourContextProvider>
-    </div>
-  );
+    return (
+        <div className="App">
+            <TourContextProvider>
+                <CartContextProvider>
+                    <BookingContextProvider>
+                        <BrowserRouter>
+                            <PageTopWrapper>
+                                <Routes>
+                                    <Route index element={<Navigate to="/home" />} />
+                                    <Route path='/*' element={<Home />}></Route>
+                                    <Route path='/home' element={<Home />}></Route>
+                                    <Route path='/tours' element={<Tours />}></Route>
+                                    <Route path='/contact' element={<Contact />}></Route>
+                                    <Route path='/cart' element={<Cart />}></Route>
+                                    <Route path='/booking' element={<Booking />}></Route>
+                                    <Route path='/confirmation' element={<BookingConfirmation />}></Route>
+                                    <Route path='/mybooking' element={<BookingSearch />}></Route>
+                                </Routes>
+                            </PageTopWrapper>
+                            <SkipPage />
+                            <Footer />
+                            <Navbar />
+                            <ScrollToTop />
+                            <CartSummary />
+                        </BrowserRouter>
+                    </BookingContextProvider>
+                </CartContextProvider>
+            </TourContextProvider>
+        </div>
+    );
 }
 
 export default App;

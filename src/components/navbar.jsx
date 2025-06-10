@@ -86,6 +86,7 @@ export const Navbar = () => {
                         <Link to='/tours' onClick={handleMenuClick}> TOURS </Link>
                         <Link to='/contact' onClick={handleMenuClick}> CONTACT US </Link>
                         <Link to='/cart' onClick={handleMenuClick}> YOUR BASKET </Link>
+                        <Link to='/mybooking' onClick={handleMenuClick}> MY RESERVATION </Link>
                     </span>
                     <span className="socialMedia">
                         <InstagramLogoIcon size={20} />

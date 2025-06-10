@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../styles/contact.css'
-import MainPhoto from '../assets/tree.jpg'
+import MainPhoto from '../assets/fornalutx.jpg'
 import { EnvelopeSimpleIcon, MapPinLineIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
 
 export const Contact = () => {
@@ -37,11 +37,10 @@ export const Contact = () => {
 
     return (
         <div className='contact'>
-            <div className='pageMain' style={{ backgroundImage: `url(${MainPhoto})` }}>
-                <div>
-                    <h1 className='pageTitle'>GET IN TOUCH WITH US</h1>
-                    <p className='pageDescription'>We would love to hear from you</p>
-                </div>
+            <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
+            <div className='pageMain'>
+                <h1 className='pageTitle'>GET IN TOUCH WITH US</h1>
+                <p className='pageDescription'>We would love to hear from you</p>
             </div>
             <div className='title'>
                 <h1>CONTACT US</h1>

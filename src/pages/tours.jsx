@@ -3,7 +3,7 @@ import '../styles/tours.css'
 import { TOURS } from '../tourlist'
 import { Tour } from '../components/tour'
 
-import MainPhoto from '../assets/olive.jpg'
+import MainPhoto from '../assets/banyalbufar.jpg'
 
 export const Tours = () => {
 
@@ -38,11 +38,10 @@ export const Tours = () => {
     
     return (
         <div className='tours'>
-            <div className='pageMain' style={{ backgroundImage: `url(${MainPhoto})` }}>
-                <div>
+            <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
+            <div className='pageMain'>
                 <h1 className='pageTitle'>DISCOVER EXPERIENCES</h1>
                 <p className='pageDescription'>Curated activities and memorable experiences, complementing your time in Mallorca.</p>
-                </div>
             </div>
             <div className='title'>
                 <h1>EXPLORE MALLORCA TOURS</h1>

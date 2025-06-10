@@ -48,7 +48,7 @@
 }
 
 .cartItem hr {
-  height: 0.5px;
-  background-color: var(--light);
-  border: none;
+    height: 0.5px;
+    background-color: var(--light);
+    border: none;
 }

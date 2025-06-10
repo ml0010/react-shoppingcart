@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
-
 :root {
     --cream: rgb(245, 245, 245);
     --dark: #333d32;
@@ -29,7 +28,7 @@
     flex-direction: column;
 }
 
-.pageMain {
+.pageBackground {
     top: 0px;
     width: 100%;
     height: 100vh;
@@ -37,22 +36,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    filter: blur(2px);
 }
 
-.pageMain .pageTitle {
+.pageMain {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pageTitle {
     color: #ddffd7;
     font-size: 75px;
     font-family: var(--font2);
     text-shadow: var(--light) 1px 1px 1px;
     -webkit-text-stroke: 1px var(--dark);
 }
-.pageMain .pageDescription {
+.pageDescription {
     color: white;
     font-size: 20px;
     text-shadow: black 1px 0 10px;
     font-family: var(--font3);
     font-weight: 300;
 }
+
 .title {
     margin-top: 70px;
     margin-bottom: 30px;
@@ -62,13 +71,13 @@
 }
 
 @media only screen and (max-width: 900px) {
-  
+
 }
-  
+
 @media only screen and (max-width: 600px) {
 
 }
-  
+
 @media only screen and (min-width: 600px) {
 
 }

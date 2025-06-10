@@ -10,11 +10,10 @@ import { Services } from '../components/services';
 export const Home = () => {
     return (
         <div className='home'>
-            <div className='pageMain' style={{ backgroundImage: `url(${MainPhoto})` }}>
-                <div>
-                    <h1 className='pageTitle'>EXPLORE MALLORCA</h1>
-                    <img className='Logo' src={Logo} alt='map' />
-                </div>
+            <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
+            <div className='pageMain'>
+                <h1 className='pageTitle'>EXPLORE MALLORCA</h1>
+                <img className='Logo' src={Logo} alt='map' />
             </div>
             <div className='title' id='title'>
                 <img className='img1' src={Photo1} alt='llaut' />

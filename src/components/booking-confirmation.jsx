@@ -36,6 +36,18 @@ export const BookingConfirmation = () => {
         }
     }
 
+    const deleteBooking = async () => {
+        console.log("Delete booking record.")
+        try {
+            const response = await fetch(`http://localhost:4000/delete/${bookingReference}`, {mode:'cors'});
+            setSearchFailed(false);
+            navigate('/mybooking');
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
     useEffect(() => {
         if(!bookingDataReady) {
             getBookingInfo();
@@ -83,6 +95,7 @@ export const BookingConfirmation = () => {
                 </div>
             </div>
             : <></>}
+            <button onClick={deleteBooking}>DETELTE BOOKING</button>
         </div>
     )
 }

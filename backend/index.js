@@ -40,6 +40,18 @@ app.get('/confirmation/:reference', async(req, res) => {
     }
 });
 
+
+app.get('/delete/:reference', async(req, res) => {
+    const bookingReference = req.params.reference;
+    try {
+       const booking = await Bookings.findOneAndDelete({reference: bookingReference}).exec();;
+        res.json(bookingReference + " deleted");
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+
 app.listen(4000, () => {
     console.log("Console is running on port 4000");
 });

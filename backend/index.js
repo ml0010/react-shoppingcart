@@ -25,6 +25,16 @@ app.post("/booking", async(req, res) => {
     console.log(result);
 });
 
+app.get('/confirmation', async(req, res) => {
+    try {
+        const bookings = await Bookings.find();
+        console.log('Fetched data:', bookings); // Log the data
+        res.json(bookings);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 app.listen(4000, () => {
     console.log("Console is running on port 4000");
 });

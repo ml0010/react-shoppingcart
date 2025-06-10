@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import '../styles/booking.css';
 import { TOURS } from '../tourlist';
 import { TourContext } from '../context/tour-context';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowCounterClockwiseIcon } from '@phosphor-icons/react';
 
 export const Booking = () => {
@@ -35,13 +35,23 @@ export const Booking = () => {
         });
         return cartItemList;
     };
+    const generateBookingReference = (digits) => {
+        let str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXZ';
+        let uuid = [];
+        for (let i = 0; i < digits; i++) {
+            uuid.push(str[Math.floor(Math.random() * str.length)]);
+        }
+        return uuid.join('');
+    }
     const tours = getCartList();
+    const reference = generateBookingReference(5);
+    const navigate = useNavigate();
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         let result = await fetch('http://localhost:4000/booking', {
             method: "post",
-            body: JSON.stringify({ name, email, phone, comment, tours }),
+            body: JSON.stringify({ reference, name, email, phone, comment, tours }),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -49,9 +59,10 @@ export const Booking = () => {
         result = await result.json();
         localStorage.setItem("booking", JSON.stringify(result));
 
-        console.log("BOOKING FORM SUBMIT");
+        console.log('BOOKING FORM SUBMITTED');
         console.log(result);
         resetState();
+        navigate('/confirmation', {state: {reference: reference}});
     }
     
     return (

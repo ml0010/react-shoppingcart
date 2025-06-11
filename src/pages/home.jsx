@@ -6,6 +6,7 @@ import Logo from '../assets/map.webp'
 import '../styles/home.css'
 import { Link } from 'react-router-dom'
 import { Services } from '../components/services';
+import { RefundPolicy } from '../components/refund-policy';
 
 export const Home = () => {
     return (
@@ -39,14 +40,7 @@ export const Home = () => {
                     <h2>BOOKING TERMS</h2>
                     <p>When making reservation, you will only need to fill in the name, contact information of primary guest.</p>
                     <p>In case of no-show, we do not offer any compensation or refund.</p>
-                    <div className='refund'>
-                        <p><b>REFUND POLICY</b></p>
-                        <ul>
-                            <li>Cancellations more then 3 days in advance: Total amount. </li>
-                            <li>Cancellation between 48- 24 hours prior to tour date: 50% of the total amount.</li>
-                            <li>Cancellation less than 24 hours prior to tour date: 100% of the total amount.</li>
-                        </ul>
-                    </div>
+                    <RefundPolicy></RefundPolicy>
                 </div>
                 <hr className='separator' />
                 <h2>ALL OUR TOURS INCLUDE</h2>

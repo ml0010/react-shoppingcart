@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../styles/tours.css'
 import { TOURS } from '../tourlist'
 import { Tour } from '../components/tour'
+import { Faq } from '../components/faq'
 
 import MainPhoto from '../assets/banyalbufar.jpg'
 
@@ -63,6 +64,7 @@ export const Tours = () => {
                     <Tour data={tour} key={tour.id} />
                 ))}
             </div>
+            <Faq></Faq>
         </div>
     )
 }

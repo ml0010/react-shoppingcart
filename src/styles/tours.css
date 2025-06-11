@@ -3,6 +3,7 @@
     width: 100%;
     display: grid;
     place-items: center;
+    padding-bottom: 80px;
 }
 
 .toursList {

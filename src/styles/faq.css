@@ -1,0 +1,40 @@
+.faq {
+    padding-top: 30px;
+    color: var(--grey);
+}
+
+.faq svg {
+    margin-right: 5px;
+}
+.faq .questions {
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+}
+
+.faq .question {
+    font-size: 12px;
+    font-family: var(--font2);
+    cursor: pointer;
+}
+
+.faq .contactInfo p {
+    font-size: 13px;
+}
+
+.faq .whattsappIcon svg {
+    color: rgb(32, 214, 32);
+    cursor: pointer;
+    border: none;
+    display: block;
+    margin: auto;
+    padding-top: 15px;
+}
+.faq .contactInfo a {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 13px;
+}
+.faq .contactInfo a:hover {
+    background-color: var(--light);
+}

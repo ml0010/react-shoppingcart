@@ -9,10 +9,11 @@
     place-items: center;
     color: var(--grey);
 }
-.bookingInfo {
+.confirmation .bookingInfo {
     width: 800px;
     background-color: var(--cream);
     border-radius: 15px;
+    margin: 20px;
 }
 .bookingInfo .tourDetail {
     font-size: 13px;
@@ -29,11 +30,21 @@
     font-family: var(--font4);
 
 }
+.category .edit {
+    display: grid;
+    place-items: center;
+}
 .category input {
-    border: 0;
+    border: none;
+    width: 200px;
+    text-align: center;
 }
 .category textarea {
-    border: 0;
+    border: none;
+    resize: none;
+    width: 220px;
+    height: 60px;
+    
 }
 .category .inactive {
     background-color: var(--cream);
@@ -44,6 +55,7 @@
 .category button {
     cursor: pointer;
     border: none;
+    margin-top: 10px;
 }
 .confirmation .bookingInfo .category {
     margin: 10px;
@@ -63,7 +75,7 @@
     opacity: 0.5;
 }
 
-.bttns {
+.confirmation .bttns {
     display: flex;
     gap: 20px;
 }
@@ -85,6 +97,11 @@
     transition: 0.2s ease-in;
 }
 .confirmation .homeBttn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
     background-color: var(--dark);
     width: 250px;
     min-height: 40px;
@@ -101,7 +118,3 @@
     transition: 0.2s ease-in;
 }
 
-.confirmation .homeBttn a {
-    color: white;
-    text-decoration: none;
-}

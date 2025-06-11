@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/booking-confirmation.css'
 import { BookingContext } from '../context/booking-context';
+import { Faq } from '../components/faq';
 
 export const BookingConfirmation = () => {
     
@@ -59,18 +60,6 @@ export const BookingConfirmation = () => {
             console.log(err);
         }
     }
-/*
-    const updateBooking = async () => {
-        console.log("Update booking record.")
-        try {
-            const response = await fetch(`http://localhost:4000/confirmation/${bookingReference}/edit`, {mode:'cors'});
-            window.location.reload();
-        }
-        catch (err) {
-            console.log(err);
-        }
-    }
-*/
 
     const updatePhone = async () => {
         console.log("Phone number update.")
@@ -83,14 +72,6 @@ export const BookingConfirmation = () => {
         }
     }
 
-    const handleEditPhone = () => {
-        if(!isEditPhoneDisabled) {
-            updatePhone();
-        }
-        setIsEditPhoneDisabled(!isEditPhoneDisabled);
-        return null;
-    };
-
     const updateComment = async () => {
         console.log("Comment update.")
         try {
@@ -101,15 +82,25 @@ export const BookingConfirmation = () => {
             console.log(err);
         }
     }
+    const handleDeleteBooking = () => {
+        if(window.confirm(`Your booking will be permenantly cancelled.\nPlease confirm you are happy to go ahead.`)) {
+            deleteBooking();
+        }
+    };
+
+    const handleEditPhone = () => {
+        if(!isEditPhoneDisabled) {
+            updatePhone();
+        }
+        setIsEditPhoneDisabled(!isEditPhoneDisabled);
+    };
 
     const handleEditComment = () => {
         if(!isEditCommentDisabled) {
             updateComment();
         }
         setIsEditCommentDisabled(!isEditCommentDisabled);
-        return null;
     };
-
 
     return (
         <div className='confirmation'>
@@ -129,7 +120,7 @@ export const BookingConfirmation = () => {
                 <hr className='separator' />
                 <div className='category'>
                     <h3 className='categoryTitle'>Contact Number</h3>
-                    <span>
+                    <span className='edit'>
                         <input className={`phone ${isEditPhoneDisabled? 'inactive' : 'active'}`} value={phone} disabled={isEditPhoneDisabled} onChange={(e)=>setPhone(e.target.value)}></input><button onClick={handleEditPhone}>{isEditPhoneDisabled? 'EDIT' : 'SAVE'}</button>
                     </span>
                 </div>
@@ -150,7 +141,7 @@ export const BookingConfirmation = () => {
                 <hr className='separator' />
                 <div className='category comment'>
                     <h3 className='categoryTitle'>Comment</h3>
-                    <span>
+                    <span className='edit'>
                         <textarea className={`comment ${isEditCommentDisabled? 'inactive' : 'active'}`} value={comment} disabled={isEditCommentDisabled} onChange={(e)=>setComment(e.target.value)}></textarea><button onClick={handleEditComment}>{isEditCommentDisabled? 'EDIT' : 'SAVE'}</button>
                     </span>
                 </div>
@@ -158,9 +149,10 @@ export const BookingConfirmation = () => {
             : <></>}
 
             <div className='bttns'>
-                <button className='cancelBttn' onClick={deleteBooking}>CANCEL BOOKING</button>
-                <button className='homeBttn'><Link to='/home'>BACK TO HOME</Link></button>
+                <button className='cancelBttn' onClick={handleDeleteBooking}>CANCEL BOOKING</button>
+                <Link className='homeBttn' to='/home'>BACK TO HOME</Link>
             </div>
+            <Faq></Faq>
         </div>
     )
 }

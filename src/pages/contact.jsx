@@ -30,7 +30,7 @@ export const Contact = () => {
         result = await result.json();
         localStorage.setItem("contact", JSON.stringify(result));
 
-        console.log("CONTACT FORM SUBMIT");
+        console.log("CONTACT FORM SUBMITTED");
         console.log(result);
         resetState();
     }    

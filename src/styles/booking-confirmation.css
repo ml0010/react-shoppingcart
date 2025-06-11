@@ -29,6 +29,22 @@
     font-family: var(--font4);
 
 }
+.category input {
+    border: 0;
+}
+.category textarea {
+    border: 0;
+}
+.category .inactive {
+    background-color: var(--cream);
+}
+.category .active {
+    background-color: white;
+}
+.category button {
+    cursor: pointer;
+    border: none;
+}
 .confirmation .bookingInfo .category {
     margin: 10px;
     display: grid;
@@ -45,4 +61,47 @@
     background-color: var(--light);
     border: none;
     opacity: 0.5;
+}
+
+.bttns {
+    display: flex;
+    gap: 20px;
+}
+.confirmation .cancelBttn {
+    background-color: var(--dark);
+    color: white;
+    width: 250px;
+    min-height: 40px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+}
+.confirmation .cancelBttn:hover {
+    cursor: pointer;
+    background-color: var(--light);
+    transition: 0.2s ease-in;
+}
+.confirmation .homeBttn {
+    background-color: var(--dark);
+    width: 250px;
+    min-height: 40px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+}
+.confirmation .homeBttn:hover {
+    cursor: pointer;
+    background-color: var(--light);
+    transition: 0.2s ease-in;
+}
+
+.confirmation .homeBttn a {
+    color: white;
+    text-decoration: none;
 }

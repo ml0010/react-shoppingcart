@@ -125,7 +125,6 @@
     -webkit-text-stroke: 0.8px var(--dark);
     font-weight: 800;
     margin-top: 0px;
-
 }
 .menuContent button {
     float: right;
@@ -144,7 +143,6 @@
     padding-left: 30px;
     display: grid;
     align-items: center;
-    
 }
 
 .menuContent .menuLinks a {
@@ -200,9 +198,32 @@
     }
 }
   
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
+    .navbar .menuContent {
+        width: 100%;
+    }
+    .navbar .menuContent .menuTitle {
+        font-size: 33px;
+    }
+    .navbar .menuLogo {
+        width: 50px;
+    }
+    .menuContent .menuLinks a {
+        padding-top:23px;
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--dark);
+        cursor: pointer;
+        text-decoration: none;
+        letter-spacing: 0.2em;
+    }
 
 }
-@media only screen and (min-width: 400px) {
-
+@media only screen and (max-height: 600px) {
+    .socialMedia {
+        display: none;
+    }
+    .navbar .menuLogo {
+        display: none;
+    }
 }

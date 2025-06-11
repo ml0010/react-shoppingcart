@@ -40,7 +40,7 @@ export const Home = () => {
                     <h2>BOOKING TERMS</h2>
                     <p>When making reservation, you will only need to fill in the name, contact information of primary guest.</p>
                     <p>In case of no-show, we do not offer any compensation or refund.</p>
-                    <RefundPolicy></RefundPolicy>
+                    <RefundPolicy />
                 </div>
                 <hr className='separator' />
                 <h2>ALL OUR TOURS INCLUDE</h2>

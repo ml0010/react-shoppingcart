@@ -47,13 +47,11 @@
 }
 .footer .socialMedia svg {
     color: var(--dark);
-    margin: 20px;
-    font-size: 70px;
+    margin: 15px;
     cursor: pointer;
 }
-
 .contactDetails {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 16px;
 }
 .contactDetails p {
@@ -75,3 +73,24 @@
     font-size: 13px;
 }
 
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+}
+@media only screen and (max-width: 600px) {
+    .footer .footerContent {
+        grid-template-columns: 1fr;
+    }
+    .footer .footerLinks {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .footer .socialMedia {
+        display: none;
+    }
+}
+@media only screen and (max-height: 600px) {
+    .footer {
+        display: none;
+    }
+}

@@ -10,52 +10,18 @@
     color: var(--grey);
 }
 .confirmation .bookingInfo {
-    width: 800px;
+    width: 60vw;
     background-color: var(--cream);
     border-radius: 15px;
     margin: 20px;
 }
-.bookingInfo .tourDetail {
+.confirmation .bookingInfo .tourDetail {
     font-size: 13px;
     text-align: left;
 }
 .confirmation h1 {
     color: var(--light);
     font-family: var(--font2);
-}
-.categoryTitle {
-    color: var(--light);
-}
-.category p {
-    font-family: var(--font4);
-
-}
-.category .edit {
-    display: grid;
-    place-items: center;
-}
-.category input {
-    border: none;
-    width: 200px;
-    text-align: center;
-}
-.category textarea {
-    border: none;
-    resize: none;
-    width: 220px;
-    height: 60px;
-    
-}
-.category .inactive {
-    background-color: var(--cream);
-}
-.category .active {
-    background-color: white;
-}
-.category button {
-    cursor: pointer;
-    border: none;
-    margin-top: 10px;
 }
 .confirmation .bookingInfo .category {
     margin: 10px;
@@ -64,7 +30,40 @@
     place-items: center;
 }
 
-.category.comment p {
+.confirmation .categoryTitle {
+    color: var(--light);
+}
+.confirmation .category p {
+    font-family: var(--font4);
+}
+.confirmation .category .edit {
+    display: grid;
+    place-items: center;
+}
+.confirmation .category input {
+    border: none;
+    width: 200px;
+    text-align: center;
+}
+.confirmation .category textarea {
+    border: none;
+    resize: none;
+    width: 220px;
+    height: 60px;
+    
+}
+.confirmation .category .inactive {
+    background-color: var(--cream);
+}
+.confirmation .category .active {
+    background-color: white;
+}
+.confirmation .category button {
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+.confirmation .category.comment p {
     font-size: 13px;
 }
 .confirmation .separator {
@@ -79,42 +78,45 @@
     display: flex;
     gap: 20px;
 }
-.confirmation .cancelBttn {
+.confirmation .bttns button {
     background-color: var(--dark);
     color: white;
     width: 250px;
     min-height: 40px;
     margin-top: 20px;
     padding-top: 5px;
-    padding-bottom: 5px;
     border-radius: 6px;
     border: none;
     font-size: 10px;
 }
-.confirmation .cancelBttn:hover {
+.confirmation .bttns button:hover {
     cursor: pointer;
     background-color: var(--light);
     transition: 0.2s ease-in;
 }
-.confirmation .homeBttn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+.confirmation .bttns a {
     text-decoration: none;
-    background-color: var(--dark);
-    width: 250px;
-    min-height: 40px;
-    margin-top: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 6px;
-    border: none;
-    font-size: 10px;
-}
-.confirmation .homeBttn:hover {
-    cursor: pointer;
-    background-color: var(--light);
-    transition: 0.2s ease-in;
+    color: var(--cream);
 }
 
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+    .confirmation {
+        display: flex;
+        flex-direction: column;
+    }
+    .confirmation .bookingInfo {
+        width: 90vw;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .confirmation .bookingInfo .category {
+        grid-template-columns: 1fr;
+        margin: 3px;
+    }
+    .confirmation .bttns {
+        flex-direction: column;    
+        gap: 0px;
+    }
+}

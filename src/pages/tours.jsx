@@ -3,7 +3,7 @@ import '../styles/tours.css'
 import { TOURS } from '../tourlist'
 import { Tour } from '../components/tour'
 import { Faq } from '../components/faq'
-
+import { SkipPage } from '../components/skip-page'
 import MainPhoto from '../assets/banyalbufar.jpg'
 
 export const Tours = () => {
@@ -49,22 +49,25 @@ export const Tours = () => {
                 <hr className='separator' />
             </div>
             <div className='filterHandler'>
-                <label className='filters'>
+                <div className='filters'>
+                <label className='filter'>
                     <input type='checkbox' checked={'all' === tourCategorySelected} value='all' onChange={(e)=>handleFilterTours(e.target.value)} /> ALL TOURS {`(${TOURS.length})`}
                 </label>
                 {getCategory().map((category, index)=> {
                     return (
-                    <label className='filters' key={index}>
+                    <label className='filter' key={index}>
                         <input type='checkbox' checked={category === tourCategorySelected} value={category} onChange={(e)=>handleFilterTours(e.target.value)} />{` ${category} (${TOURS.filter(tour => tour.category===category).length})`}
                     </label>)
                 })}
+                </div>
             </div>
             <div className='toursList'>
                 {tourList.map((tour)=> (
                     <Tour data={tour} key={tour.id} />
                 ))}
             </div>
-            <Faq></Faq>
+            <Faq />
+            <SkipPage />
         </div>
     )
 }

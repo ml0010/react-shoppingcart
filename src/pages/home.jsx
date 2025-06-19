@@ -7,6 +7,7 @@ import '../styles/home.css'
 import { Link } from 'react-router-dom'
 import { Services } from '../components/services';
 import { RefundPolicy } from '../components/refund-policy';
+import { SkipPage } from '../components/skip-page'
 
 export const Home = () => {
     return (
@@ -50,6 +51,7 @@ export const Home = () => {
                 <p>To communicate with us please visit our <Link to='/contact'>CONTACT US</Link> page.</p>
             </div>
             <img className='img2' src={Photo2} alt='selva'/>
+            <SkipPage />
         </div>
     )
 }

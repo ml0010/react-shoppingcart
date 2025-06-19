@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../styles/contact.css'
 import MainPhoto from '../assets/fornalutx.jpg'
 import { EnvelopeSimpleIcon, MapPinLineIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
+import { SkipPage } from '../components/skip-page'
 
 export const Contact = () => {
     const [name, setName] = useState("");
@@ -94,6 +95,7 @@ export const Contact = () => {
                     </div>
                 </div>
             </div>
+            <SkipPage />
         </div>
     )
 }

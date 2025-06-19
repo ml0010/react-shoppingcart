@@ -11,7 +11,6 @@ import { CartContextProvider } from './context/cart-context.jsx';
 import { CartSummary } from './components/cart-summary.jsx';
 import { ScrollToTop } from './components/scroll-to-top.jsx';
 import { useLayoutEffect } from 'react';
-import { SkipPage } from './components/skip-page.jsx';
 import { Booking } from './pages/booking.jsx';
 import { BookingConfirmation } from './components/booking-confirmation.jsx';
 import { BookingSearch } from './pages/booking-search.jsx';
@@ -47,7 +46,6 @@ function App() {
                                     <Route path='/mybooking' element={<BookingSearch />}></Route>
                                 </Routes>
                             </PageTopWrapper>
-                            <SkipPage />
                             <Footer />
                             <Navbar />
                             <ScrollToTop />

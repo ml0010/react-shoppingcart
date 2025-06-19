@@ -150,7 +150,7 @@ export const BookingConfirmation = () => {
 
             <div className='bttns'>
                 <button className='cancelBttn' onClick={handleDeleteBooking}>CANCEL BOOKING</button>
-                <Link className='homeBttn' to='/home'>BACK TO HOME</Link>
+                <Link to='/home'><button className='homeBttn' >BACK TO HOME</button></Link>
             </div>
             <Faq></Faq>
         </div>

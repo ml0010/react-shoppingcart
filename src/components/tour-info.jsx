@@ -92,7 +92,7 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
     	<div className='tourInfo' key={id} ref={closeRef}>
         	<div className='titleBar'>
                 <h1 className='name'>{tourName}</h1>
-                <button className='closeBttn' onClick={handleClose}><XIcon size={35} weight="bold" /></button>
+                <button className='closeBttn' onClick={handleClose}><XIcon size={35} weight="bold" className='closeIcon'/></button>
       	    </div>
             <div className='tourPhotoHandler'>
                 <button onClick={handlePreviusPhotoIndex}><CaretCircleLeftIcon size={35} weight="fill" /></button>
@@ -126,7 +126,7 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
                 </span>
             </div>
 			<hr className="separator" />
-            <div className='guestInfo'>
+            <div className='guestInput'>
                 <h3>Please select number of people and date</h3>
                 <div className='countHandler'>
                     <span>				

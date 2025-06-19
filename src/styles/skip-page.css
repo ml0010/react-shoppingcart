@@ -16,7 +16,6 @@
 }
 
 .scrollDownBttn.active {
-
     opacity: 1;
     pointer-events: auto;
 }

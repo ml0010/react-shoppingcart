@@ -71,11 +71,11 @@ export const Booking = () => {
             <div className='bookingInfo'>
                 <div className='tourSummary'>
                     <Link to='/cart'><ArrowCounterClockwiseIcon size={20} />BACK TO BASKET</Link>
-                    <h3>Tour Summary</h3>
+                    <h3>Your Tours</h3>
                     {TOURS.map((tour) => {
                         if (cartItems[tour.id]["pax"] > 0) {
                             return (
-                            <div className='tours'>
+                            <div className='tour-in-basket'>
                                 <hr className='separator' />
                                 <p><b>{tour.tourName}</b> x {cartItems[tour.id]["pax"]}</p>
                                 <p>Date: {cartItems[tour.id]["date"]}</p>

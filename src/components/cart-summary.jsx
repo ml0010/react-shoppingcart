@@ -37,7 +37,7 @@ export const CartSummary = () => {
    
     return (
         <div className={`cartSummary ${showCartSummary? 'active' : 'inactive'}`} ref={cartSummaryRef}>
-
+            
             <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XIcon size={35} weight="bold" /></button>
 
             {totalAmount > 0 ? (

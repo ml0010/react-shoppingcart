@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-shoppingcart/static/css/main.8ac0a278.css",
-    "main.js": "/react-shoppingcart/static/js/main.ca84e366.js",
+    "main.css": "/react-shoppingcart/static/css/main.b8714a93.css",
+    "main.js": "/react-shoppingcart/static/js/main.2e3af3f9.js",
     "static/js/453.e5f97dca.chunk.js": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js",
     "static/media/llaut.jpg": "/react-shoppingcart/static/media/llaut.d70a687a65fc727b7ac9.jpg",
     "static/media/banyalbufar.jpg": "/react-shoppingcart/static/media/banyalbufar.9ca1a5c1b7c1a3da86c9.jpg",
@@ -10,12 +10,12 @@
     "static/media/orange.jpg": "/react-shoppingcart/static/media/orange.0b58e5f60d97d2b6dfdc.jpg",
     "static/media/map.webp": "/react-shoppingcart/static/media/map.20e43e969bfbbddd7a5b.webp",
     "index.html": "/react-shoppingcart/index.html",
-    "main.8ac0a278.css.map": "/react-shoppingcart/static/css/main.8ac0a278.css.map",
-    "main.ca84e366.js.map": "/react-shoppingcart/static/js/main.ca84e366.js.map",
+    "main.b8714a93.css.map": "/react-shoppingcart/static/css/main.b8714a93.css.map",
+    "main.2e3af3f9.js.map": "/react-shoppingcart/static/js/main.2e3af3f9.js.map",
     "453.e5f97dca.chunk.js.map": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ac0a278.css",
-    "static/js/main.ca84e366.js"
+    "static/css/main.b8714a93.css",
+    "static/js/main.2e3af3f9.js"
   ]
 }

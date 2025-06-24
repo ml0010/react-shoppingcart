@@ -45,7 +45,7 @@
     grid-template-columns: 1fr 1fr;
     place-items: center;
     column-gap: 20px;
-    padding-bottom: 150px;
+    padding-bottom: 40px;
 }
 
 .moerTourBttn {

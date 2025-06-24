@@ -10,21 +10,26 @@
 .home .Logo {
     width: 200px;
 }
-
-.home .pageSummary {
+.home .pageContent {
     font-family: var(--font);
     font-weight: 200;
     max-width: 700px;
     grid-template-columns: 1fr;
 }
+.home .pageContent div {
+    padding: 20px;
+    border-radius: 30px;
+    margin: 10px;
+    margin-top: 50px;
+}
 
-.home .pageSummary h2 {
+.home .pageContent h2 {
     color: var(--light);
     font-family: var(--font2);
     font-weight: 800;
 }
 
-.home .pageSummary p {
+.home .pageContent p {
     font-size: 14px;
     color: var(--grey);
 }

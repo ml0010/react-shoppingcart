@@ -4,6 +4,10 @@
     padding: 20px;
     margin: 40px;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .service .serviceList {

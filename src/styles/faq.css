@@ -1,6 +1,12 @@
 .faq {
     padding-top: 30px;
     color: var(--grey);
+    padding-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .faq svg {

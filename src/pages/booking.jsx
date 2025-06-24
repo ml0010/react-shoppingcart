@@ -95,7 +95,7 @@ export const Booking = () => {
                     <button className='bookBttn' form='guestInfo' type='submit'>SUBMIT BOOKING</button>
                 </div>
             </div>
-            <Faq></Faq>
+            <Faq />
         </div>
     )
 }

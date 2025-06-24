@@ -21,7 +21,7 @@ export const Home = () => {
                 <img className='img1' src={Photo1} alt='llaut' />
                 <h1>EXPLORE MALLORCA</h1>
             </div>
-            <div className='pageSummary'>
+            <div className='pageContent'>
                 <hr className='separator' />
                 <div className='aboutUs'>
                     <h2>ABOUT US</h2>
@@ -44,8 +44,10 @@ export const Home = () => {
                     <RefundPolicy />
                 </div>
                 <hr className='separator' />
-                <h2>ALL OUR TOURS INCLUDE</h2>
-                <Services />
+                <div>
+                    <h2>ALL OUR TOURS INCLUDE</h2>
+                    <Services />
+                </div>
                 <hr className='separator' />
                 <p>Further enquiries are always welcome.</p>
                 <p>To communicate with us please visit our <Link to='/contact'>CONTACT US</Link> page.</p>

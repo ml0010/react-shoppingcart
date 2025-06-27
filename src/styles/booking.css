@@ -1,6 +1,7 @@
 .booking {
     width: 100%;
     display: grid;
+    grid-template-columns: 1fr;
     place-items: center;
     padding-bottom: 80px;
     color: var(--dark);
@@ -21,12 +22,12 @@
 
 .booking .bookingInfo .tourSummary {
     background-color: var(--light-trans2);
-    width: 80%;
     max-width: 600px;
     margin-top: 80px;
     padding: 25px;
     border-radius: 15px;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
 }
 
 .booking .tourSummary a {
@@ -40,39 +41,48 @@
 .booking .tourSummary svg {
     margin-right: 5px;
 }
+
+.login-form {
+    width: 400px;
+    padding-bottom: 40px;
+}
+
 .booking .info {
     background-color: var(--light-trans2);
-    width: 80%;
     max-width: 600px;
     display: grid;
     place-items: center;
     grid-template-columns: 1fr;
-    padding: 20px;
+    padding: 25px;
     padding-bottom: 30px;
-    margin: 20px;
     border-radius: 15px;
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
 }
-
 
 .booking .infoInput {
     display: grid;
     grid-template-columns: 1fr 2.5fr;
+    align-items: center;
     row-gap: 15px;
+    padding: 20px;
 }
 .booking .infoInput .commentInput {
     width: 350px;
     height: 100px;
-    border: none;
     resize: none;
+    padding: 2px;
+
 }
 .booking .infoInput input {
-    width: 200px;
+    width: 220px;
     height: 23px;
-    border: none;
+    padding: 2px;
 }
 .booking .infoInput label {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
+    text-align: right;
+    margin-right: 15px;
     color: var(--light);
 }
 

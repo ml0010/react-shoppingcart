@@ -1,9 +1,10 @@
 .service {
     max-width: 800px;
-    background-color: var(--light-trans2);
-    padding: 20px;
+    background-color: var(--cream);
+    padding: 10px;
     margin: 40px;
     border-radius: 15px;
+    border: 1px solid var(--grey);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,13 +19,9 @@
     padding: 20px;
     max-width: 550px;
 }
-.service h2 {
-    font-family: var(--font2);
-    color: var(--light);
-}
+
 .service h3 {
     font-size: 10px;
-    color: var(--light);
     font-weight: 300;
 }
 
@@ -35,7 +32,7 @@
 .service .separator {
     height: 0.5px;
     width: 90%;
-    background-color: var(--light);
+    background-color: var(--grey);
     border: none;
     opacity: 0.5;
     margin-top: 10px;

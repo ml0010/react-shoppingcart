@@ -9,7 +9,8 @@
     width: 380px;
     background-color: var(--light-trans2);
     border-radius: 12px;
-    color: var(--dark);
+    color: var(--grey);
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
 }
 
 .tour .tourImg {
@@ -28,7 +29,7 @@
 
 .tour .tourName {
     height: 20px;
-    font-size: 22px;
+    font-size: 21px;
     display:flex;
     align-items:center;
     margin-top: 30px;
@@ -36,13 +37,12 @@
 
 .tour .subInfo {
     width: 50%;
-    font-size: 14px;
+    font-size: 13px;
     display: grid;
     grid-template-columns: 1fr 7fr;
     grid-auto-rows: 30px;
     place-items: center;
-    font-family: var(--font3);
-    color: var(--light);
+    font-family: var(--font1);
 }
 
 .tour .description {

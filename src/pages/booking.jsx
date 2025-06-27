@@ -1,19 +1,30 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../styles/booking.css';
 import { TOURS } from '../tourlist';
 import { TourContext } from '../context/tour-context';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowCounterClockwiseIcon } from '@phosphor-icons/react';
 import { Faq } from '../components/faq';
+import { AuthenticationContext } from '../context/authentication-context';
+import LoginForm from '../components/login-form';
+import { BookingContext } from '../context/booking-context';
 
 export const Booking = () => {
     const { cartItems, setCartItems, getCartDefault } = useContext(TourContext);
+    const { user, isLoggedIn } = useContext(AuthenticationContext);
+    const { addBooking, setIsBookingUpdated } = useContext(BookingContext);
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
+    const [name, setName] = useState(user.name || "");
+    const [email, setEmail] = useState(user.email || "");
+    const [phone, setPhone] = useState(user.telephone || "");
     const [comment, setComment] = useState("");
 
+    useEffect(() => {
+        setName(user.name);
+        setEmail(user.email);
+        setPhone(user.telephone);
+    }, [user]);
+    
     const resetState = () => {
         setName("");
         setEmail("");
@@ -36,6 +47,7 @@ export const Booking = () => {
         });
         return cartItemList;
     };
+
     const generateBookingReference = (digits) => {
         let str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXZ';
         let uuid = [];
@@ -44,38 +56,28 @@ export const Booking = () => {
         }
         return uuid.join('');
     }
+
     const tours = getCartList();
     const reference = generateBookingReference(5);
     const navigate = useNavigate();
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        let result = await fetch('http://localhost:4000/booking', {
-            method: "post",
-            body: JSON.stringify({ reference, name, email, phone, comment, tours }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        result = await result.json();
-        localStorage.setItem("booking", JSON.stringify(result));
-
-        console.log('BOOKING FORM SUBMITTED');
-        console.log(result);
+        await addBooking(user.username, reference, name, email, phone, comment, tours);
         resetState();
         navigate('/confirmation', {state: {reference: reference}});
     }
-    
+
     return (
         <div className='booking'>
             <div className='bookingInfo'>
                 <div className='tourSummary'>
                     <Link to='/cart'><ArrowCounterClockwiseIcon size={20} />BACK TO BASKET</Link>
                     <h3>Your Tours</h3>
-                    {TOURS.map((tour) => {
+                    {TOURS.map((tour, index) => {
                         if (cartItems[tour.id]["pax"] > 0) {
                             return (
-                            <div className='tour-in-basket'>
+                            <div className='tour-in-basket' key={index}>
                                 <hr className='separator' />
                                 <p><b>{tour.tourName}</b> x {cartItems[tour.id]["pax"]}</p>
                                 <p>Date: {cartItems[tour.id]["date"]}</p>
@@ -85,7 +87,14 @@ export const Booking = () => {
                     })}
                 </div>
                 <div className='info'>
-                    <h3>Booking Information</h3>
+                    <h3>Main Guest's Information</h3>
+                    {!isLoggedIn?
+                    <div className='booking-login'>
+                        <p>Do you have an account?</p>
+                        <LoginForm />
+                        <p>If you prefer, you can add your information below</p>
+                    </div> 
+                    : <></>}
                     <form className='infoInput' id='guestInfo' onSubmit={handleOnSubmit}>
                         <label>Name </label><input className='nameInput' type='text' name='name' placeholder='Main Guest' value={name} onChange={(e)=>setName(e.target.value)} required></input>
                         <label>Email </label><input className='emailInput' type='email' name='email' placeholder='Contact Email Address' value={email} onChange={(e)=>setEmail(e.target.value)} required></input>

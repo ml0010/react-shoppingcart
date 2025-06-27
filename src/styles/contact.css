@@ -4,6 +4,10 @@
     padding-bottom: 60px;
     color: var(--grey);
 }
+.title {
+    text-shadow: -0.5px -0.5px 0 var(--dark), 0.5px -0.5px 0 var(--dark), -0.5px 0.5px 0 var(--dark), 0.5px 0.5px 0 var(--dark);
+}
+
 .pageContent p {
     font-size: 13px;
     font-weight: 200;
@@ -31,33 +35,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--light-trans1);
+    background-color: var(--light-trans2);
     width: 70px;
     height: 70px;
     border-radius: 70px;
 }
 .contacts a {
     text-decoration: none;
-    color: black;
+    color: var(--grey);
     font-size: 13px;
     letter-spacing: 0.08em;
 }
 .contact a:hover {
-    background-color: var(--light-trans1);
-    color: var(--dark);
+    background-color: var(--light-trans2);
+    color: var(--light);
     transition: 0.2s ease-in-out;
 }
 
 
 .pageRight {
     justify-self: start;
-    background-color: var(--light-trans1);
+    background-color: var(--light-trans2);
     padding: 20px;
     margin-top: 30px;
     border-radius: 10px;
     width: 400px;
     height: 400px;
     text-align: center;
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+
 }
 .pageRight input {
     width: 90%;
@@ -76,10 +82,13 @@
     margin: 5px;
     border-radius: 4px;
 }
-.pageRight p {
+.pageRight .sent-msg {
     font-size: 16px;
-    font-family: var(--font3);
     color: var(--red);
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .sendMsgBttn {

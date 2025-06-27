@@ -35,7 +35,7 @@ export const Faq = () => {
                 {showContactInfo? 
                 <div className='contactInfo'>
                     <p>You can contact us via <Link to='/contact'>CONTACT US</Link> page.</p>
-                    <p>Alternatively, Please click Whatssapp button below to chat with us.</p>
+                    <p>Alternatively, Please click Whatsapp button below to chat with us.</p>
                     <a className='whattsappIcon' href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>
                         <WhatsappLogoIcon size={50} />
                     </a>

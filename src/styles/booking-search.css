@@ -1,6 +1,6 @@
 .bookingSearch {
     min-height: 80vh;
-    background-color: var(--light-trans2);
+    background-color: var(--cream);
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
@@ -11,9 +11,10 @@
     padding: 25px;
     font-size: 15px;
     font-family: var(--font2);
-    background-color: var(--cream);
+    background-color: var(--light-trans2);
     border-radius: 15px;
     margin: 30px;
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
 }
 
 .bookingSearch .bookingReferenceInput {
@@ -23,6 +24,12 @@
     text-align: center;
     color: var(--light);    
 }
+.bookingSearch .searchTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .bookingSearch p {
     margin-top: 0px;
     font-size: 13px;
@@ -61,6 +68,12 @@
     background-color: var(--light);
     transition: 0.2s ease-in;
 }
+.errorMsg {
+    color: var(--red);
+    font-family: var(--font4);
+    font-size: 13px;
+}
+
 
 .errorMsg {
     color: var(--red);

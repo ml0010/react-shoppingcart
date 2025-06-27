@@ -38,22 +38,22 @@ export const CartSummary = () => {
     return (
         <div className={`cartSummary ${showCartSummary? 'active' : 'inactive'}`} ref={cartSummaryRef}>
             
-            <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XIcon size={35} weight="bold" /></button>
+            <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XIcon size={33} weight="bold" /></button>
 
             {totalAmount > 0 ? (
             <div className='cartSummaryItems'>
                 <h1>Your Basket</h1>
                 <hr className='separator'/>
                 <div className='cartSummaryItem'>
-                    {TOURS.map((tour) => {
+                    {TOURS.map((tour, index) => {
                         if (cartItems[tour.id]["pax"] > 0) {
                             //console.log(cartItems[tour.id]);
                             return (
-                                <>
+                                <div key={index}>
                                     <p><b>{tour.tourName}</b> X {cartItems[tour.id]["pax"]}</p>
                                     <p>Date: {cartItems[tour.id].date}</p>
                                     <hr className='separator' />
-                                </>
+                                </div>
                             );
                         } else { return null; }
                     })}

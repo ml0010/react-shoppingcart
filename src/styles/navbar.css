@@ -23,15 +23,6 @@
     transition: 0.5s ease-in-out;
 }
 
-.links .menuBttn {
-    position: fixed;
-    left: 50px;
-    top: 10px;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-}
 
 .links:hover {
     background-color: var(--cream);
@@ -50,10 +41,6 @@
     color: var(--dark);
 }
 
-.menuBttn.menubar:hover {
-    color: var(--cream);
-}
-
 .links a {
     margin-right: 40px;
     font-size: 15px;
@@ -69,19 +56,29 @@
     transition: 0.2s ease-in-out;
 }
 
+
+
 .links button {
     color: var(--cream);
+    background-color: transparent;
     cursor: pointer;
+    border: none;
 }
 
 .links button:hover {
     color: var(--light);
     transition: 0.2s ease-in-out;
 }
-
-.cartSummaryBttn {
-    background-color: transparent;
-    border: none;
+.links .menuBttn {
+    position: fixed;
+    left: 40px;
+    top: 10px;
+    transition: 0.5s ease-in-out;
+}
+.menuBttn.menubar:hover {
+    color: var(--cream);
+}
+.links .cartSummaryBttn {
     margin-right: 40px;
     width: 40px;
     height: 40px;
@@ -121,7 +118,7 @@
 .menuContent .menuTitle {
     font-family: var(--font2);
     color: var(--light);
-    font-size: 50px;
+    font-size: 40px;
     -webkit-text-stroke: 0.8px var(--dark);
     font-weight: 800;
     margin-top: 0px;
@@ -147,7 +144,7 @@
 
 .menuContent .menuLinks a {
     padding-top:23px;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 500;
     color: var(--dark);
     cursor: pointer;
@@ -159,7 +156,6 @@
     color: var(--light);
     transition: 0.2s ease-in-out;
 }
-
 
 .backdrop {
     position: fixed;

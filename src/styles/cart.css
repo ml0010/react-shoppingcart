@@ -1,12 +1,12 @@
 .cart {
+    padding-top: 90px;
     min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
 }
 
 .cart h1 {
-    padding-top: 100px;
     font-size: 30px;
     font-family: var(--font2);
 }

@@ -64,7 +64,7 @@ export const Contact = () => {
                                 <WhatsappLogoIcon size={40} />
                             </span>
                             <span className='contacts'>
-                                <h3>Whattsapp</h3>
+                                <h3>Whatsapp</h3>
                                 <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>+(34) 666-000-000</a>
                             </span>
                             <span className='icons'>
@@ -80,10 +80,10 @@ export const Contact = () => {
                     <div className='pageRight'>
                         <h3>Conctact Form</h3>                        
                         {showSubmitMsg?
-                            <>
+                            <div className='sent-msg'>
                                 <p>We have successfully received your message.</p>
                                 <p>We will get back to you as soon as possible.</p>
-                            </>: 
+                            </div>: 
                             <form onSubmit={handleOnSubmit}>
                                 <input className='nameInput' type='text' name='name' placeholder='Your Name' value={name} onChange={(e)=>setName(e.target.value)} required></input>
                                 <input className='emailInput' type='email' name='email' placeholder='Your Email' value={email} onChange={(e)=>setEmail(e.target.value)} required></input>

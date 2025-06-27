@@ -6,6 +6,7 @@ import { CartItem } from '../components/cart-item';
 import '../styles/cart.css';
 import Logo from '../assets/map.webp';
 import { Faq } from '../components/faq';
+import { GobackButton } from '../components/goback-button';
 
 export const Cart = () => {
 
@@ -16,6 +17,7 @@ export const Cart = () => {
 
     return (
         <div className='cart'>
+            <GobackButton />
             {totalAmount > 0 ? (
                 <>
                 <h1>Your basket</h1>

@@ -2,7 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from 'react'
 import '../styles/tour-info.css';
 import { TourContext } from '../context/tour-context';
 import { CartContext } from '../context/cart-context';
-import { AsteriskSimpleIcon, BasketIcon, BookOpenTextIcon, CaretCircleLeftIcon, CaretCircleRightIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
+import { BasketIcon, BookOpenTextIcon, CaretCircleLeftIcon, CaretCircleRightIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
 
 export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 
@@ -11,13 +11,20 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 	const { addToCart } = useContext(TourContext);
 	const { setShowCartSummary } = useContext(CartContext);
 
-	const [pax, setPax] = useState(1);
-	const [dateValue, setDateValue] = useState(null);
-    const [dateNullMsg, setDateNullMsg] = useState(null);
-    const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+	const [ pax, setPax ] = useState(1);
+	const [ dateValue, setDateValue ] = useState(null);
+    const [ dateNullMsg, setDateNullMsg ] = useState(null);
+    const [ currentPhotoIndex, setCurrentPhotoIndex ] = useState(0);
+    const [ fade, setFade ] = useState(false);
+
+
 
     const paxMin = 1;
     const paxMax = 12;
+
+    useEffect(()=>{
+        fadeEffect();
+    },[currentPhotoIndex]);
 
     const handlePreviusPhotoIndex = () => {
         const newIndex = currentPhotoIndex - 1;
@@ -35,10 +42,21 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
             setCurrentPhotoIndex(newIndex);
         }
     };
+    const handleClickDots = (index) => {
+        setCurrentPhotoIndex(Number(index));
+    };
+
+    const fadeEffect = () => {
+        setFade(true);
+        setTimeout(() => {
+            setFade(false); 
+        }, 300);
+    };
+
 
     const createDots = () => {
         const dots = img.map((item, index) => {
-            return <span className={`dot ${currentPhotoIndex ===  index ? 'avtive' : 'inactive'}`} id={index}><AsteriskSimpleIcon size={16} weight="bold" /></span>
+            return <div className={`dot ${currentPhotoIndex ===  index ? 'avtive' : ''}`} id={index} key={index} onClick={(e)=>handleClickDots(e.target.id)}></div>
         });
         return dots;
     };
@@ -67,7 +85,7 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 	}
 
 	const getLanguages = () => {
-		const languageList = languages.map((language) => <li>{language}</li>);
+		const languageList = languages.map((language, index) => <li key={index}>{language}</li>);
 		return languageList;
 	}
 
@@ -96,36 +114,34 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
       	    </div>
             <div className='tourPhotoHandler'>
                 <button onClick={handlePreviusPhotoIndex}><CaretCircleLeftIcon size={35} weight="fill" /></button>
-                <img className='photo' src={img[`${currentPhotoIndex}`]} alt={tourName} />
+                <img className={`photo ${fade? 'fade' : 'fade-out'}`} src={img[`${currentPhotoIndex}`]} alt={tourName} />
                 <button onClick={handleNextPhotoIndex}><CaretCircleRightIcon size={35} weight="fill" /></button>
             </div>
             <div className='dotContainer'>
                 {createDots()}
             </div>
-            <hr className="separator" />
             <div className='tourInfoHandler'>
                 <span>
-                    <h2><BookOpenTextIcon size={20} /> Description</h2>
+                    <h3><BookOpenTextIcon size={20} /> Description</h3>
                     <p>{description}</p>
                 </span>
                 <span>
-                    <h2><ClockIcon size={20} /> Duration</h2>                                
+                    <h3><ClockIcon size={20} /> Duration</h3>                                
                     <p>{duration} hours</p>
                 </span>
                 <span>
-                    <h2><GlobeIcon size={20} /> Language</h2>
-                    <ul className='languageList'>{getLanguages()}</ul>
+                    <h3><GlobeIcon size={20} /> Language</h3>
+                    <div className='languageList'>{getLanguages()}</div>
                 </span>
                 <span>
-                    <h2><MapPinLineIcon size={20} /> Meeting Point</h2>
+                    <h3><MapPinLineIcon size={20} /> Meeting Point</h3>
                     <p>{meetingPoint}</p>
                 </span>
                 <span>
-                    <h2><PiggyBankIcon size={20} /> Price</h2>
+                    <h3><PiggyBankIcon size={20} /> Price</h3>
                     <p>{price} € per person</p>
                 </span>
             </div>
-			<hr className="separator" />
             <div className='guestInput'>
                 <h3>Please select number of people and date</h3>
                 <div className='countHandler'>
@@ -155,15 +171,3 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
     	</div>
 	)
 }
-
-
-/*
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
-
-<LocalizationProvider dateAdapter={AdapterDayjs}>
-<DatePicker slotProps={{ textField: { size: 'small' } }} format="DD-MM-YYYY" value={dateValue} onChange={(newDateValue) => setDateValue(newDateValue)} />
-</LocalizationProvider>
-*/

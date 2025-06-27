@@ -1,0 +1,64 @@
+.join {
+    font-family: var(--font2);
+    background-color: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    padding-bottom: 60px;
+    padding-top: 90px;
+    color: var(--grey);
+}
+.join .joinTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.join svg {
+    margin-right: 8px;
+}
+.join .form {
+    background-color: var(--light-trans2);
+    width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+}
+.join .join-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+}
+.join .join-form input {
+    padding: 4px;
+    margin: 4px;
+    width: 70%;
+    font-size: 17px;
+    color: var(--light); 
+}
+
+.join .form button {
+    background-color: var(--dark);
+    color: white;
+    width: 60%;
+    min-height: 40px;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+}
+
+.join .form button:hover {
+    cursor: pointer;
+    background-color: var(--light);
+    transition: 0.2s ease-in;
+}
+
+.errorMsg {
+    color: var(--red);
+    font-family: var(--font4);
+    font-size: 13px;
+}
+

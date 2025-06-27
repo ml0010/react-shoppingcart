@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FacebookLogoIcon, InstagramLogoIcon, ListIcon, ShoppingBagIcon, XIcon, XLogoIcon } from '@phosphor-icons/react'
+import { FacebookLogoIcon, InstagramLogoIcon, ListIcon, ShoppingBagIcon, UserCircleCheckIcon, UserCircleIcon, XIcon, XLogoIcon } from '@phosphor-icons/react'
 import '../styles/navbar.css'
 import Logo from '../assets/map.webp'
 import { CartContext } from '../context/cart-context'
+import { AuthenticationContext } from '../context/authentication-context'
 
 export const Navbar = () => {
 
     const { showCartSummary, setShowCartSummary, isButtonActive, setIsButtonActive } = useContext(CartContext);
+    const { isLoggedIn, navigate } = useContext(AuthenticationContext);
     const [ scroll, setScroll ] = useState(false);
     const [ menuOpen, setMenuOpen] = useState(false);
 
@@ -63,21 +65,25 @@ export const Navbar = () => {
 
     return (
         <div className='navbar'>
-            {menuOpen ? (<div className='backdrop'></div>) : (<></>)}
+            {menuOpen ? <div className='backdrop'></div> : <></>}
             <div className={`navbarWrapper ${scroll ? 'active' : 'inactive'} ${menuOpen ? 'menuOpen' : 'menuClosed'}`}>
                 <div className='backgroundGradient'></div>
                 <div className='links'>
-                    <button className={`menuBttn ${scroll ? 'menubar' : 'navbar'}`} onClick={handleMenuClick}><ListIcon size={40} /></button>
-                    <Link to='/home'> ABOUT </Link>
-                    <Link to='/tours'> TOURS </Link>
-                    <Link to='/contact'> CONTACT </Link>
+                    <button className={`menuBttn ${scroll ? 'menubar' : 'navbar'}`} onClick={handleMenuClick}><ListIcon size={33} /></button>
+                    <Link to='/home'>ABOUT</Link>
+                    <Link to='/tours'>TOURS</Link>
+                    <Link to='/contact'>CONTACT</Link>
+                    {isLoggedIn? 
+                        <button className='loginBttn' onClick={()=>navigate('/mypage')}><UserCircleCheckIcon size={28} /></button> : 
+                        <button className='loginBttn' onClick={()=>navigate('/login')}><UserCircleIcon size={28} /></button>
+                    }
                     <button className='cartSummaryBttn' disabled={!isButtonActive} onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
                 </div>
             </div>
             <div className='menubarWrapper' ref={menuRef}>
                 <div className={`menuContent ${menuOpen ? 'open' : 'closed'}`}>
                     <button onClick={handleMenuClick}>
-                        <XIcon size={40} weight="bold" />
+                        <XIcon size={33} weight="bold" />
                     </button>
                     <span className='menuLinks'>
                         <p className='menuTitle'>EXPLORE MALLORCA</p>
@@ -85,7 +91,8 @@ export const Navbar = () => {
                         <Link to='/home' onClick={handleMenuClick}> ABOUT US </Link>
                         <Link to='/tours' onClick={handleMenuClick}> TOURS </Link>
                         <Link to='/contact' onClick={handleMenuClick}> CONTACT US </Link>
-                        <Link to='/cart' onClick={handleMenuClick}> YOUR BASKET </Link>
+                        <Link to='/cart' onClick={handleMenuClick}> BASKET </Link>
+                        {isLoggedIn? <Link to='/mypage' onClick={handleMenuClick}> MY PAGE </Link> : <Link to='/login' onClick={handleMenuClick}> MY ACCOUNT </Link>}
                         <Link to='/mybooking' onClick={handleMenuClick}> MY RESERVATION </Link>
                     </span>
                     <span className="socialMedia">

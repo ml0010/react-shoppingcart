@@ -1,0 +1,84 @@
+.myaccount {
+    padding-top: 100px;
+    min-height: 80vh;
+    font-family: var(--font2);
+    background-color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    color: var(--grey);
+}
+
+.myaccount h1 {
+    color: var(--light);
+}
+
+.myaccount .account-info {
+    border-radius: 15px;
+    font-family: var(--font4);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.myaccount .categoty-title {
+    text-align: right;
+    padding-right: 20px;
+}
+.myaccount .content {
+    text-align: left;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+}
+.myaccount .content .input {
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: var(--grey);
+    padding: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+}
+.myaccount .content .input.edit {
+    border: 1px solid grey;
+    background-color: white;
+
+}
+.myaccount .edit-password {
+    display: flex;
+    flex-direction: column;
+}
+.myaccount .content button {
+    border: none;
+    width: 50px;
+    margin-left: 10px;
+}
+.myaccount .Bttns {
+    display: flex;
+}
+.myaccount .Bttns button {
+    background-color: var(--dark);
+    color: white;
+    width: 190px;
+    min-height: 40px;
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myaccount .Bttns button:hover {
+    cursor: pointer;
+    background-color: var(--light);
+    transition: 0.2s ease-in;
+}
+.myaccount .Bttns button svg {
+    margin-left: 6px;
+}

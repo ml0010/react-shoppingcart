@@ -7,7 +7,7 @@ export const BookingContext =  createContext(null);
 export const BookingContextProvider = (props) => {
 
     const [ searchFailed, setSearchFailed ] = useState(false);
-    const { refreshUserInfo } = useContext(AuthenticationContext);
+    const { isLoggedIn, refreshUserInfo } = useContext(AuthenticationContext);
     
     const navigate = useNavigate();
 
@@ -43,17 +43,17 @@ export const BookingContextProvider = (props) => {
         if(username) {
             saveReferenceToAccount(username, reference);
         }
-        refreshUserInfo();
         console.log('BOOKING FORM SUBMITTED');
         //console.log(result);
     };
         
     const saveReferenceToAccount = async (username, reference) => {
-        console.log("Saving booking reference to client's account.");
         try {
             const response = await fetch(`http://localhost:4000/booking/${username}/add/${reference}`, {mode:'cors'});
             const data = await response.json();
             //console.log(data);
+            refreshUserInfo();
+            console.log("USER'S BOOKING REFERENCE SAVED");
         }
         catch (err) {
             console.log(err);
@@ -66,7 +66,11 @@ export const BookingContextProvider = (props) => {
             const response = await fetch(`http://localhost:4000/confirmation/${reference}/delete`, {mode:'cors'});
             console.log(response);
             refreshUserInfo();
-            navigate(-1);
+            if(isLoggedIn) {
+                navigate('/mypage');
+            } else {
+                navigate('/home');
+            }
         }
         catch (err) {
             console.log(err);

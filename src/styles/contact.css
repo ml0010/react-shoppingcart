@@ -23,7 +23,7 @@
 }
 .pageDevider .contactMethods {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2.5fr;
     row-gap: 35px;
     place-items: center;
 }

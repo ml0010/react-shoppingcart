@@ -3,12 +3,14 @@
     position: fixed;
     top: 0px;
     right: 0px;
-    padding: 15px;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     width: 380px;
     z-index: 100;
+    color: var(--grey);
 }
+
 .cartSummary.active {
     opacity: 1;
     visibility: visible;
@@ -21,12 +23,17 @@
     transform: translateY(-20px);
     transition: 500ms ease;
 }
-
+.cartSummary .header {
+    display: flex;
+}
+.cartSummary h1 {
+    width: 100%;
+}
 .cartSummary .closeCartSummaryBttn {
+    width: 10%;
     background-color: transparent;
     color: var(--dark);
     border: none;
-    float: right;
 }
 .cartSummary .closeCartSummaryBttn:hover {
     cursor: pointer;

@@ -25,13 +25,19 @@ export const MyPage = () => {
             </div>
             {booking.length? 
             <div className='bookings'>
-                <h2>Your booking</h2>
+                <h2>Your booking ({booking.length})</h2>
                 {booking.map((reference, index) => 
-                <div>
-                    <BookingDetail reference={reference} index={index} />
-                </div>)}
-            </div>
-            : <></>}
+                <BookingDetail reference={reference} index={index} />
+                )}
+            </div> : 
+            <div className='booking-empty'>
+                <h2>No Booking History</h2>
+                <div className='Bttns'>
+                    <p>Click TOURS button below to see available tours.</p>
+                    <button onClick={()=>navigate('/tours')}>TOURS</button>
+                    <button onClick={()=>navigate('/home')}>BACK TO HOME</button>
+                </div>
+            </div>}
         </div>
     )
 }

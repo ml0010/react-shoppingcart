@@ -13,10 +13,10 @@ export const Footer = () => {
                     <Link to='/contact'>CONTACT</Link>
                 </div>
                 <div className="socialMedia">
-                    <InstagramLogoIcon size={28} />
-                    <FacebookLogoIcon size={28} />
-                    <XLogoIcon size={28} />
-                </div>
+                        <a href='https://www.instagram.com' target='_blank' rel='noreferrer'><InstagramLogoIcon size={23} /></a>
+                        <a href='https://www.facebook.com' target='_blank' rel='noreferrer'><FacebookLogoIcon size={23} /></a>
+                        <a href='https://x.com' target='_blank' rel='noreferrer'><XLogoIcon size={23} /></a>
+                 </div>
                 <div className='contactDetails'>
                     <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>
                         <WhatsappLogoIcon size={50} />

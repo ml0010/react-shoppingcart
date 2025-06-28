@@ -96,9 +96,9 @@ export const Navbar = () => {
                         <Link to='/mybooking' onClick={handleMenuClick}> MY RESERVATION </Link>
                     </span>
                     <span className="socialMedia">
-                        <InstagramLogoIcon size={20} />
-                        <FacebookLogoIcon size={20} />
-                        <XLogoIcon size={20} />
+                        <a href='https://www.instagram.com' target='_blank' rel='noreferrer'><InstagramLogoIcon size={20} /></a>
+                        <a href='https://www.facebook.com' target='_blank' rel='noreferrer'><FacebookLogoIcon size={20} /></a>
+                        <a href='https://x.com' target='_blank' rel='noreferrer'><XLogoIcon size={20} /></a>
                     </span>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 .gobackBttnwrapper {
     width: 70%;
     padding: 10px;
+    color: var(--grey);
 }
 .gobackBttn {
     border: none;

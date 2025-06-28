@@ -70,14 +70,15 @@
     width: 350px;
     height: 100px;
     resize: none;
-    padding: 2px;
+    padding: 4px;
 
 }
 .booking .infoInput input {
-    width: 220px;
-    height: 23px;
-    padding: 2px;
+    width: 60%;
+    padding: 4px;
+    font-size: 15px;
 }
+
 .booking .infoInput label {
     font-size: 15px;
     font-weight: 600;

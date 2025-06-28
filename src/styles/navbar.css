@@ -56,8 +56,6 @@
     transition: 0.2s ease-in-out;
 }
 
-
-
 .links button {
     color: var(--cream);
     background-color: transparent;
@@ -105,6 +103,7 @@
 .menuContent.open {
     opacity: 1;
     left: 0px;
+    z-index: 100;
 }
 
 .menuContent .menuLogo {

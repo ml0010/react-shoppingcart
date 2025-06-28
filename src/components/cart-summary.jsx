@@ -25,7 +25,7 @@ export const CartSummary = () => {
             let handler = (e)=>{
                 if(!cartSummaryRef.current.contains(e.target)){
                     handleShowCartSummary();
-                    console.log(cartSummaryRef.current);
+                    //console.log(cartSummaryRef.current);
                 }
             };
             document.addEventListener("mousedown", handler);
@@ -37,12 +37,12 @@ export const CartSummary = () => {
    
     return (
         <div className={`cartSummary ${showCartSummary? 'active' : 'inactive'}`} ref={cartSummaryRef}>
-            
-            <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XIcon size={33} weight="bold" /></button>
-
+            <div className='header'>
+                <h1>Your Basket</h1>
+                <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XIcon size={33} weight="bold" /></button>
+            </div>
             {totalAmount > 0 ? (
             <div className='cartSummaryItems'>
-                <h1>Your Basket</h1>
                 <hr className='separator'/>
                 <div className='cartSummaryItem'>
                     {TOURS.map((tour, index) => {
@@ -60,11 +60,11 @@ export const CartSummary = () => {
                 </div>
                 <p className='cartSummaryTotal'>Total Amount: {totalAmount}€</p>
             </div>) : (
-                <>
-                    <h1 className='emptyBasket'>Your Basket is Empty</h1>
-                    <hr className='separator' />
-                    <Link to='/tours' onClick={handleShowCartSummary}><div className='goToToursBttn'>MORE TOURS</div></Link>
-                </>
+            <>
+                <p className='emptyBasket'>Your Basket is Empty</p>
+                <hr className='separator' />
+                <Link to='/tours' onClick={handleShowCartSummary}><div className='goToToursBttn'>MORE TOURS</div></Link>
+            </>
             )}
             <Link to='/cart' onClick={handleShowCartSummary}><div className='goToBasketBttn'>GO TO BASKET</div></Link>
         </div>

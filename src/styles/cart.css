@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
+    color: var(--grey);
 }
 
 .cart h1 {

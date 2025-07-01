@@ -24,6 +24,9 @@
     margin-top: 50px;
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
 }
+.home .pageContent .bottom {
+    padding: 50px;
+}
 
 .home .pageContent h2 {
     font-size: 28px;
@@ -31,7 +34,10 @@
     font-family: var(--font2);
     font-weight: 800;
 }
-
+.home .refund {
+    background-color: var(--cream);
+    border: 1px solid var(--grey);
+}
 
 .img1 {
     width: 100%;

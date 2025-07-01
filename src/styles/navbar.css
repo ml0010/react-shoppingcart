@@ -137,25 +137,43 @@
 .menuContent .menuLinks {
     padding-top: 50px;
     padding-left: 30px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .menuContent .menuLinks a {
     padding-top:23px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--dark);
     cursor: pointer;
     text-decoration: none;
     letter-spacing: 0.2em;
+    display: inline-block;
+    position: relative;
+}
+.menuContent .menuLinks a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--grey);
+    transition: transform 0.3s ease-out;
+    transform-origin: bottom right;
 }
 
 .menuContent .menuLinks a:hover{
-    color: var(--light);
-    transition: 0.2s ease-in-out;
+    transition: 0.15s ease-in-out;
 }
 
+.menuContent .menuLinks a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
 .backdrop {
     position: fixed;
     top: 0;

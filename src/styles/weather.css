@@ -1,0 +1,31 @@
+.weather {
+    padding: 10px;
+}
+.weather img {
+    width: 150px;
+}
+.todayWeather .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.averageWeather .monthlyWeather {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 5px;
+}
+.averageWeather .month {
+    background-color: var(--cream);
+    margin: 5px;
+    border-radius: 15px;
+}
+.averageWeather .month-text {
+    font-size: 14px;
+}
+.averageWeather .temperature {
+    font-size: 20px;
+    font-weight: 500;
+}
+.averageWeather .rain {
+    font-size: 10px;
+}

@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { Services } from '../components/services';
 import { RefundPolicy } from '../components/refund-policy';
 import { SkipPage } from '../components/skip-page'
+import { Weather } from '../components/weather'
 
 export const Home = () => {
     return (
@@ -44,8 +45,13 @@ export const Home = () => {
                     <h2>ALL OUR TOURS INCLUDE</h2>
                     <Services />
                 </div>
-                <p>Further enquiries are always welcome.</p>
-                <p>To communicate with us please visit our <Link to='/contact'>CONTACT US</Link> page.</p>
+                <div className='weather content'>
+                    <Weather />
+                </div>
+                <div className='bottom'>
+                    <p>Further enquiries are always welcome.</p>
+                    <p>To communicate with us please visit our <Link to='/contact'>CONTACT US</Link> page.</p>
+                </div>
             </div>
             <img className='img2' src={Photo2} alt='selva'/>
             <SkipPage />

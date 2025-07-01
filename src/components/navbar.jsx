@@ -88,9 +88,9 @@ export const Navbar = () => {
                     <span className='menuLinks'>
                         <p className='menuTitle'>EXPLORE MALLORCA</p>
                         <img className='menuLogo' src={Logo} alt='map'></img>
-                        <Link to='/home' onClick={handleMenuClick}> ABOUT US </Link>
+                        <Link to='/home' onClick={handleMenuClick}> ABOUT </Link>
                         <Link to='/tours' onClick={handleMenuClick}> TOURS </Link>
-                        <Link to='/contact' onClick={handleMenuClick}> CONTACT US </Link>
+                        <Link to='/contact' onClick={handleMenuClick}> CONTACT </Link>
                         <Link to='/cart' onClick={handleMenuClick}> BASKET </Link>
                         {isLoggedIn? <Link to='/mypage' onClick={handleMenuClick}> MY PAGE </Link> : <Link to='/login' onClick={handleMenuClick}> MY ACCOUNT </Link>}
                         <Link to='/mybooking' onClick={handleMenuClick}> MY RESERVATION </Link>

@@ -4,7 +4,6 @@
     color: var(--grey);
 }
 .home .title {
-    margin-bottom: -40px;
     text-shadow: -0.5px -0.5px 0 var(--dark), 0.5px -0.5px 0 var(--dark), -0.5px 0.5px 0 var(--dark), 0.5px 0.5px 0 var(--dark);
 }
 
@@ -14,44 +13,101 @@
 .home .pageContent {
     font-family: var(--font);
     font-weight: 200;
-    max-width: 700px;
     grid-template-columns: 1fr;
+    width: 100%;
 }
+
+/*
 .home .pageContent .content {
     background-color: var(--light-trans2);
     padding: 30px;
     border-radius: 20px;
     margin-top: 50px;
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+}*/
+
+.home .pageContent .content {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
-.home .pageContent .bottom {
-    padding: 50px;
+.home .pageContent .line {
+    height: 0.5px;
+    width: 100%;
+    background-color: var(--light);
+    border: none;
+}
+.home .pageContent .outstory {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+
+}
+.outstory .images {
+    position: relative;
+}
+.outstory .texts {
+    padding: 40px;
+}
+.outstory .texts h2 {
+    font-family: var(--font4);
+    font-size: 30px;
+    text-align: left;
+}
+.outstory .texts p {
+    font-size: 15px;
+    text-align: left;
+    line-height: 20px;
+}
+.img1 {
+    width: 270px;
+    object-fit: cover;
+    position: absolute;
+}
+.img2 {
+    padding-top: 120px;
+    padding-left: 240px;
+    width: 270px;    
+    object-fit: cover;
 }
 
-.home .pageContent h2 {
-    font-size: 28px;
-    color: var(--grey);
-    font-family: var(--font2);
-    font-weight: 800;
+.home .pageContent .aboutUs {
+    background-color: var(--light-trans2);
+    padding-left: 16vw;
+    padding-right: 16vw;
 }
+.home .pageContent .aboutUs .texts {
+}
+.aboutUs .texts p {
+    font-size: 42px;    
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    line-height: 60px;
+}
+.home .pageContent .terms {
+
+}
+.home .pageContent .services {
+
+}
+.home .pageContent .weather-wrapper{
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--light-trans2);
+}
+.home .pageContent .bottom {
+}
+
+
 .home .refund {
     background-color: var(--cream);
     border: 1px solid var(--grey);
 }
 
-.img1 {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    padding-top: 20px;
-}
-.img2 {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    object-position: top;
-    padding-top: 20px;
-}
+
 .home a {
     text-decoration: none;
     color: var(--grey);
@@ -74,16 +130,10 @@
         font-size: 12px;
         color: var(--grey);
     }
-    .home .separator {
-        margin: 30px;
-    }
     .home .service p {
         font-size: 12px;
     }
-    .home .service .separator {
-        margin-top: 10px;
-        margin-bottom: 30px;
-    }
+
 }
 @media only screen and (max-width: 600px) {
 }

@@ -20,7 +20,7 @@ export const AuthenticationContextProvider = (props) => {
     const navigate = useNavigate();
 
     const addNewUser = async (input) => {
-        let result = await fetch('http://localhost:4000/join', {
+        let result = await fetch('https://react-shoppingcart-q31i.onrender.com/join', {
             method: "post",
             body: JSON.stringify({ name : input.name, email: input.email, telephone: input.telephone, username: input.username, password: input.password }),
             headers: {
@@ -34,7 +34,7 @@ export const AuthenticationContextProvider = (props) => {
 
     const checkUniqueUsername = async (input) => {
         try {
-            const response = await fetch(`http://localhost:4000/check/username/${input.username}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/check/username/${input.username}`, {mode:'cors'});
             const data = await response.json();
             if(data) {
                 console.log('USERNAME ALREADY IN DB: ' + data.username);
@@ -51,7 +51,7 @@ export const AuthenticationContextProvider = (props) => {
 
     const checkUniqueEmail = async (input) => {
         try {
-            const response = await fetch(`http://localhost:4000/check/email/${input.email}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/check/email/${input.email}`, {mode:'cors'});
             const data = await response.json();
             if(data) {
                 console.log('EMAIL ALREADY IN DB: ' + data.email);
@@ -68,7 +68,7 @@ export const AuthenticationContextProvider = (props) => {
 
     const editEmail = async (username, newEmail) => {
         try {
-            const response = await fetch(`http://localhost:4000/${username}/edit/email/${newEmail}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/${username}/edit/email/${newEmail}`, {mode:'cors'});
             const data = await response.json();
             if(data) {
                 //console.log(data);
@@ -84,7 +84,7 @@ export const AuthenticationContextProvider = (props) => {
     };
     const editPhone = async (username, newPhone) => {
         try {
-            const response = await fetch(`http://localhost:4000/${username}/edit/telephone/${newPhone}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/${username}/edit/telephone/${newPhone}`, {mode:'cors'});
             const data = await response.json();
             if(data) {
                 //console.log(data);
@@ -100,7 +100,7 @@ export const AuthenticationContextProvider = (props) => {
     };
     const editPassword = async (username, newPassword) => {
         try {
-            const response = await fetch(`http://localhost:4000/${username}/edit/password/${newPassword}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/${username}/edit/password/${newPassword}`, {mode:'cors'});
             const data = await response.json();
             if(data) {
                 //console.log(data);
@@ -116,7 +116,7 @@ export const AuthenticationContextProvider = (props) => {
 
     const checkPassword = async (username, password) => {
         try {
-            const response = await fetch(`http://localhost:4000/${username}/confirm/password/${password}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/${username}/confirm/password/${password}`, {mode:'cors'});
             const data = await response.json();
             if(data) {
                 //console.log(data);
@@ -134,7 +134,7 @@ export const AuthenticationContextProvider = (props) => {
     
     const login = async (input) => {
         try {
-            const response = await fetch(`http://localhost:4000/login/${input.username}/${input.password}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/login/${input.username}/${input.password}`, {mode:'cors'});
             const data = await response.json();
             if(data) {
                 setUser((prev) => ({...prev, name: data.name, email: data.email, telephone: data.telephone, username: data.username, booking: data.booking}));
@@ -160,7 +160,7 @@ export const AuthenticationContextProvider = (props) => {
 
     const refreshUserInfo = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/refresh/${user.username}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/refresh/${user.username}`, {mode:'cors'});
             const data = await response.json();
             if(data) {
                 setUser((prev) => ({...prev, name: data.name, email: data.email, telephone: data.telephone, username: data.username, booking: data.booking}));

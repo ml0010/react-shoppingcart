@@ -14,7 +14,7 @@ export const BookingContextProvider = (props) => {
     const getBookingDetail = async (reference) => {
         //console.log("Getting booking information - " + reference);
         try {
-            const response = await fetch(`http://localhost:4000/confirmation/${reference}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/confirmation/${reference}`, {mode:'cors'});
             const data = await response.json();
             if(data === null) { 
                 console.log("Booking reference not found");
@@ -30,7 +30,7 @@ export const BookingContextProvider = (props) => {
     }
 
     const addBooking = async (username, reference, name, email, phone, comment, tours) => {
-        let result = await fetch('http://localhost:4000/booking', {
+        let result = await fetch('https://react-shoppingcart-q31i.onrender.com/booking', {
             method: "post",
             body: JSON.stringify({ reference, name, email, phone, comment, tours }),
             headers: {
@@ -49,7 +49,7 @@ export const BookingContextProvider = (props) => {
         
     const saveReferenceToAccount = async (username, reference) => {
         try {
-            const response = await fetch(`http://localhost:4000/booking/${username}/add/${reference}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/booking/${username}/add/${reference}`, {mode:'cors'});
             const data = await response.json();
             //console.log(data);
             refreshUserInfo();
@@ -63,7 +63,7 @@ export const BookingContextProvider = (props) => {
     const deleteBooking = async (reference) => {
         console.log("Delete booking record.")
         try {
-            const response = await fetch(`http://localhost:4000/confirmation/${reference}/delete`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/confirmation/${reference}/delete`, {mode:'cors'});
             console.log(response);
             refreshUserInfo();
             if(isLoggedIn) {
@@ -80,7 +80,7 @@ export const BookingContextProvider = (props) => {
     const updatePhone = async (reference, phone) => {
         //console.log("Phone number update.")
         try {
-            const response = await fetch(`http://localhost:4000/confirmation/${reference}/editphone/${phone}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/confirmation/${reference}/editphone/${phone}`, {mode:'cors'});
             //console.log(response);
         }
         catch (err) {
@@ -91,7 +91,7 @@ export const BookingContextProvider = (props) => {
     const updateComment = async (reference, comment) => {
         //console.log("Comment update.")
         try {
-            const response = await fetch(`http://localhost:4000/confirmation/${reference}/editcomment/${comment}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/confirmation/${reference}/editcomment/${comment}`, {mode:'cors'});
             //console.log(response);
         }
         catch (err) {

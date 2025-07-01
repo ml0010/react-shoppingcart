@@ -4,6 +4,9 @@
 .weather img {
     width: 150px;
 }
+.todayWeather, .averageWeather {
+    padding-top: 10px;
+}
 .todayWeather .wrapper {
     display: flex;
     justify-content: center;
@@ -15,7 +18,8 @@
 }
 .averageWeather .month {
     background-color: var(--cream);
-    margin: 5px;
+    border: 0.5px solid var(--grey);
+    margin: 8px;
     border-radius: 15px;
 }
 .averageWeather .month-text {
@@ -27,4 +31,7 @@
 }
 .averageWeather .rain {
     font-size: 10px;
+}
+.weather h3 {
+    font-weight: 400;
 }

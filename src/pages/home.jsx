@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MainPhoto from '../assets/orange.jpg'
 import Photo1 from '../assets/cala.jpg'
 import Photo2 from '../assets/house.jpg'
@@ -11,17 +11,31 @@ import { SkipPage } from '../components/skip-page'
 import { Weather } from '../components/weather'
 
 export const Home = () => {
+
+    const [ changeColor, setChangeColor ] = useState(false);
+
+    const listenScrollEvent = () => {
+        if (window.scrollY >= 1100 && window.scrollY <= 1400 ) {
+            return setChangeColor(true);
+        } else {
+            return setChangeColor(false);
+        } 
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', listenScrollEvent);
+        return () =>
+            window.removeEventListener('scroll', listenScrollEvent);
+    }, []);
+
+
     return (
         <div className='home'>
             <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
             <div className='pageMain'>
                 <h1 className='pageTitle'>EXPLORE MALLORCA</h1>
                 <img className='Logo' src={Logo} alt='map' />
-            </div>
-            <div className='title' id='title'>
-                
-                <h1>EXPLORE MALLORCA</h1>
-            </div>
+            </div>                
             <div className='pageContent'>
                 <div className='outstory content'>
                     <div className='images'>
@@ -41,7 +55,7 @@ export const Home = () => {
                 </div>
                 <div className='aboutUs content'>
                     <hr className='line'/>
-                    <span className='texts'>
+                    <span className={`texts ${changeColor ? 'colorChanged' : ''}`}>
                         <p>With our tours we try our best to repect the nature, environment, also the local people. We would love you to experience our beautiful island as authentic as possible.</p>
                     </span>
                     <hr className='line'/>
@@ -59,11 +73,6 @@ export const Home = () => {
                 <div className='weather-wrapper content'>
                     <Weather />
                 </div>
-                <div className='bottom'>
-                    <p>Further enquiries are always welcome.</p>
-                    <p>To communicate with us please visit our <Link to='/contact'>CONTACT US</Link> page.</p>
-                </div>
-                <img className='img1' src={Photo1} alt='llaut' />
             </div>
             <SkipPage />
         </div>

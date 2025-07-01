@@ -12,28 +12,22 @@
 }
 .home .pageContent {
     font-family: var(--font);
-    font-weight: 200;
     grid-template-columns: 1fr;
     width: 100%;
 }
-
-/*
-.home .pageContent .content {
-    background-color: var(--light-trans2);
-    padding: 30px;
-    border-radius: 20px;
-    margin-top: 50px;
-    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
-}*/
+.home .pageContent h2 {
+    font-family: var(--font4);
+    font-size: 30px;
+}
 
 .home .pageContent .content {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .home .pageContent .line {
-    height: 0.5px;
+    height: 0.8px;
     width: 100%;
-    background-color: var(--light);
+    background-color: var(--grey);
     border: none;
 }
 .home .pageContent .outstory {
@@ -43,7 +37,8 @@
     gap: 40px;
     padding-left: 10vw;
     padding-right: 10vw;
-
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 .outstory .images {
     position: relative;
@@ -52,8 +47,6 @@
     padding: 40px;
 }
 .outstory .texts h2 {
-    font-family: var(--font4);
-    font-size: 30px;
     text-align: left;
 }
 .outstory .texts p {
@@ -77,30 +70,42 @@
     background-color: var(--light-trans2);
     padding-left: 16vw;
     padding-right: 16vw;
-}
-.home .pageContent .aboutUs .texts {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 .aboutUs .texts p {
     font-size: 42px;    
     font-weight: 600;
     letter-spacing: 0.2rem;
     line-height: 60px;
+    color: var(--light);
+    transition: color 3s ease-in-out;
 }
-.home .pageContent .terms {
 
+.aboutUs .texts.colorChanged p {
+    color: var(--grey);
+}
+
+.home .pageContent .terms {    
+    display: grid;
+    justify-content: center;
 }
 .home .pageContent .services {
-
+    display: grid;
+    justify-content: center;
+}
+.home .pageContent .services .service {
+    border: none;
+    padding: 0;
 }
 .home .pageContent .weather-wrapper{
     display: grid;
     justify-content: center;
-    width: 100%;
     background-color: var(--light-trans2);
 }
-.home .pageContent .bottom {
+.weather-wrapper .weather {
+    width: 800px;
 }
-
 
 .home .refund {
     background-color: var(--cream);
@@ -108,20 +113,10 @@
 }
 
 
-.home a {
-    text-decoration: none;
-    color: var(--grey);
-    font-weight: 500;
-}
-.home a:hover {
-    color: var(--light);
-}
-
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
     .home img {
-        height: 150px;
     }
     .pageSummary h2 {
         font-size: 20px;

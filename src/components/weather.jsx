@@ -52,7 +52,7 @@ export const Weather = () => {
             </div>
         </div>: <></>}
         <div className='averageWeather'>
-            <h3>Montly Average Weather</h3>
+            <h3>Montly Average</h3>
             <div className='monthlyWeather'>
                 {average.map((item, index) => 
                 <div className='month' key={index}>

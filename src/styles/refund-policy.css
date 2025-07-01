@@ -1,16 +1,12 @@
 .refund {
-    padding: 10px;
-    margin: 40px;
+    padding: 8px;
+    margin: 30px;
     border-radius: 15px;
-    max-width: 800px;
+    max-width: 600px;
     background-color: rgba(203, 203, 203, 0.126);
     border-radius: 10px;
     color: var(--dark);
     font-weight: 200;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 .refund li {
     text-align: left;

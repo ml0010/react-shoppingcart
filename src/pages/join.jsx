@@ -15,7 +15,7 @@ export const Join = () => {
         telephone: "",
         username: "",
         password: "",
-        passwordConfirm: ""
+        passwordRepeat: ""
     });
 
     const isInputValid = () => {
@@ -39,8 +39,8 @@ export const Join = () => {
     };
 
     const isValueUnique = async () => {
-        const isUsernameUnique = await checkUniqueUsername(input);
         const isEmailUnique = await checkUniqueEmail(input);
+        const isUsernameUnique = await checkUniqueUsername(input);
         if (!isEmailUnique) {
             setMessage('There is an account using this email');
             return false;

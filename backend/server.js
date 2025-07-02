@@ -15,6 +15,21 @@ app.get('/', async(req, res) => {
     res.json("SERVER CONNECTED");
 });
 
+// login
+app.post('/login', async(req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    console.log("LOGIN ATTEMPT USER: " + username);
+    try {
+        const user = await Users.findOne({username: username, password: password});
+        console.log(user);
+        res.send(user);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+
 // add new user
 app.post("/join", async(req, res) => {
     let user = new Users(req.body);
@@ -24,39 +39,25 @@ app.post("/join", async(req, res) => {
     console.log(result);
 });
 // check email already used
-app.get('/check/email/:email/', async(req, res) => {
-    const email = req.params.email;
+app.post('/check/email', async(req, res) => {
+    const email = req.body.email;
     console.log("CHECKING EMAIL VALIDITY: " + email);
     try {
         const user = await Users.findOne({email: email});
         //console.log(user);
-        res.json(user);
+        res.send(user);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 });
 
 // check username already exists as a user
-app.get('/check/username/:username/', async(req, res) => {
-    const username = req.params.username;
+app.post('/check/username', async(req, res) => {
+    const username = req.body.username;
     console.log("CHECKING USERNAME VALIDITY: " + username);
     try {
         const user = await Users.findOne({username: username});
         //console.log(user);
-        res.json(user);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
-});
-
-// login
-app.post('/login', async(req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    console.log("LOGIN ATTEMPT USER: " + username);
-    try {
-        const user = await Users.findOne({username: username, password: password});
-        console.log(user);
         res.send(user);
     } catch (err) {
         res.status(500).json({ message: err.message });

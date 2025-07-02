@@ -32,37 +32,45 @@ export const AuthenticationContextProvider = (props) => {
         console.log(result);
     }
 
+
     const checkUniqueUsername = async (input) => {
         try {
-            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/check/username/${input.username}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/check/username`, {
+                method: "post",
+                body: JSON.stringify({ username: input.username }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             const data = await response.json();
-            if(data) {
-                console.log('USERNAME ALREADY IN DB: ' + data.username);
-                return false;
-            } else {
-                console.log('USERNAME NOT IN DB');
-                return true;
-            }
+            //console.log(data);
+            console.log('USERNAME ALREADY IN DB: ' + data.username);
+            return false;
         }
         catch (err) {
-            console.log(err);
+            console.log('USERNAME NOT IN DB');
+            return true;
+            //console.log(err);
         }
     };
 
     const checkUniqueEmail = async (input) => {
         try {
-            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/check/email/${input.email}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/check/email`, {
+                method: "post",
+                body: JSON.stringify({ email: input.email }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             const data = await response.json();
-            if(data) {
-                console.log('EMAIL ALREADY IN DB: ' + data.email);
-                return false;
-            } else {
-                console.log('EMAIL NOT IN DB');
-                return true;
-            }
+            console.log('EMAIL ALREADY IN DB: ' + data.email);
+            return false;
         }
         catch (err) {
-            console.log(err);
+            console.log('EMAIL NOT IN DB');
+            return true;
+            //console.log(err);
         }
     };
 
@@ -131,7 +139,7 @@ export const AuthenticationContextProvider = (props) => {
             console.log(err);
         }
     };
-    
+
     const login = async (input) => {
         try {
             let result = await fetch('https://react-shoppingcart-q31i.onrender.com/login', {

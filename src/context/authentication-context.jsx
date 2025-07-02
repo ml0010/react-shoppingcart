@@ -134,21 +134,23 @@ export const AuthenticationContextProvider = (props) => {
     
     const login = async (input) => {
         try {
-            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/login/${input.username}/${input.password}`, {mode:'cors'});
-            const data = await response.json();
-            if(data) {
-                setUser((prev) => ({...prev, name: data.name, email: data.email, telephone: data.telephone, username: data.username, booking: data.booking}));
-                //setToken(response.token);
-                //console.log(data);
-                console.log('LOGIN SUCCESSFUL: ' + data.username);
-                navigate('/mypage');
-            } else {
-                setLoginFailed(true);
-                console.log('LOGIN FAILED');
-            }
-        }
-        catch (err) {
+            let result = await fetch('https://react-shoppingcart-q31i.onrender.com/login', {
+                method: "post",
+                body: JSON.stringify({ username: input.username, password: input.password }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            const data = await result.json();
+            setUser((prev) => ({...prev, name: data.name, email: data.email, telephone: data.telephone, username: data.username, booking: data.booking}));
+            //setToken(response.token);
+            //console.log(data);
+            console.log('LOGIN SUCCESSFUL: ' + data.username);
+            navigate('/mypage');
+        } catch (err) {
             console.log(err);
+            setLoginFailed(true);
+            console.log('LOGIN FAILED');
         }
     }
 

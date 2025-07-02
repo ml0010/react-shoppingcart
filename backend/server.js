@@ -50,14 +50,14 @@ app.get('/check/username/:username/', async(req, res) => {
 });
 
 // login
-app.get('/login/:username/:password', async(req, res) => {
-    const username = req.params.username;
-    const password = req.params.password;
+app.post('/login', async(req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
     console.log("LOGIN ATTEMPT USER: " + username);
     try {
         const user = await Users.findOne({username: username, password: password});
-        //console.log(user);
-        res.json(user);
+        console.log(user);
+        res.send(user);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }

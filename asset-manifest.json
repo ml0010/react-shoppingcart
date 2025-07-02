@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-shoppingcart/static/css/main.b5e94a10.css",
-    "main.js": "/react-shoppingcart/static/js/main.dfc6a1ed.js",
+    "main.js": "/react-shoppingcart/static/js/main.badd918d.js",
     "static/js/453.e5f97dca.chunk.js": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js",
     "static/media/house.jpg": "/react-shoppingcart/static/media/house.4781a0cdb1242688cb65.jpg",
     "static/media/cala.jpg": "/react-shoppingcart/static/media/cala.70bdae9a5975d61aaf60.jpg",
@@ -18,14 +18,14 @@
     "static/media/partly-cloudy-day.svg": "/react-shoppingcart/static/media/partly-cloudy-day.9a86613b2a5a0aebf924087c7d324c74.svg",
     "static/media/clear-night.svg": "/react-shoppingcart/static/media/clear-night.9ed9031b8fd64da63790aab749eedfa9.svg",
     "static/media/clear-day.svg": "/react-shoppingcart/static/media/clear-day.54288da67b71b4b19483d373d683257f.svg",
-    "index.html": "/react-shoppingcart/index.html",
     "static/media/cloudy.svg": "/react-shoppingcart/static/media/cloudy.f6e6108ec3b4605bda2aca61f011e8e8.svg",
+    "index.html": "/react-shoppingcart/index.html",
     "main.b5e94a10.css.map": "/react-shoppingcart/static/css/main.b5e94a10.css.map",
-    "main.dfc6a1ed.js.map": "/react-shoppingcart/static/js/main.dfc6a1ed.js.map",
+    "main.badd918d.js.map": "/react-shoppingcart/static/js/main.badd918d.js.map",
     "453.e5f97dca.chunk.js.map": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b5e94a10.css",
-    "static/js/main.dfc6a1ed.js"
+    "static/js/main.badd918d.js"
   ]
 }

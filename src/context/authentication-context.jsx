@@ -29,7 +29,7 @@ export const AuthenticationContextProvider = (props) => {
         })
         result = await result.json();
         console.log('NEW USER ADDED');
-        console.log(result);
+        //console.log(result);
     }
 
 
@@ -76,58 +76,72 @@ export const AuthenticationContextProvider = (props) => {
 
     const editEmail = async (username, newEmail) => {
         try {
-            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/${username}/edit/email/${newEmail}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/edit/email`, {
+                method: "post",
+                body: JSON.stringify({ username: username, email: newEmail }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             const data = await response.json();
-            if(data) {
-                //console.log(data);
-                await refreshUserInfo();
-                console.log('EMAIL UPDATED');
-            } else {
-                console.log('EMAIL UPDATE FAILED');
-            }
+            //console.log(data);
+            await refreshUserInfo();
+            console.log('EMAIL UPDATED');
         }
         catch (err) {
-            console.log(err);
+            console.log('EMAIL UPDATE FAILED');
+            //console.log(err);
         }
     };
     const editPhone = async (username, newPhone) => {
         try {
-            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/${username}/edit/telephone/${newPhone}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/edit/telephone`, {
+                method: "post",
+                body: JSON.stringify({ username: username, telephone: newPhone }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });            
             const data = await response.json();
-            if(data) {
-                //console.log(data);
-                await refreshUserInfo();
-                console.log('TELEPHONE UPDATED');
-            } else {
-                console.log('TELEPHONE UPDATE FAILED');
-            }
-        }
+            //console.log(data);
+            await refreshUserInfo();
+            console.log('TELEPHONE UPDATED');
+         }
         catch (err) {
-            console.log(err);
+            console.log('TELEPHONE UPDATE FAILED');
+            //console.log(err);
         }
     };
     const editPassword = async (username, newPassword) => {
         try {
-            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/${username}/edit/password/${newPassword}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/edit/password`, {
+                method: "post",
+                body: JSON.stringify({ username: username, password: newPassword }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             const data = await response.json();
-            if(data) {
-                //console.log(data);
-                console.log('PASSWORD UPDATED');
-            } else {
-                console.log('PASSWORD UPDATE FAILED');
-            }
+            console.log('PASSWORD UPDATED');
         }
         catch (err) {
-            console.log(err);
+            console.log('PASSWORD UPDATE FAILED');
+            //console.log(err);
         }
     };
 
     const checkPassword = async (username, password) => {
         try {
-            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/${username}/confirm/password/${password}`, {mode:'cors'});
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/check/password`, {
+                method: "post",
+                body: JSON.stringify({ username: username, password: password }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });            
             const data = await response.json();
             if(data) {
-                //console.log(data);
+                console.log(data);
                 console.log('CURRENT PASSWORD MARCHES WITH USER INPUT');
                 return true;
             } else {

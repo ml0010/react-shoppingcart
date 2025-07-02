@@ -29,7 +29,6 @@ app.post('/login', async(req, res) => {
     }
 });
 
-
 // add new user
 app.post("/join", async(req, res) => {
     let user = new Users(req.body);
@@ -38,6 +37,7 @@ app.post("/join", async(req, res) => {
     console.log("NEW USER");
     console.log(result);
 });
+
 // check email already used
 app.post('/check/email', async(req, res) => {
     const email = req.body.email;
@@ -65,53 +65,51 @@ app.post('/check/username', async(req, res) => {
 });
 
 // edit user's email address
-app.get('/:username/edit/email/:email', async(req, res) => {
-    const username = req.params.username;
-    const email = req.params.email;
-
+app.post('/edit/email', async(req, res) => {
+    const username = req.body.username;
+    const email = req.body.email;
     try {
         const user = await Users.updateOne({username: username}, {email: email});
         console.log("USERNAME " + username + "'s EMAIL UPDATED:" + email);
-        res.json(user);
+        res.send(user);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 });
 // edit user's telephone
-app.get('/:username/edit/telephone/:telephone', async(req, res) => {
-    const username = req.params.username;
-    const telephone = req.params.telephone;
-
+app.post('/edit/telephone', async(req, res) => {
+    const username = req.body.username;
+    const telephone = req.body.telephone;
     try {
         const user = await Users.updateOne({username: username}, {telephone: telephone});
         console.log("USERNAME " + username + "'s TELEPHONE UPDATED:" + telephone);
-        res.json(user);
+        res.send(user);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 });
 
 // edit user's password
-app.get('/:username/edit/password/:password', async(req, res) => {
-    const username = req.params.username;
-    const password = req.params.password;
+app.post('/edit/password', async(req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
 
     try {
         const user = await Users.updateOne({username: username}, {password: password});
-        console.log("USERNAME " + username + "'s PASSWORD UPDATED:" + password);
-        res.json(user);
+        //console.log("USERNAME " + username + "'s PASSWORD UPDATED:" + password);
+        res.send(user);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 });
 // check current password
-app.get('/:username/confirm/password/:password', async(req, res) => {
-    const username = req.params.username;
-    const password = req.params.password;
+app.post('/check/password', async(req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
     console.log("CHCKING IF USER CAN CONFIRM PASSWORD: " + username);
     try {
         const user = await Users.findOne({username: username, password: password});
-        //console.log(user);
+        console.log(user);
         res.json(user);
     } catch (err) {
         res.status(500).json({ message: err.message });

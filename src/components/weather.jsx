@@ -23,7 +23,7 @@ export const Weather = () => {
     const fetchWeatherData = async () => {
         try {
             const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=palma&units=metric&appid=2f82b8cd333e994c4f294e5b5785a64b`);
-                console.log(response.data);
+                //console.log(response.data);
                 setWeatherData(response.data);
         } catch (err) {
             console.log(err);

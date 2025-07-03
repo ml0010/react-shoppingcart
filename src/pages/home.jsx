@@ -4,7 +4,6 @@ import Photo1 from '../assets/cala.jpg'
 import Photo2 from '../assets/house.jpg'
 import Logo from '../assets/map.webp'
 import '../styles/home.css'
-import { Link } from 'react-router-dom'
 import { Services } from '../components/services';
 import { RefundPolicy } from '../components/refund-policy';
 import { SkipPage } from '../components/skip-page'

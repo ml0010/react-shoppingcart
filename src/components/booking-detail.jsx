@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { BookingContext } from '../context/booking-context';
 import '../styles/booking-detail.css'
 import { CaretDownIcon, CaretUpIcon, SuitcaseSimpleIcon } from '@phosphor-icons/react';
+import { useLocation } from 'react-router-dom';
 
 export const BookingDetail = ({reference, index}) => {
 
@@ -35,8 +36,9 @@ export const BookingDetail = ({reference, index}) => {
         setShowInfo(!showInfo);
     };
 
+    const location = useLocation();
     const handleEdit = () => {
-        navigate('/confirmation', {state: {reference: reference}});
+        navigate('/confirmation', {state: {reference: reference, path: location.pathname}});
     };
 
     return (
@@ -49,7 +51,7 @@ export const BookingDetail = ({reference, index}) => {
                 </div>
             </div>
             <div className={`detail ${!showInfo? 'hidden' : ''}`}>
-                <button className='editBttn' onClick={handleEdit}>EDIT / CANCEL</button>
+                <button className='editBttn' onClick={handleEdit}>EDIT</button>
                 <p>Name: <b>{name}</b></p>
                 <p>Email: {email}</p>
                 <p>Phone: {phone}</p>

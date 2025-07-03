@@ -7,10 +7,24 @@ export const BookingContext =  createContext(null);
 export const BookingContextProvider = (props) => {
 
     const [ searchFailed, setSearchFailed ] = useState(false);
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [comment, setComment] = useState("");
+
     const { isLoggedIn, refreshUserInfo } = useContext(AuthenticationContext);
     
     const navigate = useNavigate();
 
+    const resetBookingInfo = () => {
+        setName("");
+        setEmail("");
+        setPhone("");
+        setComment("");
+    };
+
+    
     const getBookingDetail = async (reference) => {
         //console.log("Getting booking information - " + reference);
         try {
@@ -64,7 +78,7 @@ export const BookingContextProvider = (props) => {
         console.log("Delete booking record.")
         try {
             const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/confirmation/${reference}/delete`, {mode:'cors'});
-            console.log(response);
+            //console.log(response);
             refreshUserInfo();
             if(isLoggedIn) {
                 navigate('/mypage');
@@ -99,7 +113,7 @@ export const BookingContextProvider = (props) => {
         }
     }
 
-    const contextValue = { searchFailed, setSearchFailed, getBookingDetail, addBooking, deleteBooking, updatePhone, updateComment, navigate };
+    const contextValue = { searchFailed, setSearchFailed, getBookingDetail, addBooking, deleteBooking, updatePhone, updateComment, navigate, name, setName, email, setEmail, phone, setPhone, comment, setComment, resetBookingInfo};
 
     return (
         <BookingContext.Provider value={contextValue}>{props.children}</BookingContext.Provider>

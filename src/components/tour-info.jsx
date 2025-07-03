@@ -1,6 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import '../styles/tour-info.css';
-import { TourContext } from '../context/tour-context';
 import { CartContext } from '../context/cart-context';
 import { BasketIcon, BookOpenTextIcon, CaretCircleLeftIcon, CaretCircleRightIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
 
@@ -8,8 +7,7 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 
 	const { id, tourName, img, description, duration, languages, meetingPoint, price } = props.data;
 
-	const { addToCart } = useContext(TourContext);
-	const { setShowCartSummary } = useContext(CartContext);
+	const { addToCart, setShowCartSummary } = useContext(CartContext);
 
 	const [ pax, setPax ] = useState(1);
 	const [ dateValue, setDateValue ] = useState(null);

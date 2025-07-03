@@ -1,0 +1,18 @@
+.payment-form .card-actions {
+    margin-top: 20px;
+}
+
+.payment-form button {
+    background-color: var(--dark);
+    color: white;
+    width: 250px;
+    min-height: 40px;
+    margin: 5px;
+    border: none;
+    font-size: 10px;
+}
+.payment-form button:hover {
+    cursor: pointer;
+    background-color: var(--light);
+    transition: 0.2s ease-in;
+}

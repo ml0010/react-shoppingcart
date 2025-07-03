@@ -1,11 +1,12 @@
 .join {
     font-family: var(--font2);
     background-color: var(--cream);
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     place-items: center;
-    padding-bottom: 60px;
-    padding-top: 90px;
+    padding-bottom: 130px;
+    padding-top: 100px;
+    min-height: 50vh;
     color: var(--grey);
 }
 .join .joinTitle {

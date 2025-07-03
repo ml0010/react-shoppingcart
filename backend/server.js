@@ -1,14 +1,38 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
-app.use(express.json());
-
 const cors = require('cors');
+const bodyParser = require('body-parser');
+const stripe = require('stripe')(process.env.STRIPE_API_SRECRET_KEY);
+
+app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 require('./db/connection');
 const Contacts = require('./Models/Contact');
 const Bookings = require('./Models/Booking');
 const Users = require('./Models/User');
+
+// stripe payment
+app.post("/create-payment-intent", async (req, res) => {
+    const { amount } = req.body;
+    const totalAmount = () => {
+        return amount * 100;
+    };
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: totalAmount(amount),
+        currency: "eur",
+        description: "Payment of Explore Mallorca",
+        automatic_payment_methods: {
+            enabled: true,
+        },
+    });
+    res.send({
+        clientSecret: paymentIntent.client_secret,
+    });
+});
+
 
 // test
 app.get('/', async(req, res) => {
@@ -106,10 +130,10 @@ app.post('/edit/password', async(req, res) => {
 app.post('/check/password', async(req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    console.log("CHCKING IF USER CAN CONFIRM PASSWORD: " + username);
+    //console.log("CHCKING IF USER CAN CONFIRM PASSWORD: " + username);
     try {
         const user = await Users.findOne({username: username, password: password});
-        console.log(user);
+        //console.log(user);
         res.json(user);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -128,6 +152,7 @@ app.get('/refresh/:username', async(req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
+
 // submit contact to db
 app.post("/contact", async(req, res) => {
     let contact = new Contacts(req.body);
@@ -228,5 +253,3 @@ app.get('/confirmation/:reference/editcomment/:comment', async(req, res) => {
 app.listen(4000, () => {
     console.log("Console is running on port 4000");
 });
-
-

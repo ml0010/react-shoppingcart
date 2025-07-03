@@ -6,7 +6,6 @@ import { Cart } from './pages/cart';
 import { Tours } from './pages/tours.jsx';
 import { Home } from './pages/home.jsx';
 import { Contact } from './pages/contact.jsx';
-import { TourContextProvider } from './context/tour-context.jsx'
 import { CartContextProvider } from './context/cart-context.jsx';
 import { CartSummary } from './components/cart-summary.jsx';
 import { ScrollToTop } from './components/scroll-to-top.jsx';
@@ -20,6 +19,7 @@ import { AuthenticationContextProvider } from './context/authentication-context.
 import { Join } from './pages/join.jsx';
 import { MyPage } from './pages/mypage.jsx';
 import { MyAccount } from './pages/myaccount.jsx';
+import { PaymentContextProvider } from './context/payment-context.jsx';
 
 function App() {
     
@@ -36,35 +36,34 @@ function App() {
         <div className="App">
         <BrowserRouter>
             <AuthenticationContextProvider>
-            <TourContextProvider>
                 <CartContextProvider>
                     <BookingContextProvider>
-                                <PageTopWrapper>
-                                    <Routes>
-                                        <Route index element={<Navigate to="/home" />} />
-                                        <Route path='/*' element={<Home />}></Route>
-                                        <Route path='/home' element={<Home />}></Route>
-                                        <Route path='/tours' element={<Tours />}></Route>
-                                        <Route path='/contact' element={<Contact />}></Route>
-                                        <Route path='/cart' element={<Cart />}></Route>
-                                        <Route path='/booking' element={<Booking />}></Route>
-                                        <Route path='/confirmation' element={<BookingConfirmation />}></Route>
-                                        <Route path='/login' element={<Login />}></Route>
-                                        <Route path='/join' element={<Join />}></Route>
-                                        <Route path='/mypage' element={<MyPage />}></Route>
-                                        <Route path='/myaccount' element={<MyAccount />}></Route>
-                                        <Route path='/mybooking' element={<BookingSearch />}></Route>
-                                    </Routes>
-                                </PageTopWrapper>
-                                <Footer />
-                                <Navbar />
-                                <ScrollToTop />
-                                <CartSummary />
+                        <PaymentContextProvider>
+                            <PageTopWrapper>
+                                <Routes>
+                                    <Route index element={<Navigate to="/home" />} />
+                                    <Route path='/*' element={<Home />}></Route>
+                                    <Route path='/home' element={<Home />}></Route>
+                                    <Route path='/tours' element={<Tours />}></Route>
+                                    <Route path='/contact' element={<Contact />}></Route>
+                                    <Route path='/cart' element={<Cart />}></Route>
+                                    <Route path='/booking' element={<Booking />}></Route>
+                                    <Route path='/confirmation' element={<BookingConfirmation />}></Route>
+                                    <Route path='/login' element={<Login />}></Route>
+                                    <Route path='/join' element={<Join />}></Route>
+                                    <Route path='/mypage' element={<MyPage />}></Route>
+                                    <Route path='/myaccount' element={<MyAccount />}></Route>
+                                    <Route path='/mybooking' element={<BookingSearch />}></Route>
+                                </Routes>
+                            </PageTopWrapper>
+                        </PaymentContextProvider>
+                        <Footer />
+                        <Navbar />
+                        <ScrollToTop />
+                        <CartSummary />
                     </BookingContextProvider>
                 </CartContextProvider>
-            </TourContextProvider>
             </AuthenticationContextProvider>
-
         </BrowserRouter>
         </div>
     );

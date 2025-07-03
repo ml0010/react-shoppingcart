@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import '../styles/login.css';
 import { AuthenticationContext } from '../context/authentication-context';
 import '../styles/login-form.css'
 import { UserListIcon } from '@phosphor-icons/react';
@@ -12,19 +11,11 @@ export const LoginForm = () => {
     const [ input, setInput ] = useState({username: "", password: ""});
     const [ message, setMessage ] = useState("");
 
-    const isInputValid = () => {
-        if(input.username !== "" && input.password !== "" ) {
-            return true;
-        } else {
-            setMessage('PLEASE FILL IN THE FORM');
-            return false;
-        }
-    };
-
     const location = useLocation();
 
     useEffect(() => {
         setLoginFailed(false);
+        setMessage("");
     }, [location]);
         
     useEffect(()=>{
@@ -42,15 +33,25 @@ export const LoginForm = () => {
         setInput((prev) => ({...prev, username: "", password: ""}));
     }
 
+    const isInputValid = () => {
+        if(input.username !== "" && input.password !== "" ) {
+            return true;
+        } else {
+            setMessage('PLEASE FILL IN THE FORM');
+            return false;
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoginFailed(false);
         if(isInputValid()) {
-            login(input);
+            setMessage("PROCESSING LOGIN...");
+            login(input, location.pathname);
             resetInput();
         }
     }
-
+    
     return (
         <div className='login-form'>
             <form id='form' onSubmit={handleSubmit}>

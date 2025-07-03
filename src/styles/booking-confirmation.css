@@ -112,6 +112,20 @@
     color: var(--cream);
 }
 
+.confirmation .editBttn {
+    border: none;
+    float: right;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--light-trans1);
+    transition:  0.2s ease-in-out;
+    width: 50px;
+}
+.confirmation .editBttn:hover {
+    color: var(--cream);
+    background-color: var(--light);
+}
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {

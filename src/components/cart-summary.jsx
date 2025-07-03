@@ -2,14 +2,12 @@ import React, { useCallback, useContext, useEffect, useRef } from 'react'
 import '../styles/cart-summary.css'
 import { Link } from 'react-router-dom';
 import { TOURS } from '../tourlist';
-import { TourContext } from '../context/tour-context'
 import { CartContext } from '../context/cart-context';
 import { XIcon } from '@phosphor-icons/react';
 
 export const CartSummary = () => {
 
-    const { cartItems, getTotalCartAmount } = useContext(TourContext);
-    const { showCartSummary, setShowCartSummary, setIsButtonActive } = useContext(CartContext);
+    const { showCartSummary, setShowCartSummary, setIsButtonActive, cartItems, getTotalCartAmount } = useContext(CartContext);
     
     const totalAmount = getTotalCartAmount();
 

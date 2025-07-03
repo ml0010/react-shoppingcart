@@ -18,6 +18,7 @@ export const BookingConfirmation = () => {
     
     const location = useLocation();
     const bookingReference = location.state.reference;
+    const prevPath = location.state.path;
 
     const getBookingInfo = async() => {
         const data = await getBookingDetail(bookingReference);
@@ -60,7 +61,7 @@ export const BookingConfirmation = () => {
 
     return (
         <div className='confirmation'>
-            <GobackButton />
+            {prevPath === '/mypage'? <GobackButton /> : <></>}
             <h1>BOOKING CONFIRMATION</h1>
             <h2 id='reference'>Booking Reference: {bookingReference}</h2>
             {bookingDataReady ?

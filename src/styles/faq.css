@@ -1,12 +1,11 @@
 .faq {
     padding-top: 30px;
     color: var(--grey);
-    padding-bottom: 40px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .faq svg {
@@ -23,7 +22,13 @@
     font-family: var(--font2);
     cursor: pointer;
 }
+.faq .contactInfo {
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+    background-color: rgba(133, 133, 133, 0.047);
 
+}
 .faq .contactInfo p {
     font-size: 13px;
 }

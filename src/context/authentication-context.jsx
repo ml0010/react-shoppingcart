@@ -12,7 +12,7 @@ export const AuthenticationContextProvider = (props) => {
                             booking: [],
                         });
 
-    const [ token, setToken ] = useState(localStorage.getItem("site") || "");
+    const [ token, setToken ] = useState(localStorage.getItem("token") || "");
     const [ loginFailed, setLoginFailed ] = useState(false);
 
     const isLoggedIn = user.username? true : false;
@@ -141,7 +141,7 @@ export const AuthenticationContextProvider = (props) => {
             });            
             const data = await response.json();
             if(data) {
-                console.log(data);
+                //console.log(data);
                 console.log('CURRENT PASSWORD MARCHES WITH USER INPUT');
                 return true;
             } else {
@@ -154,7 +154,7 @@ export const AuthenticationContextProvider = (props) => {
         }
     };
 
-    const login = async (input) => {
+    const login = async (input, path) => {
         try {
             let result = await fetch('https://react-shoppingcart-q31i.onrender.com/login', {
                 method: "post",
@@ -168,9 +168,11 @@ export const AuthenticationContextProvider = (props) => {
             //setToken(response.token);
             //console.log(data);
             console.log('LOGIN SUCCESSFUL: ' + data.username);
-            navigate('/mypage');
+            if(path === '/login') {
+                navigate('/mypage');
+            }
         } catch (err) {
-            console.log(err);
+            //console.log(err);
             setLoginFailed(true);
             console.log('LOGIN FAILED');
         }

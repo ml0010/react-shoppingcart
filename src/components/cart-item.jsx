@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { TourContext } from '../context/tour-context';
 import '../styles/cart-item.css'
 import { XSquareIcon } from '@phosphor-icons/react';
+import { CartContext } from '../context/cart-context';
 
 export const CartItem = (props) => {
     const { id, tourName, img, price } = props.data;
-    const { cartItems, deleteFromCart } = useContext(TourContext);
+    const { cartItems, deleteFromCart } = useContext(CartContext);
 
     const subtotal = () => {
         //console.log(cartItems[id].pax * price);

@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import { TOURS } from '../tourlist'
-import { TourContext } from '../context/tour-context'
 import { CartItem } from '../components/cart-item';
 import '../styles/cart.css';
 import Logo from '../assets/map.webp';
 import { Faq } from '../components/faq';
 import { GobackButton } from '../components/goback-button';
+import { CartContext } from '../context/cart-context';
 
 export const Cart = () => {
 
-    const { cartItems, getTotalCartAmount } = useContext (TourContext);
+    const { cartItems, getTotalCartAmount } = useContext (CartContext);
     const totalAmount = getTotalCartAmount();
 
     const navigate = useNavigate();

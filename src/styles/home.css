@@ -111,6 +111,10 @@
     background-color: var(--cream);
     border: 1px solid var(--grey);
 }
+.home .service {
+    background-color: var(--cream);
+    border: 1px solid var(--grey);
+}
 
 
 @media only screen and (max-width: 1300px) {

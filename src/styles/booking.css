@@ -6,15 +6,28 @@
     padding-bottom: 80px;
     color: var(--dark);
 }
-
+.bookingInfo {
+    width: 630px;
+}
 .booking .bookingInfo h3 {
     font-family: var(--font2);
     font-size: 25px;
     margin-top: 5px;
 }
-.booking .bookingInfo p {
+.booking .bookingInfo h4 {
     font-size: 14px;
-    color: var(--dark);
+    margin-top: 5px;
+    font-weight: 500;
+    color: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.booking .bookingInfo svg {
+    margin-right: 5px;
+}
+.booking .bookingInfo .tourSummary p {
+    font-size: 14px;
     margin: 3px;
     padding: 5px;
     color: var(--light);
@@ -42,14 +55,15 @@
     margin-right: 5px;
 }
 
-.login-form {
+.booking .login-form {
     width: 400px;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
 }
-
+.booking .loginBttn {
+    margin-bottom: 25px;
+}
 .booking .info {
     background-color: var(--light-trans2);
-    max-width: 600px;
     display: grid;
     place-items: center;
     grid-template-columns: 1fr;
@@ -87,22 +101,29 @@
     color: var(--light);
 }
 
-.booking .bookBttn {
+.booking button {
     background-color: var(--dark);
     color: white;
     width: 250px;
     min-height: 40px;
-    margin-top: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    margin-top: 5px;
+    padding: 5px;
     border-radius: 6px;
     border: none;
     font-size: 10px;
 }
-.booking .bookBttn:hover {
+.booking button:hover {
     cursor: pointer;
     background-color: var(--light);
     transition: 0.2s ease-in;
+}
+.booking .bookBttn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.booking .bookBttn svg {
+    margin-left: 3px;
 }
 
 .booking .bookingInfo .separator {
@@ -117,4 +138,7 @@
     text-decoration: none;
     color: var(--grey);
     font-weight: 500;
+}
+.booking .payment-wrapper {
+    width: 100%;
 }

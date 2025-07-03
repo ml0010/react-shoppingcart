@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;    
     align-items: center;
+    width: 400px;
 }
 
 .login-form input {
@@ -12,10 +13,10 @@
     font-size: 15px;
 }
 
-.errorMsg {
+.login-form .errorMsg {
     color: var(--red);
     font-family: var(--font4);
-    font-size: 13px;
+    font-size: 10px;
 }
 
 .login-form button {

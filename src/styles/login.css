@@ -1,11 +1,12 @@
 .login {
     font-family: var(--font2);
     background-color: var(--cream);
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     place-items: center;
-    padding-bottom: 60px;
-    padding-top: 90px;
+    padding-bottom: 130px;
+    padding-top: 100px;
+    min-height: 50vh;
     color: var(--grey);
 }
 .login .loginTitle {
@@ -17,11 +18,11 @@
     margin-right: 6px;
 }
 
-
 .login .form {
     background-color: var(--light-trans2);
     border-radius: 15px;
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    padding-bottom: 30px;
 }
 
 .login input {

@@ -15,7 +15,7 @@ const Payment = () => {
 
     useEffect(() => {
         if(amount) {
-            axios.post("http://localhost:4000/create-payment-intent", {
+            axios.post("https://react-shoppingcart-q31i.onrender.com/create-payment-intent", {
                 amount: amount,
             })
             .then((resp) => setClientSecret(resp.data.clientSecret));

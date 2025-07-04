@@ -40,7 +40,7 @@ export const Navbar = () => {
         };
     });
 
-    // menuIcon open/close
+    // menuIcon outside click close
     let menuRef = useRef();
 
     useEffect(() => {

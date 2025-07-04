@@ -5,6 +5,7 @@ import { BookingDetail } from '../components/booking-detail';
 import { GobackButton } from '../components/goback-button';
 import { GearIcon, SignOutIcon } from '@phosphor-icons/react';
 import { Faq } from '../components/faq';
+import { TourRecommendation } from '../components/tour-recommendation';
 
 export const MyPage = () => {
     const { user, logout, navigate } = useContext(AuthenticationContext);
@@ -43,6 +44,7 @@ export const MyPage = () => {
                     <button onClick={()=>navigate('/home')}>BACK TO HOME</button>
                 </div>
             </div>}
+            <TourRecommendation />
             <Faq />
         </div>
     )

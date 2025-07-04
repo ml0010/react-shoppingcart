@@ -34,7 +34,7 @@ export const Tour = (props) => {
             {showTourInfo? (
                 <>
                     <div className={`backdrop ${showTourInfo? 'active' : 'inactive'}`} key={id}></div>
-                    <TourInfo props={props} showTourInfo={showTourInfo} closeTourInfo={() => setShowTourInfo(false)} />
+                    <TourInfo props={props.data} showTourInfo={showTourInfo} closeTourInfo={() => setShowTourInfo(false)} />
                 </>) : (<></>)}
         </div>
     )

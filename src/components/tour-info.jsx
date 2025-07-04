@@ -5,8 +5,7 @@ import { BasketIcon, BookOpenTextIcon, CaretCircleLeftIcon, CaretCircleRightIcon
 
 export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 
-	const { id, tourName, img, description, duration, languages, meetingPoint, price } = props.data;
-
+	const { id, tourName, img, description, duration, languages, meetingPoint, price } = props;
 	const { addToCart, setShowCartSummary } = useContext(CartContext);
 
 	const [ pax, setPax ] = useState(1);
@@ -14,8 +13,6 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
     const [ dateNullMsg, setDateNullMsg ] = useState(null);
     const [ currentPhotoIndex, setCurrentPhotoIndex ] = useState(0);
     const [ fade, setFade ] = useState(false);
-
-
 
     const paxMin = 1;
     const paxMax = 12;
@@ -87,25 +84,25 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 		return languageList;
 	}
 
-    const closeRef = useRef(null);
+    // tour-info outside click close
+    let tourRef = useRef(null);
 
     useEffect(() => {
         let handler = (e)=>{
-            if(!closeRef.current.contains(e.target)){
+            if(tourRef.current && !tourRef.current.contains(e.target)){
                 handleClose();
-                console.log(closeRef.current);
             }
         };
         document.addEventListener("mousedown", handler);
         return() =>{
             document.removeEventListener("mousedown", handler);
         }
-    });
+    }, [tourRef]);
 
 	if (!showTourInfo) {return null;}
 	
 	return (
-    	<div className='tourInfo' key={id} ref={closeRef}>
+    	<div className='tourInfo' key={id} ref={tourRef}>
         	<div className='titleBar'>
                 <h1 className='name'>{tourName}</h1>
                 <button className='closeBttn' onClick={handleClose}><XIcon size={35} weight="bold" className='closeIcon'/></button>

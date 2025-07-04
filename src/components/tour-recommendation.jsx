@@ -11,7 +11,7 @@ export const TourRecommendation = () => {
 
     const createRecommendationList = () => {
         const numbers = [];
-        while (numbers.length < 3) {
+        while (numbers.length < 4) {
             const newNumber = Math.floor(Math.random()*TOURS.length);
             if (!numbers.includes(newNumber)) {
                 numbers.push(newNumber);
@@ -25,17 +25,32 @@ export const TourRecommendation = () => {
         console.log(tourList);
     },[]);
 
+    const clickLeft = () => {
+        setIsRecommendationLoaded(false);
+        const shift = tourList.shift();
+        tourList.push(shift);
+        setIsRecommendationLoaded(true);
+        console.log(tourList);
+    };
+
 
     return (
-        <div className='tour-recommendations-wrapper'>
+        <>
+            <h2>Recommendations</h2>
             {isRecommendationLoaded ? <>
-                <h2>Recommendations</h2>
-                <div className='tour-recommendations'>
-                    {tourList.map((tour, index) => 
-                    <TourRecommendationOutput data={tour}/>
-                    )}
-                </div>
+            <div className='tour-recommendations-wrapper'>
+                
+                    <button onClick={clickLeft}>LEFT</button>
+                    <div className='tour-recommendations'>
+                        {tourList.slice(0, 3).map((tour, index) => 
+                        <TourRecommendationOutput data={tour}/>
+                        )}
+                    </div>
+                    <button>RIGHT</button>
+            </div>
+            {tourList.map(tour => <p>{tour.tourName}</p>)}
             </> : <></> }
-        </div>
+        </>
     )
 }
+

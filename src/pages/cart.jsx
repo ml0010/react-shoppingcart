@@ -46,9 +46,10 @@ export const Cart = () => {
                         <button className='moerTourBttn' onClick={() => navigate('/tours')}>MORE TOURS</button>
                         <button className='checkoutBttn' onClick={() => navigate('/home')}>GO TO HOME</button>
                     </div>
-                    <TourRecommendation />
+
                 </>
             )}
+            <TourRecommendation />
             <Faq />
         </div>
     )

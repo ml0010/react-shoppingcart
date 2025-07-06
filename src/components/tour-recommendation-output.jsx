@@ -14,18 +14,19 @@ export const TourRecommendationOutput = (props) => {
     }, [showTourInfo]);
 
     return (
-        <div className='recommendation' key={id}>
-            <img className='tourImg' src={img[0]} alt={tourName} />            
-            <div className='tourDetail'>
-                <p className='tourName'>{tourName}</p>
-                <button className='selectBttn' onClick={()=>setShowTourInfo(true)}>SEE MORE</button>
+        <>
+            <div className='recommendation' key={id} onClick={()=>setShowTourInfo(true)}>
+                <img className='tourImg' src={img[0]} alt={tourName} />            
+                <div className='tourDetail'>
+                    <p className='tourName'>{tourName}</p>
+                    <button className='selectBttn' >SEE MORE</button>
+                </div>
             </div>
             {showTourInfo? (
             <>  
                 <div className={`backdrop ${showTourInfo? 'active' : 'inactive'}`} key={id}></div>
                 <TourInfo props={props.data} showTourInfo={showTourInfo} closeTourInfo={() => setShowTourInfo(false)} />
             </>) : (<></>)}
-        </div>
-
+        </>
     )
 }

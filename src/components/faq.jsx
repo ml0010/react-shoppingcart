@@ -18,28 +18,29 @@ export const Faq = () => {
                     {showServices? <CaretDownIcon size={15} /> : <CaretRightIcon size={15} />}
                     <p className='question'>ALL OUR TOURS INCLUDE</p>
                 </div>
-                {showServices? <Services></Services> : <></>}
+                <div className={`answer ${showServices? 'active' : 'hidden'} `}>
+                    <Services></Services>
+                </div>
             </div>
             <div>
                 <div className='questions' onClick={()=>setShowRefundPolicy(!showRefundPolicy)}>
                     {showRefundPolicy? <CaretDownIcon size={15} /> : <CaretRightIcon size={15} />}
                     <p className='question'>REFUND POLICY</p>
                 </div>
-                {showRefundPolicy? <RefundPolicy></RefundPolicy> : <></>}
+                <div className={`answer ${showRefundPolicy? 'active' : 'hidden'} `}><RefundPolicy></RefundPolicy></div>
             </div>
             <div>
                 <div className='questions' onClick={()=>setShowContactInfo(!showContactInfo)}>
                     {showContactInfo? <CaretDownIcon size={15} /> : <CaretRightIcon size={15} />}
                     <p className='question'>NEED TO SPEAK TO US?</p>
                 </div>
-                {showContactInfo? 
-                <div className='contactInfo'>
-                    <p>You can contact us via <Link to='/contact'>CONTACT US</Link> page.</p>
-                    <p>Alternatively, Please click Whatsapp button below to chat with us.</p>
+                <div className={`contactInfo answer ${showContactInfo? 'active' : 'hidden'} `}>
+                    <p>Please click Whatsapp button below to chat with us.</p>
                     <a className='whattsappIcon' href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>
                         <WhatsappLogoIcon size={50} />
                     </a>
-                </div> : <></>}
+                    <p>You can also contact us via <Link to='/contact'>CONTACT US</Link> page.</p>
+                </div>
             </div>
         </div>
     )

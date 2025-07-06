@@ -44,7 +44,6 @@
 .myaccount .content .input.edit {
     border: 1px solid grey;
     background-color: white;
-
 }
 .myaccount .edit-password {
     display: flex;
@@ -81,4 +80,16 @@
 }
 .myaccount .Bttns button svg {
     margin-left: 6px;
+}
+
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+
+}
+@media only screen and (max-width: 600px) {
+    .myaccount .Bttns {
+        display: block;
+    }
 }

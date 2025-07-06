@@ -7,6 +7,7 @@
     place-items: center;
     color: var(--grey);
 }
+
 .mypage .myInfo {
     margin-bottom: 40px;
 }
@@ -41,4 +42,17 @@
 }
 .mypage .Bttns button svg {
     margin-left: 6px;
+}
+
+
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+
+}
+@media only screen and (max-width: 600px) {
+    .mypage .Bttns {
+        display: block;
+    }
 }

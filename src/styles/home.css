@@ -12,8 +12,12 @@
 }
 .home .pageContent {
     font-family: var(--font);
-    grid-template-columns: 1fr;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
 }
 .home .pageContent h2 {
     font-family: var(--font4);
@@ -23,6 +27,7 @@
 .home .pageContent .content {
     padding-top: 30px;
     padding-bottom: 30px;
+
 }
 .home .pageContent .line {
     height: 0.8px;
@@ -39,6 +44,8 @@
     padding-right: 10vw;
     margin-bottom: 50px;
     margin-top: 50px;
+    background-color: red;
+
 }
 .outstory .images {
     position: relative;
@@ -54,12 +61,12 @@
     text-align: left;
     line-height: 20px;
 }
-.img1 {
+.outstory .img1 {
     width: 270px;
     object-fit: cover;
     position: absolute;
 }
-.img2 {
+.outstory .img2 {
     padding-top: 120px;
     padding-left: 240px;
     width: 270px;    
@@ -72,6 +79,7 @@
     padding-right: 16vw;
     padding-top: 50px;
     padding-bottom: 50px;
+
 }
 .aboutUs .texts p {
     font-size: 42px;    
@@ -104,7 +112,7 @@
     background-color: var(--light-trans2);
 }
 .weather-wrapper .weather {
-    width: 800px;
+    width: 90vw;
 }
 
 .home .refund {
@@ -120,8 +128,6 @@
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
-    .home img {
-    }
     .pageSummary h2 {
         font-size: 20px;
     }
@@ -129,10 +135,28 @@
         font-size: 12px;
         color: var(--grey);
     }
+    .outstory {
+        width: 80vw;
+    }
+    .home .pageContent .outstory {
+        grid-template-columns: 1fr;
+        padding: 2vw;
+    }
+    .outstory .texts h2 {
+        text-align: center;
+    }
+    .aboutUs {
+        width: 80vw;
+    }
+    .aboutUs .texts p {
+        font-size: 20px;    
+        line-height: 30px;
+    }
     .home .service p {
         font-size: 12px;
     }
 
 }
 @media only screen and (max-width: 600px) {
+
 }

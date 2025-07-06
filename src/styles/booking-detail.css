@@ -1,10 +1,12 @@
 .booking-detail {
     background-color: var(--light-trans2);
     margin: 15px;
-    width: 400px;
+    width: 630px;
     border-radius: 10px;
     font-family: var(--font4);
     box-shadow: 2px 2px 4px 2px rgba(142, 142, 142, 0.169);
+    cursor: pointer;
+
 }
 .booking-detail .booking-ref {
     color: var(--grey);
@@ -23,6 +25,7 @@
     background-color: var(--light-trans1);
     transition:  0.2s ease-in-out;
     width: 50px;
+    margin: 10px;
 }
 .booking-detail .editBttn:hover {
     color: var(--cream);
@@ -30,12 +33,31 @@
 }
 .booking-detail .detail {
     text-align: left;
-    padding: 20px;
-}
-.booking-detail .detail.hidden {
-    display: none;
-}
+    padding-left: 20px;
+    padding-right: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
 
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 300ms ease, opacity 300ms ease;
+    overflow: hidden;
+}
+.booking-detail .detail.active {
+    max-height: 1000px;
+    opacity: 1;
+    transition: max-height 600ms ease, opacity 200ms ease;
+}
+.booking-detail h4 {
+    font-size: 14px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-decoration: underline;
+}
+.booking-detail h4 svg {
+    margin-right: 5px;
+}
 .booking-detail .detail p {
     font-size: 14px;
 }
@@ -60,4 +82,21 @@
     width: 100%;
     background-color: var(--light);
     border: none;
+}
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+
+}
+@media only screen and (max-width: 600px) {
+    .mypage .Bttns {
+        display: block;
+    }
+    .booking-detail {
+        width: 90%;
+    }
+    .booking-detail .detail {
+        display: block;
+    }
 }

@@ -3,6 +3,8 @@ import { TOURS } from '../tourlist';
 import '../styles/tour-recommendation.css';
 import { TourInfo } from './tour-info';
 import { TourRecommendationOutput } from './tour-recommendation-output';
+import { CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react';
+
 
 export const TourRecommendation = () => {
 
@@ -11,46 +13,50 @@ export const TourRecommendation = () => {
 
     const createRecommendationList = () => {
         const numbers = [];
-        while (numbers.length < 4) {
+        const tempList = [];
+        while (numbers.length < 8) {
             const newNumber = Math.floor(Math.random()*TOURS.length);
             if (!numbers.includes(newNumber)) {
                 numbers.push(newNumber);
-                tourList.push(TOURS[newNumber]);
+                tempList.push(TOURS[newNumber]);
             }
         };
+        setTourList([...tourList, ...tempList]);
     }
     useEffect(() => {
         createRecommendationList();
         setIsRecommendationLoaded(true);
-        console.log(tourList);
     },[]);
 
     const clickLeft = () => {
-        setIsRecommendationLoaded(false);
-        const shift = tourList.shift();
-        tourList.push(shift);
-        setIsRecommendationLoaded(true);
-        console.log(tourList);
+        const tempList = tourList;
+        const shift = tempList.shift();
+        tempList.push(shift);
+        setTourList([...tempList]);
+    };
+    const clickRight = () => {
+        const tempList = tourList;
+        const pop = tempList.pop();
+        tempList.unshift(pop);
+        setTourList([...tempList]);
     };
 
 
     return (
-        <>
-            <h2>Recommendations</h2>
+        <div className='tour-recommendations'>
             {isRecommendationLoaded ? <>
+            <h3>OUR TOURS YOU MIGHT BE INTERESTED IN</h3>
             <div className='tour-recommendations-wrapper'>
-                
-                    <button onClick={clickLeft}>LEFT</button>
-                    <div className='tour-recommendations'>
-                        {tourList.slice(0, 3).map((tour, index) => 
-                        <TourRecommendationOutput data={tour}/>
-                        )}
-                    </div>
-                    <button>RIGHT</button>
+                <button className='directionBttn' onClick={clickLeft}><CaretLeftIcon size={28} /></button>
+                <div className='recommendations'>
+                    {tourList.slice(0,3).map((tour, index) => 
+                    <TourRecommendationOutput data={tour}/>
+                    )}
+                </div>
+                <button className='directionBttn' onClick={clickRight}><CaretRightIcon size={28} /></button>
             </div>
-            {tourList.map(tour => <p>{tour.tourName}</p>)}
             </> : <></> }
-        </>
+        </div>
     )
 }
 

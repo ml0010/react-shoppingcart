@@ -26,10 +26,10 @@
 }
 
 .login input {
-    width: 75%;
+    width: 60%;
     height: 30px;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
-    color: var(--light);
+    color: var(--light);    
 }
 

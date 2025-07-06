@@ -7,7 +7,7 @@
     flex-direction: column;
     padding-top: 20px;
     border-top: 1px solid var(--dark);
-    font-family: var(--font3);
+    font-family: var(--font4);
     color: var(--dark);
 }
 .footer p {
@@ -24,9 +24,10 @@
     gap: 1em;
 }
 .footerLinks {
-    display: grid;
-    justify-content: center;
-    row-gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5em;
     font-weight: 400;
 }
 .footerLinks a {
@@ -34,14 +35,33 @@
     color: var(--dark);
     text-decoration: none;
     letter-spacing: 0.05em;
+    font-family: var(--font3);
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+.footerLinks a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--dark);
+    transition: transform 0.3s ease-out;
+    transform-origin: bottom right;
 }
 .footerLinks a:hover {
-    color: var(--light);
-    transition: 0.2s ease-in-out;
+    transition: 0.15s ease-in-out;
 }
-.footerLinks .phone {
-    color: var(--dark);
+
+.footerLinks a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
+
 .footer .socialMedia {
     align-self: flex-end;
 }
@@ -50,14 +70,16 @@
     margin: 15px;
     cursor: pointer;
 }
-.contactDetails {
-    font-weight: 700;
-    font-size: 16px;
+.contactDetails p{
+    font-weight: 500;
+    font-size: 13px;
 }
-.contactDetails p {
+.contactDetails a {
     color: var(--dark);
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 13px;
 }
-
 .contactDetails svg {
     color: rgb(32, 214, 32);
     cursor: pointer;
@@ -66,12 +88,7 @@
     margin: auto;
     padding-top: 15px;
 }
-.contactDetails a {
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: 300;
-    font-size: 13px;
-}
+
 
 
 @media only screen and (max-width: 1300px) {

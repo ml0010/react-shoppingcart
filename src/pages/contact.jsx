@@ -40,7 +40,7 @@ export const Contact = () => {
         <div className='contact'>
             <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
             <div className='pageMain'>
-                <h1 className='pageTitle'>GET IN TOUCH WITH US</h1>
+                <p className='pageTitle'>GET IN TOUCH WITH US</p>
                 <p className='pageDescription'>We would love to hear from you</p>
             </div>
             <div className='title'>

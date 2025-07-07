@@ -1,10 +1,11 @@
 .home {
     display: grid;
     place-items: center;
-    color: var(--grey);
+    align-items: center;
 }
-.home .title {
-    text-shadow: -0.5px -0.5px 0 var(--dark), 0.5px -0.5px 0 var(--dark), -0.5px 0.5px 0 var(--dark), 0.5px 0.5px 0 var(--dark);
+.home .logo {
+    max-width: 830px;
+    margin: auto;
 }
 
 .home .Logo {
@@ -44,8 +45,6 @@
     padding-right: 10vw;
     margin-bottom: 50px;
     margin-top: 50px;
-    background-color: red;
-
 }
 .outstory .images {
     position: relative;
@@ -128,6 +127,7 @@
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
+
     .pageSummary h2 {
         font-size: 20px;
     }
@@ -155,8 +155,12 @@
     .home .service p {
         font-size: 12px;
     }
-
+    .home .logo {
+        max-width: 550px;
+    }
 }
 @media only screen and (max-width: 600px) {
-
+    .home .logo {
+        max-width: 380px;
+    }
 }

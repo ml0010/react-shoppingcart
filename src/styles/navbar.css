@@ -115,11 +115,11 @@
     margin-bottom: 20px;
 }
 .menuContent .menuTitle {
-    font-family: var(--font2);
+    font-family: var(--font1);
     color: var(--light);
     font-size: 40px;
     -webkit-text-stroke: 0.8px var(--dark);
-    font-weight: 800;
+    font-weight: 300;
     margin-top: 0px;
 }
 .menuContent button {

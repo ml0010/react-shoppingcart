@@ -41,7 +41,7 @@ export const Tours = () => {
         <div className='tours'>
             <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
             <div className='pageMain'>
-                <h1 className='pageTitle'>DISCOVER EXPERIENCES</h1>
+                <p className='pageTitle'>DISCOVER EXPERIENCES</p>
                 <p className='pageDescription'>Curated activities and memorable experiences, complementing your time in Mallorca.</p>
             </div>
             <div className='title'>

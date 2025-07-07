@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import MainPhoto from '../assets/orange.jpg'
 import Photo1 from '../assets/cala.jpg'
 import Photo2 from '../assets/house.jpg'
-import Logo from '../assets/map.webp'
+import logo from '../assets/map.webp'
 import '../styles/home.css'
 import { Services } from '../components/services';
 import { RefundPolicy } from '../components/refund-policy';
 import { SkipPage } from '../components/skip-page'
 import { Weather } from '../components/weather'
+import { Logo } from '../components/logo'
 
 export const Home = () => {
 
@@ -32,9 +33,9 @@ export const Home = () => {
         <div className='home'>
             <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
             <div className='pageMain'>
-                <h1 className='pageTitle'>EXPLORE MALLORCA</h1>
-                <img className='Logo' src={Logo} alt='map' />
-            </div>                
+                <Logo />
+                <img className='Logo' src={logo} alt='map' />
+            </div>
             <div className='pageContent'>
                 <div className='outstory content'>
                     <div className='images'>

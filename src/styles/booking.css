@@ -76,7 +76,7 @@
     grid-template-columns: 1fr 2.5fr;
     align-items: center;
     row-gap: 15px;
-    padding: 20px;
+    padding: 5px;
 }
 .booking .infoInput .commentInput {
     width: 350px;
@@ -157,16 +157,23 @@
     }
     .booking .infoInput label {
         font-size: 14px;
+        text-align: left;
     }
     .booking .infoInput input {
-        width: 90%;
-        padding: 4px;
+        width: 100%;
         font-size: 14px;
     }
-    .bookBttn .booking-login {
-        width: 50px;
+    .booking .infoInput .commentInput {
+        width: 100%;
     }
     .booking .login-form {
-        max-width: 330px;
+        max-width: 300px;
+    }
+    .booking .infoInput {
+        width: 90%;
+        grid-template-columns: 1fr;
+        row-gap: 7px;
+        padding: 10px;
+
     }
 }

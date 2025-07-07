@@ -3,7 +3,8 @@
     background-color: var(--cream);
     display: flex;
     flex-direction: column;
-    place-items: center;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 130px;
     padding-top: 100px;
     min-height: 50vh;
@@ -38,6 +39,7 @@
 @media only screen and (max-width: 600px) {
     .login {
         width: 90vw;
+        margin: auto;
     }
     .login h2 {
         font-size: 20px;

@@ -1,8 +1,8 @@
 .bookingSearch {
     min-height: 80vh;
     background-color: var(--cream);
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: center;
     place-items: center;
     color: var(--grey);
 }
@@ -90,9 +90,13 @@
 @media only screen and (max-width: 600px) {
     .bookingSearch {
         width: 90vw;
+        margin: auto;
     }
     .bookingSearch h1 {
-        font-size: 20px;
+        font-size: 18px;
+    }
+    .bookingSearch svg {
+        width: 25px;
     }
     .bookingSearch .bookingReferenceInput {
         width: 60%;

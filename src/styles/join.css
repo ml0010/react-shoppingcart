@@ -3,7 +3,8 @@
     background-color: var(--cream);
     display: flex;
     flex-direction: column;
-    place-items: center;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 130px;
     padding-top: 100px;
     min-height: 50vh;
@@ -70,15 +71,19 @@
 @media only screen and (max-width: 600px) {
     .join {
         width: 90vw;
+        margin: auto;
     }
     .join h2 {
         font-size: 20px;
     }
     .join .form {
         width: 85vw;
+        padding-left: 0;
+        padding-right: 0;
     }
     .join .join-form input {
         font-size: 15px;
         height: 20px;
+        width: 70%;
     }
 }

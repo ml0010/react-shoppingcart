@@ -61,9 +61,12 @@ export const Home = () => {
                     <hr className='line'/>
                 </div>
                 <div className='terms content'>
-                    <h2>BOOKING TERMS</h2>
-                    <p>When making reservation, you will only need to fill in the name, contact information of primary guest.</p>
-                    <p>In case of no-show, we do not offer any compensation or refund.</p>
+                    <h2>BOOKING CONDITIONS</h2>
+                    <div>
+                        <p>When making reservation, you will only need to fill in the name, contact information of primary guest.</p>
+                        <p>All tours guests must be 16 years old or more. Some tours may offer some exceptions. (Please consult with us ahead)</p>
+                        <p>In case of no-show, we do not offer any compensation or refund.</p>
+                    </div>
                     <RefundPolicy />
                 </div>
                 <div className='services content'>

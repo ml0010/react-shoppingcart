@@ -59,3 +59,14 @@
 .faq .contactInfo a:hover {
     background-color: var(--light);
 }
+
+
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+
+}
+@media only screen and (max-width: 600px) {
+
+}

@@ -44,10 +44,12 @@
 @media only screen and (max-width: 600px) {
     .service .serviceList {
         grid-row-gap: 10px;
-        padding: 10px;
     }
     .serviceList p {
-        font-size: 12px;
+        font-size: 8px;
+    }
+    .serviceList svg {
+        width: 20px;
     }
 }
 

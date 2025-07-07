@@ -1,13 +1,15 @@
 .home {
     display: grid;
-    place-items: center;
-    align-items: center;
+    flex-direction: column;
+    justify-self: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 .home .logo {
     max-width: 830px;
     margin: auto;
 }
-
 .home .Logo {
     width: 200px;
 }
@@ -16,19 +18,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
 }
-.home .pageContent h2 {
-    font-family: var(--font4);
-    font-size: 30px;
-}
-
 .home .pageContent .content {
     padding-top: 30px;
     padding-bottom: 30px;
-
 }
 .home .pageContent .line {
     height: 0.8px;
@@ -38,7 +31,7 @@
 }
 .home .pageContent .outstory {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 40px;
     padding-left: 10vw;
@@ -50,7 +43,7 @@
     position: relative;
 }
 .outstory .texts {
-    padding: 40px;
+    margin: 40px;
 }
 .outstory .texts h2 {
     text-align: left;
@@ -74,10 +67,10 @@
 
 .home .pageContent .aboutUs {
     background-color: var(--light-trans2);
-    padding-left: 16vw;
-    padding-right: 16vw;
     padding-top: 50px;
     padding-bottom: 50px;
+    padding-left: 10vw;
+    padding-right: 10vw;
 
 }
 .aboutUs .texts p {
@@ -97,21 +90,23 @@
     display: grid;
     justify-content: center;
 }
+.home .pageContent .terms .refund {
+    border: 1px solid rgba(0, 0, 0, 0.138);
+}
 .home .pageContent .services {
     display: grid;
     justify-content: center;
 }
 .home .pageContent .services .service {
-    border: none;
-    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.138);
+    padding: 10px;
 }
 .home .pageContent .weather-wrapper{
     display: grid;
     justify-content: center;
-    background-color: var(--light-trans2);
 }
-.weather-wrapper .weather {
-    width: 90vw;
+.weather-wrapper {
+    width: 100%;
 }
 
 .home .refund {
@@ -124,7 +119,11 @@
 }
 
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1100px) {
+    .home .pageContent .outstory {
+        grid-template-columns: 1fr;
+    }
+
 }
 @media only screen and (max-width: 900px) {
 
@@ -135,19 +134,7 @@
         font-size: 12px;
         color: var(--grey);
     }
-    .outstory {
-        width: 80vw;
-    }
-    .home .pageContent .outstory {
-        grid-template-columns: 1fr;
-        padding: 2vw;
-    }
-    .outstory .texts h2 {
-        text-align: center;
-    }
-    .aboutUs {
-        width: 80vw;
-    }
+
     .aboutUs .texts p {
         font-size: 20px;    
         line-height: 30px;
@@ -160,7 +147,34 @@
     }
 }
 @media only screen and (max-width: 600px) {
+    
     .home .logo {
         max-width: 380px;
+    }
+
+    .outstory .img1 {
+        width: 40vw;
+        object-fit: cover;
+        position: absolute;
+    }
+    .outstory .img2 {
+        padding-top: 16vw;
+        padding-left: 35vw;
+        width: 38vw;    
+        object-fit: cover;
+    }
+    .home h2 {
+        font-size: 16px;
+    }
+    .outstory .texts p {
+        font-size: 12px;
+        text-align: left;
+        line-height: 20px;
+    }
+    .home .terms p {
+        font-size: 12px;
+    }
+    .home .weather p {
+        font-size: 12px;
     }
 }

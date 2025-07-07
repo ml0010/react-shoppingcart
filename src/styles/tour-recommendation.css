@@ -13,6 +13,7 @@
     cursor: pointer;
 }
 
+
 .recommendations {
     display: flex;
 }
@@ -77,11 +78,13 @@
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
+
     .recommendations {
         display: block;
         height: 278px;
         overflow: hidden;
     }
+
     .recommendations:hover .recommendation {
         transform: translateX(0%);
     }
@@ -94,4 +97,7 @@
     }
 }
 @media only screen and (max-width: 600px) {
+    .tour-recommendations h3 {
+        font-size: 14px;
+    }
 }

@@ -52,3 +52,35 @@
     background-color: var(--light);
     border: none;
 }
+
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+    .cartItem {
+        width: 90vw;
+        grid-template-columns: 1fr;
+
+    }
+    .cartItem img {
+        width: 90vw;
+        height: 140px;
+        border-radius: 12px 12px 0px 0px ;
+    }
+
+    .cartItem .description {
+        width: 90vw;
+        height: 150px;
+        border-radius: 0px 0px 12px 12px;
+        padding: 0;
+    }
+    .cartItem .description p {
+        padding-left: 3vw;
+    }
+    .deleteBttn {
+        padding: 10px;
+    }
+}
+@media only screen and (max-width: 600px) {
+
+}

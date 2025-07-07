@@ -1,7 +1,9 @@
 .booking-detail {
     background-color: var(--light-trans2);
     margin: 15px;
-    width: 630px;
+    width: 80vw;
+
+    max-width: 630px;
     border-radius: 10px;
     font-family: var(--font4);
     box-shadow: 2px 2px 4px 2px rgba(142, 142, 142, 0.169);
@@ -87,15 +89,15 @@
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
-
+    .booking-detail {
+        width: 90vw;
+    }
 }
 @media only screen and (max-width: 600px) {
     .mypage .Bttns {
         display: block;
     }
-    .booking-detail {
-        width: 90%;
-    }
+
     .booking-detail .detail {
         display: block;
     }

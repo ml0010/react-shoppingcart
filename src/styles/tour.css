@@ -94,8 +94,20 @@
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
-
+    .tour {
+        width: 85vw;
+    }
+    .tour .tourImg {
+        width: 85vw;
+    }
+    .tour .tourDetail {    
+        margin-left: 7vw;
+        margin-right: 7vw;
+    }
 }
 @media only screen and (max-width: 600px) {
-
+    .tour .tourDetail {    
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
 }

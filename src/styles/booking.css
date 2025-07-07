@@ -163,4 +163,10 @@
         padding: 4px;
         font-size: 14px;
     }
+    .bookBttn .booking-login {
+        width: 50px;
+    }
+    .booking .login-form {
+        max-width: 330px;
+    }
 }

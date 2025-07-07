@@ -69,7 +69,7 @@
 }
 .links .menuBttn {
     position: fixed;
-    left: 40px;
+    left: 3vw;
     top: 10px;
     transition: 0.5s ease-in-out;
 }
@@ -77,7 +77,7 @@
     color: var(--cream);
 }
 .links .cartSummaryBttn {
-    margin-right: 40px;
+    margin-right: 3vw;
     width: 40px;
     height: 40px;
 }

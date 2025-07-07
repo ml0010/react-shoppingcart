@@ -63,3 +63,19 @@
     font-size: 13px;
 }
 
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+}
+@media only screen and (max-width: 600px) {
+    .join {
+        width: 90vw;
+    }
+    .join h2 {
+        font-size: 20px;
+    }
+    .join input {
+        font-size: 15px;
+        height: 20px;
+    }
+}

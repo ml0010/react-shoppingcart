@@ -17,14 +17,12 @@
 .login svg {
     margin-right: 6px;
 }
-
 .login .form {
     background-color: var(--light-trans2);
     border-radius: 15px;
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
     padding-bottom: 30px;
 }
-
 .login input {
     width: 60%;
     height: 30px;
@@ -33,3 +31,19 @@
     color: var(--light);    
 }
 
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+}
+@media only screen and (max-width: 600px) {
+    .login {
+        width: 90vw;
+    }
+    .login h2 {
+        font-size: 20px;
+    }
+    .login input {
+        font-size: 15px;
+        height: 20px;
+    }
+}

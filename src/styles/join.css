@@ -20,7 +20,7 @@
 .join .form {
     background-color: var(--light-trans2);
     width: 400px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 15px;
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
 }
@@ -74,7 +74,10 @@
     .join h2 {
         font-size: 20px;
     }
-    .join input {
+    .join .form {
+        width: 85vw;
+    }
+    .join .join-form input {
         font-size: 15px;
         height: 20px;
     }

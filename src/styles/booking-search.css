@@ -77,7 +77,6 @@
 @media only screen and (max-width: 900px) {
     .bookingSearch h1 {
         font-size: 23px;
-        width: 90vw;
     }
     .bookingSearch .bookingReferenceInput {
         width: 75%;
@@ -89,7 +88,17 @@
 }
 
 @media only screen and (max-width: 600px) {
-
+    .bookingSearch {
+        width: 90vw;
+    }
+    .bookingSearch h1 {
+        font-size: 20px;
+    }
+    .bookingSearch .bookingReferenceInput {
+        width: 60%;
+        height: 25px;
+        font-size: 15px;
+    }
 }
 
 @media only screen and (min-width: 600px) {

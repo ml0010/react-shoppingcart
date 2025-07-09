@@ -87,7 +87,7 @@ export const Join = () => {
                 </form>
                 <p className='errorMsg'>{message}</p>
                 <button type='submit' form='join-form'>SUBMIT</button>
-                <button onClick={()=>navigate('/home')}>GO HOME</button>
+                <button onClick={()=>navigate(-1)}>GO BACK</button>
             </div>
         </div>
     )

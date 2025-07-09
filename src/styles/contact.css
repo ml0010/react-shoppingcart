@@ -1,8 +1,10 @@
-.pageContent {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 60px;
+.contact .pageContent {
+    margin: auto;
+    margin-bottom: 40px;
     color: var(--grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .title {
     text-shadow: -0.5px -0.5px 0 var(--dark), 0.5px -0.5px 0 var(--dark), -0.5px 0.5px 0 var(--dark), 0.5px 0.5px 0 var(--dark);

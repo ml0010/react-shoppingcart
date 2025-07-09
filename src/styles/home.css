@@ -1,8 +1,5 @@
 .home {
-    display: grid;
     width: 100%;
-    margin: 0;
-    padding: 0;
 }
 .home .logo {
     max-width: 830px;
@@ -16,6 +13,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
+    margin-bottom: 40px;
 }
 .home .pageContent .content {
     padding-top: 30px;
@@ -145,11 +144,9 @@
     }
 }
 @media only screen and (max-width: 600px) {
-    
     .home .logo {
         max-width: 380px;
     }
-
     .outstory .img1 {
         width: 40vw;
         object-fit: cover;

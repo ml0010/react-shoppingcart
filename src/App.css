@@ -4,6 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
 
+html, body {
+    padding: 0;
+    margin: 0;
+}
 :root {
     --cream: rgb(245, 245, 245);
     --dark: #333d32;
@@ -20,6 +24,7 @@
     --font4: 'Helvetica';
     --font5: 'DM Sans';
 }
+
 
 .App {
     text-align: center;

@@ -8,7 +8,7 @@ With integrated Stripe payment system clients can make the payment with their cr
 
 ## Access
 
-Please open <a href='https://ml0010.github.io/react-shoppingcart' target='_blank'>https://ml0010.github.io/react-shoppingcart</a> to view the website.
+Please open [https://ml0010.github.io/react-shoppingcart](https://ml0010.github.io/react-shoppingcart){:target="_blank" rel="noopener"} to view the website.
 
 
 ## Contents

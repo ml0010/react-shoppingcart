@@ -6,28 +6,25 @@ Users can book available tours as a member or a guest.\
 All reservations can be modified or cancelled by accessing the reservation by searching booking reference or user's account detail.\
 With integrated Stripe payment system clients can make the payment with their credit card.\
 
-## Access Webpage
+## Access
 
 Please open [https://ml0010.github.io/react-shoppingcart](https://ml0010.github.io/react-shoppingcart) to view the website.
 
 
-## Introduction
-About: Company information and philosophy\
-Tours: Search, filter and select available tours\
-Contact: List of contact information, contact \
-form\
-Basket: Show the list of items in the cart and take steps of booking\
-My Account: Join or Login to the account and access or amend user's account information, booking information\
-My Reservation: Access existing reservation using booking confirmation reference\
+## Contents
+<ul>
+    <li>About: Business introduction and philosophy</li>
+    <li>Tours: Search, filter and select available tours</li>
+    <li>Contact: List of contact information or fill in the contact form</li>
+    <li>Basket: Show the list of items in the cart and take steps of booking</li>
+    <li>My Account: Join or Login to the account and access or amend user's account information, booking information</li>
+    <li>My Reservation: Access existing reservation using booking confirmation reference</li>
+</ul>
 
-## Stops for Functionality
 
-<h2> 🚀 &nbsp;Some Tools I Have Used and Learned</h2>
-<p align="left">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="vscode" width="45" height="45"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="bash" width="45" height="45"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="php" width="45" height="45"/>
-</p>
+## Steps
+
+
 
 ## Run on Local System
 

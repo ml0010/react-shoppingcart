@@ -6,9 +6,9 @@ With integrated Stripe payment system clients can make the payment with their cr
 
 ## Access
 Please open [https://ml0010.github.io/react-shoppingcart](https://ml0010.github.io/react-shoppingcart){:target="_blank" rel="noopener"} to view the website.\
-<img src='./src/assets/screenshots/home.png' width='300'/>
-<img src='./src/assets/screenshots/tour.png' width='300' />
-<img src='./src/assets/screenshots/home.png' width='300' />
+<img src='./src/assets/screenshots/home.png' width='280'/>
+<img src='./src/assets/screenshots/tour.png' width='280' />
+<img src='./src/assets/screenshots/basket.png' width='280' />
 
 ## Contents
 <ul>

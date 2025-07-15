@@ -8,7 +8,7 @@ With integrated Stripe payment system clients can make the payment with their cr
 
 ## Access
 
-Please open [https://ml0010.github.io/react-shoppingcart](https://ml0010.github.io/react-shoppingcart) to view the website.
+Please open <a href='https://ml0010.github.io/react-shoppingcart' target='_blank'>https://ml0010.github.io/react-shoppingcart</a> to view the website.
 
 
 ## Contents
@@ -20,10 +20,6 @@ Please open [https://ml0010.github.io/react-shoppingcart](https://ml0010.github.
     <li>My Account: Join or Login to the account and access or amend user's account information, booking information</li>
     <li>My Reservation: Access existing reservation using booking confirmation reference</li>
 </ul>
-
-
-## Steps
-
 
 
 ## Run on Local System

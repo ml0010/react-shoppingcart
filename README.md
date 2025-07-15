@@ -2,8 +2,8 @@
 
 ## Explore Mallorca
 
-This is an e-commerce website of a tour agency. Clients can book available tours and edit/cancel their reservations.
-[https://ml0010.github.io/react-shoppingcart/](CLICK HERE) to access the website.
+This is an e-commerce website of a tour agency. Clients can book available tours and edit/cancel their reservations.\
+[https://ml0010.github.io/react-shoppingcart](CLICK HERE) to access the website.
 
 
 ## Available Scripts

@@ -5,15 +5,12 @@ All reservations can be modified or cancelled by accessing the reservation by se
 With integrated Stripe payment system clients can make the payment with their credit card.
 
 ## Access
-Please open [https://ml0010.github.io/react-shoppingcart](https://ml0010.github.io/react-shoppingcart){:target="_blank" rel="noopener"} to view the website.\
-<img src='./src/assets/screenshots/home.png' width='280'/>
-<img src='./src/assets/screenshots/tour.png' width='280' />
-<img src='./src/assets/screenshots/basket.png' width='280' />
+Please open [https://ml0010.github.io/react-shoppingcart](https://ml0010.github.io/react-shoppingcart) to view the website.
 
 ## Contents
 <ul>
-    <li>About: Business introduction and philosophy</li>
-    <li>Tours: Search, filter and select available tours</li>
+    <li><b>About:</b> Business introduction and philosophy</li>
+    <li><b>Tours:</b> Search, filter and select available tours</li>
     <li>Contact: List of contact information or fill in the contact form</li>
     <li>Basket: Show the list of items in the cart and take steps of booking</li>
     <li>My Account: Join or Login to the account and access or amend user's account information, booking information</li>

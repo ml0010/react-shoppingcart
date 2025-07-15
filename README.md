@@ -1,15 +1,12 @@
 # Explore Mallorca (React E-Commerce Webstite)
-
-This is an e-commerce website of a tour agency. 
-User can create an account and save personal information and access their bookings.\
-Users can book available tours as a member or a guest.\
+This is an e-commerce website of a tour agency.\
+User can create an account and save personal information and access their bookings or process the same as a guest.
 All reservations can be modified or cancelled by accessing the reservation by searching booking reference or user's account detail.\
-With integrated Stripe payment system clients can make the payment with their credit card.\
+With integrated Stripe payment system clients can make the payment with their credit card.
 
 ## Access
-
 Please open [https://ml0010.github.io/react-shoppingcart](https://ml0010.github.io/react-shoppingcart){:target="_blank" rel="noopener"} to view the website.
-
+<img src='./src/assets/screenshots/home.png'>
 
 ## Contents
 <ul>

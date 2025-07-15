@@ -1,6 +1,10 @@
-# React E-Commerce Webpage
+# React E-Commerce Webpage 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Explore Mallorca
+
+This is an e-commerce website of a tour agency. Clients can book available tours and edit/cancel their reservations.
+[https://ml0010.github.io/react-shoppingcart/](CLICK HERE) to access the website.
+
 
 ## Available Scripts
 

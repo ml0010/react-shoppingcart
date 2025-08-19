@@ -9,12 +9,12 @@ Please open [https://ml0010.github.io/react-shoppingcart](https://ml0010.github.
 
 ## Contents
 <ul>
-    <li><b>About:</b> Business introduction and philosophy</li>
-    <li><b>Tours:</b> Search, filter and select available tours</li>
-    <li>Contact: List of contact information or fill in the contact form</li>
-    <li>Basket: Show the list of items in the cart and take steps of booking</li>
-    <li>My Account: Join or Login to the account and access or amend user's account information, booking information</li>
-    <li>My Reservation: Access existing reservation using booking confirmation reference</li>
+    <li><b>About:</b> business introduction and philosophy</li>
+    <li><b>Tours:</b> search, filter and select available tours</li>
+    <li><b>Contact:</b> list of contact information or fill in the contact form</li>
+    <li><b>Basket:</b> show the list of items in the cart and take steps of booking</li>
+    <li><b>My Account:</b> join or Login to the account and access or amend user's account information, booking information</li>
+    <li><b>My Reservation:</b> access existing reservation using booking confirmation reference</li>
 </ul>
 
 

@@ -12,9 +12,7 @@ import { BookingContextProvider } from './contexts/booking-context.jsx';
 import { AuthenticationContextProvider } from './contexts/authentication-context.jsx';
 
 import { PaymentContextProvider } from './contexts/payment-context.jsx';
-import { MotionRoute, RouteAnimationProvider } from './components/motions.jsx';
 import { RoutesWithAnimation } from './components/routes.jsx';
-import { AnimatePresence } from 'framer-motion';
 
 function App() {
     
@@ -29,7 +27,7 @@ function App() {
 
     return (
         <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename="/react-shoppingcart">
             <AuthenticationContextProvider>
                 <CartContextProvider>
                     <BookingContextProvider>

@@ -1,0 +1,116 @@
+.footer {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    border-top: 1px solid var(--dark);
+    font-family: var(--font4);
+    color: var(--dark);
+}
+.footer p {
+    font-weight: 300;
+    font-size: 13px;
+    font-family: var(--font2);
+    font-weight: 400;
+    color: var(--dark);
+}
+.footerContent {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+}
+.footerLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5em;
+    font-weight: 400;
+}
+.footerLinks a {
+    cursor: pointer;
+    color: var(--dark);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    font-family: var(--font3);
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+.footerLinks a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--dark);
+    transition: transform 0.3s ease-out;
+    transform-origin: bottom right;
+}
+.footerLinks a:hover {
+    transition: 0.15s ease-in-out;
+}
+
+.footerLinks a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.footer .socialMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+}
+.footer .socialMedia svg {
+    color: var(--dark);
+    margin: 15px;
+    cursor: pointer;
+}
+.contactDetails p{
+    font-weight: 500;
+    font-size: 13px;
+}
+.contactDetails a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 13px;
+}
+.contactDetails svg {
+    color: rgb(32, 214, 32);
+    cursor: pointer;
+    border: none;
+    display: block;
+    margin: auto;
+    padding-top: 15px;
+}
+
+
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+}
+@media only screen and (max-width: 600px) {
+    .footer .footerContent {
+        grid-template-columns: 1fr;
+    }
+    .footer .footerLinks {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .footer .socialMedia {
+        display: none;
+    }
+}
+@media only screen and (max-height: 600px) {
+    .footer {
+        display: none;
+    }
+}

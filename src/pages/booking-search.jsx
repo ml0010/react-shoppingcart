@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../styles/booking-search.css';
 import { MagnifyingGlassIcon } from '@phosphor-icons/react';
-import { BookingContext } from '../context/booking-context';
+import { BookingContext } from '../contexts/booking-context';
 
 export const BookingSearch = () => {
 
@@ -41,3 +41,4 @@ export const BookingSearch = () => {
         </div>
     )
 }
+export default BookingSearch;

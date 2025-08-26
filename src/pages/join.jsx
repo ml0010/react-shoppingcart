@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react'
 import '../styles/join.css';
-import { AuthenticationContext } from '../context/authentication-context';
+import { useContext, useState } from 'react'
+import { AuthenticationContext } from '../contexts/authentication-context';
 import { UserListIcon } from '@phosphor-icons/react';
-import { GobackButton } from '../components/goback-button';
+import { GobackButton } from '../components/buttons/goback-button';
+import { MotionRoute } from '../components/motions';
 
 export const Join = () => {
     
@@ -70,26 +71,28 @@ export const Join = () => {
     };
 
     return (
-        <div className='join'>
-            <GobackButton />
-            <div className='form'>
-                <div className='joinTitle'>
-                    <UserListIcon size={35} weight='bold' />
-                    <h2>JOIN</h2>
+        <MotionRoute>
+            <div className='join'>
+                <GobackButton />
+                <div className='form'>
+                    <div className='joinTitle'>
+                        <UserListIcon size={35} weight='bold' />
+                        <h2>JOIN</h2>
+                    </div>
+                    <form className='join-form' id='join-form' onSubmit={handleSubmit}>
+                        <input type='text' name='name' placeholder='Name' value={input.name} onChange={handleInput}></input>
+                        <input type='email' name='email' placeholder='Email' value={input.email} onChange={handleInput}></input>
+                        <input type='text' name='telephone' placeholder='Telephone' value={input.telephone} onChange={handleInput}></input>
+                        <input type='text' name='username' placeholder='User Name' value={input.username} onChange={handleInput}></input>
+                        <input type='password' name='password' placeholder='Password' minLength='4' value={input.password} onChange={handleInput}></input>
+                        <input type='password' name='passwordRepeat' placeholder='Repeat Password' minLength='4' value={input.passwordRepeat} onChange={handleInput}></input>
+                    </form>
+                    <p className='errorMsg'>{message}</p>
+                    <button type='submit' form='join-form'>SUBMIT</button>
+                    <button onClick={()=>navigate(-1)}>GO BACK</button>
                 </div>
-                <form className='join-form' id='join-form' onSubmit={handleSubmit}>
-                    <input type='text' name='name' placeholder='Name' value={input.name} onChange={handleInput}></input>
-                    <input type='email' name='email' placeholder='Email' value={input.email} onChange={handleInput}></input>
-                    <input type='text' name='telephone' placeholder='Telephone' value={input.telephone} onChange={handleInput}></input>
-                    <input type='text' name='username' placeholder='User Name' value={input.username} onChange={handleInput}></input>
-                    <input type='password' name='password' placeholder='Password' minLength='4' value={input.password} onChange={handleInput}></input>
-                    <input type='password' name='passwordRepeat' placeholder='Repeat Password' minLength='4' value={input.passwordRepeat} onChange={handleInput}></input>
-                </form>
-                <p className='errorMsg'>{message}</p>
-                <button type='submit' form='join-form'>SUBMIT</button>
-                <button onClick={()=>navigate(-1)}>GO BACK</button>
             </div>
-        </div>
+        </MotionRoute>
     )
 }
 export default Join;

@@ -1,15 +1,38 @@
 .home {
     width: 100%;
 }
-.home .logo {
-    max-width: 830px;
-    margin: auto;
+.tourButton {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.788);
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 15px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 35px;
+    transition: 0.2s ease-in;
 }
-.home .Logo {
-    width: 200px;
+.tourButton:hover {
+    background-color: white;
+    transform: scale(1.03);
 }
+.tourButton svg {
+    margin-left: 5px;
+    opacity: 0;
+    transition: 0.2s ease-in;
+}
+.tourButton:hover svg {
+    margin-left: 5px;
+    opacity: 1;
+}
+
+
+
 .home .pageContent {
-    font-family: var(--font);
+    font-family: var(--font1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,6 +42,7 @@
 .home .pageContent .content {
     padding-top: 30px;
     padding-bottom: 30px;
+    max-width: 1400px;
 }
 .home .pageContent .line {
     height: 0.8px;
@@ -29,18 +53,24 @@
 .home .pageContent .outstory {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 40px;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    margin-bottom: 50px;
-    margin-top: 50px;
+    height: 650px;
+    background-color: ;
 }
+.home p {
+    font-size: 16px;
+    font-weight: 300;
+    padding-top: 20px;
+}
+
+
+
 .outstory .images {
     position: relative;
+    margin: 40px;
+    background-color: blue;
 }
 .outstory .texts {
-    margin: 40px;
+    margin: auto 40px;
 }
 .outstory .texts h2 {
     text-align: left;
@@ -54,12 +84,14 @@
     width: 270px;
     object-fit: cover;
     position: absolute;
+    left: 20px;
 }
 .outstory .img2 {
-    padding-top: 120px;
-    padding-left: 240px;
-    width: 270px;    
+    width: 270px;
     object-fit: cover;
+    position: absolute;
+    top: 130px;
+    left: 260px;
 }
 
 .home .pageContent .aboutUs {
@@ -147,17 +179,7 @@
     .home .logo {
         max-width: 380px;
     }
-    .outstory .img1 {
-        width: 40vw;
-        object-fit: cover;
-        position: absolute;
-    }
-    .outstory .img2 {
-        padding-top: 16vw;
-        padding-left: 35vw;
-        width: 38vw;    
-        object-fit: cover;
-    }
+
     .home h2 {
         font-size: 16px;
     }

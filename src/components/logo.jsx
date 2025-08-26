@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import '../styles/logo.css'
+import './logo.css'
+import { useEffect, useState } from 'react'
 
 export const Logo = () => {
     const [ hightlighterOpen, setHighlighterOpen ] = useState(false);

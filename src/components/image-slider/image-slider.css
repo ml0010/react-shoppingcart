@@ -1,0 +1,88 @@
+.scroll-container {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+    max-width: 50vw;
+
+    height: auto;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+}
+
+section {
+    margin: 100px auto;
+}
+
+.top-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.top-section h1 {
+    font-size: 60px;
+}
+
+.scroll-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 100px auto;
+    /* This is needed to prevent the image from "jittering" partway through the transition */
+    overflow: hidden;
+}
+
+.img-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.copy {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    font-size: 24px;
+    margin-left: 5%;
+    text-align: left;
+}
+
+.copy h2 {
+    font-size: 50px;
+    margin-top: 0;
+}
+
+.copy p {
+    font-size: 15px;
+    font-weight: 300;
+    padding-top: 20px;
+}
+
+.bottom-shadow {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--cream) 40%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.top-shadow {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--cream) 25%);
+    height: 100%;
+    width: 140%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}

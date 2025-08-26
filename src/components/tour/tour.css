@@ -1,0 +1,118 @@
+
+.tour {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background-color: var(--light-trans2);
+    border-radius: 12px;
+    color: var(--grey);
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    overflow: hidden;
+}
+
+.tour .tourImg {
+    width: 100%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.tour .tourDetail {    
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+}
+
+.tour .tourName {
+    height: 20px;
+    display:flex;
+    align-items:center;
+    margin: 20px;
+    font-family: var(--font1);
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.tour .subInfo {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-auto-rows: 30px;
+    place-items: center;
+    font-family: var(--font1);
+    font-size: 13px;
+}
+
+.tour .description {
+    height: 50px;
+    font-size: 13px;
+    font-weight: 200;
+    display:flex;
+    align-items:center;
+    margin: 20px;
+}
+
+.selectBttn {
+    background-color: var(--dark);
+    color: white;
+    min-width: 96%;
+    min-height: 40px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 11px;
+}
+
+.selectBttn:hover {
+    cursor: pointer;
+    background-color: var(--light);
+    transition: 0.2s ease-in;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backdrop);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.tour .separator {
+    height: 0.5px;
+    background-color: var(--grey);
+    border: none;
+    opacity: 0.2;
+    margin: 10px;
+}
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+    .tour {
+        width: 85vw;
+    }
+    .tour .tourImg {
+        width: 85vw;
+    }
+    .tour .tourDetail {    
+        margin-left: 7vw;
+        margin-right: 7vw;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .tour .tourDetail {    
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+}

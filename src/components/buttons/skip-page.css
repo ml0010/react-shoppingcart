@@ -1,0 +1,50 @@
+.scrollDown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.scrollDown .scrollDownBttn {
+    background-color: transparent;
+    border: none;
+    color: var(--cream);
+}
+
+.scrollDown.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scrollDown .text {
+    font-size: 10px;
+    font-family: var(--font1);
+    font-weight: 500;
+    color: var(--cream);
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+}
+
+.scrollDown:hover .text {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+}
+@media only screen and (max-width: 600px) {
+}
+@media only screen and (max-height: 600px) {
+    .scrollDown {
+        display: none;
+    }
+}

@@ -1,0 +1,181 @@
+.tourInfo {
+    background-color: var(--cream);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 90vh;
+    max-width: 1000px;
+    overflow: scroll;
+    align-items: center;
+    padding-bottom: 30px;
+    z-index: 100;
+    font-family: var(--font4);
+}
+
+.tourInfo .titleBar {
+    position: sticky;
+    top: 0px;
+    height: 60px;
+    background-color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.titleBar .name {
+    font-family: var(--font1);
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--dark);
+}
+.titleBar .closeBttn {
+    background-color: transparent;
+    color: var(--dark);
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+.titleBar .closeBttn:hover {
+    color: var(--light);
+    transition: 0.2s ease-in;
+}
+.tourInfo .tourInfoHandler {
+    text-align: left;
+    padding: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.tourInfoHandler .category {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-bottom: 5px;
+}
+.tourInfoHandler h3 {    
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+}
+
+.tourInfoHandler svg {
+    margin-right: 5px;
+}
+
+.tourInfo .tourInfoHandler p {
+    font-size: 14px;
+    color: var(--grey);    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    list-style-type: none;
+}
+.tourInfo .separator {
+    height: 0.5px;
+    background-color: var(--grey);
+    border: none;
+    opacity: 0.2;
+    margin: 10px;
+}
+.tourInfo .guestInput h3 {
+    font-size: 15px;
+    font-family: var(--font1);
+    color: var(--light);
+}
+
+.guestInput .inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    font-family: var(--font1);
+}
+.guestInput .label p {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.guestInput .input {
+    display: flex;
+    font-size: 13px;
+
+}
+.guestInput .inputs .pax {
+    width: 30px;
+    appearance: text;
+    text-align: center;
+}
+
+.guestInput input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.guestInput input[type=number] {
+    appearance: textfield; /* Firefox */
+}
+.guestInput .inputs .dateWarning {
+    font-size: 10px;
+    color: red;
+}
+
+.tourInfo .bttnHandler {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+}
+.bttnHandler .addToBasketBttn svg {
+    padding-left: 5px;
+}
+.bttnHandler .addToBasketBttn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    color: white;
+    min-width: 180px;
+    min-height: 40px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    border: none;
+    font-size: 10px;
+}
+.bttnHandler .addToBasketBttn:hover {
+    cursor: pointer;
+    background-color: var(--light);
+    transition: 0.2s ease-in;
+}
+
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 900px) {
+    .tourInfo {
+        width: 100vw;
+        height: 100vh;
+        margin-top: 10px;
+    }
+    .titleBar .name {
+        font-size: 23px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .tourInfo .guestInput {
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0px;
+    }
+    .tourInfo .tourInfoHandler h3 {
+        font-size: 17px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+
+    }
+    .tourInfo .tourInfoHandler span{
+        display: flex;
+        flex-direction: column;
+    } 
+    .titleBar .name {
+        font-size: 18px;
+    }
+}

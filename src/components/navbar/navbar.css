@@ -1,0 +1,227 @@
+.navbar {
+    font-family: var(--font3);
+}
+.backgroundGradient {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.493), transparent);
+    opacity: 70%;
+}
+
+.navbar .links {
+    width: 100%;
+    height: 60px;    
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid var(--cream);
+    transition: 0.5s ease-in-out;
+}
+
+
+.links:hover {
+    background-color: var(--cream);
+    color: var(--dark);
+    border-bottom: 1px solid black;
+    transition: 0.2s ease-in-out;
+}
+
+.links:hover a {
+    transition: 0.2s ease-in-out;
+    color: var(--dark);
+}
+
+.links:hover button {
+    transition: 0.2s ease-in-out;
+    color: var(--dark);
+}
+
+.links a {
+    margin-right: 40px;
+    font-size: 15px;
+    text-decoration: none;
+    border-bottom: transparent 0.125em solid;
+    color: var(--cream);
+    letter-spacing: 0.2em;
+}
+
+.links a:hover {
+    color: var(--light);
+    border-bottom: var(--light) 0.125em solid;
+    transition: 0.2s ease-in-out;
+}
+
+.links button {
+    color: var(--cream);
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.links button:hover {
+    color: var(--light);
+    transition: 0.2s ease-in-out;
+}
+.links .menuBttn {
+    position: fixed;
+    left: 3vw;
+    top: 10px;
+    transition: 0.5s ease-in-out;
+}
+.menuBttn.menubar:hover {
+    color: var(--cream);
+}
+.links .cartSummaryBttn {
+    margin-right: 3vw;
+    width: 40px;
+    height: 40px;
+}
+
+.navbarWrapper.active .links{
+    top: -80px;
+}
+.navbarWrapper.menuOpen .links{
+    top: -80px;
+}
+
+.menuContent {
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 370px;
+    left: -400px;
+    transition: 0.5s ease-in-out;
+    background-color: var(--cream);
+    opacity: 0;
+    border-right: 1px solid var(--dark);
+
+}
+.menuContent.open {
+    opacity: 1;
+    left: 0px;
+    z-index: 100;
+}
+.menuContent .menuTitle {
+    font-family: var(--font2);
+    color: var(--light);
+    font-size: 40px;
+    -webkit-text-stroke: 0.8px var(--dark);
+    font-weight: 800;
+    margin-top: 0px;
+}
+.menuContent button {
+    float: right;
+    padding: 10px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+.menuContent button:hover {
+    color: var(--light);
+}
+
+.menuContent .menuLinks {
+    padding-top: 50px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menuContent .menuLinks a {
+    padding-top:23px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--dark);
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    display: inline-block;
+    position: relative;
+}
+.menuContent .menuLinks a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--grey);
+    transition: transform 0.3s ease-out;
+    transform-origin: bottom right;
+}
+
+.menuContent .menuLinks a:hover{
+    transition: 0.15s ease-in-out;
+}
+
+.menuContent .menuLinks a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backdrop);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .socialMedia {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+}
+.navbar .socialMedia svg {
+    color: var(--light);
+    margin: 15px;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 900px) {
+
+}
+  
+@media only screen and (max-width: 600px) {
+    .links a {
+        display: none;
+    }
+}
+  
+@media only screen and (max-width: 600px) {
+    .navbar .menuContent {
+        width: 100%;
+    }
+    .navbar .menuContent .menuTitle {
+        font-size: 33px;
+    }
+    .menuContent .menuLinks a {
+        padding-top:23px;
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--dark);
+        cursor: pointer;
+        text-decoration: none;
+        letter-spacing: 0.2em;
+    }
+
+}
+@media only screen and (max-height: 600px) {
+    .socialMedia {
+        display: none;
+    }
+}

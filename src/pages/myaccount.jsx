@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import '../styles/myaccount.css';
-import { AuthenticationContext } from '../context/authentication-context';
-import { GobackButton } from '../components/goback-button';
+import { AuthenticationContext } from '../contexts/authentication-context';
+import { GobackButton } from '../components/buttons/goback-button';
 import { ProhibitIcon, SignOutIcon } from '@phosphor-icons/react';
 
 export const MyAccount = () => {

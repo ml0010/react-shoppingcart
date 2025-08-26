@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { AuthenticationContext } from '../context/authentication-context';
+import { useContext, useEffect, useState } from 'react'
+import { AuthenticationContext } from '../contexts/authentication-context';
 import '../styles/mypage.css';
-import { BookingDetail } from '../components/booking-detail';
-import { GobackButton } from '../components/goback-button';
+import { BookingDetail } from '../components/booking/booking-detail';
+import { GobackButton } from '../components/buttons/goback-button';
 import { GearIcon, SignOutIcon } from '@phosphor-icons/react';
-import { Faq } from '../components/faq';
-import { TourRecommendation } from '../components/tour-recommendation';
+import { Faq } from '../components/faq/faq';
+import { TourRecommendation } from '../components/tour/tour-recommendation';
 
 export const MyPage = () => {
     const { user, logout, navigate } = useContext(AuthenticationContext);

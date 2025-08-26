@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import '../styles/contact.css'
 import MainPhoto from '../assets/fornalutx.jpg'
 import { EnvelopeSimpleIcon, MapPinLineIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
-import { SkipPage } from '../components/skip-page'
+import { SkipPage } from '../components/buttons/skip-page'
+import { MotionRoute } from '../components/motions'
 
 export const Contact = () => {
     const [name, setName] = useState("");
@@ -37,65 +38,72 @@ export const Contact = () => {
     }    
 
     return (
-        <div className='contact'>
-            <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
-            <div className='pageMain'>
-                <p className='pageTitle'>GET IN TOUCH WITH US</p>
-                <p className='pageDescription'>We would love to hear from you</p>
-            </div>
-            <div className='title'>
-                <h1>CONTACT US</h1>
-            </div>
-            <div className='pageContent'>
-                <p>Our office agents operate from Monday to Friday between 9am and 6pm.</p>
-                <p>If you contact after our operation days/hours we will get back to you the next working day.</p>
-                <div className='pageDevider'>
-                    <div className='pageLeft'>
-                        <div className='contactMethods'>
-                            <span className='icons'>
-                                <MapPinLineIcon size={40} />
-                            </span>
-                            <span className='contacts'>
-                                <h3>Location</h3>
-                                <a href='https://maps.app.goo.gl/id588dXKnyucx9ai7' target='_blank' rel='noreferrer'>Palma de Mallorca, Illes Balears</a>
-                            </span>
-                            
-                            <span className='icons'>
-                                <WhatsappLogoIcon size={40} />
-                            </span>
-                            <span className='contacts'>
-                                <h3>Whatsapp</h3>
-                                <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>+(34) 666-000-000</a>
-                            </span>
-                            <span className='icons'>
-                                <EnvelopeSimpleIcon size={40} />
-                            </span>
-                            <span className='contacts'>
-                                <h3>Email</h3>
-                                <a href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
-                            </span>
-                        </div>
+        <MotionRoute>
+            <div className='contact'>
+                <div className='pageFront'>
+                    <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
+                    <div className='pageMain'>
+                        <p className='pageTitle'>GET IN TOUCH WITH US</p>
+                        <p className='pageDescription'>We would love to hear from you</p>
                     </div>
+                    <SkipPage />
+                </div>
+                <div className='pageContent'>
+                    <div className='title'>
+                        <h1>CONTACT US</h1>
+                    </div>
+                    <div className='pageContent'>
+                        <p>Our office agents operate from Monday to Friday between 9am and 6pm.</p>
+                        <p>If you contact after our operation days/hours we will get back to you the next working day.</p>
+                        <div className='pageDevider'>
+                            <div className='pageLeft'>
+                                <div className='contactMethods'>
+                                    <span className='icons'>
+                                        <MapPinLineIcon size={40} />
+                                    </span>
+                                    <span className='contacts'>
+                                        <h3>Location</h3>
+                                        <a href='https://maps.app.goo.gl/id588dXKnyucx9ai7' target='_blank' rel='noreferrer'>Palma de Mallorca, Illes Balears</a>
+                                    </span>
+                                    
+                                    <span className='icons'>
+                                        <WhatsappLogoIcon size={40} />
+                                    </span>
+                                    <span className='contacts'>
+                                        <h3>Whatsapp</h3>
+                                        <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>+(34) 666-000-000</a>
+                                    </span>
+                                    <span className='icons'>
+                                        <EnvelopeSimpleIcon size={40} />
+                                    </span>
+                                    <span className='contacts'>
+                                        <h3>Email</h3>
+                                        <a href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
+                                    </span>
+                                </div>
+                            </div>
 
-                    <div className='pageRight'>
-                        <h3>Conctact Form</h3>                        
-                        {showSubmitMsg?
-                            <div className='sent-msg'>
-                                <p>We have successfully received your message.</p>
-                                <p>We will get back to you as soon as possible.</p>
-                            </div>: 
-                            <form onSubmit={handleOnSubmit}>
-                                <input className='nameInput' type='text' name='name' placeholder='Your Name' value={name} onChange={(e)=>setName(e.target.value)} required></input>
-                                <input className='emailInput' type='email' name='email' placeholder='Your Email' value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
-                                <input className='phoneInput' type='text' name='phone' placeholder='Your Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required></input>
-                                <textarea className='commentInput' name='comment' placeholder='Your Message' value={comment} onChange={(e)=>setComment(e.target.value)} required></textarea>
-                                <button className='sendMsgBttn' type='submit'>SEND MESSAGE</button>
-                            </form>
-                        }
+                            <div className='pageRight'>
+                                <h3>Conctact Form</h3>                        
+                                {showSubmitMsg?
+                                    <div className='sent-msg'>
+                                        <p>We have successfully received your message.</p>
+                                        <p>We will get back to you as soon as possible.</p>
+                                    </div>: 
+                                    <form onSubmit={handleOnSubmit}>
+                                        <input className='nameInput' type='text' name='name' placeholder='Your Name' value={name} onChange={(e)=>setName(e.target.value)} required></input>
+                                        <input className='emailInput' type='email' name='email' placeholder='Your Email' value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
+                                        <input className='phoneInput' type='text' name='phone' placeholder='Your Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required></input>
+                                        <textarea className='commentInput' name='comment' placeholder='Your Message' value={comment} onChange={(e)=>setComment(e.target.value)} required></textarea>
+                                        <button className='sendMsgBttn' type='submit'>SEND MESSAGE</button>
+                                    </form>
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <SkipPage />
-        </div>
+        </MotionRoute>
     )
 }
+export default Contact;

@@ -1,7 +1,6 @@
-import React from 'react'
 import '../styles/login.css';
-import LoginForm from '../components/login-form';
-import { GobackButton } from '../components/goback-button';
+import LoginForm from '../components/login/login-form';
+import { GobackButton } from '../components/buttons/goback-button';
 import { SignInIcon } from '@phosphor-icons/react';
 
 export const Login = () => {

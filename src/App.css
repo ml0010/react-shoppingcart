@@ -36,6 +36,7 @@ html, body {
     display: flex;
     flex-direction: column;
     font-family: var(--font1);
+    color: var(--grey);
 }
 
 .pageBackground {
@@ -73,15 +74,14 @@ html, body {
 }
 .pageDescription {
     color: white;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 300;
 }
 
 .title {
     margin-top: 70px;
     margin-bottom: 30px;
-    font-size: 27px;
-    color: var(--light);
+    font-size: 40px;
 }
 
 @media only screen and (max-width: 900px) {

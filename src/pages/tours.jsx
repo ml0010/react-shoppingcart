@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../styles/tours.css'
 import { TOURS } from '../tourlist'
 import { Tour } from '../components/tour/tour'
@@ -7,6 +7,29 @@ import { SkipPage } from '../components/buttons/skip-page'
 import MainPhoto from '../assets/calos-des-moro.png'
 import { RevealOnScroll } from '../components/reveal-on-scroll'
 import { MotionRoute } from '../components/motions'
+import { Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import "swiper/css/pagination";
+
+
+const SlideNextButton = () => {
+    const swiper = useSwiper();
+    return (
+        <button onClick={() => swiper.slideNext()}>Next</button>
+    );
+};
+const SlidePrevButton = () => {
+    const swiper = useSwiper();
+    return (
+        <button onClick={() => swiper.slidePrev()}>Prev</button>
+    );
+};
+
 
 export const Tours = () => {
 
@@ -29,6 +52,28 @@ export const Tours = () => {
         console.log(tours);
         return tours;
     };
+
+    const [ slides, setSlides ] = useState(0);
+
+    const setSlidesPerview = () => {
+        setSlides(
+            window.innerWidth <= 700
+                ? 1
+                : window.innerWidth <= 1200
+                ? 2
+                : window.innerWidth > 1200
+                ? 3
+                : 0
+        );
+    };
+
+    useEffect(() => {
+        setSlidesPerview();
+        window.addEventListener("resize", setSlidesPerview);
+        return () => {
+            window.removeEventListener("resize", setSlidesPerview);
+        };
+    }, []);
     
     return (
         <MotionRoute>
@@ -50,16 +95,37 @@ export const Tours = () => {
                         {getCategory().map((category, index)=> {
                             return (
                                 <div className='tour-by-category'> 
-                                    <p key={index} id={category} type={`filter-category`}>
+                                    <p key={index} id={category} className={`category-name`}>
                                         {` ${category} (${TOURS.filter(tour => tour.category===category).length})`}
                                     </p>
-                                    <div className='tour-list-wrapper'>
-                                        <div className='tour-list'>
-                                        {toursByCategory(category).map((tour, index) => {
-                                            return <Tour data={tour} key={tour.id} />
-                                        })}
+
+                                    <Swiper
+                                        slidesPerView={slides}
+                                        spaceBetween={20}
+                                        slidesPerGroup={1}
+                                        navigation={true}
+                                        pagination={{
+                                            clickable: true,
+                                        }}
+                                        loop={true}
+                                        //scrollbar={{ draggable: true, dragSize: 100 }}
+                                        modules={[Navigation, Scrollbar, Pagination]}
+                                    >
+                                        <div className='slides-wrapper'>
+                                            {toursByCategory(category).map((tour, index) => {
+                                                return (
+                                                    <SwiperSlide>
+                                                        <Tour data={tour} key={tour.id} />
+                                                    </SwiperSlide>
+                                                )
+                                            })}
                                         </div>
-                                    </div>
+                                        <div>
+                                            <div className="swiper-scrollbar test">
+                                                <div className='swiper-scrollbar-drag test'></div>
+                                            </div>
+                                        </div>
+                                    </Swiper>
                                 </div>
                             )
                         })}

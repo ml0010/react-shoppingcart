@@ -19,8 +19,6 @@ export const Tour = (props) => {
             </div>
             <div className='tourDetail'>
                 <p className='tourName'>{tourName}</p>
-                <p className='description'>{description}</p>
-                <hr className="separator" />
                 <span className='subInfo'>
                     <ClockIcon size={15} />
                     <p>Duration {duration} hours</p>

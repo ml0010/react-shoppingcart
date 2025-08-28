@@ -23,22 +23,22 @@ export const ImageSlider = ( {image, copy, text}) => {
     return (
         <section className="scroll-container" ref={containerRef}>
             <div className="copy">
+                <hr className='line'/>
                 <h2>{copy}</h2>
-                <RevealOnScroll>
-                    {text}
-                </RevealOnScroll>
+                <div>{text}</div>
+                <hr className='line'/>
             </div>
             <div className="img-container">
                 <motion.div className="img-inner" style={{ translateX: imageValue }}>
-                <motion.div
-                    className="bottom-shadow"
-                    style={{ translateX: bottomShadowValue }}
-                />
-                <img src={image} alt="image" />
-                <motion.div
-                    className="top-shadow"
-                    style={{ translateX: topShadowValue }}
-                />
+                    <motion.div
+                        className="bottom-shadow"
+                        style={{ translateX: bottomShadowValue }}
+                    />
+                    <img src={image} alt="image" />
+                    <motion.div
+                        className="top-shadow"
+                        style={{ translateX: topShadowValue }}
+                    />
                 </motion.div>
             </div>
         </section>

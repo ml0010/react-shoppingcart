@@ -1,5 +1,6 @@
 .navbar {
     font-family: var(--font3);
+    z-index: 10;
 }
 .backgroundGradient {
     width: 100%;
@@ -97,20 +98,18 @@
     transition: 0.5s ease-in-out;
     background-color: var(--cream);
     opacity: 0;
-    border-right: 1px solid var(--dark);
 
 }
 .menuContent.open {
     opacity: 1;
     left: 0px;
     z-index: 100;
+    overflow: hidden;
 }
 .menuContent .menuTitle {
-    font-family: var(--font2);
     color: var(--light);
     font-size: 40px;
-    -webkit-text-stroke: 0.8px var(--dark);
-    font-weight: 800;
+    font-weight: 500;
     margin-top: 0px;
 }
 .menuContent button {
@@ -175,6 +174,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 .navbar .socialMedia {
@@ -186,7 +186,7 @@
     bottom: 30px;
 }
 .navbar .socialMedia svg {
-    color: var(--light);
+    color: var(--grey);
     margin: 15px;
     cursor: pointer;
 }

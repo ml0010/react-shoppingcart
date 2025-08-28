@@ -47,25 +47,9 @@ export const Home = () => {
                     <SkipPage />
                 </div>
                 <div className='pageContent'>
-                    <ImageSlider image={Photo1} copy={"OUR STORY"} text={<OurstoryText />}/>
                     <RevealOnScroll>
                         <div className='outstory content'>
                             <ImageSlider image={Photo1} copy={"OUR STORY"} text={<OurstoryText />}/>
-
-                            <div className='images'>
-                                <img className='img1' src={Photo1} alt='house'/>
-                                <img className='img2' src={Photo2} alt='cala'/>
-                            </div>
-                            <div className='texts'>
-                                <hr className='line'/>
-                                <span>
-                                    <h2>OUR STORY</h2>
-                                    <p>We specialise in authentic day trips within the island of Mallorca, Balearic Islands. Our team has been operating since April 2025 and we are continuously working on showing you real side of the island.</p>
-                                    <p>We can assure you these journeys will be the best ways to discover beautiful island of Mallorca.</p>
-                                    <p>In case we do not offer trips that is suited to your interest, please contact us. We will be happy to discuss taylor-made tour options with you.</p>
-                                </span>
-                                <hr className='line'/>
-                            </div>
                         </div>
                     </RevealOnScroll>
                     <RevealOnScroll>

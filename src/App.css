@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,300;1,75..100,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-html, body {
-    padding: 0;
-    margin: 0;
-}
 :root {
+    scrollbar-gutter: stable;
+
     --cream: rgb(255, 253, 250);
     --dark: rgb(31, 31, 31);
     --light: rgb(88, 85, 172);
@@ -20,11 +15,17 @@ html, body {
     --red: rgb(223, 6, 6);
 
     --font1: 'Inter';
-    --font2: 'Bellota Text';
-    --font3: 'Atkinson Hyperlegible Next';
+    --font2: 'Atkinson Hyperlegible Next';
+    --font3: 'DM Sans';
     --font4: 'Helvetica';
-    --font5: 'DM Sans';
-    --font6: 'Varela';
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+body {
+    overflow-y: scroll;
 }
 
 .App {
@@ -86,18 +87,24 @@ html, body {
 
 @media only screen and (max-width: 900px) {
     .pageTitle {
+        font-size: 50px;
+    }
+    .title {    
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 35px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .pageTitle {
         font-size: 30px;
     }
     .pageDescription {
         font-size: 15px;
     }
-    .title {    
-        margin-top: 20px;
-        margin-bottom: 10px;
-        font-size: 15px;
+    .title {
+        font-size: 28px;
     }
-}
-@media only screen and (max-width: 600px) {
 }
 
 @media only screen and (min-width: 600px) {

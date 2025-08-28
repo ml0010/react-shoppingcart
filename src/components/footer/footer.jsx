@@ -17,14 +17,14 @@ export const Footer = () => {
                     <a href='https://x.com' target='_blank' rel='noreferrer'><XLogoIcon size={23} /></a>
                 </div>
                 <div className='contactDetails'>
-                    <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>
+                    <a className='phone' href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>
                         <WhatsappLogoIcon size={50} />
-                        <p className='phone'>+(34) 666-000-000</p>
+                        <p>+(34) 666-000-000</p>
                     </a>
                     <a className='email' href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
                 </div>
             </div>
-            <p>&copy; COPYRIGHT 2025 EXPLORE MALLORCA</p>
+            <p className='copyright'>&copy; COPYRIGHT 2025 EXPLORE MALLORCA</p>
         </div>
     )
 }

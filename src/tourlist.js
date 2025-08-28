@@ -1,7 +1,7 @@
 
 //const languageOptions = ["English", "Spanish", "German", "French", "Arabic", "Russian"];
 
-const tourCategory = ["AUTHENTIC MALLORCA", "ADVENTURE", "MOUNTAIN", "SEA", "NATURE", "FOOD", "CYCLING", ];
+const tourCategory = ["culture", "food", "nature", "sports"];
 
 export const TOURS = [
     {
@@ -13,7 +13,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "Russian"],
         meetingPoint: "Caimari",
         price: 49,
-        category: tourCategory[5]
+        category: tourCategory[1]
     },{
         id: 1,
         tourName: "Valldemossa & Soller Tour",
@@ -23,7 +23,7 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Palma",
         price: 45,
-        category: tourCategory[2]
+        category: tourCategory[0]
     },{
         id: 2,
         tourName: "Sea Cave Kayaking Tour with Snorkeling and a Snack",
@@ -43,7 +43,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "Portugese"],
         meetingPoint: "Palma",
         price: 45,
-        category: tourCategory[4]
+        category: tourCategory[2]
     },{
         id: 4,
         tourName: "Caves of Hams",
@@ -53,7 +53,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Porto Cristo",
         price: 40,
-        category: tourCategory[4]
+        category: tourCategory[2]
     },{
         id: 5,
         tourName: "Snorkeling, and Cliff Jumping",
@@ -63,7 +63,7 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Cala Sant Vicenç, Pollença",
         price: 45,
-        category: tourCategory[4]
+        category: tourCategory[3]
     },{
         id: 6,
         tourName: "Guided Sea Caves Kayak & Snorkeling Expedition",
@@ -73,7 +73,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Cala Romantica",
         price: 69,
-        category: tourCategory[1]
+        category: tourCategory[3]
     },{
         id: 7,
         tourName: "Horseback Riding Experience",
@@ -83,7 +83,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Cala Romantica",
         price: 48,
-        category: tourCategory[4]
+        category: tourCategory[3]
     },{
         id: 8,
         tourName: "Cathedral of Mallorca Tour",
@@ -93,7 +93,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "German", "Russian"],
         meetingPoint: "Palma",
         price: 10,
-        category: tourCategory[1]
+        category: tourCategory[0]
     },{
         id: 9,
         tourName: "Vineyard tour and wine tasting",
@@ -103,7 +103,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Binissalem",
         price: 25,
-        category: tourCategory[5]
+        category: tourCategory[1]
     },{
         id: 10,
         tourName: "Mediterranean Cooking Class",
@@ -113,7 +113,7 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Palma",
         price: 89,
-        category: tourCategory[5]
+        category: tourCategory[1]
     },{
         id: 11,
         tourName: "Gourmet Tapas and Wine Tour",
@@ -123,7 +123,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "French"],
         meetingPoint: "Palma",
         price: 55,
-        category: tourCategory[5]
+        category: tourCategory[1]
     },{
         id: 12,
         tourName: "Guided City Tour with a E-Bike",
@@ -133,7 +133,7 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Palma",
         price: 45,
-        category: tourCategory[6]
+        category: tourCategory[0]
     },{
         id: 13,
         tourName: "Torrent de Pareis Hiking Adventure",
@@ -143,7 +143,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Escorca",
         price: 90,
-        category: tourCategory[2]
+        category: tourCategory[3]
     },{
         id: 14,
         tourName: "Yoga & Meditation on the Beach",
@@ -163,7 +163,7 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Colonia de San Jordi",
         price: 250,
-        category: tourCategory[3]
+        category: tourCategory[2]
     },{
         id: 16,
         tourName: "Countryside Safari & Ranch BBQ",
@@ -173,7 +173,7 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Son Serra de Marina",
         price: 66,
-        category: tourCategory[1]
+        category: tourCategory[2]
     },{
         id: 17,
         tourName: "Snorkeling Tour",
@@ -183,7 +183,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "German", "French"],
         meetingPoint: "Port de Sóller",
         price: 90,
-        category: tourCategory[1]
+        category: tourCategory[2]
     },{
         id: 18,
         tourName: "Stand-Up Paddleboard Lesson",
@@ -203,7 +203,7 @@ export const TOURS = [
         languages: ["English", "German"],
         meetingPoint: "Sant Elm",
         price: 50,
-        category: tourCategory[3]
+        category: tourCategory[2]
     },{
         id: 20,
         tourName: "Aquatic Cave Exploration",
@@ -213,6 +213,6 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Cala Romantica",
         price: 80,
-        category: tourCategory[1]
+        category: tourCategory[2]
     }
 ];

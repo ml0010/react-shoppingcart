@@ -16,8 +16,6 @@ export const RoutesWithAnimation = () => {
 
     const location = useLocation();
 
-    console.log(location);
-
     return (
         <AnimatePresence>
             <Routes location={location} key={location.pathname}>

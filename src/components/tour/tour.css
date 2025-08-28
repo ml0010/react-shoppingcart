@@ -4,12 +4,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    min-width: 400px;
     background-color: var(--light-trans2);
     border-radius: 12px;
     color: var(--grey);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
     overflow: hidden;
+    font-family: var(--font1);
+    margin: 25px;
 }
 
 .tour .tourImg {
@@ -32,7 +34,6 @@
     display:flex;
     align-items:center;
     margin: 20px;
-    font-family: var(--font1);
     font-weight: 400;
     font-size: 21px;
 }
@@ -43,7 +44,6 @@
     grid-template-columns: 1fr 7fr;
     grid-auto-rows: 30px;
     place-items: center;
-    font-family: var(--font1);
     font-size: 13px;
 }
 

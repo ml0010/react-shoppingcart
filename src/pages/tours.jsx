@@ -4,9 +4,109 @@ import { TOURS } from '../tourlist'
 import { Tour } from '../components/tour/tour'
 import { Faq } from '../components/faq/faq'
 import { SkipPage } from '../components/buttons/skip-page'
-import MainPhoto from '../assets/banyalbufar.jpg'
+import MainPhoto from '../assets/calos-des-moro.png'
 import { RevealOnScroll } from '../components/reveal-on-scroll'
 import { MotionRoute } from '../components/motions'
+
+export const Tours = () => {
+
+    const getCategory = () => {
+        const categoryList = [];
+        TOURS.map((tour)=> {
+            if (!categoryList.includes(tour.category)) {
+                categoryList.push(tour.category);
+            }
+            return 0;
+        });
+        return categoryList;
+    };
+
+
+    const toursByCategory = (category) => {
+        const tours = (TOURS.filter((tour) => {
+            return tour.category === category;
+        }));
+        console.log(tours);
+        return tours;
+    };
+    
+    return (
+        <MotionRoute>
+            <div className='tours'>
+                <div className='pageFront'>
+                    <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
+                    <div className='pageMain'>
+                        <p className='pageTitle'>DISCOVER EXPERIENCES</p>
+                        <p className='pageDescription'>Curated activities and memorable experiences, complementing your time in Mallorca.</p>
+                    </div>
+                    <SkipPage />
+                </div>
+                <div className='pageContent'>
+                    <div className='title'>
+                        <h1>EXPLORE MALLORCA TOURS</h1>
+                        <hr className='separator' />
+                    </div>
+                    <div>
+                        {getCategory().map((category, index)=> {
+                            return (
+                                <div className='tour-by-category'> 
+                                    <p key={index} id={category} type={`filter-category`}>
+                                        {` ${category} (${TOURS.filter(tour => tour.category===category).length})`}
+                                    </p>
+                                    <div className='tour-list-wrapper'>
+                                        <div className='tour-list'>
+                                        {toursByCategory(category).map((tour, index) => {
+                                            return <Tour data={tour} key={tour.id} />
+                                        })}
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <Faq />
+                </div>
+            </div>
+        </MotionRoute>
+    )
+}
+export default Tours;
+
+/*
+
+    const [ tourCategorySelected, setTourCategorySelected ] = useState('all');
+    const [ tourList, setTourList ] = useState(TOURS);
+
+    const getCategory = () => {
+        const categoryList = [];
+        TOURS.map((tour)=> {
+            if (!categoryList.includes(tour.category)) {
+                categoryList.push(tour.category);
+            }
+            return 0;
+        });
+        return categoryList;
+    };
+
+    const handleFilter = (categorySelected) => {
+
+        setTourCategorySelected(categorySelected);
+
+        if (categorySelected === 'all') {
+            setTourList(TOURS);
+        }
+        else {
+            setTourList(toursByCategory(categorySelected));
+        }
+    };
+
+    const toursByCategory = (category) => {
+        const tours = (TOURS.filter((tour) => {
+            return tour.category === category;
+        }));
+        console.log(tours);
+        return tours;
+    };
 
 export const Tours = () => {
 
@@ -82,3 +182,4 @@ export const Tours = () => {
     )
 }
 export default Tours;
+ */

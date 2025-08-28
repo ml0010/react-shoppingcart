@@ -15,11 +15,11 @@
     display: flex;    
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .faq .question {
     font-size: 12px;
-    font-family: var(--font2);
     cursor: pointer;
 }
 .faq .answer.active {

@@ -2,9 +2,6 @@
     width: 100%;
     padding-bottom: 50px;
 }
-.tours .title {
-    text-shadow: -0.5px -0.5px 0 var(--dark), 0.5px -0.5px 0 var(--dark), -0.5px 0.5px 0 var(--dark), 0.5px 0.5px 0 var(--dark);
-}
 
 .tours .toursList {
     max-width: 1400px;
@@ -24,8 +21,29 @@
 .tours .filterHandler .filter {
     font-size: 14px;
     margin-right: 20px;
-    font-family: var(--font2);
+    font-family: var(--font3);
     color: var(--grey);
+}
+.tours .filter-category {
+    cursor: pointer;
+}
+.tours .filter-category.active {
+}
+
+.tours .tour-by-category {
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto;
+}
+.tour-list-wrapper {
+    max-width: inherit;
+    overflow: auto;
+}
+.tours .tour-list {
+    display: flex;
+    margin: auto;
 }
 
 .tours .separator {

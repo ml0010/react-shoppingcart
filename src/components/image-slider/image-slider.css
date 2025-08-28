@@ -1,73 +1,53 @@
 .scroll-container {
-    width: 100%;
-}
-
-img {
-    width: 100%;
-    max-width: 50vw;
-
-    height: auto;
-    position: relative;
-    z-index: 1;
-    vertical-align: middle;
-}
-
-section {
-    margin: 100px auto;
-}
-
-.top-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.top-section h1 {
-    font-size: 60px;
-}
-
-.scroll-container {
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1000px;
     margin: 100px auto;
     /* This is needed to prevent the image from "jittering" partway through the transition */
     overflow: hidden;
 }
 
-.img-container {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.copy {
+.scroll-container .copy {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     width: 40%;
     font-size: 24px;
-    margin-left: 5%;
     text-align: left;
+    margin: 20px;
 }
 
-.copy h2 {
+.scroll-container .copy h2 {
     font-size: 50px;
     margin-top: 0;
 }
 
-.copy p {
+.scroll-container .copy p {
     font-size: 15px;
     font-weight: 300;
-    padding-top: 20px;
+    padding: 15px 0;
 }
 
-.bottom-shadow {
+.scroll-container .img-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+.scroll-container .img-container img {
+    width: 100%;
+    max-width: 50vw;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+}
+
+.scroll-container .bottom-shadow {
     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--cream) 40%);
     height: 100%;
     width: 100%;
@@ -77,7 +57,7 @@ section {
     z-index: 0;
 }
 
-.top-shadow {
+.scroll-container .top-shadow {
     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--cream) 25%);
     height: 100%;
     width: 140%;
@@ -85,4 +65,37 @@ section {
     left: 0;
     top: 0;
     z-index: 2;
+}
+
+.scroll-container .line {
+    height: 0.8px;
+    margin: auto;
+    width: 100%;
+    background-color: var(--grey);
+    border: none;
+}
+
+
+@media only screen and (max-width: 1100px) {
+}
+@media only screen and (max-width: 900px) {
+    .scroll-container {
+        display: grid;
+    }
+    .scroll-container .copy {
+        width: 100%;
+    }
+    .scroll-container .img-container {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .scroll-container .copy h2 {
+        font-size: 40px;
+    }
+    .scroll-container .copy p {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 600px) {
 }

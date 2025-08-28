@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/booking-search.css';
 import { MagnifyingGlassIcon } from '@phosphor-icons/react';
 import { BookingContext } from '../contexts/booking-context';
@@ -10,8 +10,12 @@ export const BookingSearch = () => {
 
     const { searchFailed, setSearchFailed, navigate} = useContext(BookingContext);
 
+    const location = useLocation();
+
     useEffect(()=>{
-        setSearchFailed(false);
+        if (location.state === null) {
+            setSearchFailed(false);
+        }
     },[]);
 
     const handleOnSubmit = async (e) => {
@@ -33,9 +37,9 @@ export const BookingSearch = () => {
                     </form>
                 </div>
                 <div className='searchInfo'>
-                    {searchFailed? <p className='errorMsg'>YOUR BOOKING REFERENCE IS NOT CORRECT</p> : <></>}
+                    {searchFailed && <p className='errorMsg'>BOOKING REFERENCE IS NOT CORRECT</p>}
                     <p>Please find the booking reference at our booking confirmation email.</p>
-                    <p>If you cannot locate the reference please <Link to='contact'>contact us</Link>.</p>
+                    <p>If you cannot locate the reference please <Link to='/contact'>contact us</Link>.</p>
                 </div>
             </div>
         </div>

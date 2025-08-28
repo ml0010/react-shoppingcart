@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import '../styles/contact.css'
-import MainPhoto from '../assets/fornalutx.jpg'
+import MainPhoto from '../assets/door.png'
 import { EnvelopeSimpleIcon, MapPinLineIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
 import { SkipPage } from '../components/buttons/skip-page'
 import { MotionRoute } from '../components/motions'

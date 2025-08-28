@@ -1,5 +1,4 @@
 .login {
-    font-family: var(--font2);
     background-color: var(--cream);
     display: flex;
     flex-direction: column;

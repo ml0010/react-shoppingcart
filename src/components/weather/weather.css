@@ -1,5 +1,6 @@
 .weather {
     max-width: 800px;
+    font-family: var(--font1);
 }
 .weather img {
     width: 150px;

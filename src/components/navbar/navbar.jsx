@@ -2,9 +2,9 @@ import './navbar.css'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FacebookLogoIcon, InstagramLogoIcon, ListIcon, ShoppingBagIcon, UserCircleCheckIcon, UserCircleIcon, XIcon, XLogoIcon } from '@phosphor-icons/react'
-import Logo from '../../assets/map.webp'
 import { CartContext } from '../../contexts/cart-context'
 import { AuthenticationContext } from '../../contexts/authentication-context'
+import { ScrollToTop } from '../buttons/scroll-to-top'
 
 export const Navbar = () => {
 
@@ -48,7 +48,6 @@ export const Navbar = () => {
             let handler = (e)=>{
                 if(!menuRef.current.contains(e.target)){
                     handleMenuClick();
-                    console.log(menuRef.current);
                 }
             };
             document.addEventListener("mousedown", handler);
@@ -65,7 +64,7 @@ export const Navbar = () => {
 
     return (
         <div className='navbar'>
-            {menuOpen ? <div className='backdrop'></div> : <></>}
+            {menuOpen && <div className='backdrop'></div>}
             <div className={`navbarWrapper ${scroll ? 'active' : 'inactive'} ${menuOpen ? 'menuOpen' : 'menuClosed'}`}>
                 <div className='backgroundGradient'></div>
                 <div className='links'>
@@ -101,6 +100,7 @@ export const Navbar = () => {
                     </span>
                 </div>
             </div>
+            <ScrollToTop />
         </div>
     )
 }

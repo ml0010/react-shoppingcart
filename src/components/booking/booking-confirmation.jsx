@@ -23,7 +23,7 @@ export const BookingConfirmation = () => {
     const getBookingInfo = async() => {
         const data = await getBookingDetail(bookingReference);
         if(data === null) {
-            navigate('/mybooking');
+            navigate('/mybooking', {state: {fetch: 'failed'}});
         } else {
             //console.log(data);
             setBookingData(data);
@@ -61,7 +61,7 @@ export const BookingConfirmation = () => {
 
     return (
         <div className='confirmation'>
-            {prevPath === '/mypage'? <GobackButton /> : <></>}
+            {prevPath === '/mypage' && <GobackButton />}
             <h1>BOOKING CONFIRMATION</h1>
             <h2 id='reference'>Booking Reference: {bookingReference}</h2>
             {bookingDataReady ?

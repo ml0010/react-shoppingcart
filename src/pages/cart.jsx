@@ -34,8 +34,8 @@ export const Cart = () => {
                         <div className='checkout'>
                             <p className='totalAmount'>Total Amount: {totalAmount} €</p>
                             <div className='bttns'>
-                                <button className='moerTourBttn' onClick={() => navigate('/tours')}>MORE TOURS</button>
-                                <button className='checkoutBttn' onClick={() => navigate('/booking')}>CHECKOUT</button>
+                                <button className='button' onClick={() => navigate('/tours')}>MORE TOURS</button>
+                                <button className='button' onClick={() => navigate('/booking')}>CHECKOUT</button>
                             </div>
                         </div>
                     </>
@@ -45,8 +45,8 @@ export const Cart = () => {
                         <img className='logo' src={Logo} alt='map' />
                         <p>Click MORE TOURS button below to see available tours.</p>
                         <div className='bttns'>
-                            <button className='moerTourBttn' onClick={() => navigate('/tours')}>MORE TOURS</button>
-                            <button className='checkoutBttn' onClick={() => navigate('/home')}>GO TO HOME</button>
+                            <button className='button' onClick={() => navigate('/tours')}>MORE TOURS</button>
+                            <button className='button' onClick={() => navigate('/home')}>GO TO HOME</button>
                         </div>
 
                     </>

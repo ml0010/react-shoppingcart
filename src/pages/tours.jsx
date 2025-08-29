@@ -49,11 +49,10 @@ export const Tours = () => {
         const tours = (TOURS.filter((tour) => {
             return tour.category === category;
         }));
-        console.log(tours);
         return tours;
     };
 
-    const [ slides, setSlides ] = useState(0);
+    const [ slides, setSlides ] = useState(1);
 
     const setSlidesPerview = () => {
         setSlides(
@@ -107,6 +106,7 @@ export const Tours = () => {
                                         pagination={{
                                             clickable: true,
                                         }}
+                                        grabCursor={true}
                                         loop={true}
                                         //scrollbar={{ draggable: true, dragSize: 100 }}
                                         modules={[Navigation, Scrollbar, Pagination]}
@@ -114,8 +114,8 @@ export const Tours = () => {
                                         <div className='slides-wrapper'>
                                             {toursByCategory(category).map((tour, index) => {
                                                 return (
-                                                    <SwiperSlide>
-                                                        <Tour data={tour} key={tour.id} />
+                                                    <SwiperSlide key={index}>
+                                                        <Tour data={tour} key={index} />
                                                     </SwiperSlide>
                                                 )
                                             })}

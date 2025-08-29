@@ -45,37 +45,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    column-gap: 20px;
-    padding-bottom: 40px;
-}
-
-.moerTourBttn {
-    justify-self: end;
-}
-.checkoutBttn {    
-    justify-self: start;
-}
-
-.bttns button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--dark);
-    color: white;
-    min-width: 180px;
-    min-height: 40px;
-    margin-top: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 6px;
-    border: none;
-    font-size: 10px;
-}
-
-.bttns button:hover {
-    cursor: pointer;
-    background-color: var(--light);
-    transition: 0.2s ease-in;
+    column-gap: 10px;
+    padding: 40px 0;
 }
 
 

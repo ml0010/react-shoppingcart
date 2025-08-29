@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { ClockIcon, MapPinLineIcon, PiggyBankIcon } from '@phosphor-icons/react'
 import { TourInfo } from './tour-info';
 import { Carousel } from './carousel';
+import { Link } from 'react-router-dom';
 
 export const Tour = (props) => {
     const { id, tourName, img, description, duration, meetingPoint, price } = props.data;
@@ -27,7 +28,10 @@ export const Tour = (props) => {
                     <PiggyBankIcon size={15} />
                     <p>{price}€ per person</p>
                 </span>
-                <button className='selectBttn' onClick={()=>setShowTourInfo(true)}>DETAILS & BOOK</button>
+                <Link to="/onboarding/profile" state={{ from: "occupation" }}>
+                Next Step
+                </Link>
+                <button className='button' onClick={()=>setShowTourInfo(true)}>DETAILS & BOOK</button>
             </div>
 
             {showTourInfo && 

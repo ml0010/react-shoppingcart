@@ -55,50 +55,6 @@
     text-decoration: none;
 }
 
-.goToBasketBttn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--dark);
-    color: white;
-    min-width: 90px;
-    min-height: 30px;
-    margin: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 6px;
-    border: none;
-    font-size: 10px;
-}
-
-.goToBasketBttn:hover {
-    cursor: pointer;
-    background-color: var(--light);
-    transition: 0.2s ease-in;
-}
-
-.goToToursBttn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--dark);
-    color: white;
-    min-width: 90px;
-    min-height: 30px;
-    margin: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 6px;
-    border: none;
-    font-size: 10px;
-}
-
-.goToToursBttn:hover {
-    cursor: pointer;
-    background-color: var(--light);
-    transition: 0.2s ease-in;
-}
-
 .cartSummary .separator {
     height: 0.5px;
     background-color: var(--grey);

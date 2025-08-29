@@ -22,7 +22,7 @@ export const Contact = () => {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        let result = await fetch('http://localhost:4000/contact', {
+        let result = await fetch('https://react-shoppingcart-q31i.onrender.com/contact', {
             method: "post",
             body: JSON.stringify({ name, email, phone, comment }),
             headers: {
@@ -84,20 +84,22 @@ export const Contact = () => {
                             </div>
 
                             <div className='pageRight'>
-                                <h3>Conctact Form</h3>                        
-                                {showSubmitMsg?
-                                    <div className='sent-msg'>
-                                        <p>We have successfully received your message.</p>
-                                        <p>We will get back to you as soon as possible.</p>
-                                    </div>: 
-                                    <form onSubmit={handleOnSubmit}>
-                                        <input className='nameInput' type='text' name='name' placeholder='Your Name' value={name} onChange={(e)=>setName(e.target.value)} required></input>
-                                        <input className='emailInput' type='email' name='email' placeholder='Your Email' value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
-                                        <input className='phoneInput' type='text' name='phone' placeholder='Your Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required></input>
-                                        <textarea className='commentInput' name='comment' placeholder='Your Message' value={comment} onChange={(e)=>setComment(e.target.value)} required></textarea>
-                                        <button className='sendMsgBttn' type='submit'>SEND MESSAGE</button>
-                                    </form>
-                                }
+                                <div>
+                                    <h3>Conctact Form</h3>                        
+                                    {showSubmitMsg?
+                                        <div className='sent-msg'>
+                                            <p>We have successfully received your message.</p>
+                                            <p>We will get back to you as soon as possible.</p>
+                                        </div>: 
+                                        <form className='contact-form' onSubmit={handleOnSubmit}>
+                                            <input className='nameInput' type='text' name='name' placeholder='Your Name' value={name} onChange={(e)=>setName(e.target.value)} required></input>
+                                            <input className='emailInput' type='email' name='email' placeholder='Your Email' value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
+                                            <input className='phoneInput' type='text' name='phone' placeholder='Your Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required></input>
+                                            <textarea className='commentInput' name='comment' placeholder='Your Message' value={comment} onChange={(e)=>setComment(e.target.value)} required></textarea>
+                                            <button className='button' type='submit'>SEND MESSAGE</button>
+                                        </form>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>

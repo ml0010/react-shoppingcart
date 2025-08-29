@@ -54,15 +54,15 @@ const PaymentForm = () => {
                     <h3>Payment</h3>
                     <p></p>
                     <PaymentElement />
-                    <div className='card-actions'>
+                    <div className='card-buttons'>
                         {message && <div>{message}</div>}
-                        <button disabled={isLoading || !stripe || !elements}>
+                        <button className='button' disabled={isLoading || !stripe || !elements}>
                             {isLoading ? 'LOADING...' : `${amount}€ - PAY NOW`}
                         </button>
+                        <button className='button' onClick={()=>navigate(-1)}>GO BACK TO BASKET</button>
                     </div>
                 </div>
             </form>
-            <button onClick={()=>navigate(-1)}>CANCEL</button>
         </div>
     );
 };

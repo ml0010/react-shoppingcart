@@ -1,7 +1,6 @@
 .myaccount {
     padding-top: 100px;
     min-height: 80vh;
-    font-family: var(--font2);
     background-color: var(--cream);
     display: flex;
     flex-direction: column;
@@ -15,7 +14,6 @@
 
 .myaccount .account-info {
     border-radius: 15px;
-    font-family: var(--font4);
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -49,34 +47,8 @@
     display: flex;
     flex-direction: column;
 }
-.myaccount .content button {
-    border: none;
-    width: 50px;
-    margin-left: 10px;
-}
 .myaccount .Bttns {
     display: flex;
-}
-.myaccount .Bttns button {
-    background-color: var(--dark);
-    color: white;
-    width: 190px;
-    min-height: 40px;
-    margin: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 6px;
-    border: none;
-    font-size: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.myaccount .Bttns button:hover {
-    cursor: pointer;
-    background-color: var(--light);
-    transition: 0.2s ease-in;
 }
 .myaccount .Bttns button svg {
     margin-left: 6px;

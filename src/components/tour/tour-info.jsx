@@ -117,8 +117,8 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
                 </div>
             </div>
             <div className='bttnHandler'>
-                <button className='addToBasketBttn' onClick={handleAddToCart}>
-                    ADD TO BASKET <BasketIcon size={20} />
+                <button className='button' onClick={handleAddToCart}>
+                    ADD TO BASKET <BasketIcon size={18} />
                 </button>
             </div>
     	</div>

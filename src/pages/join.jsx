@@ -88,8 +88,8 @@ export const Join = () => {
                         <input type='password' name='passwordRepeat' placeholder='Repeat Password' minLength='4' value={input.passwordRepeat} onChange={handleInput}></input>
                     </form>
                     <p className='errorMsg'>{message}</p>
-                    <button type='submit' form='join-form'>SUBMIT</button>
-                    <button onClick={()=>navigate(-1)}>GO BACK</button>
+                    <button className='button' type='submit' form='join-form'>SUBMIT</button>
+                    <button className='button' onClick={()=>navigate(-1)}>GO BACK</button>
                 </div>
             </div>
         </MotionRoute>

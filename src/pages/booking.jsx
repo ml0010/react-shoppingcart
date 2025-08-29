@@ -71,7 +71,7 @@ export const Booking = () => {
                             {!isLoggedIn?
                             <div className='booking-login'>
                                 <h4 onClick={()=>setIsLoginOpen(!isLoginOpen)}>{isLoginOpen? <CaretDownIcon size={15} weight='fill' /> : <CaretRightIcon size={15} weight='fill' />}Do you have an account?</h4>
-                                {isLoginOpen? <LoginForm /> : <button className='loginBttn' onClick={()=>setIsLoginOpen(!isLoginOpen)}>LOGIN</button>}
+                                {isLoginOpen? <LoginForm /> : <button className='button' onClick={()=>setIsLoginOpen(!isLoginOpen)}>LOGIN</button>}
                                 <h4>Alternatively, enter your information below</h4>
                             </div> 
                             : <></>}
@@ -81,7 +81,7 @@ export const Booking = () => {
                                 <label>Mobile Number </label><input className='phoneInput' type='text' name='phone' placeholder='Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required></input>
                                 <label>Comments </label><textarea className='commentInput' name='comment' placeholder='If you have any comments...(ex. dietary requirements)' value={comment} onChange={(e)=>setComment(e.target.value)}></textarea>
                             </form>
-                            <button className='bookBttn' form='guestInfo' type='submit'>PAYMENT<CardholderIcon size={18} /></button>
+                            <button className='button' form='guestInfo' type='submit'>GO TO PAYMENT<CardholderIcon size={18} /></button>
                         </> : 
                         <div className='payment-wrapper'>
                             <Payment />

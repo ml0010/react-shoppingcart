@@ -4,7 +4,8 @@
     background-color: var(--cream);
     display: flex;
     flex-direction: column;
-    place-items: center;
+    justify-content: center;
+    align-items: center;
     color: var(--grey);
 }
 
@@ -13,35 +14,11 @@
 }
 .mypage h1 {
     color: var(--light);
-    font-family: var(--font2);
 }
 
 .mypage .Bttns {
-    display: flex;
-}
-.mypage .Bttns button {
-    background-color: var(--dark);
-    color: white;
-    width: 190px;
-    min-height: 40px;
-    margin: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 6px;
-    border: none;
-    font-size: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mypage .Bttns button:hover {
-    cursor: pointer;
-    background-color: var(--light);
-    transition: 0.2s ease-in;
-}
-.mypage .Bttns button svg {
-    margin-left: 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 
@@ -53,6 +30,6 @@
 }
 @media only screen and (max-width: 600px) {
     .mypage .Bttns {
-        display: block;
+        grid-template-columns: 1fr;
     }
 }

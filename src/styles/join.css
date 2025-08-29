@@ -1,5 +1,4 @@
 .join {
-    font-family: var(--font2);
     background-color: var(--cream);
     display: flex;
     flex-direction: column;
@@ -37,25 +36,6 @@
     width: 70%;
     font-size: 17px;
     color: var(--light); 
-}
-
-.join .form button {
-    background-color: var(--dark);
-    color: white;
-    width: 60%;
-    min-height: 40px;
-    margin-top: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 6px;
-    border: none;
-    font-size: 10px;
-}
-
-.join .form button:hover {
-    cursor: pointer;
-    background-color: var(--light);
-    transition: 0.2s ease-in;
 }
 
 .errorMsg {

@@ -100,8 +100,8 @@ export const MyAccount = () => {
             </div>
             <p className='errorMsg'>{message}</p>
             <div className='Bttns'>
-                <button onClick={()=>navigate('/home')}>HOME</button>
-                <button onClick={logout}>LOGOUT<SignOutIcon size={18} /></button>
+                <button className='button' onClick={()=>navigate('/home')}>HOME</button>
+                <button className='button' onClick={logout}>LOGOUT<SignOutIcon size={18} /></button>
             </div>
         </div>
     )

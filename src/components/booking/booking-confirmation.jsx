@@ -115,8 +115,8 @@ export const BookingConfirmation = () => {
             : <></>}
 
             <div className='bttns'>
-                <button className='cancelBttn' onClick={handleDeleteBooking}>CANCEL BOOKING</button>
-                <Link to='/home'><button className='homeBttn' >BACK TO HOME</button></Link>
+                <button className='button' onClick={handleDeleteBooking}>CANCEL BOOKING</button>
+                <Link className='button' to='/home'>BACK TO HOME</Link>
             </div>
             <Faq></Faq>
         </div>

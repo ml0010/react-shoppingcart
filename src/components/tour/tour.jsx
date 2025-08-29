@@ -1,6 +1,6 @@
 import './tour.css'
 import { useState, useEffect } from 'react'
-import { ClockIcon, MapPinLineIcon, PiggyBankIcon } from '@phosphor-icons/react'
+import { ArrowRightIcon, ArrowUpRightIcon, ClockIcon, MapPinLineIcon, PiggyBankIcon } from '@phosphor-icons/react'
 import { TourInfo } from './tour-info';
 import { Carousel } from './carousel';
 import { Link } from 'react-router-dom';
@@ -31,7 +31,7 @@ export const Tour = (props) => {
                 <Link to="/onboarding/profile" state={{ from: "occupation" }}>
                 Next Step
                 </Link>
-                <button className='button' onClick={()=>setShowTourInfo(true)}>DETAILS & BOOK</button>
+                <button className='button' onClick={()=>setShowTourInfo(true)}>DETAILS & BOOK<ArrowUpRightIcon size={15} /></button>
             </div>
 
             {showTourInfo && 

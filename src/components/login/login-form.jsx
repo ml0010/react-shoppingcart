@@ -59,8 +59,8 @@ export const LoginForm = () => {
                 <input name='password' type='password' placeholder='Password' value={input.password} onChange={handleInput}></input>
                 <p className='errorMsg'>{message}</p>
             </form>                
-            <button type='submit' form='form'>SUBMIT</button>
-            <button onClick={()=>navigate('/join')}>JOIN<UserListIcon size={18} /></button>
+            <button className='button' type='submit' form='form'>SUBMIT</button>
+            <button className='button' onClick={()=>navigate('/join')}>JOIN<UserListIcon size={18} /></button>
         </div>
     )
 }

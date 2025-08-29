@@ -1,13 +1,12 @@
 .confirmation {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 90px;
-    padding-top: 90px;
+    padding: 90px 15px;
     background-color: var(--cream);
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
     color: var(--grey);
+    max-width: 800px;
+    margin: auto;
 }
 .confirmation .bookingInfo {
     width: 600px;
@@ -18,7 +17,6 @@
 }
 .confirmation h1 {
     color: var(--light);
-    font-family: var(--font2);
 }
 .confirmation .bookingInfo .category {
     margin: 10px;
@@ -85,29 +83,9 @@
 }
 
 .confirmation .bttns {
-    display: flex;
-    gap: 20px;
-}
-.confirmation .bttns button {
-    background-color: var(--dark);
-    color: white;
-    width: 250px;
-    min-height: 40px;
-    margin-top: 20px;
-    padding-top: 5px;
-    border-radius: 6px;
-    border: none;
-    font-size: 10px;
-
-}
-.confirmation .bttns button:hover {
-    cursor: pointer;
-    background-color: var(--light);
-    transition: 0.2s ease-in;
-}
-.confirmation .bttns a {
-    text-decoration: none;
-    color: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .confirmation .editBttn {

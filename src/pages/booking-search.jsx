@@ -33,7 +33,7 @@ export const BookingSearch = () => {
                     </div>                    
                     <form onSubmit={handleOnSubmit}>
                         <input className='bookingReferenceInput' type='text' name='reference' placeholder='Your Booking Reference' value={bookingReference} onChange={(e)=>setBookingReference(e.target.value)} required></input>
-                        <button className='findBttn' type='submit'>FIND</button>
+                        <button className='button' type='submit'>FIND</button>
                     </form>
                 </div>
                 <div className='searchInfo'>

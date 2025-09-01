@@ -55,12 +55,14 @@ export const LoginForm = () => {
     return (
         <div className='login-form'>
             <form id='form' onSubmit={handleSubmit}>
-                <input name='username' type='text' placeholder='Username' value={input.username} onChange={handleInput}></input>
-                <input name='password' type='password' placeholder='Password' value={input.password} onChange={handleInput}></input>
+                <input className='input' name='username' type='text' placeholder='Username' value={input.username} onChange={handleInput}></input>
+                <input className='input' name='password' type='password' placeholder='Password' value={input.password} onChange={handleInput}></input>
                 <p className='errorMsg'>{message}</p>
-            </form>                
-            <button className='button' type='submit' form='form'>SUBMIT</button>
-            <button className='button' onClick={()=>navigate('/join')}>JOIN<UserListIcon size={18} /></button>
+            </form>
+            <div className='buttons'>
+                <button className='button highlight' type='submit' form='form'>SUBMIT</button>
+                <button className='button' onClick={() => navigate('/join')}>JOIN<UserListIcon size={18} /></button>
+            </div>
         </div>
     )
 }

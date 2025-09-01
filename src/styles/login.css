@@ -1,34 +1,28 @@
 .login {
-    background-color: var(--cream);
+    min-height: 80vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding-bottom: 130px;
-    padding-top: 100px;
-    min-height: 50vh;
-    color: var(--grey);
+    place-items: center;
 }
+
 .login .loginTitle {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.login h2 {
+    font-size: 28px;
+}
 .login svg {
     margin-right: 6px;
 }
 .login .form {
-    background-color: var(--light-trans2);
-    border-radius: 15px;
+    background-color: var(--background);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
-    padding-bottom: 30px;
-}
-.login input {
-    width: 60%;
-    height: 30px;
-    font-size: 20px;
-    text-align: center;
-    color: var(--light);    
+    border-radius: 3px;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -42,9 +36,5 @@
     }
     .login h2 {
         font-size: 20px;
-    }
-    .login input {
-        font-size: 15px;
-        height: 20px;
     }
 }

@@ -1,13 +1,20 @@
 import './tour-info.css';
-import { useState, useContext, useRef, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import { CartContext } from '../../contexts/cart-context';
 import { BasketIcon, BookOpenTextIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { GobackButton } from '../buttons/goback-button';
 
-export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
+export const TourInfo = () => {
 
-	const { id, tourName, img, description, duration, languages, meetingPoint, price } = props;
+	//const { id, tourName, img, description, duration, languages, meetingPoint, price } = props;
 	const { addToCart, setShowCartSummary } = useContext(CartContext);
+
+    const location = useLocation();
+    const { data } = location.state; 
+
+    const navigate = useNavigate();
 
 	const [ pax, setPax ] = useState(1);
 	const [ dateValue, setDateValue ] = useState(null);
@@ -19,7 +26,7 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
     const handleClose = () => {
 		setPax(1);
 		setDateValue(null);
-		closeTourInfo();
+		navigate(-1);
 	}
 
     const handlePax = (input) => {
@@ -31,7 +38,7 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 
 	const handleAddToCart = () => {
 		if(dateValue !== null) {
-			addToCart(id, pax, dateValue);
+			addToCart(data.id, pax, dateValue);
 			setShowCartSummary(true);
 			handleClose();
 		} else {
@@ -40,10 +47,10 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
 	}
 
 	const getLanguages = () => {
-		const languageList = languages.map((language, index) => <li key={index}>{language}</li>);
+		const languageList = data.languages.map((language, index) => <li key={index}>{language}</li>);
 		return languageList;
 	}
-
+/*
     // tour-info outside click close
     let tourRef = useRef(null);
 
@@ -60,24 +67,22 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
     }, [tourRef]);
 
 	if (!showTourInfo) {return null;}
-	
+*/
 	return (
-    	<div className='tourInfo' key={id} ref={tourRef}>
-        	<div className='titleBar'>
-                <h1 className='name'>{tourName}</h1>
-                <button className='closeBttn' onClick={handleClose}><XIcon size={35} weight="bold" className='closeIcon'/></button>
-      	    </div>
+    	<div className='tourInfo' key={data.id}>
+            <GobackButton />
+            <h1 className='tour-title'>{data.tourName}</h1>
             <div className='tourImages flex m-auto p-8'>
-                <Carousel images={img} thumbnails={true}/>
+                <Carousel images={data.img} thumbnails={true}/>
             </div>
             <div className='tourInfoHandler'>
                 <span className='category'>
                     <h3><BookOpenTextIcon size={20} /> Description</h3>
-                    <p>{description}</p>
+                    <p>{data.description}</p>
                 </span>
                 <span className='category'>
                     <h3><ClockIcon size={20} /> Duration</h3>                                
-                    <p>{duration} hours</p>
+                    <p>{data.duration} hours</p>
                 </span>
                 <span className='category'>
                     <h3><GlobeIcon size={20} /> Language</h3>
@@ -85,11 +90,11 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
                 </span>
                 <span className='category'>
                     <h3><MapPinLineIcon size={20} /> Meeting Point</h3>
-                    <p>{meetingPoint}</p>
+                    <p>{data.meetingPoint}</p>
                 </span>
                 <span className='category'>
                     <h3><PiggyBankIcon size={20} /> Price</h3>
-                    <p>{price} € per person</p>
+                    <p>{data.price} € per person</p>
                 </span>
             </div>
             <hr className='separator' />
@@ -116,10 +121,11 @@ export const TourInfo = ({props, showTourInfo, closeTourInfo}) => {
                     </span>
                 </div>
             </div>
-            <div className='bttnHandler'>
-                <button className='button' onClick={handleAddToCart}>
+            <div className='buttons'>
+                <button className='button highlight' onClick={handleAddToCart}>
                     ADD TO BASKET <BasketIcon size={18} />
                 </button>
+                <button className='button' onClick={() => navigate(-1)}>MORE TOURS</button>
             </div>
     	</div>
 	)

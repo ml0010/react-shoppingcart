@@ -8,28 +8,13 @@ import MainPhoto from '../assets/calos-des-moro.png'
 import { RevealOnScroll } from '../components/reveal-on-scroll'
 import { MotionRoute } from '../components/motions'
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/pagination";
-
-
-const SlideNextButton = () => {
-    const swiper = useSwiper();
-    return (
-        <button onClick={() => swiper.slideNext()}>Next</button>
-    );
-};
-const SlidePrevButton = () => {
-    const swiper = useSwiper();
-    return (
-        <button onClick={() => swiper.slidePrev()}>Prev</button>
-    );
-};
-
 
 export const Tours = () => {
 
@@ -43,7 +28,6 @@ export const Tours = () => {
         });
         return categoryList;
     };
-
 
     const toursByCategory = (category) => {
         const tours = (TOURS.filter((tour) => {
@@ -88,14 +72,15 @@ export const Tours = () => {
                 <div className='pageContent'>
                     <div className='title'>
                         <h1>EXPLORE MALLORCA TOURS</h1>
-                        <hr className='separator' />
                     </div>
+                    <hr className='separator' />
+
                     <div>
                         {getCategory().map((category, index)=> {
                             return (
                                 <div className='tour-by-category'> 
                                     <p key={index} id={category} className={`category-name`}>
-                                        {` ${category} (${TOURS.filter(tour => tour.category===category).length})`}
+                                        {` ${category.charAt(0).toUpperCase() + category.slice(1)} (${TOURS.filter(tour => tour.category===category).length})`}
                                     </p>
 
                                     <Swiper

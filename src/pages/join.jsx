@@ -30,11 +30,11 @@ export const Join = () => {
             if(input.password === input.passwordRepeat) {
                 return true;
             } else {
-                setMessage('Your password does not match');
+                setMessage('Your passwords do not match.');
                 return false;
             }
         } else {
-            setMessage('Please fill the form');
+            setMessage('Please fill the form.');
             return false;
         }
     };
@@ -43,10 +43,10 @@ export const Join = () => {
         const isEmailUnique = await checkUniqueEmail(input);
         const isUsernameUnique = await checkUniqueUsername(input);
         if (!isEmailUnique) {
-            setMessage('There is an account using this email');
+            setMessage('There is an account using this email.');
             return false;
         } else if (!isUsernameUnique) {
-            setMessage('Username is already used by someone');
+            setMessage('Username is already used by someone.');
             return false;
         } 
         return true;
@@ -80,15 +80,15 @@ export const Join = () => {
                         <h2>JOIN</h2>
                     </div>
                     <form className='join-form' id='join-form' onSubmit={handleSubmit}>
-                        <input type='text' name='name' placeholder='Name' value={input.name} onChange={handleInput}></input>
-                        <input type='email' name='email' placeholder='Email' value={input.email} onChange={handleInput}></input>
-                        <input type='text' name='telephone' placeholder='Telephone' value={input.telephone} onChange={handleInput}></input>
-                        <input type='text' name='username' placeholder='User Name' value={input.username} onChange={handleInput}></input>
-                        <input type='password' name='password' placeholder='Password' minLength='4' value={input.password} onChange={handleInput}></input>
-                        <input type='password' name='passwordRepeat' placeholder='Repeat Password' minLength='4' value={input.passwordRepeat} onChange={handleInput}></input>
+                        <input className='input' type='text' name='name' placeholder='Name' value={input.name} onChange={handleInput}></input>
+                        <input className='input' type='email' name='email' placeholder='Email' value={input.email} onChange={handleInput}></input>
+                        <input className='input' type='text' name='telephone' placeholder='Telephone' value={input.telephone} onChange={handleInput}></input>
+                        <input className='input' type='text' name='username' placeholder='User Name' value={input.username} onChange={handleInput}></input>
+                        <input className='input' type='password' name='password' placeholder='Password' minLength='4' value={input.password} onChange={handleInput}></input>
+                        <input className='input' type='password' name='passwordRepeat' placeholder='Repeat Password' minLength='4' value={input.passwordRepeat} onChange={handleInput}></input>
                     </form>
                     <p className='errorMsg'>{message}</p>
-                    <button className='button' type='submit' form='join-form'>SUBMIT</button>
+                    <button className='button highlight' type='submit' form='join-form'>SUBMIT</button>
                     <button className='button' onClick={()=>navigate(-1)}>GO BACK</button>
                 </div>
             </div>

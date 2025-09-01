@@ -3,20 +3,32 @@
     flex-direction: column;
     justify-content: center;    
     align-items: center;
-    width: 400px;
+    padding: 20px 0;
 }
-
-.login-form input {
+.login-form form {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-form .input {
     padding: 4px;
-    margin: 4px;
-    width: 80%;
-    font-size: 15px;
+    margin: 5px;
+    font-size: 17px;
+    border: 1px solid black;
+    max-width: 180px;
 }
 
 .login-form .errorMsg {
     color: var(--red);
-    font-family: var(--font4);
-    font-size: 10px;
+    font-size: 12px;
+}
+.login-form .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -25,10 +37,4 @@
 @media only screen and (max-width: 900px) {
 }
 @media only screen and (max-width: 600px) {
-    .login-form {
-        width: 80vw;
-    }
-    .login-form input {
-        width: 65%;
-    }
 }

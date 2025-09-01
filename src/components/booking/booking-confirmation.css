@@ -1,41 +1,44 @@
 .confirmation {
-    padding: 90px 15px;
-    background-color: var(--cream);
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-    color: var(--grey);
-    max-width: 800px;
-    margin: auto;
+    padding-top: 100px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation h1 {
+    font-size: 28px;
+    color: black;
+}
+.confirmation h2 {
+    font-size: 23px;
 }
 .confirmation .bookingInfo {
-    width: 600px;
-    background-color: var(--light-trans2);
+    min-width: 600px;
+    background-color: var(--background);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
-    border-radius: 15px;
+    border-radius: 3px;
+    border: 1px solid black;
     margin: 20px;
-}
-.confirmation h1 {
-    color: var(--light);
+    padding: 20px;
 }
 .confirmation .bookingInfo .category {
-    margin: 10px;
+    padding: 10px;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    font-size: 16px;
+
 }
 
 .confirmation .categoryTitle {
     color: var(--light);
     text-align: right;
-    padding-right: 20px;
+    font-weight: 500;
 }
 .confirmation .categoryContent {
     text-align: left;
-    padding-left: 20px;
-}
-.confirmation .category p {
-    font-size: 15px;
-    font-family: var(--font4);
 }
 .confirmation .category .edit {
     display: flex;
@@ -49,18 +52,16 @@
 }
 .confirmation .category input {
     border: 1px solid transparent;
-    width: auto;
+    width: 70%;
     padding: 2px;
-    font-size: 15px;
     color: var(--grey);
 }
 .confirmation .category textarea {
     border: 1px solid transparent;
     resize: none;
     padding: 2px;
-    width: 220px;
-    height: 60px;
-    font-size: 15px;
+    width: 70%;
+    min-height: 80px;
     color: var(--grey);
 }
 .confirmation .category .inactive {
@@ -68,18 +69,16 @@
 }
 .confirmation .category .active {
     background-color: var(--cream);
+    color: green;
     border: 1px solid var(--grey);
 }
 
-.confirmation .category.comment p {
-    font-size: 13px;
-}
 .confirmation .separator {
-    height: 0.5px;
-    width: 90%;
-    background-color: var(--light);
+    height: 1px;
+    background-color: var(--grey);
     border: none;
-    opacity: 0.5;
+    opacity: 0.2;
+    margin: 10px;
 }
 
 .confirmation .bttns {

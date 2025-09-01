@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--light-trans2);
+    background-color: var(--background);
     border-radius: 12px;
     color: var(--grey);
     box-shadow: 3px 3px 7px 2px rgba(142, 142, 142, 0.169);
@@ -82,7 +82,7 @@
     cursor: pointer;
     background-color: var(--light);
     transition: 0.2s ease-in;
-}*/
+}
 
 .backdrop {
     position: fixed;
@@ -104,7 +104,7 @@
     opacity: 0.2;
     margin: 10px;
 }
-
+*/
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {

@@ -35,7 +35,7 @@ export const Cart = () => {
                             <p className='totalAmount'>Total Amount: {totalAmount} €</p>
                             <div className='bttns'>
                                 <button className='button' onClick={() => navigate('/tours')}>MORE TOURS</button>
-                                <button className='button' onClick={() => navigate('/booking')}>CHECKOUT</button>
+                                <button className='button highlight' onClick={() => navigate('/booking')}>CHECKOUT</button>
                             </div>
                         </div>
                     </>

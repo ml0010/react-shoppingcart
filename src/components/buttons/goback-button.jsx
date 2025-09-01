@@ -7,8 +7,8 @@ export const GobackButton = () => {
     const navigate = useNavigate();
 
     return (
-        <div className='gobackBttnwrapper'>
-            <button className='gobackBttn' onClick={()=>navigate(-1)}><ArrowCounterClockwiseIcon size={17} />GO BACK</button>
+        <div className='button-wrapper'>
+            <button className='goBack-button' onClick={()=>navigate(-1)}><ArrowCounterClockwiseIcon size={17} />GO BACK</button>
         </div>
     )
 }

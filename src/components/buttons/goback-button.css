@@ -1,21 +1,21 @@
-.gobackBttnwrapper {
-    width: 70%;
-    padding: 10px;
+.button-wrapper {
     color: var(--grey);
 }
-.gobackBttn {
+.goBack-button {
     border: none;
     background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--grey);
 }
-.gobackBttn:hover {
-    color: var(--light);
+.goBack-button:hover {
 }
-.gobackBttn svg {
-    padding-right: 2px;
+.goBack-button svg {
+    padding-right: 5px;
 }
 
 
@@ -25,7 +25,4 @@
 @media only screen and (max-width: 900px) {
 }
 @media only screen and (max-width: 600px) {
-    .gobackBttnwrapper {
-        display: none;
-    }
 }

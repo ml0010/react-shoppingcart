@@ -11,6 +11,7 @@ import MyPage from "../pages/mypage";
 import MyAccount from "../pages/myaccount";
 import BookingSearch from "../pages/booking-search";
 import { AnimatePresence } from "framer-motion";
+import { TourInfo } from "./tour/tour-info";
 
 export const RoutesWithAnimation = () => {
 
@@ -22,6 +23,7 @@ export const RoutesWithAnimation = () => {
                 <Route index element={<Navigate to="/home" />} />
                 <Route path='/home' element={<Home />} />
                 <Route path='/tours' element={<Tours />} />
+                <Route path='/tour-detail' element={<TourInfo />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/booking' element={<Booking />} />

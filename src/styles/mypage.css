@@ -1,7 +1,6 @@
 .mypage {
     padding-top: 100px;
     min-height: 80vh;
-    background-color: var(--cream);
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import { BookingContext } from '../../contexts/booking-context';
 import { CaretDownIcon, CaretUpIcon, SuitcaseSimpleIcon } from '@phosphor-icons/react';
 import { useLocation } from 'react-router-dom';
+import EditButton from '../buttons/edit-button';
 
 export const BookingDetail = ({reference, index}) => {
 
@@ -51,7 +52,7 @@ export const BookingDetail = ({reference, index}) => {
                 </div>
             </div>
             <div className={`detail ${!showInfo? 'hidden' : 'active'}`}>
-                <div>
+                <div className='guest-info'>
                     <h4>GUEST INFORMATION</h4>
                     <p>Booking Reference: <b>{reference}</b></p>
                     <p>Name: <b>{name}</b></p>
@@ -59,17 +60,19 @@ export const BookingDetail = ({reference, index}) => {
                     <p>Phone: {phone}</p>
                     <p>Comment: {comment}</p>
                 </div>
-                <div>
-                    <button className='editBttn' onClick={handleEdit}>EDIT</button>
+                <div className='booking-list'>
+                    <div className='edit-button-wrapper'>
+                        <EditButton onClick={handleEdit} />
+                    </div>
                     <h4>BOOKING DETAIL</h4>
                     {tours.map((tour, index) =>
-                        <div className='tour-info'>
-                            {index !==0 ? <hr className='separator'/> : <></>}
+                        <>
+                            {index !== 0 && <hr className='separator'/>}
                             <p><b>TOUR {index+1}</b></p>
                             <p>Title: {tour.tourName}</p>
                             <p>Pax: {tour.pax}</p>
                             <p>Date: {tour.date}</p>
-                        </div>
+                        </>
                     )}
                 </div>
                 

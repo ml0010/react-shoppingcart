@@ -1,47 +1,48 @@
 .join {
-    background-color: var(--cream);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 130px;
-    padding-top: 100px;
+    padding: 100px 0;
     min-height: 50vh;
-    color: var(--grey);
 }
 .join .joinTitle {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.join .joinTitle h2 {
+    font-size: 23px;
+}
 .join svg {
     margin-right: 8px;
 }
 .join .form {
-    background-color: var(--light-trans2);
-    width: 400px;
-    padding: 10px;
-    border-radius: 15px;
+    background-color: var(--background);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    border-radius: 3px;
+    border: 1px solid black;
+    margin: 20px 0;
+    padding: 20px;
 }
 .join .join-form {
     display: flex;
     flex-direction: column;
     justify-content: center;    
     align-items: center;
+    margin: 20px 0;
 }
-.join .join-form input {
+.join .join-form .input {
+    border: 1px solid black;
     padding: 4px;
-    margin: 4px;
-    width: 70%;
+    margin: 5px;
+    width: 80%;
     font-size: 17px;
-    color: var(--light); 
 }
 
 .errorMsg {
     color: var(--red);
-    font-family: var(--font4);
-    font-size: 13px;
+    font-size: 12px;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -49,21 +50,6 @@
 @media only screen and (max-width: 900px) {
 }
 @media only screen and (max-width: 600px) {
-    .join {
-        width: 90vw;
-        margin: auto;
-    }
-    .join h2 {
-        font-size: 20px;
-    }
-    .join .form {
-        width: 85vw;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .join .join-form input {
-        font-size: 15px;
-        height: 20px;
-        width: 70%;
-    }
+
+
 }

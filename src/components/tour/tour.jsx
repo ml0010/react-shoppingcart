@@ -1,12 +1,39 @@
 import './tour.css'
-import { useState, useEffect } from 'react'
-import { ArrowRightIcon, ArrowUpRightIcon, ClockIcon, MapPinLineIcon, PiggyBankIcon } from '@phosphor-icons/react'
-import { TourInfo } from './tour-info';
+import { ArrowUpRightIcon, ClockIcon, MapPinLineIcon, PiggyBankIcon } from '@phosphor-icons/react'
 import { Carousel } from './carousel';
 import { Link } from 'react-router-dom';
 
 export const Tour = (props) => {
+    const data = props.data;
+
+    return (
+        <div className='tour' key={data.id}>
+            <div className='tourImg'>
+                <Carousel images={data.img} thumbnails={false}/>
+            </div>
+            <div className='tourDetail'>
+                <p className='tourName'>{data.tourName}</p>
+                <span className='subInfo'>
+                    <ClockIcon size={15} />
+                    <p>Duration {data.duration} hours</p>
+                    <MapPinLineIcon size={15} />
+                    <p>Tour starts in {data.meetingPoint}</p>
+                    <PiggyBankIcon size={15} />
+                    <p>{data.price}€ per person</p>
+                </span>
+                <Link className='button' to="/tour-detail" state={{ data: data }}>DETAILS & BOOK<ArrowUpRightIcon size={15} /></Link>
+            </div>
+
+        </div>
+    )
+}
+
+
+/*
+
+export const Tour = (props) => {
     const { id, tourName, img, description, duration, meetingPoint, price } = props.data;
+    const data = props.data;
     const [ showTourInfo, setShowTourInfo ] = useState(false);
 
     useEffect(() => {
@@ -37,9 +64,10 @@ export const Tour = (props) => {
             {showTourInfo && 
                 <>
                     <div className={`backdrop ${showTourInfo? 'active' : 'inactive'}`} key={id}></div>
-                    <TourInfo props={props.data} showTourInfo={showTourInfo} closeTourInfo={() => setShowTourInfo(false)} />
+                    <TourInfo props={data} showTourInfo={showTourInfo} closeTourInfo={() => setShowTourInfo(false)} />
                 </>
             } 
         </div>
     )
 }
+*/

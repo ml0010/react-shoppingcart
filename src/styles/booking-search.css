@@ -1,19 +1,17 @@
 .bookingSearch {
     min-height: 80vh;
-    background-color: var(--cream);
     display: flex;
     justify-content: center;
     place-items: center;
-    color: var(--grey);
 }
 
 .bookingSearch .searchHandler {
-    padding: 25px;
-    font-size: 15px;
-    background-color: var(--light-trans2);
-    border-radius: 15px;
-    margin: 30px;
+    background-color: var(--background);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    border-radius: 3px;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
 }
 
 .bookingSearch .bookingReferenceInput {

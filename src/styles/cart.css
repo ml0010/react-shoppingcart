@@ -1,10 +1,10 @@
 .cart {
-    padding-top: 90px;
+    padding-top: 100px;
     min-height: 80vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-    color: var(--grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart h1 {

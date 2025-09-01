@@ -18,6 +18,15 @@
     height: 50%;
     object-fit: contain;
 }
+.carousel .carousel-buttons {
+    opacity: 0;
+    transition: 0.2s;
+    transition-delay: 0.2s;
+
+}
+.carousel:hover .carousel-buttons {
+    opacity: 1;
+}
 
 .tour .tourDetail {    
     width: 90%;

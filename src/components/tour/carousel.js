@@ -50,36 +50,37 @@ export const Carousel = ({ images, thumbnails}) => {
                             />
                             ))}
                         </motion.div>
+                        <div className="carousel-buttons">
+                            <AnimatePresence initial={false}>
+                                {index > 0 && (
+                                <motion.button
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 0.7 }}
+                                    exit={{ opacity: 0, pointerEvents: "none" }}
+                                    whileHover={{ opacity: 1 }}
+                                    className="absolute left-2 top-1/2 -mt-4 flex h-8 w-8 items-center justify-center rounded-full bg-white"
+                                    onClick={() => setIndex(index - 1)}
+                                >
+                                    <CaretLeftIcon key="ArrowLeft" className="h-6 w-6 text-black" />
+                                </motion.button>
+                                )}
+                            </AnimatePresence>
 
-                        <AnimatePresence initial={false}>
-                            {index > 0 && (
-                            <motion.button
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 0.7 }}
-                                exit={{ opacity: 0, pointerEvents: "none" }}
-                                whileHover={{ opacity: 1 }}
-                                className="absolute left-2 top-1/2 -mt-4 flex h-8 w-8 items-center justify-center rounded-full bg-white"
-                                onClick={() => setIndex(index - 1)}
-                            >
-                                <CaretLeftIcon key="ArrowLeft" className="h-6 w-6 text-black" />
-                            </motion.button>
-                            )}
-                        </AnimatePresence>
-
-                        <AnimatePresence initial={false}>
-                            {index + 1 < images.length && (
-                            <motion.button
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 0.7 }}
-                                exit={{ opacity: 0, pointerEvents: "none" }}
-                                whileHover={{ opacity: 1 }}
-                                className="absolute right-2 top-1/2 -mt-4 flex h-8 w-8 items-center justify-center rounded-full bg-white"
-                                onClick={() => setIndex(index + 1)}
-                            >
-                                <CaretRightIcon key="ArrowRight" className="h-6 w-6 text-black" />
-                            </motion.button>
-                            )}
-                        </AnimatePresence>
+                            <AnimatePresence initial={false}>
+                                {index + 1 < images.length && (
+                                <motion.button
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 0.7 }}
+                                    exit={{ opacity: 0, pointerEvents: "none" }}
+                                    whileHover={{ opacity: 1 }}
+                                    className="absolute right-2 top-1/2 -mt-4 flex h-8 w-8 items-center justify-center rounded-full bg-white"
+                                    onClick={() => setIndex(index + 1)}
+                                >
+                                    <CaretRightIcon key="ArrowRight" className="h-6 w-6 text-black" />
+                                </motion.button>
+                                )}
+                            </AnimatePresence>
+                        </div>
                     </div>
                     {thumbnails ? 
                         <Thumbnails index={index} setIndex={setIndex} images={images}/> :

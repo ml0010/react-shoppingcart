@@ -1,17 +1,16 @@
 .refund {
-    padding: 10px;
-    margin: 20px;
-    border-radius: 15px;
-    max-width: 600px;
-    background-color: rgba(133, 133, 133, 0.047);
-    border-radius: 20px;
-    color: var(--dark);
-    font-weight: 200;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 3px;
+    border: 1px solid black;
 }
-.refund p {
-    font-size: 14px;
+.refund .refund-title {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
 }
 .refund li {
     text-align: left;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 300;
 }

@@ -24,19 +24,19 @@ export const BookingSearch = () => {
     }
    
     return (
-        <div className='bookingSearch'>
+        <div className='booking-search'>
             <div>
-                <div className='searchHandler'>
-                    <div className='searchTitle'>
+                <div className='search-handler'>
+                    <div className='search-title'>
                         <MagnifyingGlassIcon size={35} weight='bold' />
-                        <h1>SEARCH RESERVATION</h1>
+                        <h2>SEARCH RESERVATION</h2>
                     </div>                    
-                    <form onSubmit={handleOnSubmit}>
-                        <input className='bookingReferenceInput' type='text' name='reference' placeholder='Your Booking Reference' value={bookingReference} onChange={(e)=>setBookingReference(e.target.value)} required></input>
-                        <button className='button' type='submit'>FIND</button>
+                    <form className='form' onSubmit={handleOnSubmit}>
+                        <input className='input' type='text' name='reference' placeholder='Your Booking Reference' value={bookingReference} onChange={(e)=>setBookingReference(e.target.value)} required></input>
+                        <button className='button highlight' type='submit'>FIND</button>
                     </form>
                 </div>
-                <div className='searchInfo'>
+                <div className='message'>
                     {searchFailed && <p className='errorMsg'>BOOKING REFERENCE IS NOT CORRECT</p>}
                     <p>Please find the booking reference at our booking confirmation email.</p>
                     <p>If you cannot locate the reference please <Link to='/contact'>contact us</Link>.</p>

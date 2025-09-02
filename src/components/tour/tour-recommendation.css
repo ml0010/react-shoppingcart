@@ -24,10 +24,11 @@
     height: 250px;
     margin: 40px auto;
     background-color: white;
-    border-radius: 3px;
     transition: transform 300ms ease 100ms;
     cursor: pointer;
-    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    background-color: var(--background);
+    border-radius: 3px;
+    border: 1px solid var(--grey-light);
     overflow: hidden;
     position: relative;
 }

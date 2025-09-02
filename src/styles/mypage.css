@@ -7,6 +7,14 @@
     align-items: center;
 
 }
+.mypage .booking-list {
+    background-color: var(--background);
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    border-radius: 3px;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+}
 
 .mypage .myInfo {
     margin-bottom: 40px;
@@ -14,10 +22,19 @@
 .mypage h1 {
     color: var(--light);
 }
-
-.mypage .Bttns {
+.mypage .myInfo .buttons {
+    display: flex;
+}
+.mypage .booking-empty {
+    margin: 20px 0;
+}
+.mypage .booking-empty p {
+    margin: 20px 0;
+    font-size: 14px;
+}
+.mypage .bookings .buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 .mypage .tour-recommendation-wrapper {
     width: 100%;
@@ -31,7 +48,7 @@
 
 }
 @media only screen and (max-width: 600px) {
-    .mypage .Bttns {
+    .mypage .buttons {
         grid-template-columns: 1fr;
     }
 }

@@ -66,42 +66,44 @@ export const MyAccount = () => {
     return (
         <div className='myaccount'>
             <GobackButton />
-            <h1>MY ACCOUNT</h1>
-            <div className='account-info'>
-                <h3 className='categoty-title'>Username</h3>
-                <div className='content'>
-                    <p>{user.username}</p>
+            <div className='information'>
+                <h1>MY ACCOUNT</h1>
+                <div className='account-info'>
+                    <h3 className='categoty-title'>Username</h3>
+                    <div className='content'>
+                        <p>{user.username}</p>
+                    </div>
+                    <h3 className='categoty-title'>Name</h3>
+                    <div className='content'>
+                        <p>{user.name}</p>
+                    </div>
+                    <h3 className='categoty-title'>Email</h3>
+                    <div className='content'>
+                        <input className={`input ${isEditEmail ? 'edit' : ''}`} disabled={!isEditEmail} value={newEmail} onChange={(e)=>setNewEmail(e.target.value)}></input>
+                        <button onClick={()=>handleEditEmail()}>{isEditEmail? 'SAVE' : 'EDIT'}</button>
+                    </div>
+                    <h3 className='categoty-title'>Telephone</h3>
+                    <div className='content'>
+                        <input className={`input ${isEditPhone ? 'edit' : ''}`} disabled={!isEditPhone} value={newPhone} onChange={(e)=>setNewPhone(e.target.value)}></input>
+                        <button onClick={()=>handleEditPhone()}>{isEditPhone? 'SAVE' : 'EDIT'}</button>
+                    </div>
+                    <h3 className='categoty-title'>Password</h3>
+                    <div className='content'>
+                        {isEditPassword? 
+                        <form className='edit-password'>
+                            <input className='input edit' type='password' placeholder='Current Password' minLength={4} value={currentPassword} onChange={(e)=>setCurrentPassword(e.target.value)}></input>
+                            <input className='input edit' type='password' placeholder='New Password' minLength='4' value={newPassword} onChange={(e)=>setNewPassword(e.target.value)}></input>
+                            <input className='input edit' type='password' placeholder='Repeat New Password' minLength='4' value={newPasswordRepeat} onChange={(e)=>setNewPasswordRepeat(e.target.value)}></input>
+                        </form> :
+                        <ProhibitIcon size={23} />}
+                        <button onClick={()=>handleEditPassword()}>{isEditPassword? 'SAVE' : 'EDIT'}</button>
+                    </div>
                 </div>
-                <h3 className='categoty-title'>Name</h3>
-                <div className='content'>
-                    <p>{user.name}</p>
+                <p className='errorMsg'>{message}</p>
+                <div className='Bttns'>
+                    <button className='button' onClick={()=>navigate('/home')}>HOME</button>
+                    <button className='button' onClick={logout}>LOGOUT<SignOutIcon size={18} /></button>
                 </div>
-                <h3 className='categoty-title'>Email</h3>
-                <div className='content'>
-                    <input className={`input ${isEditEmail ? 'edit' : ''}`} disabled={!isEditEmail} value={newEmail} onChange={(e)=>setNewEmail(e.target.value)}></input>
-                    <button onClick={()=>handleEditEmail()}>{isEditEmail? 'SAVE' : 'EDIT'}</button>
-                </div>
-                <h3 className='categoty-title'>Telephone</h3>
-                <div className='content'>
-                    <input className={`input ${isEditPhone ? 'edit' : ''}`} disabled={!isEditPhone} value={newPhone} onChange={(e)=>setNewPhone(e.target.value)}></input>
-                    <button onClick={()=>handleEditPhone()}>{isEditPhone? 'SAVE' : 'EDIT'}</button>
-                </div>
-                <h3 className='categoty-title'>Password</h3>
-                <div className='content'>
-                    {isEditPassword? 
-                    <form className='edit-password'>
-                        <input className='input edit' type='password' placeholder='Current Password' minLength={4} value={currentPassword} onChange={(e)=>setCurrentPassword(e.target.value)}></input>
-                        <input className='input edit' type='password' placeholder='New Password' minLength='4' value={newPassword} onChange={(e)=>setNewPassword(e.target.value)}></input>
-                        <input className='input edit' type='password' placeholder='Repeat New Password' minLength='4' value={newPasswordRepeat} onChange={(e)=>setNewPasswordRepeat(e.target.value)}></input>
-                    </form> :
-                    <ProhibitIcon size={23} />}
-                    <button onClick={()=>handleEditPassword()}>{isEditPassword? 'SAVE' : 'EDIT'}</button>
-                </div>
-            </div>
-            <p className='errorMsg'>{message}</p>
-            <div className='Bttns'>
-                <button className='button' onClick={()=>navigate('/home')}>HOME</button>
-                <button className='button' onClick={logout}>LOGOUT<SignOutIcon size={18} /></button>
             </div>
         </div>
     )

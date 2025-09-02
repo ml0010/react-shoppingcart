@@ -23,7 +23,7 @@
     border-radius: 3px;
     border: 1px solid black;
     margin: 20px 0;
-    padding: 20px;
+    padding: 20px 60px;
 }
 .join .join-form {
     display: flex;
@@ -33,11 +33,11 @@
     margin: 20px 0;
 }
 .join .join-form .input {
-    border: 1px solid black;
+    border: 1px solid var(--grey-light);
     padding: 4px;
     margin: 5px;
-    width: 80%;
-    font-size: 17px;
+    width: 90%;
+    font-size: 15px;
 }
 
 .errorMsg {

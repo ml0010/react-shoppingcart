@@ -24,7 +24,7 @@ export const Cart = () => {
                 {totalAmount > 0 ? (
                     <>
                         <h1>Your basket</h1>
-                        <div className='cartItems'>
+                        <div className='cart-items'>
                             {TOURS.map((tour) => {
                             if (cartItems[tour.id]["pax"] > 0) {
                                 return <CartItem data={tour} key={tour.id} />;
@@ -45,8 +45,8 @@ export const Cart = () => {
                         <img className='logo' src={Logo} alt='map' />
                         <p>Click MORE TOURS button below to see available tours.</p>
                         <div className='bttns'>
-                            <button className='button' onClick={() => navigate('/tours')}>MORE TOURS</button>
-                            <button className='button' onClick={() => navigate('/home')}>GO TO HOME</button>
+                            <button className='button' onClick={() => navigate('/home')}>HOME</button>
+                            <button className='button highlight' onClick={() => navigate('/tours')}>MORE TOURS</button>
                         </div>
 
                     </>

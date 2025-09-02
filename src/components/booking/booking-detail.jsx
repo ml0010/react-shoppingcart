@@ -51,7 +51,7 @@ export const BookingDetail = ({reference, index}) => {
                     {!showInfo? <CaretDownIcon size={23} /> : <CaretUpIcon size={23} />}
                 </div>
             </div>
-            <div className={`detail ${!showInfo? 'hidden' : 'active'}`}>
+            <div className={`detail ${showInfo && 'active'}`}>
                 <div className='guest-info'>
                     <h4>GUEST INFORMATION</h4>
                     <p>Booking Reference: <b>{reference}</b></p>
@@ -60,7 +60,7 @@ export const BookingDetail = ({reference, index}) => {
                     <p>Phone: {phone}</p>
                     <p>Comment: {comment}</p>
                 </div>
-                <div className='booking-list'>
+                <div className='tour-list'>
                     <div className='edit-button-wrapper'>
                         <EditButton onClick={handleEdit} />
                     </div>

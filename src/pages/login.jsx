@@ -9,7 +9,7 @@ export const Login = () => {
             <div className='form'>
                 <div className='loginTitle'>
                     <SignInIcon size={35} weight='bold'/>
-                    <h2>SIGN IN</h2>
+                    <h2>LOGIN</h2>
                 </div>
                 <LoginForm />
             </div>

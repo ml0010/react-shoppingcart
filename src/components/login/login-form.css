@@ -15,8 +15,8 @@
 .login-form .input {
     padding: 4px;
     margin: 5px;
-    font-size: 17px;
-    border: 1px solid black;
+    font-size: 15px;
+    border: 1px solid var(--grey-light);
     max-width: 180px;
 }
 

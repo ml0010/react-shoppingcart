@@ -1,19 +1,19 @@
 .booking-detail {
-    background-color: white;
+    background-color: var(--background);
     margin: 15px 0;
     padding: 10px;
     width: 80vw;
     max-width: 630px;
-    font-family: var(--font4);
     border-radius: 3px;
-    border: 1px solid black;
     cursor: pointer;
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    border: 1px solid rgba(0, 0, 0, 0.305);
+
 }
 .booking-detail .booking-ref {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--grey);
 }
 .booking-detail .booking-ref svg {
     margin-right: 5px;
@@ -23,7 +23,7 @@
 }
 .booking-detail .booking-ref h3 {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 17px;
 }
 .booking-detail .detail {
     text-align: left;
@@ -41,7 +41,7 @@
     opacity: 1;
     transition: max-height 600ms ease, opacity 200ms ease;
 }
-.booking-detail .detail .guest-info, .booking-detail .detail .booking-list {
+.booking-detail .detail .guest-info, .booking-detail .detail .tour-list {
     padding: 10px 0;
 }
 .booking-detail .detail h4 {

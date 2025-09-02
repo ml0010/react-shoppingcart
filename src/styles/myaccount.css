@@ -1,22 +1,28 @@
 .myaccount {
     padding-top: 100px;
     min-height: 80vh;
-    background-color: var(--cream);
     display: flex;
     flex-direction: column;
     place-items: center;
-    color: var(--grey);
 }
 
 .myaccount h1 {
     color: var(--light);
 }
+.myaccount .information {
+    background-color: var(--background);
+    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    border-radius: 3px;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+}
 
 .myaccount .account-info {
-    border-radius: 15px;
-    padding: 20px;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    gap: 15px 0;
+    margin: 20px 0;
 }
 
 .myaccount .categoty-title {

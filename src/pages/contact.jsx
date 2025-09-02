@@ -55,35 +55,33 @@ export const Contact = () => {
                     <div className='pageContent'>
                         <p>Our office agents operate from Monday to Friday between 9am and 6pm.</p>
                         <p>If you contact after our operation days/hours we will get back to you the next working day.</p>
-                        <div className='pageDevider'>
-                            <div className='pageLeft'>
-                                <div className='contactMethods'>
-                                    <span className='icons'>
-                                        <MapPinLineIcon size={40} />
-                                    </span>
-                                    <span className='contacts'>
-                                        <h3>Location</h3>
-                                        <a href='https://maps.app.goo.gl/id588dXKnyucx9ai7' target='_blank' rel='noreferrer'>Palma de Mallorca, Illes Balears</a>
-                                    </span>
-                                    
-                                    <span className='icons'>
-                                        <WhatsappLogoIcon size={40} />
-                                    </span>
-                                    <span className='contacts'>
-                                        <h3>Whatsapp</h3>
-                                        <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>+(34) 666-000-000</a>
-                                    </span>
-                                    <span className='icons'>
-                                        <EnvelopeSimpleIcon size={40} />
-                                    </span>
-                                    <span className='contacts'>
-                                        <h3>Email</h3>
-                                        <a href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
-                                    </span>
-                                </div>
+                        <div className='page-wrapper'>
+                            <div className='left contact-methods'>
+                                <span className='icons'>
+                                    <MapPinLineIcon size={40} />
+                                </span>
+                                <span className='contacts'>
+                                    <h3>Location</h3>
+                                    <a href='https://maps.app.goo.gl/id588dXKnyucx9ai7' target='_blank' rel='noreferrer'>Palma de Mallorca, Illes Balears</a>
+                                </span>
+                                
+                                <span className='icons'>
+                                    <WhatsappLogoIcon size={40} />
+                                </span>
+                                <span className='contacts'>
+                                    <h3>Whatsapp</h3>
+                                    <a href='https://wa.me/0034666000000' target='_blank' rel='noreferrer'>+(34) 666-000-000</a>
+                                </span>
+                                <span className='icons'>
+                                    <EnvelopeSimpleIcon size={40} />
+                                </span>
+                                <span className='contacts'>
+                                    <h3>Email</h3>
+                                    <a href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
+                                </span>
                             </div>
 
-                            <div className='pageRight'>
+                            <div className='right'>
                                 <div>
                                     <h3>Conctact Form</h3>                        
                                     {showSubmitMsg?

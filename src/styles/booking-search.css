@@ -1,11 +1,11 @@
-.bookingSearch {
+.booking-search {
     min-height: 80vh;
     display: flex;
     justify-content: center;
     place-items: center;
 }
 
-.bookingSearch .searchHandler {
+.booking-search .search-handler {
     background-color: var(--background);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
     border-radius: 3px;
@@ -14,92 +14,52 @@
     padding: 20px;
 }
 
-.bookingSearch .bookingReferenceInput {
-    width: 75%;
-    height: 40px;
-    font-size: 25px;
-    text-align: center;
-    color: var(--light);    
-}
-.bookingSearch .searchTitle {
+.booking-search .search-title {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 23px;
 }
-
-.bookingSearch p {
+.booking-search .search-title svg {
+    margin-right: 8px;
+}
+.booking-search .search-handler .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.booking-search .search-handler .form .input {
+    border: 1px solid var(--grey-light);
+    padding: 4px;
+    margin: 10px 0;
+    width: 70%;
+    font-size: 15px;
+    text-align: center;
+}
+.booking-search .message p {
     margin-top: 0px;
     font-size: 13px;
 }
-.bookingSearch h1 {
-    display: flex;
-    font-size: 28px;
+
+.booking-search .message a {
+    text-decoration: underline;
 }
-.bookingSearch svg {
-    margin-right: 8px;
-}
-.bookingSearch a {
-    text-decoration: none;
-    color: var(--grey);
-    font-weight: 500;
-}
-.bookingSearch a:hover {
+.booking-search .message a:hover {
     background-color: var(--light-trans1);
 }
-
-.bookingSearch .findBttn {
-    background-color: var(--dark);
-    color: white;
-    min-width: 80%;
-    min-height: 40px;
-    margin-top: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 6px;
-    border: none;
-    font-size: 10px;
-}
-
-.bookingSearch .findBttn:hover {
-    cursor: pointer;
-    background-color: var(--light);
-    transition: 0.2s ease-in;
-}
-.bookingSearch .errorMsg {
+.booking-search .message .errorMsg {
     color: var(--red);
     font-family: var(--font4);
-    font-size: 10px;
+    font-size: 13px;
 }
 
+
 @media only screen and (max-width: 900px) {
-    .bookingSearch h1 {
-        font-size: 23px;
-    }
-    .bookingSearch .bookingReferenceInput {
-        width: 75%;
-        height: 30px;
-        font-size: 20px;
-        text-align: center;
-        color: var(--light);    
-    }
+
 }
 
 @media only screen and (max-width: 600px) {
-    .bookingSearch {
-        width: 90vw;
-        margin: auto;
-    }
-    .bookingSearch h1 {
-        font-size: 18px;
-    }
-    .bookingSearch svg {
-        width: 25px;
-    }
-    .bookingSearch .bookingReferenceInput {
-        width: 80%;
-        height: 25px;
-        font-size: 15px;
-    }
 }
 
 @media only screen and (min-width: 600px) {

@@ -20,13 +20,13 @@ export const CartItem = (props) => {
                 <p className='name'><b>{tourName}</b></p>
                 <div className='detail'>
                     <p>Date: {cartItems[id].date}</p>
-                    <p>Pax: 
-                        {
+                    <p>{`Pax:  
+                        ${
                             cartItems[id].pax > 1 ? 
-                            <>{cartItems[id].pax} people</> : 
-                            <>{cartItems[id].pax} person</>
+                            `${cartItems[id].pax} people ` : 
+                            `${cartItems[id].pax} person `
                         }
-                        ({price}€ per person)
+                        (${price}€ per person)`}
                     </p>
                 </div>                
                 <hr className='separator'/>

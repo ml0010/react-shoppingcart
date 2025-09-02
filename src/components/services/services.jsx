@@ -4,40 +4,40 @@ import { BusIcon, CameraIcon, CheersIcon, CoffeeIcon, DropIcon, FirstAidKitIcon,
 export const Services = () => {
     return (
     <div className='service'>                    
-        <div className='serviceList'>
-            <span className='serviceItems'>
+        <div className='service-list'>
+            <span className='service-item'>
                 <CheersIcon size={28} />
                 <p>Welcome drink</p>
             </span>
-            <span className='serviceItems'>
+            <span className='service-item'>
                 <DropIcon size={28} />
                 <p>Drinking water</p>
             </span>
-            <span className='serviceItems'>
+            <span className='service-item'>
                 <CoffeeIcon size={28} />
                 <p>Coffee</p>
             </span>
-            <span className='serviceItems'>
+            <span className='service-item'>
                 <TowelIcon size={28} />
                 <p>Towel</p>
             </span>
-            <span className='serviceItems'>
+            <span className='service-item'>
                 <BusIcon size={28} />
                 <p>Shuttle service</p>
             </span>
-            <span className='serviceItems'>
+            <span className='service-item'>
                 <ForkKnifeIcon size={28} />
                 <p>Light snacks</p>
             </span>
-            <span className='serviceItems'>
+            <span className='service-item'>
                 <FirstAidKitIcon size={28} />
                 <p>First aid kit</p>
             </span>
-            <span className='serviceItems'>
+            <span className='service-item'>
                 <UsersThreeIcon size={28} />
                 <p>Authentic, knowledged and friendly service</p>
             </span>
-            <span className='serviceItems'>
+            <span className='service-item'>
                 <CameraIcon size={28} />
                 <p>Photo</p>
             </span>

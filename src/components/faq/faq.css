@@ -1,28 +1,29 @@
 .faq {
     margin: 30px 0;
+}
+.faq .faq-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
 .faq svg {
-    margin-right: 5px;
+    margin-right: 3px;
 }
-.faq .questions {
+.faq .faq-list .question {
     display: flex;    
     justify-content: center;
     align-items: center;
     margin: 5px auto;
 }
 
-.faq .question {
+.faq .faq-list .question p {
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 0.05rem;
     cursor: pointer;
 }
-.faq .answer {
+.faq .faq-list .answer {
     max-height: 0;
     opacity: 0;
     transition: max-height 300ms ease, opacity 300ms ease;
@@ -33,31 +34,27 @@
     opacity: 1;
     transition: max-height 600ms ease, opacity 200ms ease;
 }
-.faq .contactInfo {
+.faq .contact-info {
     padding: 20px;
-    margin-top: 20px;
-    border-radius: 30px;
-    background-color: rgba(133, 133, 133, 0.047);
+    margin: 10px 0;
+    border-radius: 3px;
+    border: 1px solid black;
 }
-.faq .contactInfo p {
-    font-size: 13px;
-    font-weight: 500;
+.faq .contact-info p {
+    font-size: 14px;
+    font-weight: 400;
     margin: 10px 0;
 }
-.faq .whattsappIcon svg {
+.faq .contact-info .whattsappIcon svg {
     color: rgb(32, 214, 32);
     cursor: pointer;
     border: none;
     display: block;
     margin: auto;
 }
-.faq .contactInfo a {
-    color: var(--dark);
-    text-decoration: none;
+.faq .contact-info a {
+    text-decoration: underline;
     font-size: 13px;
-}
-.faq .contactInfo a:hover {
-    background-color: var(--light);
 }
 
 

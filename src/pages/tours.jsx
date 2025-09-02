@@ -5,7 +5,6 @@ import { Tour } from '../components/tour/tour'
 import { Faq } from '../components/faq/faq'
 import { SkipPage } from '../components/buttons/skip-page'
 import MainPhoto from '../assets/calos-des-moro.png'
-import { RevealOnScroll } from '../components/reveal-on-scroll'
 import { MotionRoute } from '../components/motions'
 import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,6 +16,30 @@ import "swiper/css/scrollbar";
 import "swiper/css/pagination";
 
 export const Tours = () => {
+
+
+
+    const [ slides, setSlides ] = useState(1);
+
+    const setSlidesPerview = () => {
+        setSlides(
+            window.innerWidth <= 700
+                ? 1
+                : window.innerWidth <= 1200
+                ? 2
+                : window.innerWidth > 1200
+                ? 3
+                : 0
+        );
+    };
+    
+    useEffect(() => {
+        setSlidesPerview();
+        window.addEventListener("resize", setSlidesPerview);
+        return () => {
+            window.removeEventListener("resize", setSlidesPerview);
+        };
+    }, []);
 
     const getCategory = () => {
         const categoryList = [];
@@ -35,28 +58,6 @@ export const Tours = () => {
         }));
         return tours;
     };
-
-    const [ slides, setSlides ] = useState(1);
-
-    const setSlidesPerview = () => {
-        setSlides(
-            window.innerWidth <= 700
-                ? 1
-                : window.innerWidth <= 1200
-                ? 2
-                : window.innerWidth > 1200
-                ? 3
-                : 0
-        );
-    };
-
-    useEffect(() => {
-        setSlidesPerview();
-        window.addEventListener("resize", setSlidesPerview);
-        return () => {
-            window.removeEventListener("resize", setSlidesPerview);
-        };
-    }, []);
     
     return (
         <MotionRoute>
@@ -82,7 +83,6 @@ export const Tours = () => {
                                     <p key={index} id={category} className={`category-name`}>
                                         {` ${category.charAt(0).toUpperCase() + category.slice(1)} (${TOURS.filter(tour => tour.category===category).length})`}
                                     </p>
-
                                     <Swiper
                                         slidesPerView={slides}
                                         spaceBetween={20}

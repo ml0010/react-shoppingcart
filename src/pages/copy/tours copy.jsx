@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import '../styles/tours.css'
-import { TOURS } from '../tourlist'
-import { Tour } from '../components/tour/tour'
-import { Faq } from '../components/faq/faq'
-import { SkipPage } from '../components/buttons/skip-page'
+import { TOURS } from '../../tourlist'
+import { Tour } from '../../components/tour/tour'
+import { Faq } from '../../components/faq/faq'
+import { SkipPage } from '../../components/buttons/skip-page'
 import MainPhoto from '../assets/calos-des-moro.png'
-import { RevealOnScroll } from '../components/reveal-on-scroll'
-import { MotionRoute } from '../components/motions'
+import { RevealOnScroll } from '../../components/reveal-on-scroll'
+import { MotionRoute } from '../../components/motions'
 
 export const Tours = () => {
 

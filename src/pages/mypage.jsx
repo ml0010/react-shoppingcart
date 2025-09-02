@@ -45,7 +45,9 @@ export const MyPage = () => {
                     </div>
                 </div>
             }
-            <TourRecommendation />
+            <div className='tour-recommendation-wrapper'>
+                <TourRecommendation />
+            </div>
             <Faq />
         </div>
     )

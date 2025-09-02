@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--grey);
+
 }
 
 .mypage .myInfo {
@@ -18,6 +18,9 @@
 .mypage .Bttns {
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+.mypage .tour-recommendation-wrapper {
+    width: 100%;
 }
 
 

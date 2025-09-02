@@ -1,18 +1,19 @@
 .booking {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-    color: var(--dark);
+    padding-top: 100px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.bookingInfo {
-    max-width: 630px;
+.booking .booking-info {
+    width: 700px;
 }
-.booking .bookingInfo h3 {
+.booking .booking-info h3 {
     font-size: 25px;
-    margin-top: 5px;
+    margin-bottom: 10px;
 }
-.booking .bookingInfo h4 {
+.booking .booking-info h4 {
     font-size: 14px;
     margin-top: 5px;
     font-weight: 500;
@@ -21,37 +22,34 @@
     justify-content: center;
     align-items: center;
 }
-.booking .bookingInfo svg {
+.booking .booking-info svg {
     margin-right: 5px;
 }
-.booking .bookingInfo .tourSummary p {
+.booking .booking-info .tour-summary p {
     font-size: 14px;
     margin: 3px;
     padding: 5px;
     color: var(--light);
 }
-.booking .bookingInfo .tourSummary {
-    background-color: var(--light-trans2);
-    max-width: 630px;
-    margin-top: 80px;
+.booking .booking-info .tour-summary {
+    background-color: var(--background);
     padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 30px;
+    margin: 20px 0;
+    border-radius: 3px;
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    position: relative;
 }
 
-.booking .tourSummary a {
-    font-size: 11px;
-    display: flex;
-    place-items: center;
+.booking .tour-summary .edit-basket-button {
+    font-size: 10px;
+    text-decoration: underline;
+    position: absolute;
+    right: 10px;
+    top: 5px;
 }
-.booking .tourSummary a:hover {
+.booking .tour-summary .edit-basket-button:hover {
     color: var(--light);
 }
-.booking .tourSummary svg {
-    margin-right: 5px;
-}
-
 .booking .login-form {
     padding-bottom: 30px;
 }
@@ -59,36 +57,38 @@
     margin-bottom: 25px;
 }
 .booking .info {
-    background-color: var(--light-trans2);
+    background-color: var(--background);
     display: grid;
     place-items: center;
     grid-template-columns: 1fr;
-    padding: 25px;
-    padding-bottom: 30px;
-    border-radius: 15px;
+    padding: 20px 0;
+    border-radius: 3px;
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
+    padding: 20px;
 }
-
-.booking .infoInput {
+.booking .info .booking-login {
+    margin: 10px 0;
+}
+.booking .form {
     display: grid;
     grid-template-columns: 1fr 2.5fr;
     align-items: center;
     row-gap: 15px;
     padding: 5px;
 }
-.booking .infoInput .commentInput {
+.booking .form .commentInput {
     width: 350px;
     height: 100px;
     resize: none;
     padding: 4px;
 }
-.booking .infoInput input {
+.booking .form input {
     width: 80%;
     padding: 4px;
     font-size: 15px;
 }
 
-.booking .infoInput label {
+.booking .form label {
     font-size: 15px;
     font-weight: 600;
     text-align: right;
@@ -99,9 +99,8 @@
 .booking .bookingInfo .separator {
     height: 0.5px;
     width: 80%;
-    background-color: var(--light);
     border: none;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .booking a {
@@ -111,42 +110,18 @@
 }
 .booking .payment-wrapper {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.back-button {
+    margin: auto;
 }
 
 
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
-    .bookingInfo {
-        width: 90vw;
-    }
-    .booking .infoInput .commentInput {
-        width: 100%;
-    }
 }
 @media only screen and (max-width: 600px) {
-    .booking .infoInput .commentInput {
-        width: 90%;
-    }
-    .booking .infoInput label {
-        font-size: 14px;
-        text-align: left;
-    }
-    .booking .infoInput input {
-        width: 100%;
-        font-size: 14px;
-    }
-    .booking .infoInput .commentInput {
-        width: 100%;
-    }
-    .booking .login-form {
-        max-width: 300px;
-    }
-    .booking .infoInput {
-        width: 90%;
-        grid-template-columns: 1fr;
-        row-gap: 7px;
-        padding: 10px;
-
-    }
 }

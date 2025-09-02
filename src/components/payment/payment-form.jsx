@@ -37,6 +37,7 @@ const PaymentForm = () => {
             //console.log(response);
             if (response.error) {
                 setMessage('PAYMENT FAILED');
+                setIsLoading(false);
                 return;
             }
             await addBooking(user.username, reference, name, email, phone, comment, tours);
@@ -52,14 +53,12 @@ const PaymentForm = () => {
             <form onSubmit={handleSubmit}>
                 <div className='card'>
                     <h3>Payment</h3>
-                    <p></p>
                     <PaymentElement />
-                    <div className='card-buttons'>
-                        {message && <div>{message}</div>}
-                        <button className='button' disabled={isLoading || !stripe || !elements}>
+                    <div className='payment-button'>
+                        {message && <p className='message'>{message}</p>}
+                        <button className='button highlight' disabled={isLoading || !stripe || !elements}>
                             {isLoading ? 'LOADING...' : `${amount}€ - PAY NOW`}
                         </button>
-                        <button className='button' onClick={()=>navigate(-1)}>GO BACK TO BASKET</button>
                     </div>
                 </div>
             </form>

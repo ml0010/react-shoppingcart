@@ -13,18 +13,24 @@ export const CartItem = (props) => {
     };
 
     return (
-        <div className='cartItem' key={id}>
+        <div className='cart-item' key={id}>
             <img src={img[0]} alt={tourName} />
-            <div className='description'>
-                <button className='deleteBttn' onClick={()=>deleteFromCart(id)}><XSquareIcon size={20} /></button>
+            <div className='tour-detail'>
+                <button className='delete-button' onClick={()=>deleteFromCart(id)}><XSquareIcon size={20} /></button>
                 <p className='name'><b>{tourName}</b></p>
-                <hr className='separator'/>
                 <div className='detail'>
                     <p>Date: {cartItems[id].date}</p>
-                    <p>Pax: {price}€{cartItems[id].pax > 1 && <> x {cartItems[id].pax} people</>}{cartItems[id].pax === 1 && <> x {cartItems[id].pax} person</>}</p>
+                    <p>Pax: 
+                        {
+                            cartItems[id].pax > 1 ? 
+                            <>{cartItems[id].pax} people</> : 
+                            <>{cartItems[id].pax} person</>
+                        }
+                        ({price}€ per person)
+                    </p>
                 </div>                
                 <hr className='separator'/>
-                <p className='subtotal'>Subtotal: {subtotal()} €</p>
+                <p className='subtotal'>Amount: {subtotal()} €</p>
             </div>
         </div>
     )

@@ -1,8 +1,11 @@
-.payment-form .card-buttons {
-    max-width: 400px;
-    margin: 20px auto;
+.payment-form .payment-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.payment-form .message {
+    font-size: 11px;
+    color: red;
+    margin-top: 10px;
 }

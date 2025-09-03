@@ -1,91 +1,115 @@
-.tourInfo {
-    padding: 100px 0;
+.tour-info-page {
+    margin: 100px 0;
     min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.tour-title {
-    font-weight: 500;
-    font-size: 28px;
+
+.info-wrapper svg {
     color: var(--dark);
 }
-.tourInfo .tourInfoHandler {
-    text-align: left;
-    padding: 20px;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-.tourInfoHandler .category {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    padding-bottom: 5px;
-}
-.tourInfoHandler h3 {    
+.tour-info-page h2 {
+    font-size: 22px;
+    font-weight: 700;
     letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
+    color: var(--dark);
+    margin: 15px 0;
 }
+.tour-info-page h3 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--dark);
+    margin: 4px 0;
 
-.tourInfoHandler svg {
-    margin-right: 5px;
 }
-
-.tourInfo .tourInfoHandler p {
-    font-size: 14px;
-    color: var(--grey);    
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    list-style-type: none;
+.tour-info-page p {
+    font-size: 13px;
 }
-.tourInfo .separator {
-    height: 0.5px;
+.tour-info-page .separator {
+    height: 1px;
+    width: 100%;
     background-color: var(--grey);
     border: none;
     opacity: 0.2;
-    margin: 10px;
-}
-.tourInfo .guestInput h3 {
-    font-size: 15px;
-    color: var(--light);
+    margin: 20px 0;
 }
 
-.guestInput .inputs {
+.tour-wrapper {
+    width: 95%;
+    max-width: 1000px;
+    display: block;
+}
+.tour-wrapper .tour-title {
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--dark);
+}
+.tour-wrapper .description {
+    font-size: 17px;
+    font-weight: 350;
+    text-align: left;
+    color: var(--dark);
+}
+
+
+.page-devider {
+    display: flex;
+}
+.page-devider .left, .page-devider .right{
+    margin: 10px;
+}
+
+.tour-wrapper .info-wrapper {
+    text-align: left;
+    margin: 10px 0;
+}
+.info-wrapper .info-list {
+    display: grid;
+    grid-template-columns: 0.05fr 1fr;
+    margin: 15px 0;
+}
+.guest-info {
+    border-radius: 3px;
+    border: 1px solid var(--grey-light);
+    background-color: var(--background);
+    padding: 10px 30px ;
+}
+
+.guest-info .form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
 }
-.guestInput .label p {
+.guest-info .label p {
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 500;
 }
 
-.guestInput .input {
+.guest-info .input {
     display: flex;
-    font-size: 13px;
-
+    font-size: 14px;
 }
-.guestInput .inputs .pax {
+.guest-info .form .pax {
     width: 30px;
     appearance: text;
     text-align: center;
 }
 
-.guestInput input::-webkit-inner-spin-button {
+.guest-info input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.guestInput input[type=number] {
+.guest-info input[type=number] {
     appearance: textfield; /* Firefox */
 }
-.guestInput .inputs .dateWarning {
+.guest-info .inputs .dateWarning {
     font-size: 10px;
     color: red;
 }
-
-.tourInfo .buttons {
+.guest-info .buttons {
     max-width: 260px;
     display: flex;
     flex-direction: column;
@@ -100,25 +124,6 @@
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
-
 }
 @media only screen and (max-width: 600px) {
-    .tourInfo .guestInput {
-        margin-left: 0;
-        margin-right: 0;
-        border-radius: 0px;
-    }
-    .tourInfo .tourInfoHandler h3 {
-        font-size: 17px;
-        margin-bottom: 5px;
-        margin-top: 5px;
-
-    }
-    .tourInfo .tourInfoHandler span{
-        display: flex;
-        flex-direction: column;
-    } 
-    .titleBar .name {
-        font-size: 18px;
-    }
 }

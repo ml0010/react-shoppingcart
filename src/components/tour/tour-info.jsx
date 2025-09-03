@@ -1,7 +1,7 @@
 import './tour-info.css';
 import { useState, useContext } from 'react'
 import { CartContext } from '../../contexts/cart-context';
-import { BasketIcon, BookOpenTextIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
+import { BasketIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { GobackButton } from '../buttons/goback-button';
@@ -48,7 +48,7 @@ export const TourInfo = () => {
 	}
 
 	const getLanguages = () => {
-		const languageList = data.languages.map((language, index) => <li key={index}>{language}</li>);
+		const languageList = data.languages.map((language, index) => {return `${index !== 0 ? `, ` : ``}` + language});
 		return languageList;
 	}
 /*
@@ -71,63 +71,91 @@ export const TourInfo = () => {
 */
 	return (
         <MotionRoute>
-            <div className='tourInfo' key={data.id}>
+            <div className='tour-info-page' key={data.id}>
                 <GobackButton />
-                <h1 className='tour-title'>{data.tourName}</h1>
-                <div className='tourImages flex m-auto p-8'>
-                    <Carousel images={data.img} thumbnails={true}/>
-                </div>
-                <div className='tourInfoHandler'>
-                    <span className='category'>
-                        <h3><BookOpenTextIcon size={20} /> Description</h3>
-                        <p>{data.description}</p>
-                    </span>
-                    <span className='category'>
-                        <h3><ClockIcon size={20} /> Duration</h3>                                
-                        <p>{data.duration} hours</p>
-                    </span>
-                    <span className='category'>
-                        <h3><GlobeIcon size={20} /> Language</h3>
-                        <p className='languageList'>{getLanguages()}</p>
-                    </span>
-                    <span className='category'>
-                        <h3><MapPinLineIcon size={20} /> Meeting Point</h3>
-                        <p>{data.meetingPoint}</p>
-                    </span>
-                    <span className='category'>
-                        <h3><PiggyBankIcon size={20} /> Price</h3>
-                        <p>{data.price} € per person</p>
-                    </span>
-                </div>
-                <hr className='separator' />
-                <div className='guestInput'>
-                    <h3>Please select number of people and date</h3>
-                    <div className='inputs'>
-                        <span className='label'>				
-                            <p>Number of People:</p>
-                            <p>(maximum {paxMax} people)</p>
-                        </span>
-                        <span className='input'>
-                            <button onClick={()=>handlePax(pax-1)}><MinusCircleIcon size={15} /></button>
-                            <input className='pax' type='number' min={paxMin} max={paxMax} value={pax} onChange={(e)=> handlePax(Number(e.target.value))}></input>
-                            <button onClick={()=>handlePax(pax+1)}><PlusCircleIcon size={15} /></button>
-                        </span>
+                <div className='tour-wrapper'>
+                    <h1 className='tour-title'>{data.tourName}</h1>
+                    <div className='tourImages flex m-auto p-8'>
+                        <Carousel images={data.img} thumbnails={true}/>
                     </div>
-                    <div className='inputs'>
-                        <span className='label'>
-                            <p>Date:</p>
-                            <p className='dateWarning'>{dateNullMsg}</p>
-                        </span>
-                        <span className='input'>
-                            <input type='date' min={new Date().toISOString().split('T')[0]} onChange={(e) => setDateValue(e.target.value)}></input>
-                        </span>
+
+                    <div className='page-devider'>
+                        <div className='left'>
+                            <p className='description'>{data.description}</p>
+                            <hr className='separator' />
+                            <div className='info-wrapper'>
+                                <h2>About this activity</h2>
+                                <div>
+                                    <span className='info-list'>
+                                        <ClockIcon size={25} />
+                                        <span className='text'>
+                                            <h3>Duration {data.duration} hours</h3>                                
+                                            <p>Check availability to see starting times</p>
+                                        </span>
+                                    </span>
+                                    <span className='info-list'>
+                                        <GlobeIcon size={25} />
+                                        <span className='text'>
+                                            <h3>Language</h3>
+                                            <p className='language-list'>{getLanguages()}</p>
+                                        </span>
+                                    </span>
+                                    <span className='info-list'>
+                                        <MapPinLineIcon size={25} />
+                                        <span className='text'>
+                                            <h3>Meeting Point</h3>
+                                            <p>{data.meetingPoint}</p>
+                                        </span>
+                                    </span>
+                                    <span className='info-list'>
+                                        <PiggyBankIcon size={25} />
+                                        <span className='text'>
+                                            <h3>Price</h3>
+                                            <p>{data.price} € per person</p>
+                                        </span>
+                                    </span>
+                                </div>
+                                <hr className='separator' />
+                                <h2>Highlights</h2>
+                                <h2>Full description</h2>
+                                <h2>Includes</h2>
+                                <h2>Not suitable for</h2>
+                                <h2>Meeting point</h2>
+                                <h2>Important information</h2>
+                            </div>
+                        </div>
+                        <div className='right'>
+                            <div className='guest-info'>
+                                <h3>Select participants and date</h3>
+                                <div className='form'>
+                                    <span className='label'>				
+                                        <p>Number of People:</p>
+                                        <p>(maximum {paxMax} people)</p>
+                                    </span>
+                                    <span className='input'>
+                                        <button onClick={()=>handlePax(pax-1)}><MinusCircleIcon size={15} /></button>
+                                        <input className='pax' type='number' min={paxMin} max={paxMax} value={pax} onChange={(e)=> handlePax(Number(e.target.value))}></input>
+                                        <button onClick={()=>handlePax(pax+1)}><PlusCircleIcon size={15} /></button>
+                                    </span>
+                                </div>
+                                <div className='form'>
+                                    <span className='label'>
+                                        <p>Date:</p>
+                                        <p className='dateWarning'>{dateNullMsg}</p>
+                                    </span>
+                                    <span className='input'>
+                                        <input type='date' min={new Date().toISOString().split('T')[0]} onChange={(e) => setDateValue(e.target.value)}></input>
+                                    </span>
+                                </div>
+                                <div className='buttons'>
+                                    <button className='button highlight' onClick={handleAddToCart}>
+                                        ADD TO BASKET <BasketIcon size={18} />
+                                    </button>
+                                    <button className='button' onClick={() => navigate(-1)}>MORE TOURS</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className='buttons'>
-                    <button className='button highlight' onClick={handleAddToCart}>
-                        ADD TO BASKET <BasketIcon size={18} />
-                    </button>
-                    <button className='button' onClick={() => navigate(-1)}>MORE TOURS</button>
                 </div>
             </div>
         </MotionRoute>

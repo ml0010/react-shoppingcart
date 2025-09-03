@@ -1,5 +1,5 @@
 import './tour.css'
-import { ArrowUpRightIcon, ClockIcon, MapPinLineIcon, PiggyBankIcon } from '@phosphor-icons/react'
+import { ArrowUpRightIcon } from '@phosphor-icons/react'
 import { Carousel } from './carousel';
 import { Link } from 'react-router-dom';
 
@@ -8,19 +8,20 @@ export const Tour = (props) => {
 
     return (
         <div className='tour' key={data.id}>
-            <div className='tourImg'>
+            <div className='image'>
                 <Carousel images={data.img} thumbnails={false}/>
             </div>
             <div className='tourDetail'>
-                <p className='tourName'>{data.tourName}</p>
-                <span className='subInfo'>
-                    <ClockIcon size={15} />
-                    <p>Duration {data.duration} hours</p>
-                    <MapPinLineIcon size={15} />
-                    <p>Tour starts in {data.meetingPoint}</p>
-                    <PiggyBankIcon size={15} />
-                    <p>{data.price}€ per person</p>
-                </span>
+                <div className='top'>
+                    <p className='name'>{data.tourName}</p>
+                    <p className='duration'>{data.duration} hours</p>
+                </div>
+                <div className='bottom'>
+                    <span className='price-warpper'>
+                        <p className='price'>{data.price}€</p>
+                        <p> per person</p>
+                    </span>
+                </div>
                 <Link className='button' to="/tour-detail" state={{ data: data }}>DETAILS & BOOK<ArrowUpRightIcon size={15} /></Link>
             </div>
 

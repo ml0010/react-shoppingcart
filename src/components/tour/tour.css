@@ -1,8 +1,7 @@
-
 .tour {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     background-color: var(--background);
     border-radius: 3px;
@@ -10,59 +9,56 @@
     box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
     overflow: hidden;
     margin-bottom: 40px;
+    position: relative;
 }
 
-.tour .tourImg {
+.tour .image {
     width: 100%;
-    height: 50%;
     object-fit: contain;
 }
-.carousel .carousel-buttons {
+
+.tour .tourDetail {
+    position: relative;
+    width: 80%;
+}
+.tour .tourDetail .top {
+    min-height: 80px;
+}
+.tour .tourDetail .bottom {
+    margin: 15px 0
+}
+.tour .name {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: start;
+}
+.tour .duration {
+    text-align: left;
+    font-size: 14px;
+}
+.tour .price-warpper {
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+}
+.tour .price-warpper .price {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 8px;
+}
+.tour .carousel .carousel-buttons {
     opacity: 0;
     transition: 0.2s;
     transition-delay: 0.2s;
 
 }
-.carousel:hover .carousel-buttons {
+.tour .carousel:hover .carousel-buttons {
     opacity: 1;
 }
 
-.tour .tourDetail {    
-    width: 90%;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-}
 
-.tour .tourName {
-    height: 20px;
-    display:flex;
-    align-items:center;
-    margin: 20px;
-    font-weight: 400;
-    font-size: 21px;
-}
-
-.tour .subInfo {
-    width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 7fr;
-    grid-auto-rows: 30px;
-    place-items: center;
-    font-size: 13px;
-}
-
-.tour .description {
-    height: 50px;
-    font-size: 13px;
-    font-weight: 200;
-    display:flex;
-    align-items:center;
-    margin: 20px;
-}
 /*
 .selectBttn {
     background-color: var(--dark);

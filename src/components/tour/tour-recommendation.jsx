@@ -28,7 +28,6 @@ export const TourRecommendation = () => {
 
     useEffect(() => {
         setSlidesPerview();
-        console.log("resizing");
         window.addEventListener("resize", setSlidesPerview);
         return () => {
             window.removeEventListener("resize", setSlidesPerview);
@@ -51,11 +50,7 @@ export const TourRecommendation = () => {
     useEffect(() => {
         createRecommendationList();
         setIsRecommendationLoaded(true);
-        console.log("creating List");
-
     },[]);
-
-    console.log(tourList);
 
     return (
         <div className='tour-recommendations'>

@@ -42,7 +42,7 @@ export const Home = () => {
                     <div className='pageMain'>
                         <p className='pageTitle'>MALLORCA</p>
                         <p className='pageDescription'>Discover heart of Mediterranean Sea</p>
-                        <Link className='tourButton' to='/tours'>Plan Your Adventure <ArrowUpRightIcon size={20} /></Link>
+                        <Link className='tourButton' to='/tours'>Plan Your Adventure <ArrowUpRightIcon size={18} /></Link>
                     </div>
                     <SkipPage />
                 </div>

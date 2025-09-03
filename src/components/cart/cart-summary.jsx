@@ -60,7 +60,7 @@ export const CartSummary = () => {
             </div>) : (
             <>
                 <p className='emptyBasket p-6 flex justify-center'>Your Basket is Empty.</p>
-                <Link to='/tours' onClick={handleShowCartSummary}><div className='button'>MORE TOURS</div></Link>
+                <Link to='/tours' onClick={handleShowCartSummary}><div className='button highlight'>MORE TOURS</div></Link>
             </>
             )}
             <Link to='/cart' onClick={handleShowCartSummary}><div className='button'>GO TO BASKET</div></Link>

@@ -1,7 +1,7 @@
 import './tour-info.css';
 import { useState, useContext, useEffect, useRef } from 'react'
 import { CartContext } from '../../contexts/cart-context';
-import { BasketIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
+import { BasketIcon, CaretDownIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { GobackButton } from '../buttons/goback-button';
@@ -162,13 +162,16 @@ const TourForm = ({ id }) => {
         <div className='guest-info'>
             <h3>Select participants and date</h3>
             <div className='form' ref={paxRef}>
-                <div className='label' onClick={() => setIsPaxVisible(!isPaxVisible)}>Adult x {pax}</div>
+                <div className='label' onClick={() => setIsPaxVisible(!isPaxVisible)}>
+                    <p>Adult x {pax}</p>
+                    <CaretDownIcon className='caret' size={18} weight="fill" />
+                </div>
 
 
                 <span className={`input ${isPaxVisible ? 'visible' : 'hidden'}`}>
                     <div className='input-wrapper'>
                         <h5>Adult</h5>
-                        <div className=''>
+                        <div className='pax-input'>
                             <button onClick={()=>handlePax(pax-1)}><MinusCircleIcon size={15} /></button>
                             <input className='pax' type='number' min={paxMin} max={paxMax} value={pax} onChange={(e)=> handlePax(Number(e.target.value))}></input>
                             <button onClick={()=>handlePax(pax+1)}><PlusCircleIcon size={15} /></button>
@@ -177,7 +180,10 @@ const TourForm = ({ id }) => {
                 </span>
             </div>
             <div className='form' ref={dateRef}>
-                <div className='label' onClick={() => setIsDateVisible(!isDateVisible)}>Date: {dateValue}</div>
+                <div className='label' onClick={() => setIsDateVisible(!isDateVisible)}>
+                    <p>{dateValue}</p>
+                    <CaretDownIcon className='caret' size={18} weight="fill" />
+                </div>
 
                 <span className={`input ${isDateVisible ? 'visible' : 'hidden'}`}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -189,7 +195,6 @@ const TourForm = ({ id }) => {
                 <button className='button highlight' onClick={handleAddToCart}>
                     ADD TO BASKET <BasketIcon size={18} />
                 </button>
-                <button className='button' onClick={() => navigate(-1)}>MORE TOURS</button>
             </div>
         </div>
     );

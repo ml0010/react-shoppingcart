@@ -77,16 +77,29 @@
     background-color: var(--background);
     padding: 10px 30px ;
 }
-
+.guest-info h3 {
+    margin: 15px 0;
+}
 .guest-info .form {
     margin: 5px 0;
 }
 .guest-info .label {
-    border: 1px solid var(--grey-light);
-    background-color: aqua;
     padding: 10px;
     border-radius: 50px;
+    border: 1px solid var(--grey-light);
     position: relative;
+}
+.guest-info .label p {
+    font-size: 16px;
+    font-weight: 700;
+}
+.guest-info .label .caret {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 30%;
+    right: 10px;
 }
 
 .guest-info .input {
@@ -97,19 +110,29 @@
     border-radius: 3px;
     z-index: 10;
     box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
-    margin: 5px 0;
+    margin: -10px 0;
 }
 .guest-info .input .input-wrapper {
-    width: 200px;
+    min-width: 200px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 10px;
 }
-.guest-info .visible {
-    display: block;
+.guest-info .input .pax-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.guest-info .hidden {
-    display: none;
+.guest-info .input.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: 200ms ease;
+    transform: translateY(0);
+}
+.guest-info .input.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-5px);
 }
 
 .guest-info .form .pax {
@@ -136,7 +159,6 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    padding-top: 40px;
 }
 
 

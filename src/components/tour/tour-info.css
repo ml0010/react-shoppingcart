@@ -6,18 +6,18 @@
     justify-content: center;
     align-items: center;
 }
-
 .info-wrapper svg {
     color: var(--dark);
+    margin: 0 3px;
 }
-.tour-info-page h2 {
+.tour-wrapper h2 {
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 0.05em;
     color: var(--dark);
     margin: 15px 0;
 }
-.tour-info-page h3 {
+.tour-wrapper h3 {
     font-size: 17px;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -25,10 +25,10 @@
     margin: 4px 0;
 
 }
-.tour-info-page p {
+.tour-wrapper p {
     font-size: 13px;
 }
-.tour-info-page .separator {
+.tour-wrapper .separator {
     height: 1px;
     width: 100%;
     background-color: var(--grey);
@@ -70,7 +70,59 @@
     display: grid;
     grid-template-columns: 0.05fr 1fr;
     margin: 15px 0;
+    
 }
+.info-wrapper .info-list .meeting-point {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+}
+.info-wrapper .info-list .map-wrapper {
+    background-color: var(--backdrop);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 20;    
+    visibility: visible;
+    opacity: 1;
+    transition: 200ms ease;
+    transform: translateY(0);
+}
+.info-wrapper .info-list .map-wrapper.input.hidden {
+    visibility: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.info-wrapper .info-list .map-wrapper .map {
+    max-width: 800px;
+    max-height: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: var(--background);
+    border-radius: 3px;
+    box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
+}
+.info-wrapper .info-list .map-wrapper .map iframe {
+    width: 600px;
+    height: 450px;
+}
+.info-wrapper .info-list .map-wrapper .link {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+    margin: 10px 0;
+}
+
 .guest-info {
     border-radius: 3px;
     border: 1px solid var(--grey-light);

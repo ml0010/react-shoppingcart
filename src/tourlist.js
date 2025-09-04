@@ -41,7 +41,7 @@ export const TOURS = [
         description: "Create lasting memories on a dolphin-watching tour guided by professional marine biologists. Contribute to conservation efforts and learn about these beautiful creatures on the coast of the Mallorca.",
         duration: 1.5,
         languages: ["English", "Spanish", "Portugese"],
-        meetingPoint: "Palma",
+        meetingPoint: "Cala d'Or",
         price: 45,
         category: tourCategory[2]
     },{
@@ -61,7 +61,7 @@ export const TOURS = [
         description: "Uncover the beauty of Mallorca's beautiful corals and fish.",
         duration: 3,
         languages: ["English", "Spanish"],
-        meetingPoint: "Cala Sant Vicenç, Pollença",
+        meetingPoint: "Port de Pollença",
         price: 45,
         category: tourCategory[3]
     },{
@@ -141,7 +141,7 @@ export const TOURS = [
         description: "Experience the charm of Palma's bay on a Fat Tire e-bike. Pedal effortlessly as you take in stunning views, see top sights like the cathedral and glide along the beach promenade with your guide.",
         duration: 5,
         languages: ["English", "Spanish", "German"],
-        meetingPoint: "Escorca",
+        meetingPoint: "Lluc",
         price: 90,
         category: tourCategory[3]
     },{
@@ -151,7 +151,7 @@ export const TOURS = [
         description: "Stretch into the day with gentle beach yoga, guided breathwork, and a calming meditation by the waves. Move, breathe, and recharge as the sun rises, leaving you refreshed and ready for what’s ahead.",
         duration: 1.5,
         languages: ["English"],
-        meetingPoint: "Ca'n Pastilla",
+        meetingPoint: "Palmanova",
         price: 20,
         category: tourCategory[3]
     },{
@@ -161,7 +161,7 @@ export const TOURS = [
         description: "Embark on an adventure aboard an authentic wooden boat around the southern beaches of Mallorca. Swim, snorkel, and enjoy soft drinks on Mallorca's pristine beaches.",
         duration: 3,
         languages: ["English", "Spanish"],
-        meetingPoint: "Colonia de San Jordi",
+        meetingPoint: "Colònia de Sant Jordi",
         price: 250,
         category: tourCategory[2]
     },{
@@ -191,7 +191,7 @@ export const TOURS = [
         description: "Join a stand-up paddleboard class in Puerto de Alcudia and master the art of using a SUP. Learn proper technique from your instructor before enjoying some free time on the private beach to practice your new skills.",
         duration: 1.5,
         languages: ["English", "Spanish", "German"],
-        meetingPoint: "Playa de Alcudia",
+        meetingPoint: "Platja d'Alcúdia",
         price: 55,
         category: tourCategory[3]
     },{

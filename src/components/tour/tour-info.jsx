@@ -1,7 +1,7 @@
 import './tour-info.css';
 import { useState, useContext, useEffect, useRef } from 'react'
 import { CartContext } from '../../contexts/cart-context';
-import { BasketIcon, CaretDownIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
+import { ArrowUpRightIcon, BasketIcon, CaretDownIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MapTrifoldIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { GobackButton } from '../buttons/goback-button';
@@ -10,16 +10,57 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from 'dayjs';
+import { TourRecommendation } from './tour-recommendation';
+import { Faq } from '../faq/faq';
+import axios from 'axios';
 
 export const TourInfo = () => {
     const location = useLocation();
 
-    const { data } = location.state; 
+    const { data } = location.state;
+    
+    const [ mapSrc, setMapSrc ] = useState(null);
+    const [ isMapVisible, setIsMapVisible ] = useState(false);
+
+    const searchLocation = async (location) => {
+        try {
+            const response = await axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${location}`);
+            if (response.status === 200) {
+                //console.log(response.data.results[0]);
+                const location = response.data.results[0];
+                setMapSrc(`https://maps.google.com/maps?q=${location.latitude},${location.longitude}&t=&z=14&ie=UTF8&iwloc=B`);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        searchLocation(data.meetingPoint);
+    }, []);
 
 	const getLanguages = () => {
 		const languageList = data.languages.map((language, index) => {return `${index !== 0 ? `, ` : ``}` + language});
 		return languageList;
 	}
+
+    let mapRef = useRef(null);
+
+    useEffect(() => {
+        let handler = (e)=>{
+            if(mapRef.current && !mapRef.current.contains(e.target)){
+                setIsMapVisible(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
+    }, [mapRef]);
+
+    useEffect(() => {
+        document.body.style.overflow = isMapVisible ? 'hidden' : 'unset';
+    }, [isMapVisible]);
 
 	return (
         <MotionRoute>
@@ -54,10 +95,19 @@ export const TourInfo = () => {
                                     </span>
                                     <span className='info-list'>
                                         <MapPinLineIcon size={25} />
-                                        <span className='text'>
-                                            <h3>Meeting Point</h3>
-                                            <p>{data.meetingPoint}</p>
-                                        </span>
+                                            <span className='text'>
+                                                <h3>Meeting Point</h3>
+                                                <p className='meeting-point' onClick={() => setIsMapVisible(!isMapVisible)}>{data.meetingPoint} <MapTrifoldIcon size={15} /></p>
+                                                {mapSrc &&
+                                                <div className={`map-wrapper ${isMapVisible ? 'visible' : 'hidden'}`}>
+                                                    <div ref={mapRef} className='map'>
+                                                        <h3>{data.meetingPoint}</h3>
+                                                        <a className='link' href={mapSrc} target="_blank" rel="noopener noreferrer">Open in Google Map <ArrowUpRightIcon size={15} /></a>
+                                                        <iframe src={mapSrc + '&output=embed'} />
+                                                    </div>
+                                                </div>
+                                                }
+                                            </span>
                                     </span>
                                     <span className='info-list'>
                                         <PiggyBankIcon size={25} />
@@ -81,6 +131,8 @@ export const TourInfo = () => {
                         </div>
                     </div>
                 </div>
+                <TourRecommendation />
+                <Faq />
             </div>
         </MotionRoute>
 	)

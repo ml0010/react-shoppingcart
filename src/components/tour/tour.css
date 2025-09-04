@@ -17,15 +17,15 @@
     object-fit: contain;
 }
 
-.tour .tourDetail {
+.tour .tour-detail {
     position: relative;
     width: 80%;
 }
-.tour .tourDetail .top {
-    min-height: 80px;
+.tour .tour-detail .top {
+    min-height: 75px;
 }
-.tour .tourDetail .bottom {
-    margin: 15px 0
+.tour .tour-detail .bottom {
+    margin: 15px 0;
 }
 .tour .name {
     font-size: 18px;

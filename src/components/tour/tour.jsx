@@ -11,7 +11,7 @@ export const Tour = (props) => {
             <div className='image'>
                 <Carousel images={data.img} thumbnails={false}/>
             </div>
-            <div className='tourDetail'>
+            <div className='tour-detail'>
                 <div className='top'>
                     <p className='name'>{data.tourName}</p>
                     <p className='duration'>{data.duration} hours</p>

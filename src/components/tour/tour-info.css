@@ -79,19 +79,39 @@
 }
 
 .guest-info .form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
+    margin: 5px 0;
 }
-.guest-info .label p {
-    font-size: 14px;
-    font-weight: 500;
+.guest-info .label {
+    border: 1px solid var(--grey-light);
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 50px;
+    position: relative;
 }
 
 .guest-info .input {
     display: flex;
     font-size: 14px;
+    position: absolute;
+    background-color: var(--background);
+    border-radius: 3px;
+    z-index: 10;
+    box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
+    margin: 5px 0;
 }
+.guest-info .input .input-wrapper {
+    width: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px;
+}
+.guest-info .visible {
+    display: block;
+}
+.guest-info .hidden {
+    display: none;
+}
+
 .guest-info .form .pax {
     width: 30px;
     appearance: text;

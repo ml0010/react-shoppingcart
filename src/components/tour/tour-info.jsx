@@ -1,74 +1,26 @@
 import './tour-info.css';
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect, useRef } from 'react'
 import { CartContext } from '../../contexts/cart-context';
 import { BasketIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { GobackButton } from '../buttons/goback-button';
 import { MotionRoute } from '../motions';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import dayjs from 'dayjs';
 
 export const TourInfo = () => {
-
-	//const { id, tourName, img, description, duration, languages, meetingPoint, price } = props;
-	const { addToCart, setShowCartSummary } = useContext(CartContext);
-
     const location = useLocation();
+
     const { data } = location.state; 
-
-    const navigate = useNavigate();
-
-	const [ pax, setPax ] = useState(1);
-	const [ dateValue, setDateValue ] = useState(null);
-    const [ dateNullMsg, setDateNullMsg ] = useState(null);
-
-    const paxMin = 1;
-    const paxMax = 12;
-
-    const handleClose = () => {
-		setPax(1);
-		setDateValue(null);
-		navigate(-1);
-	}
-
-    const handlePax = (input) => {
-        if(input >= paxMin && input <= paxMax) {
-            return setPax(input);
-        }
-        return 1;
-    };
-
-	const handleAddToCart = () => {
-		if(dateValue !== null) {
-			addToCart(data.id, pax, dateValue);
-			setShowCartSummary(true);
-			handleClose();
-		} else {
-			setDateNullMsg('* PLEASE SELECT VALID DATE');
-		}
-	}
 
 	const getLanguages = () => {
 		const languageList = data.languages.map((language, index) => {return `${index !== 0 ? `, ` : ``}` + language});
 		return languageList;
 	}
-/*
-    // tour-info outside click close
-    let tourRef = useRef(null);
 
-    useEffect(() => {
-        let handler = (e)=>{
-            if(tourRef.current && !tourRef.current.contains(e.target)){
-                handleClose();
-            }
-        };
-        document.addEventListener("mousedown", handler);
-        return() =>{
-            document.removeEventListener("mousedown", handler);
-        }
-    }, [tourRef]);
-
-	if (!showTourInfo) {return null;}
-*/
 	return (
         <MotionRoute>
             <div className='tour-info-page' key={data.id}>
@@ -125,35 +77,7 @@ export const TourInfo = () => {
                             </div>
                         </div>
                         <div className='right'>
-                            <div className='guest-info'>
-                                <h3>Select participants and date</h3>
-                                <div className='form'>
-                                    <span className='label'>				
-                                        <p>Number of People:</p>
-                                        <p>(maximum {paxMax} people)</p>
-                                    </span>
-                                    <span className='input'>
-                                        <button onClick={()=>handlePax(pax-1)}><MinusCircleIcon size={15} /></button>
-                                        <input className='pax' type='number' min={paxMin} max={paxMax} value={pax} onChange={(e)=> handlePax(Number(e.target.value))}></input>
-                                        <button onClick={()=>handlePax(pax+1)}><PlusCircleIcon size={15} /></button>
-                                    </span>
-                                </div>
-                                <div className='form'>
-                                    <span className='label'>
-                                        <p>Date:</p>
-                                        <p className='dateWarning'>{dateNullMsg}</p>
-                                    </span>
-                                    <span className='input'>
-                                        <input type='date' min={new Date().toISOString().split('T')[0]} onChange={(e) => setDateValue(e.target.value)}></input>
-                                    </span>
-                                </div>
-                                <div className='buttons'>
-                                    <button className='button highlight' onClick={handleAddToCart}>
-                                        ADD TO BASKET <BasketIcon size={18} />
-                                    </button>
-                                    <button className='button' onClick={() => navigate(-1)}>MORE TOURS</button>
-                                </div>
-                            </div>
+                            <TourForm id={data.id}/>
                         </div>
                     </div>
                 </div>
@@ -162,6 +86,114 @@ export const TourInfo = () => {
 	)
 }
 
+const TourForm = ({ id }) => {
+
+    const tomorrow = dayjs().add(1, 'day');
+
+    const navigate = useNavigate();
+
+    const { addToCart, setShowCartSummary } = useContext(CartContext);
+
+	const [ pax, setPax ] = useState(1);
+	const [ dateValue, setDateValue ] = useState(tomorrow.$d.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"}));
+    const [ isPaxVisible, setIsPaxVisible ] = useState(false);
+    const [ isDateVisible, setIsDateVisible ] = useState(false);
+
+    const paxMin = 1;
+    const paxMax = 12;
+
+    const handleClose = () => {
+		setPax(1);
+		setDateValue(null);
+		navigate(-1);
+	}
+
+    const handlePax = (input) => {
+        if(input >= paxMin && input <= paxMax) {
+            return setPax(input);
+        }
+        return;
+    };
+    const handleDate = (input) => {
+        //.toISOString().replace('000Z', '').split('T')[0]
+        console.log(input);
+        setDateValue(input.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"}));
+        setIsDateVisible(false);
+        return;
+    };
+
+	const handleAddToCart = () => {
+		if(dateValue !== null) {
+			addToCart(id, pax, dateValue);
+			setShowCartSummary(true);
+			handleClose();
+		}
+	}
+
+    // tour-info outside click close
+    let paxRef = useRef(null);
+    let dateRef = useRef(null);
+
+    useEffect(() => {
+        let handler = (e)=>{
+            if(paxRef.current && !paxRef.current.contains(e.target)){
+                setIsPaxVisible(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
+    }, [paxRef]);
+
+    useEffect(() => {
+        let handler = (e)=>{
+            if(dateRef.current && !dateRef.current.contains(e.target)){
+                setIsDateVisible(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
+    }, [dateRef]);
+
+    return (
+        <div className='guest-info'>
+            <h3>Select participants and date</h3>
+            <div className='form' ref={paxRef}>
+                <div className='label' onClick={() => setIsPaxVisible(!isPaxVisible)}>Adult x {pax}</div>
+
+
+                <span className={`input ${isPaxVisible ? 'visible' : 'hidden'}`}>
+                    <div className='input-wrapper'>
+                        <h5>Adult</h5>
+                        <div className=''>
+                            <button onClick={()=>handlePax(pax-1)}><MinusCircleIcon size={15} /></button>
+                            <input className='pax' type='number' min={paxMin} max={paxMax} value={pax} onChange={(e)=> handlePax(Number(e.target.value))}></input>
+                            <button onClick={()=>handlePax(pax+1)}><PlusCircleIcon size={15} /></button>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div className='form' ref={dateRef}>
+                <div className='label' onClick={() => setIsDateVisible(!isDateVisible)}>Date: {dateValue}</div>
+
+                <span className={`input ${isDateVisible ? 'visible' : 'hidden'}`}>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DateCalendar minDate={tomorrow} onChange={(value) => handleDate(value.$d)} />
+                    </LocalizationProvider>
+                </span>
+            </div>
+            <div className='buttons'>
+                <button className='button highlight' onClick={handleAddToCart}>
+                    ADD TO BASKET <BasketIcon size={18} />
+                </button>
+                <button className='button' onClick={() => navigate(-1)}>MORE TOURS</button>
+            </div>
+        </div>
+    );
+};
 
 /*
 

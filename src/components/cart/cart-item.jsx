@@ -1,29 +1,66 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { MinusCircleIcon, PlusCircleIcon, XSquareIcon } from '@phosphor-icons/react';
 import { CartContext } from '../../contexts/cart-context';
 import './cart-item.css'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+
 
 export const CartItem = (props) => {
     const { id, tourName, img, price } = props.data;
-    const { cartItems, deleteFromCart, handlePaxChange } = useContext(CartContext);
+    const { cartItems, deleteFromCart, changePax, changeDate } = useContext(CartContext);
+
+    const [ isDateChange, setIsDateChange ] = useState(false);
+    
+    const tomorrow = dayjs().add(1, 'day');
 
     const subtotal = () => {
         //console.log(cartItems[id].pax * price);
         return cartItems[id].pax * price;
     };
 
+    const handleDateChange = (date) => {
+        changeDate(id, date);
+        setIsDateChange(false);
+    };
+
+    let dateRef = useRef(null);
+
+    useEffect(() => {
+        let handler = (e)=>{
+            if(dateRef.current && !dateRef.current.contains(e.target)){
+                setIsDateChange(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
+    }, [dateRef]);
+
     return (
         <div className='cart-item' key={id}>
-            <img src={img[0]} alt={tourName} />
+            <div className='tour-img'>
+                <img src={img[0]} alt={tourName} />
+            </div>
             <div className='tour-detail'>
                 <button className='delete-button' onClick={()=>deleteFromCart(id)}><XSquareIcon size={20} /></button>
                 <p className='name'><b>{tourName}</b></p>
                 <div className='detail'>
-                    <span>Date: {cartItems[id].date}</span>
-                    <span>Pax: 
-                        <MinusCircleIcon size={15} onClick={() => handlePaxChange(id, 'minus')} />
-                        {cartItems[id].pax}
-                        <PlusCircleIcon size={15} onClick={() => handlePaxChange(id, 'plus')} />
+                    <div className='date' ref={dateRef}>
+                        <span className='date-value' onClick={() => {setIsDateChange(!isDateChange)}}>{cartItems[id].date}</span>
+                        <span className={`date-input ${isDateChange ? 'visible' : 'hidden'}`}>
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <DateCalendar minDate={tomorrow} onChange={(value) => handleDateChange(value.$d)} />
+                            </LocalizationProvider>
+                        </span>
+                    </div>
+                    <span className='pax'>
+                        <MinusCircleIcon size={19} onClick={() => changePax(id, 'minus')} />
+                        <span className='pax-value'>{cartItems[id].pax}</span>
+                        <PlusCircleIcon size={19} onClick={() => changePax(id, 'plus')} />
                         {cartItems[id].pax > 1 ? ` people ` : ` person `}
                         ({price}€ per person)
                     </span>

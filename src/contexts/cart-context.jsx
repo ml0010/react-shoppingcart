@@ -9,10 +9,14 @@ export const CartContextProvider = (props) => {
     const [ showCartSummary, setShowCartSummary ] = useState(false);
     const [ isButtonActive, setIsButtonActive ] = useState(true);
 
+    const paxMin = 1;
+    const paxMax = 12;
+    const defaultValue = {pax: 0, date: null};
+
     const getCartDefault = () => {
         let cart = {};
         TOURS.map((tour) => {
-            return cart[tour.id] = {pax: 0, date: null};
+            return cart[tour.id] = defaultValue;
         })
         return cart;
     }
@@ -27,27 +31,34 @@ export const CartContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [tourId]: cartItems[tourId] - 1}));
     }*/
     const deleteFromCart = (tourId) => {
-        setCartItems((prev) => ({...prev, [tourId]: cartItems[tourId] = 0}));
+        setCartItems((prev) => ({...prev, [tourId]: defaultValue}));
     }
 
-    const handlePaxChange = (tourId, operation) => {
+    const changePax = (tourId, operation) => {
         var newPax = cartItems[tourId].pax;
-        console.log("pax: ", newPax);
         if(operation === 'plus') {
-            newPax += 1;        
+            newPax += 1;
+            if (newPax > 12) {
+                return;
+            }
         } else if(operation === 'minus') {
             newPax -= 1;
+            if (newPax < 1) {
+                setCartItems((prev) => ({...prev, [tourId]: defaultValue }));
+                return;
+            }
         } else {
             return;
         }
-        console.log("new pax: ", newPax);
         setCartItems((prev) => ({...prev, [tourId]: {pax: newPax, date: cartItems[tourId].date} }));
     };
-    /*
-    const updateCartItemCount = (newAmount, itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: newAmount}));
-    }
-    */
+
+    const changeDate = (tourId, date) => {
+        var newDate = date.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"});
+        setCartItems((prev) => ({...prev, [tourId]: {pax: cartItems[tourId].pax, date: newDate} }));
+
+    };
+
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
@@ -78,7 +89,7 @@ export const CartContextProvider = (props) => {
     const tours = getCartList();
     
 */
-    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, showCartSummary, setShowCartSummary, isButtonActive, setIsButtonActive, handlePaxChange };
+    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, showCartSummary, setShowCartSummary, isButtonActive, paxMin, paxMax, setIsButtonActive, changePax, changeDate };
 
     return (
         <CartContext.Provider value={contextValue}>{props.children}</CartContext.Provider>

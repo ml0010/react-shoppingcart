@@ -3,7 +3,7 @@ import { useState, useContext, useEffect, useRef } from 'react'
 import { CartContext } from '../../contexts/cart-context';
 import { ArrowUpRightIcon, BasketIcon, CaretDownIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MapTrifoldIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { GobackButton } from '../buttons/goback-button';
 import { MotionRoute } from '../motions';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -141,15 +141,14 @@ const TourForm = ({ id }) => {
 
     const navigate = useNavigate();
 
-    const { addToCart, setShowCartSummary } = useContext(CartContext);
+    const { addToCart, setShowCartSummary, paxMin, paxMax } = useContext(CartContext);
 
 	const [ pax, setPax ] = useState(1);
 	const [ dateValue, setDateValue ] = useState(tomorrow.$d.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"}));
     const [ isPaxVisible, setIsPaxVisible ] = useState(false);
     const [ isDateVisible, setIsDateVisible ] = useState(false);
 
-    const paxMin = 1;
-    const paxMax = 12;
+
 
     const handleClose = () => {
 		setPax(1);
@@ -165,7 +164,6 @@ const TourForm = ({ id }) => {
     };
     const handleDate = (input) => {
         //.toISOString().replace('000Z', '').split('T')[0]
-        console.log(input);
         setDateValue(input.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"}));
         setIsDateVisible(false);
         return;

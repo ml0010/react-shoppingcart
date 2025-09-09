@@ -1,14 +1,18 @@
 .cart-item {
     width: 580px;
-    height: 160px;
+    min-height: 160px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    overflow: hidden;
     background-color: var(--background);
     border-radius: 3px;
     border: 1px solid var(--grey-light);
     box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
     margin: 7px auto;
+}
+.cart-item .tour-img {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 .cart-item img {
     height: 100%;
@@ -16,15 +20,11 @@
     object-fit: cover;
 }
 
-
-
 .cart-item .tour-detail {
     height: 100%;
     padding: 10px;
     text-align: left;
     position: relative;
-    display: flex;
-    flex-direction: column;
     padding-left: 20px;
 }
 .cart-item .tour-detail .name {
@@ -32,15 +32,52 @@
     font-size: 16px;
     margin: 0;
 }
-.cart-item .tour-detail .detail span {
+.cart-item .tour-detail .date {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+}
+.cart-item .tour-detail .date .date-value {
+    cursor: pointer;
+    border: 1px solid var(--grey-light);
+    padding: 3px 12px;
+}
+
+.cart-item .tour-detail .date .date-input {
+    display: flex;
+    position: absolute;
+    background-color: var(--background);
+    border-radius: 3px;
+    z-index: 400;
+    box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
+    margin: -10px 0;
+}
+.cart-item .tour-detail .date .date-input.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: 200ms ease;
+    transform: translateY(0);
+}
+.cart-item .tour-detail .date .date-input.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-5px);
+}
+.cart-item .tour-detail .detail .pax {
     margin: 10px 0;
     font-size: 14px;
     font-weight: 500;
     display: flex;
     align-items: center;
 }
+.cart-item .tour-detail .detail .pax .pax-value {
+    border: 1px solid var(--grey-light);
+    padding: 3px 10px;
+}
 .cart-item .tour-detail .detail span svg {
     margin: 0 5px;
+    cursor: pointer;
 }
 .cart-item .tour-detail .subtotal {
     font-weight: 900px;
@@ -48,7 +85,6 @@
 }
 .cart-item .delete-button {
     background-color: transparent;
-    color: var(--light);
     border: none;
     position: absolute;
     right: 10px;
@@ -56,7 +92,6 @@
 
 .cart-item .delete-button:hover {
     cursor: pointer;
-    color: var(--dark);
     transition: 0.2s ease-in;
 }
 .cart-item  .separator {

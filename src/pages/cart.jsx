@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { TOURS } from '../tourlist'
 import { CartItem } from '../components/cart/cart-item';
@@ -17,6 +17,9 @@ export const Cart = () => {
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        console.log(cartItems);
+    }, [cartItems]);
     return (
         <MotionRoute>
             <div className='cart'>

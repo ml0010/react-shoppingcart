@@ -12,7 +12,7 @@ export const TourRecommendationOutput = (props) => {
                     <p className='tourName'>{data.tourName}</p>
                 </div>
                 <div className='background'/>
-                <Link className='see-more-button' to="/tour-detail" state={{ data: data }}>EXPLORE NOW<ArrowUpRightIcon size={16} /></Link>
+                <Link className='see-more-button' to={`/tour-detail/${data.id}`} >EXPLORE NOW<ArrowUpRightIcon size={16} /></Link>
             </div>
     )
 }

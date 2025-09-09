@@ -8,6 +8,7 @@ export const CartContextProvider = (props) => {
 
     const [ showCartSummary, setShowCartSummary ] = useState(false);
     const [ isButtonActive, setIsButtonActive ] = useState(true);
+
     const getCartDefault = () => {
         let cart = {};
         TOURS.map((tour) => {
@@ -20,7 +21,6 @@ export const CartContextProvider = (props) => {
 
     const addToCart = (tourId, paxValue, dateValue) => {
         setCartItems((prev) => ({...prev, [tourId]: {pax: paxValue, date: dateValue}}));
-        //console.log(cartItems);
     }    
     /*
     const removeFromCart = (tourId) => {
@@ -29,6 +29,20 @@ export const CartContextProvider = (props) => {
     const deleteFromCart = (tourId) => {
         setCartItems((prev) => ({...prev, [tourId]: cartItems[tourId] = 0}));
     }
+
+    const handlePaxChange = (tourId, operation) => {
+        var newPax = cartItems[tourId].pax;
+        console.log("pax: ", newPax);
+        if(operation === 'plus') {
+            newPax += 1;        
+        } else if(operation === 'minus') {
+            newPax -= 1;
+        } else {
+            return;
+        }
+        console.log("new pax: ", newPax);
+        setCartItems((prev) => ({...prev, [tourId]: {pax: newPax, date: cartItems[tourId].date} }));
+    };
     /*
     const updateCartItemCount = (newAmount, itemId) => {
         setCartItems((prev) => ({...prev, [itemId]: newAmount}));
@@ -45,6 +59,7 @@ export const CartContextProvider = (props) => {
         return totalAmount;
     }
 
+    /*
     const getCartList = () => {
         const cartItemList = [];
         TOURS.map((tour) => {
@@ -62,8 +77,8 @@ export const CartContextProvider = (props) => {
 
     const tours = getCartList();
     
-
-    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, getCartDefault, tours, showCartSummary, setShowCartSummary, isButtonActive, setIsButtonActive };
+*/
+    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, showCartSummary, setShowCartSummary, isButtonActive, setIsButtonActive, handlePaxChange };
 
     return (
         <CartContext.Provider value={contextValue}>{props.children}</CartContext.Provider>

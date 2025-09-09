@@ -1,11 +1,11 @@
 import { useContext } from 'react'
-import { XSquareIcon } from '@phosphor-icons/react';
+import { MinusCircleIcon, PlusCircleIcon, XSquareIcon } from '@phosphor-icons/react';
 import { CartContext } from '../../contexts/cart-context';
 import './cart-item.css'
 
 export const CartItem = (props) => {
     const { id, tourName, img, price } = props.data;
-    const { cartItems, deleteFromCart } = useContext(CartContext);
+    const { cartItems, deleteFromCart, handlePaxChange } = useContext(CartContext);
 
     const subtotal = () => {
         //console.log(cartItems[id].pax * price);
@@ -19,15 +19,14 @@ export const CartItem = (props) => {
                 <button className='delete-button' onClick={()=>deleteFromCart(id)}><XSquareIcon size={20} /></button>
                 <p className='name'><b>{tourName}</b></p>
                 <div className='detail'>
-                    <p>Date: {cartItems[id].date}</p>
-                    <p>{`Pax:  
-                        ${
-                            cartItems[id].pax > 1 ? 
-                            `${cartItems[id].pax} people ` : 
-                            `${cartItems[id].pax} person `
-                        }
-                        (${price}€ per person)`}
-                    </p>
+                    <span>Date: {cartItems[id].date}</span>
+                    <span>Pax: 
+                        <MinusCircleIcon size={15} onClick={() => handlePaxChange(id, 'minus')} />
+                        {cartItems[id].pax}
+                        <PlusCircleIcon size={15} onClick={() => handlePaxChange(id, 'plus')} />
+                        {cartItems[id].pax > 1 ? ` people ` : ` person `}
+                        ({price}€ per person)
+                    </span>
                 </div>                
                 <hr className='separator'/>
                 <p className='subtotal'>Amount: {subtotal()} €</p>

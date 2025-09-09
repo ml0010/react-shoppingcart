@@ -12,6 +12,7 @@ import MyAccount from "../pages/myaccount";
 import BookingSearch from "../pages/booking-search";
 import { AnimatePresence } from "framer-motion";
 import { TourInfo } from "./tour/tour-info";
+import { TOURS } from "../tourlist";
 
 export const RoutesWithAnimation = () => {
 
@@ -33,6 +34,9 @@ export const RoutesWithAnimation = () => {
                 <Route path='/mypage' element={<MyPage />} />
                 <Route path='/myaccount' element={<MyAccount />} />
                 <Route path='/mybooking' element={<BookingSearch />} />
+                {TOURS.map((tour) => {
+                    return <Route path={`/tour-detail/${tour.id}`} element={<TourInfo data={tour} />}/>
+                })}
                 <Route path='/*' element={<Home />} />
             </Routes>
         </AnimatePresence>

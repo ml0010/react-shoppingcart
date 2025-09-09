@@ -3,9 +3,7 @@ import { ArrowUpRightIcon } from '@phosphor-icons/react'
 import { Carousel } from './carousel';
 import { Link } from 'react-router-dom';
 
-export const Tour = (props) => {
-    const data = props.data;
-
+export const Tour = ({ data }) => {
     return (
         <div className='tour' key={data.id}>
             <div className='image'>
@@ -22,12 +20,14 @@ export const Tour = (props) => {
                         <p> per person</p>
                     </span>
                 </div>
-                <Link className='button' to="/tour-detail" state={{ data: data }}>DETAILS & BOOK<ArrowUpRightIcon size={15} /></Link>
+                <Link className='button' to={`/tour-detail/${data.id}`}>DETAILS & BOOK<ArrowUpRightIcon size={15} /></Link>
             </div>
 
         </div>
     )
 }
+
+// <Link className='button' to={`/tour-detail/${data.id}`} state={{ data: data }}>DETAILS & BOOK<ArrowUpRightIcon size={15} /></Link>
 
 
 /*

@@ -100,7 +100,7 @@ export const Tours = () => {
                                             {toursByCategory(category).map((tour, index) => {
                                                 return (
                                                     <SwiperSlide key={index}>
-                                                        <Tour data={tour} key={index} />
+                                                        <Tour data={tour} />
                                                     </SwiperSlide>
                                                 )
                                             })}

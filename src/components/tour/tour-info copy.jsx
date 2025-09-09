@@ -14,7 +14,10 @@ import { TourRecommendation } from './tour-recommendation';
 import { Faq } from '../faq/faq';
 import axios from 'axios';
 
-export const TourInfo = ({ data }) => {
+export const TourInfo = () => {
+    const location = useLocation();
+
+    const { data } = location.state;
     
     const [ mapSrc, setMapSrc ] = useState(null);
     const [ isMapVisible, setIsMapVisible ] = useState(false);

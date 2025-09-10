@@ -11,7 +11,7 @@
     background-color: var(--background);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
     border-radius: 3px;
-    border: 1px solid black;
+    border: 1px solid var(--grey-light);
     margin: 20px;
     padding: 20px;
 }

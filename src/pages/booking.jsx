@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import '../styles/booking.css';
-import { TOURS } from '../tourlist';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { CardholderIcon, CaretDownIcon, CaretRightIcon } from '@phosphor-icons/react';
 import { Faq } from '../components/faq/faq';
 import { AuthenticationContext } from '../contexts/authentication-context';
@@ -15,17 +14,18 @@ import { GobackButton } from '../components/buttons/goback-button';
 import { Checkout } from '../components/cart/checkout';
 
 export const Booking = () => {
-    const { getTotalCartAmount } = useContext(CartContext);
+    const { getTotalCartAmount, isGuestInfoCompleted, setIsGuestInfoCompleted } = useContext(CartContext);
     const { user, isLoggedIn } = useContext(AuthenticationContext);
     const { name, setName, email, setEmail, phone, setPhone, comment, setComment } = useContext(BookingContext);
     const { setAmount, setReference } = useContext(PaymentContext);
     
     const [ isLoginOpen, setIsLoginOpen ] = useState(false);
-    const [ isPaymentOpen, setIsPaymentOpen ] = useState(false);
-    const [ isGuestInfoCompleted , setIsGuestInfoCompleted ] = useState(false);
 
     const location = useLocation();
-    console.log(location);
+
+    useEffect(() => {
+        setIsGuestInfoCompleted(false);
+    }, []);
 
     useEffect(() => {
         setName(user.name);
@@ -85,17 +85,9 @@ export const Booking = () => {
                                 <label>Comments </label>
                                 <textarea className='input comment' name='comment' placeholder='Comments... ex. dietary requirements' value={comment} onChange={(e)=>setComment(e.target.value)} />
                             </form>
-                            <div className='payment-button-wrapper'>
-                                {(name && email && phone) && 
-                                    <button className='button' form='guestInfo' type='submit'>NEXT - PAYMENT<CardholderIcon size={18} /></button>
-                                }
-                            </div>
                         </> : 
                         <div className='payment-wrapper'>
                             <Payment />
-                            <div className='back-button'>
-                                <button className='button' onClick={handleGuestInfo}>BACK TO GUEST INFO</button>
-                            </div>
                         </div>
                         }
                     </div>
@@ -109,3 +101,11 @@ export const Booking = () => {
     )
 }
 export default Booking;
+
+/*
+    <div className='payment-button-wrapper'>
+        {(name && email && phone) && 
+            <button className='button' form='guestInfo' type='submit'>NEXT - PAYMENT<CardholderIcon size={18} /></button>
+        }
+    </div>
+ */

@@ -45,14 +45,14 @@ export const BookingDetail = ({reference, index}) => {
     return (
         <div className='booking-detail' key={index} onClick={toggleShowInfo}>
             <div className='booking-ref'>
-                <SuitcaseSimpleIcon size={25} />
+                <SuitcaseSimpleIcon size={20} />
                 <h3>{date} - {reference}</h3>
                 <div className='caret'>
-                    {!showInfo? <CaretDownIcon size={23} /> : <CaretUpIcon size={23} />}
+                    {!showInfo? <CaretDownIcon size={15} /> : <CaretUpIcon size={15} />}
                 </div>
             </div>
             <div className={`detail ${showInfo && 'active'}`}>
-                <div className='guest-info'>
+                <div className='guest-information'>
                     <h4>GUEST INFORMATION</h4>
                     <p>Booking Reference: <b>{reference}</b></p>
                     <p>Name: <b>{name}</b></p>

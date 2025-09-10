@@ -54,7 +54,7 @@
     background-color: var(--background);
     padding: 20px 60px;
     border-radius: 3px;
-    border: 1px solid black;
+    border: 1px solid var(--grey-light);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
     display: grid;
     justify-content: center;

@@ -23,8 +23,8 @@ export const MyPage = () => {
             <div className='myInfo'>
                 <h1>Hello, {name}</h1>
                 <div className='buttons'>
-                    <button className='button' onClick={()=>navigate('/myaccount')}>MY ACCOUNT<GearIcon size={18} /></button>
-                    <button className='button' onClick={logout}>LOGOUT<SignOutIcon size={18} /></button>
+                    <button className='button' onClick={()=>navigate('/myaccount')}>MY ACCOUNT<GearIcon size={15} /></button>
+                    <button className='button' onClick={logout}>LOGOUT<SignOutIcon size={15} /></button>
                 </div>
             </div>
             <div className='bookings'>

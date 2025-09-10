@@ -82,7 +82,7 @@ export const Navbar = () => {
             <div className='menubarWrapper' ref={menuRef}>
                 <div className={`menuContent ${menuOpen ? 'open' : 'closed'}`}>
                     <button onClick={handleMenuClick}>
-                        <XIcon size={33} weight="bold" />
+                        <XIcon size={15} weight="bold" />
                     </button>
                     <span className='menuLinks'>
                         <p className='menuTitle'>EXPLORE MALLORCA</p>

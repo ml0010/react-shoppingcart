@@ -101,7 +101,7 @@ body {
     min-height: 20px;
     margin: 5px;
     font-size: 9px;
-    font-weight: 500;
+    font-weight: 600;
     transition: 0.2s ease-in;
     box-shadow: 0 1px 0px var(--grey);
     display: flex;
@@ -134,10 +134,18 @@ body {
     background-color : rgb(255, 255, 255);
 }
 .button:active {
-    top: 3px;
+    top: 2px;
     box-shadow: 0 0px 0px var(--grey);
     transition: all .2s;
 }
+.button.blocked {
+    cursor: not-allowed;    
+    top: 0px;
+    box-shadow: 0 0px 0px var(--grey);
+    background-color: rgba(184, 184, 184, 0.442);
+    border: 1px solid transparent;
+}
+
 
 /*
 .button {

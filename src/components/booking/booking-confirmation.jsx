@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { BookingContext } from '../../contexts/booking-context';
 import { Faq } from '../faq/faq';
 import { GobackButton } from '../buttons/goback-button';
+import { XIcon } from '@phosphor-icons/react';
 
 export const BookingConfirmation = () => {
     
@@ -115,7 +116,7 @@ export const BookingConfirmation = () => {
             : <></>}
 
             <div className='bttns'>
-                <button className='button' onClick={handleDeleteBooking}>CANCEL BOOKING</button>
+                <button className='button' onClick={handleDeleteBooking}>CANCEL BOOKING <XIcon size={10}/></button>
                 <Link className='button' to='/home'>BACK TO HOME</Link>
             </div>
             <Faq></Faq>

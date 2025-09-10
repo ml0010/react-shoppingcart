@@ -7,10 +7,11 @@ export const PaymentContextProvider = (props) => {
 
     const [ reference, setReference ] = useState(null);
     const [ amount, setAmount ] = useState(null);
+    const [ isPaymentLoading, setIsPaymentLoading ] = useState(false);
 
     const navigate = useNavigate();
 
-    const contextValue = { navigate, reference, setReference, amount, setAmount };
+    const contextValue = { navigate, reference, setReference, amount, setAmount, isPaymentLoading, setIsPaymentLoading };
 
     return (
         <PaymentContext.Provider value={contextValue}>{props.children}</PaymentContext.Provider>

@@ -88,9 +88,6 @@
     flex-direction: column;
     justify-content: center;
 }
-.back-button {
-    margin: auto;
-}
 .booking .summary-display {
     margin: 0 auto;
 }

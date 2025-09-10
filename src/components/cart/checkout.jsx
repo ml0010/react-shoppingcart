@@ -3,10 +3,16 @@ import './checkout.css';
 import { CartContext } from '../../contexts/cart-context';
 import { Link } from 'react-router-dom';
 import { TOURS } from '../../tourlist';
+import { CardholderIcon } from '@phosphor-icons/react';
+import { BookingContext } from '../../contexts/booking-context';
+import { PaymentContext } from '../../contexts/payment-context';
 
 export const Checkout = ({ path }) => {
 
-    const { cartItems, getTotalCartAmount, getCartItemNumber } = useContext(CartContext);
+    const { cartItems, getTotalCartAmount, getCartItemNumber, isGuestInfoCompleted, setIsGuestInfoCompleted } = useContext(CartContext);
+    const { name, email, phone } = useContext(BookingContext);
+    const { amount, isPaymentLoading } = useContext(PaymentContext);
+    
     const totalAmount = getTotalCartAmount();
     const totalCount = getCartItemNumber();
 
@@ -36,12 +42,20 @@ export const Checkout = ({ path }) => {
                 <span>{totalAmount} €</span>
             </div>
             <span className='vat'>* VAT Included</span>
-            <div >
+            <div className='buttons'>
                 {path !== '/booking' &&
                     <Link className='button highlight' to={'/booking'}>CHECKOUT</Link>
                 }
-                {path === '/booking' &&
-                    <Link className='button highlight' to={'/booking'}>NEXT - PAYMENT</Link>
+                {(path === '/booking' && !isGuestInfoCompleted) &&
+                    <button className={`button highlight ${!(name && email && phone) ? 'blocked' : 'active'}`} type='submit' form='guestInfo'>NEXT - PAYMENT<CardholderIcon size={18} /></button>
+                }
+                {(path === '/booking' && isGuestInfoCompleted) && 
+                    <div className='payment-button'>
+                        <button className='button highlight' type='submit' form='payment'>
+                            {isPaymentLoading ? 'LOADING...' : `${amount} € - PAY NOW`}
+                        </button>
+                        <button className='button' onClick={() => {setIsGuestInfoCompleted(false)}}>BACK TO GUEST INFO</button>
+                    </div>
                 }
             </div>
         </div>

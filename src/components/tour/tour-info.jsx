@@ -211,7 +211,7 @@ const TourForm = ({ id }) => {
             <div className='form' ref={paxRef}>
                 <div className='label' onClick={() => setIsPaxVisible(!isPaxVisible)}>
                     <p>Adult x {pax}</p>
-                    <CaretDownIcon className='caret' size={18} weight="fill" />
+                    <CaretDownIcon className='caret' size={15} weight="fill" />
                 </div>
 
 
@@ -229,7 +229,7 @@ const TourForm = ({ id }) => {
             <div className='form' ref={dateRef}>
                 <div className='label' onClick={() => setIsDateVisible(!isDateVisible)}>
                     <p>{dateValue}</p>
-                    <CaretDownIcon className='caret' size={18} weight="fill" />
+                    <CaretDownIcon className='caret' size={15} weight="fill" />
                 </div>
 
                 <span className={`input ${isDateVisible ? 'visible' : 'hidden'}`}>
@@ -240,7 +240,7 @@ const TourForm = ({ id }) => {
             </div>
             <div className='buttons'>
                 <button className='button highlight' onClick={handleAddToCart}>
-                    ADD TO BASKET <BasketIcon size={18} />
+                    ADD TO BASKET <BasketIcon size={15} />
                 </button>
             </div>
         </div>

@@ -102,7 +102,7 @@ export const MyAccount = () => {
                 <p className='errorMsg'>{message}</p>
                 <div className='Bttns'>
                     <button className='button' onClick={()=>navigate('/home')}>HOME</button>
-                    <button className='button' onClick={logout}>LOGOUT<SignOutIcon size={18} /></button>
+                    <button className='button' onClick={logout}>LOGOUT<SignOutIcon size={13} /></button>
                 </div>
             </div>
         </div>

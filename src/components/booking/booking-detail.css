@@ -7,7 +7,7 @@
     border-radius: 3px;
     cursor: pointer;
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
-    border: 1px solid rgba(0, 0, 0, 0.305);
+    border: 1px solid var(--grey-light);
 
 }
 .booking-detail .booking-ref {
@@ -16,7 +16,7 @@
     align-items: center;
 }
 .booking-detail .booking-ref svg {
-    margin-right: 5px;
+    margin: 0 10px;
 }
 .booking-detail .booking-ref .caret {
     margin-left: auto;
@@ -41,7 +41,7 @@
     opacity: 1;
     transition: max-height 600ms ease, opacity 200ms ease;
 }
-.booking-detail .detail .guest-info, .booking-detail .detail .tour-list {
+.booking-detail .detail .guest-information, .booking-detail .detail .tour-list {
     padding: 10px 0;
 }
 .booking-detail .detail h4 {
@@ -64,11 +64,12 @@
     right: 0;
 }
 .booking-detail .separator {
-    height: 0.5px;
+    height: 1px;
     width: 100%;
-    background-color: var(--light);
+    background-color: var(--grey-light);
     border: none;
     margin: 10px 0;
+    opacity: 0.2;
 }
 
 @media only screen and (max-width: 1300px) {

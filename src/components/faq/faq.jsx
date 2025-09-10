@@ -15,7 +15,7 @@ export const Faq = () => {
         <div className='faq'>
             <div className='faq-list'>
                 <span className='question' onClick={()=>setShowServices(!showServices)}>
-                    {showServices? <CaretDownIcon size={15} /> : <CaretRightIcon size={15} />}
+                    {showServices? <CaretDownIcon size={12} weight="fill" /> : <CaretRightIcon size={12} weight="fill" />}
                     <p>ALL OUR TOURS INCLUDE</p>
                 </span>
                 <span className={`answer ${showServices && 'active'}`}>
@@ -24,7 +24,7 @@ export const Faq = () => {
             </div>
             <div className='faq-list'>
                 <span className='question' onClick={()=>setShowRefundPolicy(!showRefundPolicy)}>
-                    {showRefundPolicy? <CaretDownIcon size={15} /> : <CaretRightIcon size={15} />}
+                    {showRefundPolicy? <CaretDownIcon size={12} weight="fill" /> : <CaretRightIcon size={12} weight="fill" />}
                     <p>REFUND POLICY</p>
                 </span>
                 <span className={`answer ${showRefundPolicy && 'active'}`}>
@@ -33,7 +33,7 @@ export const Faq = () => {
             </div>
             <div className='faq-list'>
                 <span className='question' onClick={()=>setShowContactInfo(!showContactInfo)}>
-                    {showContactInfo? <CaretDownIcon size={15} /> : <CaretRightIcon size={15} />}
+                    {showContactInfo? <CaretDownIcon size={12} weight="fill" /> : <CaretRightIcon size={12} weight="fill" />}
                     <p>NEED TO SPEAK TO US?</p>
                 </span>
                 <span className={`contact-info answer ${showContactInfo && 'active'}`}>

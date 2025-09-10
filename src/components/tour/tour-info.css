@@ -140,6 +140,7 @@
     border-radius: 50px;
     border: 1px solid var(--grey-light);
     position: relative;
+    cursor: pointer;
 }
 .guest-info .label p {
     font-size: 16px;

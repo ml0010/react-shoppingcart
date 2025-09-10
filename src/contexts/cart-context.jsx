@@ -13,7 +13,7 @@ export const CartContextProvider = (props) => {
     const paxMax = 12;
     const defaultValue = {pax: 0, date: null};
 
-    const getCartDefault = () => {
+    const cartDefault = () => {
         let cart = {};
         TOURS.map((tour) => {
             return cart[tour.id] = defaultValue;
@@ -21,7 +21,7 @@ export const CartContextProvider = (props) => {
         return cart;
     }
 
-    const [cartItems, setCartItems] = useState(getCartDefault());
+    const [cartItems, setCartItems] = useState(cartDefault());
 
     const addToCart = (tourId, paxValue, dateValue) => {
         setCartItems((prev) => ({...prev, [tourId]: {pax: paxValue, date: dateValue}}));
@@ -68,7 +68,17 @@ export const CartContextProvider = (props) => {
             }
         }
         return totalAmount;
-    }
+    };
+
+    const getCartItemNumber = () => {
+        let count = 0;
+        for (const item in cartItems) {
+            if (cartItems[item].pax > 0) {
+                count++;
+            }
+        }
+        return count;
+    };
 
     /*
     const getCartList = () => {
@@ -89,7 +99,7 @@ export const CartContextProvider = (props) => {
     const tours = getCartList();
     
 */
-    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, showCartSummary, setShowCartSummary, isButtonActive, paxMin, paxMax, setIsButtonActive, changePax, changeDate };
+    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, getCartItemNumber, showCartSummary, setShowCartSummary, isButtonActive, paxMin, paxMax, setIsButtonActive, changePax, changeDate };
 
     return (
         <CartContext.Provider value={contextValue}>{props.children}</CartContext.Provider>

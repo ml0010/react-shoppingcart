@@ -57,8 +57,14 @@
 .tour .carousel:hover .carousel-buttons {
     opacity: 1;
 }
-
-
+.tour .tour-detail-button {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+.tour .tour-detail-button .button {
+    margin: 0;
+}
 /*
 .selectBttn {
     background-color: var(--dark);

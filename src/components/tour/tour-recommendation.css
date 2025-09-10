@@ -73,6 +73,7 @@
     background-color: rgba(255, 255, 255, 0.792);
     color: black;
     padding-left: 20px;
+
 }
 
 .tour-recommendations .recommendation .see-more-button svg {
@@ -89,7 +90,6 @@
 .tour-recommendations .recommendation:hover .see-more-button:hover svg {
     opacity: 1;
 }
-
 .tour-recommendations .recommendation .background {
     background-color: rgba(145, 145, 145, 0.619);
     position: absolute;

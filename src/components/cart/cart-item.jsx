@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import { MinusCircleIcon, PlusCircleIcon, XSquareIcon } from '@phosphor-icons/react';
+import { MinusCircleIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
 import { CartContext } from '../../contexts/cart-context';
 import './cart-item.css'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -46,7 +46,7 @@ export const CartItem = (props) => {
                 <img src={img[0]} alt={tourName} />
             </div>
             <div className='tour-detail'>
-                <button className='delete-button' onClick={()=>deleteFromCart(id)}><XSquareIcon size={20} /></button>
+                <button className='delete-button' onClick={()=>deleteFromCart(id)}><XIcon size={15} /></button>
                 <p className='name'><b>{tourName}</b></p>
                 <div className='detail'>
                     <div className='date' ref={dateRef}>
@@ -58,15 +58,15 @@ export const CartItem = (props) => {
                         </span>
                     </div>
                     <span className='pax'>
-                        <MinusCircleIcon size={19} onClick={() => changePax(id, 'minus')} />
+                        <MinusCircleIcon size={15} onClick={() => changePax(id, 'minus')} />
                         <span className='pax-value'>{cartItems[id].pax}</span>
-                        <PlusCircleIcon size={19} onClick={() => changePax(id, 'plus')} />
+                        <PlusCircleIcon size={15} onClick={() => changePax(id, 'plus')} />
                         {cartItems[id].pax > 1 ? ` people ` : ` person `}
                         ({price}€ per person)
                     </span>
                 </div>                
                 <hr className='separator'/>
-                <p className='subtotal'>Amount: {subtotal()} €</p>
+                <p className='subtotal'>{subtotal()} €</p>
             </div>
         </div>
     )

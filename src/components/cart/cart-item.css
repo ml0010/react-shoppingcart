@@ -1,5 +1,5 @@
 .cart-item {
-    width: 580px;
+    width: 90%;
     min-height: 160px;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -80,7 +80,8 @@
     cursor: pointer;
 }
 .cart-item .tour-detail .subtotal {
-    font-weight: 900px;
+    font-size: 15px;
+    font-weight: 600;
     text-align: right;
 }
 .cart-item .delete-button {

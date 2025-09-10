@@ -20,7 +20,11 @@ export const Tour = ({ data }) => {
                         <p> per person</p>
                     </span>
                 </div>
-                <Link className='button' to={`/tour-detail/${data.id}`}>DETAILS & BOOK<ArrowUpRightIcon size={15} /></Link>
+                <Link className='tour-detail-button' to={`/tour-detail/${data.id}`}>
+                    <button className='button' >
+                        DETAILS & BOOK<ArrowUpRightIcon size={15} />
+                    </button>
+                </Link>
             </div>
 
         </div>

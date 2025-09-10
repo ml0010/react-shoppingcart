@@ -12,14 +12,12 @@ import { MotionRoute } from '../components/motions';
 
 export const Cart = () => {
 
-    const { cartItems, getTotalCartAmount } = useContext (CartContext);
+    const { cartItems, getTotalCartAmount, getCartItemNumber } = useContext (CartContext);
     const totalAmount = getTotalCartAmount();
+    const totalCount = getCartItemNumber();
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log(cartItems);
-    }, [cartItems]);
     return (
         <MotionRoute>
             <div className='cart'>
@@ -27,18 +25,33 @@ export const Cart = () => {
                 {totalAmount > 0 ? (
                     <>
                         <h1>Your basket</h1>
-                        <div className='cart-items'>
-                            {TOURS.map((tour) => {
-                            if (cartItems[tour.id]["pax"] > 0) {
-                                return <CartItem data={tour} key={tour.id} />;
-                            } else { return null; }
-                            })}
-                        </div>
-                        <div className='checkout'>
-                            <p className='totalAmount'>Total Amount: {totalAmount} €</p>
-                            <div className='bttns'>
-                                <button className='button' onClick={() => navigate('/tours')}>MORE TOURS</button>
-                                <button className='button highlight' onClick={() => navigate('/booking')}>CHECKOUT</button>
+                        <div className='sections'>
+                            <div className='cart-display'>
+                                <div className='cart-items'>
+                                    {TOURS.map((tour) => {
+                                    if (cartItems[tour.id]["pax"] > 0) {
+                                        return <CartItem data={tour} key={tour.id} />;
+                                    } else { return null; }
+                                    })}
+                                </div>
+                                <div className='bttns'>
+                                    <button className='button'>EMPTY BASKET</button>
+                                    <button className='button' onClick={() => navigate('/tours')}>MORE TOURS</button>
+                                </div>
+                            </div>
+                            <div className='total-display'>
+                                <div className='checkout'>
+                                    <div>{totalCount} {totalCount > 1 ? 'Items' : 'Item'}</div>
+                                    <hr className='separator'/>
+                                    <div className='total'>
+                                        <span>Total: </span>
+                                        <span>{totalAmount} €</span>
+                                    </div>
+                                    <span>* VAT Included</span>
+                                    <div >
+                                        <button className='button highlight' onClick={() => navigate('/booking')}>CHECKOUT</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </>

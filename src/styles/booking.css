@@ -6,50 +6,33 @@
     justify-content: center;
     align-items: center;
 }
-.booking .booking-info {
-    width: 700px;
+.booking .section {
+    width: 90%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
 }
-.booking .booking-info h3 {
+.booking .info {
+    width: 100%
+}
+.booking .info h3 {
     font-size: 25px;
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
-.booking .booking-info h4 {
+.booking .info h4 {
     font-size: 14px;
-    margin-top: 5px;
+    margin: 5px 0;
     font-weight: 500;
     color: var(--light);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.booking .booking-info svg {
-    margin-right: 5px;
-}
-.booking .booking-info .tour-summary p {
-    font-size: 14px;
-    margin: 3px;
-    padding: 5px;
-    color: var(--light);
-}
-.booking .booking-info .tour-summary {
-    background-color: var(--background);
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 3px;
-    box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
-    position: relative;
+.booking .info svg {
+    margin: 0 5px;
 }
 
-.booking .tour-summary .edit-basket-button {
-    font-size: 10px;
-    text-decoration: underline;
-    position: absolute;
-    right: 10px;
-    top: 5px;
-}
-.booking .tour-summary .edit-basket-button:hover {
-    color: var(--light);
-}
 .booking .login-form {
     padding-bottom: 30px;
 }
@@ -76,16 +59,14 @@
     row-gap: 15px;
     padding: 5px;
 }
-.booking .form .commentInput {
-    width: 350px;
-    height: 100px;
-    resize: none;
-    padding: 4px;
-}
-.booking .form input {
-    width: 80%;
+.booking .form .input {
     padding: 4px;
     font-size: 15px;
+    border: 1px solid var(--grey-light);
+}
+.booking .form .comment {
+    height: 100px;
+    resize: none;
 }
 
 .booking .form label {
@@ -94,13 +75,6 @@
     text-align: right;
     margin-right: 15px;
     color: var(--light);
-}
-
-.booking .bookingInfo .separator {
-    height: 0.5px;
-    width: 80%;
-    border: none;
-    opacity: 0.2;
 }
 
 .booking a {
@@ -117,11 +91,18 @@
 .back-button {
     margin: auto;
 }
+.booking .summary-display {
+    margin: 0 auto;
+}
 
 
 @media only screen and (max-width: 1300px) {
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
+    .booking .section {
+        display: flex;
+        flex-direction: column;
+    }
 }
 @media only screen and (max-width: 600px) {
 }

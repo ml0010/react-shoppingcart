@@ -1,5 +1,5 @@
-import { useContext, useEffect } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useContext } from 'react'
+import { Link, useLocation } from "react-router-dom";
 import { TOURS } from '../tourlist'
 import { CartItem } from '../components/cart/cart-item';
 import '../styles/cart.css';
@@ -9,14 +9,13 @@ import { GobackButton } from '../components/buttons/goback-button';
 import { CartContext } from '../contexts/cart-context';
 import { TourRecommendation } from '../components/tour/tour-recommendation';
 import { MotionRoute } from '../components/motions';
+import { Checkout } from '../components/cart/checkout';
 
 export const Cart = () => {
 
-    const { cartItems, getTotalCartAmount, getCartItemNumber } = useContext (CartContext);
+    const { cartItems, getTotalCartAmount } = useContext (CartContext);
     const totalAmount = getTotalCartAmount();
-    const totalCount = getCartItemNumber();
-
-    const navigate = useNavigate();
+    const location = useLocation();
 
     return (
         <MotionRoute>
@@ -25,7 +24,7 @@ export const Cart = () => {
                 {totalAmount > 0 ? (
                     <>
                         <h1>Your basket</h1>
-                        <div className='sections'>
+                        <div className='section'>
                             <div className='cart-display'>
                                 <div className='cart-items'>
                                     {TOURS.map((tour) => {
@@ -36,22 +35,11 @@ export const Cart = () => {
                                 </div>
                                 <div className='bttns'>
                                     <button className='button'>EMPTY BASKET</button>
-                                    <button className='button' onClick={() => navigate('/tours')}>MORE TOURS</button>
+                                    <Link className='button' to={'/tours'}>MORE TOURS</Link>
                                 </div>
                             </div>
-                            <div className='total-display'>
-                                <div className='checkout'>
-                                    <div>{totalCount} {totalCount > 1 ? 'Items' : 'Item'}</div>
-                                    <hr className='separator'/>
-                                    <div className='total'>
-                                        <span>Total: </span>
-                                        <span>{totalAmount} €</span>
-                                    </div>
-                                    <span>* VAT Included</span>
-                                    <div >
-                                        <button className='button highlight' onClick={() => navigate('/booking')}>CHECKOUT</button>
-                                    </div>
-                                </div>
+                            <div className='summary-display'>
+                                <Checkout path={location.pathname}/>
                             </div>
                         </div>
                     </>
@@ -61,8 +49,8 @@ export const Cart = () => {
                         <img className='logo' src={Logo} alt='map' />
                         <p>Click MORE TOURS button below to see available tours.</p>
                         <div className='bttns'>
-                            <button className='button' onClick={() => navigate('/home')}>HOME</button>
-                            <button className='button highlight' onClick={() => navigate('/tours')}>MORE TOURS</button>
+                            <Link className='button' to={'/home'}>HOME</Link>
+                            <Link className='button highlight' to={'/tours'}>MORE TOURS</Link>
                         </div>
 
                     </>

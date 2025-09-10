@@ -1,0 +1,60 @@
+.checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: sticky;
+    top: 80px;
+    right: 50px;
+    background-color: var(--background);
+    border-radius: 3px;
+    border: 1px solid var(--grey-light);
+    box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
+    padding: 20px;
+}
+.checkout .summary {
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+}
+.checkout .total {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.checkout .total span {
+    margin: 2px;
+}
+.checkout .vat {
+    font-size: 9px;
+}
+.checkout .separator {
+    height: 1px;
+    width: 100%;
+    border: none;
+    opacity: 0.2;
+    margin: 7px 0;
+    background-color: var(--grey-light);
+}
+.checkout .edit-basket-button {
+    font-size: 9px;
+    text-decoration: underline;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+@media only screen and (max-width: 1300px) {
+}
+@media only screen and (max-width: 1000px) {
+    .checkout {
+        position: static;
+    }
+}
+@media only screen and (max-width: 600px) {
+
+}

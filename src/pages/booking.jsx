@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import '../styles/booking.css';
 import { TOURS } from '../tourlist';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { CardholderIcon, CaretDownIcon, CaretRightIcon } from '@phosphor-icons/react';
 import { Faq } from '../components/faq/faq';
 import { AuthenticationContext } from '../contexts/authentication-context';
@@ -12,15 +12,20 @@ import { PaymentContext } from '../contexts/payment-context';
 import { CartContext } from '../contexts/cart-context';
 import { MotionRoute } from '../components/motions';
 import { GobackButton } from '../components/buttons/goback-button';
+import { Checkout } from '../components/cart/checkout';
 
 export const Booking = () => {
-    const { cartItems, getTotalCartAmount } = useContext(CartContext);
+    const { getTotalCartAmount } = useContext(CartContext);
     const { user, isLoggedIn } = useContext(AuthenticationContext);
     const { name, setName, email, setEmail, phone, setPhone, comment, setComment } = useContext(BookingContext);
     const { setAmount, setReference } = useContext(PaymentContext);
     
     const [ isLoginOpen, setIsLoginOpen ] = useState(false);
+    const [ isPaymentOpen, setIsPaymentOpen ] = useState(false);
     const [ isGuestInfoCompleted , setIsGuestInfoCompleted ] = useState(false);
+
+    const location = useLocation();
+    console.log(location);
 
     useEffect(() => {
         setName(user.name);
@@ -49,23 +54,7 @@ export const Booking = () => {
         <MotionRoute>
             <div className='booking'>
                 <GobackButton />
-                <div className='booking-info'>
-                    <div className='tour-summary'>
-                        <Link className='edit-basket-button' to='/cart'>EDIT BASKET</Link>
-                        <h3>Your Tours</h3>
-                        {TOURS.map((tour, index) => {
-                            if (cartItems[tour.id]["pax"] > 0) {
-                                return (
-                                <div className='tour-in-basket' key={index}>
-                                    <hr className='separator' />
-                                    <p><b>{tour.tourName}</b> x {cartItems[tour.id]["pax"]}</p>
-                                    <p>Date: {cartItems[tour.id]["date"]}</p>
-                                    <p></p>
-                                </div>
-                                );
-                            } else { return null; }
-                        })}
-                    </div>
+                <div className='section'>
                     <div className='info'>
                         {!isGuestInfoCompleted ? 
                         <>
@@ -87,10 +76,14 @@ export const Booking = () => {
                             </div> 
                             : <></>}
                             <form className='form' id='guestInfo' onSubmit={handleGuestInfo}>
-                                <label>Name </label><input className='nameInput' type='text' name='name' placeholder='Main Guest' value={name} onChange={(e)=>setName(e.target.value)} required></input>
-                                <label>Email </label><input className='emailInput' type='email' name='email' placeholder='Contact Email Address' value={email} onChange={(e)=>setEmail(e.target.value)} required></input>
-                                <label>Mobile Number </label><input className='phoneInput' type='text' name='phone' placeholder='Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required></input>
-                                <label>Comments </label><textarea className='commentInput' name='comment' placeholder='Comments... ex. dietary requirements' value={comment} onChange={(e)=>setComment(e.target.value)}></textarea>
+                                <label>Name </label>
+                                <input className='input' type='text' name='name' placeholder='Main Guest' value={name} onChange={(e)=>setName(e.target.value)} required />
+                                <label>Email </label>
+                                <input className='input' type='email' name='email' placeholder='Contact Email Address' value={email} onChange={(e)=>setEmail(e.target.value)} required />
+                                <label>Mobile Number </label>
+                                <input className='input' type='text' name='phone' placeholder='Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required />
+                                <label>Comments </label>
+                                <textarea className='input comment' name='comment' placeholder='Comments... ex. dietary requirements' value={comment} onChange={(e)=>setComment(e.target.value)} />
                             </form>
                             <div className='payment-button-wrapper'>
                                 {(name && email && phone) && 
@@ -105,6 +98,9 @@ export const Booking = () => {
                             </div>
                         </div>
                         }
+                    </div>
+                    <div className='summary-display'>
+                        <Checkout path={location.pathname}/>
                     </div>
                 </div>
                 <Faq />

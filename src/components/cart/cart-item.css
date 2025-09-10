@@ -5,9 +5,8 @@
     grid-template-columns: 1fr 2fr;
     background-color: var(--background);
     border-radius: 3px;
-    border: 1px solid var(--grey-light);
     box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
-    margin: 7px auto;
+    margin-bottom: 15px;
 }
 .cart-item .tour-img {
     overflow: hidden;
@@ -97,10 +96,11 @@
 }
 .cart-item  .separator {
     height: 1px;
-    background-color: var(--grey);
+    width: 100%;
     border: none;
     opacity: 0.2;
-    margin: 2px 0;
+    margin: 5px 0;
+    background-color: var(--grey-light);
 }
 
 @media only screen and (max-width: 1300px) {

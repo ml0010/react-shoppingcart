@@ -97,10 +97,10 @@ body {
     letter-spacing: 2px;
     position:relative;
     overflow:hidden;
-    min-width: 250px;
-    min-height: 40px;
-    margin: 10px 5px;
-    font-size: 11px;
+    min-width: 230px;
+    min-height: 20px;
+    margin: 5px;
+    font-size: 9px;
     font-weight: 500;
     transition: 0.2s ease-in;
     box-shadow: 0 1px 0px var(--grey);
@@ -110,6 +110,7 @@ body {
 }
 .button svg {
     margin: 0 5px;
+    padding: 0;
 }
 .button:before {
     content: "";

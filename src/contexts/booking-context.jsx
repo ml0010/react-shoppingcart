@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthenticationContext } from './authentication-context';
 
@@ -24,7 +24,24 @@ export const BookingContextProvider = (props) => {
         setComment("");
     };
 
-    
+    const checkBookingReference= async (reference) => {
+        try {
+            const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/check/reference`, {
+                method: "post",
+                body: JSON.stringify({ reference: reference }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await response.json();
+            //console.log(data);
+            return true;
+        }
+        catch (err) {
+            //console.log(err);
+            return false;
+        }
+    };
     const getBookingDetail = async (reference) => {
         //console.log("Getting booking information - " + reference);
         try {
@@ -113,7 +130,7 @@ export const BookingContextProvider = (props) => {
         }
     }
 
-    const contextValue = { searchFailed, setSearchFailed, getBookingDetail, addBooking, deleteBooking, updatePhone, updateComment, navigate, name, setName, email, setEmail, phone, setPhone, comment, setComment, resetBookingInfo};
+    const contextValue = { searchFailed, setSearchFailed, checkBookingReference, getBookingDetail, addBooking, deleteBooking, updatePhone, updateComment, navigate, name, setName, email, setEmail, phone, setPhone, comment, setComment, resetBookingInfo};
 
     return (
         <BookingContext.Provider value={contextValue}>{props.children}</BookingContext.Provider>

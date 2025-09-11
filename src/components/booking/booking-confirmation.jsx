@@ -116,7 +116,7 @@ export const BookingConfirmation = () => {
             : <></>}
 
             <div className='bttns'>
-                <button className='button' onClick={handleDeleteBooking}>CANCEL BOOKING <XIcon size={10}/></button>
+                <button className='button' onClick={handleDeleteBooking}>CANCEL BOOKING <XIcon size={15}/></button>
                 <Link className='button' to='/home'>BACK TO HOME</Link>
             </div>
             <Faq></Faq>

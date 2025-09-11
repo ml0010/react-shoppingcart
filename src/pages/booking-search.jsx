@@ -10,7 +10,7 @@ export const BookingSearch = () => {
     const [ bookingReference, setBookingReference ] = useState("");
     const [ isSubmit, setIsSubmit ] = useState(false);
 
-    const { searchFailed, setSearchFailed, navigate} = useContext(BookingContext);
+    const { searchFailed, setSearchFailed, navigate, checkBookingReference } = useContext(BookingContext);
 
     const location = useLocation();
 
@@ -23,7 +23,12 @@ export const BookingSearch = () => {
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         setIsSubmit(true);
-        navigate('/confirmation', {state: {reference: bookingReference}});
+        const searchResult = await checkBookingReference(bookingReference);
+        if(searchResult) {
+            navigate('/confirmation', {state: {reference: bookingReference}});
+        } else {
+            setSearchFailed(true);
+        }
         setIsSubmit(false);
     }
    
@@ -31,13 +36,18 @@ export const BookingSearch = () => {
         <div className='booking-search'>
             <div>
                 <div className='search-handler'>
-                    <div className='search-title'>
-                        <MagnifyingGlassIcon size={35} weight='bold' />
-                        <h2>SEARCH RESERVATION</h2>
-                    </div>                    
+                    <h2 className='search-title'>YOUR RESERVATION</h2>
                     <form className='form' onSubmit={handleOnSubmit}>
-                        <input className='input' type='text' name='reference' placeholder='Your Booking Reference' value={bookingReference} onChange={(e)=>setBookingReference(e.target.value)} required></input>
-                        <button className='button highlight' type='submit'>FIND</button>
+                        <input 
+                            className='input' 
+                            type='text' 
+                            name='reference' 
+                            placeholder='Booking Reference' 
+                            value={bookingReference} 
+                            onChange={(e)=>setBookingReference(e.target.value)} 
+                            required
+                        ></input>
+                        <button className='button highlight' type='submit'>SEARCH<MagnifyingGlassIcon size={15} /></button>
                         {isSubmit && <LoadingIcon />}
                     </form>
                 </div>

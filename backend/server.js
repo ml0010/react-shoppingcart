@@ -171,6 +171,19 @@ app.post("/booking", async(req, res) => {
     //console.log(result);
 });
 
+//check booking existing booking reference
+app.post('/check/reference', async(req, res) => {
+    const bookingReference = req.body.reference;
+    console.log("CHECKING REFERENCE: " + bookingReference);
+    try {
+        const booking = await Bookings.exists({reference: bookingReference});
+        //console.log(booking);
+        res.send(booking);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 // add booking reference to User's account
 app.get('/booking/:username/add/:reference', async(req, res) => {
     const username = req.params.username;

@@ -95,6 +95,8 @@
     visibility: none;
     opacity: 0;
     transform: translateY(20px);
+    position: relative;
+
 }
 .info-wrapper .info-list .map-wrapper .map {
     max-width: 800px;
@@ -107,6 +109,12 @@
     background-color: var(--background);
     border-radius: 3px;
     box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
+}
+.info-wrapper .info-list .map-wrapper .close-button {
+    position: inherit;
+    right: 10px;
+    top: 18px;
+    cursor: pointer;
 }
 .info-wrapper .info-list .map-wrapper .map iframe {
     width: 600px;

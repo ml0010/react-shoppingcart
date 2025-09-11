@@ -10,8 +10,7 @@ export const CartContextProvider = (props) => {
     const [ isButtonActive, setIsButtonActive ] = useState(true);
     const [ isGuestInfoCompleted, setIsGuestInfoCompleted ] = useState(false);
 
-    const paxMin = 1;
-    const paxMax = 12;
+
     const defaultValue = {pax: 0, date: null};
 
     const cartDefault = () => {
@@ -34,23 +33,22 @@ export const CartContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [tourId]: defaultValue}));
     }
 
-    const changePax = (tourId, operation) => {
+    const changePax = (tourId, operation, paxMin, paxMax) => {
         var newPax = cartItems[tourId].pax;
+
         if(operation === 'plus') {
             newPax += 1;
-            if (newPax > 12) {
-                return;
-            }
         } else if(operation === 'minus') {
             newPax -= 1;
-            if (newPax < 1) {
-                setCartItems((prev) => ({...prev, [tourId]: defaultValue }));
-                return;
-            }
         } else {
             return;
         }
-        setCartItems((prev) => ({...prev, [tourId]: {pax: newPax, date: cartItems[tourId].date} }));
+
+        if (newPax <= paxMax) {
+            setCartItems((prev) => ({...prev, [tourId]: {pax: newPax, date: cartItems[tourId].date} }));
+        } else if (newPax < paxMin) {
+            setCartItems((prev) => ({...prev, [tourId]: defaultValue }));
+        }
     };
 
     const changeDate = (tourId, date) => {
@@ -98,7 +96,7 @@ export const CartContextProvider = (props) => {
 
 
     
-    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, getCartItemNumber, showCartSummary, setShowCartSummary, isButtonActive, paxMin, paxMax, setIsButtonActive, changePax, changeDate, isGuestInfoCompleted, setIsGuestInfoCompleted, getCartList, cartDefault };
+    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, getCartItemNumber, showCartSummary, setShowCartSummary, isButtonActive, setIsButtonActive, changePax, changeDate, isGuestInfoCompleted, setIsGuestInfoCompleted, getCartList, cartDefault };
 
     return (
         <CartContext.Provider value={contextValue}>{props.children}</CartContext.Provider>

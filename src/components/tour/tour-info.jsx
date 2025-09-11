@@ -1,7 +1,7 @@
 import './tour-info.css';
 import { useState, useContext, useEffect, useRef } from 'react'
 import { CartContext } from '../../contexts/cart-context';
-import { ArrowUpRightIcon, BasketIcon, CaretDownIcon, CaretUpIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MapTrifoldIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
+import { ArrowUpRightIcon, BasketIcon, CaretDownIcon, CaretUpIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MapTrifoldIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
 import { useNavigate } from 'react-router-dom';
 import { GobackButton } from '../buttons/goback-button';
@@ -98,7 +98,8 @@ export const TourInfo = ({ data }) => {
                                                 {mapSrc &&
                                                 <div className={`map-wrapper ${isMapVisible ? 'visible' : 'hidden'}`}>
                                                     <div ref={mapRef} className='map'>
-                                                        <h3>{data.meetingPoint}</h3>
+                                                        <XIcon className='close-button' onClick={() => setIsMapVisible(!isMapVisible)} size={15} />
+                                                        <h3>Meeting Point: {data.meetingPoint}</h3>
                                                         <a className='link' href={mapSrc} target="_blank" rel="noopener noreferrer">Open in Google Map <ArrowUpRightIcon size={15} /></a>
                                                         <iframe src={mapSrc + '&output=embed'} />
                                                     </div>

@@ -6,14 +6,26 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
+import { LoadingIcon } from '../buttons/loading-icon';
 
 
 export const CartItem = (props) => {
     const { id, tourName, img, price } = props.data;
     const { cartItems, deleteFromCart, changePax, changeDate } = useContext(CartContext);
 
+    const [ isLoading, setIsLoading ] = useState(true);
     const [ isDateChange, setIsDateChange ] = useState(false);
     
+    const paxMin = 1;
+    const paxMax = 12;
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400);
+    }, [isLoading]);
+
+
     const tomorrow = dayjs().add(1, 'day');
 
     const subtotal = () => {
@@ -24,6 +36,11 @@ export const CartItem = (props) => {
     const handleDateChange = (date) => {
         changeDate(id, date);
         setIsDateChange(false);
+        setIsLoading(true);
+    };
+    const handlePaxChange = (action) => {
+        changePax(id, action, paxMin, paxMax);
+        setIsLoading(true);
     };
 
     let dateRef = useRef(null);
@@ -42,6 +59,7 @@ export const CartItem = (props) => {
 
     return (
         <div className='cart-item' key={id}>
+            {isLoading && <LoadingIcon />}
             <div className='tour-img'>
                 <img src={img[0]} alt={tourName} />
             </div>
@@ -58,9 +76,9 @@ export const CartItem = (props) => {
                         </span>
                     </div>
                     <span className='pax'>
-                        <MinusCircleIcon size={15} onClick={() => changePax(id, 'minus')} />
+                        <MinusCircleIcon className={`icon ${cartItems[id].pax === paxMin && 'disabled'}`} size={15} onClick={() => handlePaxChange('minus')} />
                         <span className='pax-value'>{cartItems[id].pax}</span>
-                        <PlusCircleIcon size={15} onClick={() => changePax(id, 'plus')} />
+                        <PlusCircleIcon className={`icon ${cartItems[id].pax === paxMax && 'disabled'}`} size={15} onClick={() => handlePaxChange('plus')} />
                         {cartItems[id].pax > 1 ? ` people ` : ` person `}
                         ({price}€ per person)
                     </span>

@@ -9,10 +9,10 @@
     align-items: center;
 }
 .spinner {
-    border-bottom: 1.7px solid var(--grey-light);
-    border-top: 1.7px solid var(--grey-light);
-    width: 35px;
-    height: 35px;
+    border-bottom: 1.5px solid var(--grey-light);
+    border-top: 1.5px solid var(--grey-light);
+    width: 30px;
+    height: 30px;
     border-radius: 150%;
     animation-name: spin;
     animation-duration: 1000ms;

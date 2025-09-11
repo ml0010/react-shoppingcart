@@ -37,7 +37,7 @@ export const CartSummary = () => {
         <div className={`cartSummary ${showCartSummary? 'active' : 'inactive'}`} ref={cartSummaryRef}>
             <div className='header'>
                 <h1>Your Basket</h1>
-                <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XIcon size={33} weight="bold" /></button>
+                <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XIcon size={15} /></button>
             </div>
             {totalAmount > 0 ? (
             <div className='cartSummaryItems'>
@@ -56,7 +56,7 @@ export const CartSummary = () => {
                         } else { return null; }
                     })}
                 </div>
-                <p className='cartSummaryTotal'>Total Amount: {totalAmount}€</p>
+                <p className='total'>Total: {totalAmount} €</p>
             </div>) : (
             <>
                 <p className='emptyBasket p-6 flex justify-center'>Your Basket is Empty.</p>

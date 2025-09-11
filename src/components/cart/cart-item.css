@@ -7,6 +7,7 @@
     border-radius: 3px;
     box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
     margin-bottom: 15px;
+    position: relative;
 }
 .cart-item .tour-img {
     overflow: hidden;
@@ -17,6 +18,8 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 3px 0 0 3px;
+
 }
 
 .cart-item .tour-detail {
@@ -74,7 +77,11 @@
     border: 1px solid var(--grey-light);
     padding: 3px 10px;
 }
-.cart-item .tour-detail .detail span svg {
+.cart-item .tour-detail .detail .icon.disabled {
+    color: var(--grey-light);
+    pointer-events: none;
+}
+.cart-item .tour-detail .detail .pax svg {
     margin: 0 5px;
     cursor: pointer;
 }

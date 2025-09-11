@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './checkout.css';
 import { CartContext } from '../../contexts/cart-context';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { TOURS } from '../../tourlist';
 import { CardholderIcon } from '@phosphor-icons/react';
 import { BookingContext } from '../../contexts/booking-context';
 import { PaymentContext } from '../../contexts/payment-context';
+import { LoadingIcon } from '../buttons/loading-icon';
 
 export const Checkout = ({ path }) => {
 
@@ -13,11 +14,25 @@ export const Checkout = ({ path }) => {
     const { name, email, phone } = useContext(BookingContext);
     const { amount, isProessingPayment, isPaymentInfoReady } = useContext(PaymentContext);
     
+    const [ isLoading, setIsLoading ] = useState(true);
+
     const totalAmount = getTotalCartAmount();
     const totalCount = getCartItemNumber();
 
+    useEffect(() => {
+        setIsLoading(true);
+    }, [cartItems]);
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400);
+    }, [isLoading]);
+
+
     return (
         <div className='checkout'>
+            {isLoading && <LoadingIcon />}
+            
             {path !== '/cart' &&
                 <Link className='edit-basket-button' to='/cart'>EDIT</Link>
             }

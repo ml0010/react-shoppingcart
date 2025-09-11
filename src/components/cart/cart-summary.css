@@ -40,6 +40,11 @@
     transition: 0.2s ease-in;
 }
 
+.cartSummary .total {
+    font-weight: 600;
+    margin: 15px;
+    text-align: right;
+}
 .cartSummaryItem p {
     font-size: 14px;
     color: var(--grey);
@@ -56,11 +61,11 @@
 }
 
 .cartSummary .separator {
-    height: 0.5px;
+    height: 1px;
     background-color: var(--grey);
     border: none;
     opacity: 0.2;
-    margin: 10px;
+    margin: 14px;
 }
 
 @media only screen and (max-width: 900px) {

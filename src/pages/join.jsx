@@ -31,7 +31,7 @@ export const Join = () => {
             if(input.password === input.passwordRepeat) {
                 return true;
             } else {
-                setMessage('PASSWORD - NO MATCH}');
+                setMessage('PASSWORD - NO MATCH');
                 return false;
             }
         } else {
@@ -66,8 +66,8 @@ export const Join = () => {
         e.preventDefault();
         setIsSubmit(true);
         if(isInputValid() && await isValueUnique()) {
-            addNewUser(input);
-            resetInput();
+            await addNewUser(input);
+            await resetInput();
             navigate(-1);
         }
         setIsSubmit(false);

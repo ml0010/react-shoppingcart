@@ -44,13 +44,13 @@ export const LoginForm = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmit(true);
         setLoginFailed(false);
         if(isInputValid()) {
             setMessage("PROCESSING LOGIN...");
-            login(input, location.pathname);
+            await login(input, location.pathname);
             resetInput();
         }
         setIsSubmit(false);

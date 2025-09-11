@@ -8,24 +8,22 @@
     justify-content: center;
     align-items: center;
 }
-.spinner {
-    border-bottom: 1.5px solid var(--grey-light);
-    border-top: 1.5px solid var(--grey-light);
+.loader {
     width: 30px;
     height: 30px;
-    border-radius: 150%;
-    animation-name: spin;
-    animation-duration: 1000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-
+    border: 5px dotted var(--grey-light);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
 }
 
-@keyframes spin {
-    from {
+@keyframes rotation {
+    0% {
         transform: rotate(0deg);
     }
-    to {
+    100% {
         transform: rotate(360deg);
     }
-}
+} 

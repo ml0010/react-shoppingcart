@@ -9,7 +9,7 @@
     background-color: var(--background);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
     border-radius: 3px;
-    border: 1px solid black;
+    border: 1px solid var(--grey-light);
     margin: 20px;
     padding: 20px;
 }
@@ -28,6 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .booking-search .search-handler .form .input {
     border: 1px solid var(--grey-light);
@@ -50,8 +51,12 @@
 }
 .booking-search .message .errorMsg {
     color: var(--red);
-    font-family: var(--font4);
-    font-size: 13px;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
 }
 
 

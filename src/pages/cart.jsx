@@ -26,6 +26,7 @@ export const Cart = () => {
                         <h1>Your basket</h1>
                         <div className='section'>
                             <div className='cart-display'>
+
                                 <div className='cart-items'>
                                     {TOURS.map((tour) => {
                                     if (cartItems[tour.id]["pax"] > 0) {

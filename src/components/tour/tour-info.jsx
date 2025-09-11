@@ -1,7 +1,7 @@
 import './tour-info.css';
 import { useState, useContext, useEffect, useRef } from 'react'
 import { CartContext } from '../../contexts/cart-context';
-import { ArrowUpRightIcon, BasketIcon, CaretDownIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MapTrifoldIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
+import { ArrowUpRightIcon, BasketIcon, CaretDownIcon, CaretUpIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MapTrifoldIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
 import { useNavigate } from 'react-router-dom';
 import { GobackButton } from '../buttons/goback-button';
@@ -211,7 +211,7 @@ const TourForm = ({ id }) => {
             <div className='form' ref={paxRef}>
                 <div className='label' onClick={() => setIsPaxVisible(!isPaxVisible)}>
                     <p>Adult x {pax}</p>
-                    <CaretDownIcon className='caret' size={15} weight="fill" />
+                    {isPaxVisible ? <CaretUpIcon className='caret' size={15} weight="fill" /> : <CaretDownIcon className='caret' size={15} weight="fill" />}
                 </div>
 
 
@@ -229,7 +229,8 @@ const TourForm = ({ id }) => {
             <div className='form' ref={dateRef}>
                 <div className='label' onClick={() => setIsDateVisible(!isDateVisible)}>
                     <p>{dateValue}</p>
-                    <CaretDownIcon className='caret' size={15} weight="fill" />
+                    {isDateVisible ? <CaretUpIcon className='caret' size={15} weight="fill" /> : <CaretDownIcon className='caret' size={15} weight="fill" />}
+                    
                 </div>
 
                 <span className={`input ${isDateVisible ? 'visible' : 'hidden'}`}>

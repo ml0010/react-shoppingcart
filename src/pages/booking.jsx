@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import '../styles/booking.css';
-import { useLocation } from 'react-router-dom';
-import { CardholderIcon, CaretDownIcon, CaretRightIcon } from '@phosphor-icons/react';
+import { Link, useLocation } from 'react-router-dom';
+import { CaretDownIcon, CaretRightIcon, SignInIcon } from '@phosphor-icons/react';
 import { Faq } from '../components/faq/faq';
 import { AuthenticationContext } from '../contexts/authentication-context';
 import LoginForm from '../components/login/login-form';
@@ -57,38 +57,70 @@ export const Booking = () => {
                 <div className='section'>
                     <div className='info'>
                         {!isGuestInfoCompleted ? 
-                        <>
-                            <h3>Main Guest's Information</h3>
-                            {!isLoggedIn?
-                            <div className='booking-login'>
-                                <h4 onClick={()=>setIsLoginOpen(!isLoginOpen)}>
-                                    {isLoginOpen? 
-                                        <CaretDownIcon size={15} weight='fill' /> : 
-                                        <CaretRightIcon size={15} weight='fill' />
-                                    }
-                                    Do you have an account?
-                                </h4>
-                                {isLoginOpen? 
-                                    <LoginForm /> : 
-                                    <button className='button' onClick={()=>setIsLoginOpen(!isLoginOpen)}>LOGIN</button>
+                            <>
+                                <h3>Main Guest's Information</h3>
+                                {!isLoggedIn &&
+                                    <div className='booking-login'>
+                                        <h4 onClick={()=>setIsLoginOpen(!isLoginOpen)}>
+                                            {isLoginOpen? <CaretDownIcon size={13} weight='fill' /> : <CaretRightIcon size={13} weight='fill' />}
+                                            Do you have an account?
+                                        </h4>
+                                        <div className='login-wrapper'>
+                                            {isLoginOpen? 
+                                                <LoginForm /> : 
+                                                <div className='buttons'>
+                                                    <button className='button highlight' onClick={()=>setIsLoginOpen(!isLoginOpen)}>LOGIN<SignInIcon size={15} /></button>
+                                                    <Link className='button' to={'/join'}>CREATE ACCOUNT</Link>
+                                                </div>
+                                            }
+                                        </div>
+                                        <h4>Alternatively, enter your information below</h4>
+                                    </div>
                                 }
-                                <h4>Alternatively, enter your information below</h4>
-                            </div> 
-                            : <></>}
-                            <form className='form' id='guestInfo' onSubmit={handleGuestInfo}>
-                                <label>Name </label>
-                                <input className='input' type='text' name='name' placeholder='Main Guest' value={name} onChange={(e)=>setName(e.target.value)} required />
-                                <label>Email </label>
-                                <input className='input' type='email' name='email' placeholder='Contact Email Address' value={email} onChange={(e)=>setEmail(e.target.value)} required />
-                                <label>Mobile Number </label>
-                                <input className='input' type='text' name='phone' placeholder='Contact Number' value={phone} onChange={(e)=>setPhone(e.target.value)} required />
-                                <label>Comments </label>
-                                <textarea className='input comment' name='comment' placeholder='Comments... ex. dietary requirements' value={comment} onChange={(e)=>setComment(e.target.value)} />
-                            </form>
-                        </> : 
-                        <div className='payment-wrapper'>
-                            <Payment />
-                        </div>
+                                <form className='guest-form' id='guestInfo' onSubmit={handleGuestInfo}>
+                                    <label>Name </label>
+                                    <input 
+                                        className='input' 
+                                        type='text' 
+                                        name='name' 
+                                        placeholder='Main Guest' 
+                                        value={name} 
+                                        onChange={(e)=>setName(e.target.value)} 
+                                        required
+                                    />
+                                    <label>Email </label>
+                                    <input 
+                                        className='input' 
+                                        type='email' 
+                                        name='email' 
+                                        placeholder='Contact Email Address' 
+                                        value={email} 
+                                        onChange={(e)=>setEmail(e.target.value)} 
+                                        required 
+                                    />
+                                    <label>Mobile Number </label>
+                                    <input 
+                                        className='input' 
+                                        type='text' 
+                                        name='phone' 
+                                        placeholder='Contact Number' 
+                                        value={phone} 
+                                        onChange={(e)=>setPhone(e.target.value)} 
+                                        required 
+                                    />
+                                    <label>Comments </label>
+                                    <textarea 
+                                        className='input comment' 
+                                        name='comment' 
+                                        placeholder='Comments... ex. dietary requirements' 
+                                        value={comment} 
+                                        onChange={(e)=>setComment(e.target.value)}
+                                    />
+                                </form>
+                            </> : 
+                            <div className='payment-wrapper'>
+                                <Payment />
+                            </div>
                         }
                     </div>
                     <div className='summary-display'>

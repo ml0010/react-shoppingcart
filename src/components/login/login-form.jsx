@@ -1,8 +1,9 @@
 import './login-form.css'
 import { useContext, useEffect, useState } from 'react'
 import { AuthenticationContext } from '../../contexts/authentication-context';
-import { UserListIcon } from '@phosphor-icons/react';
+import { SirenIcon, UserListIcon } from '@phosphor-icons/react';
 import { useLocation } from 'react-router-dom';
+import { LoadingIcon } from '../buttons/loading-icon';
 
 export const LoginForm = () => {
 
@@ -10,6 +11,7 @@ export const LoginForm = () => {
     
     const [ input, setInput ] = useState({username: "", password: ""});
     const [ message, setMessage ] = useState("");
+    const [ isSubmit, setIsSubmit ] = useState(false);
 
     const location = useLocation();
 
@@ -20,7 +22,7 @@ export const LoginForm = () => {
         
     useEffect(()=>{
         if(loginFailed) {
-            setMessage('YOUR LOGIN INFORMATION IS NOT CORRECT');
+            setMessage('INCORRECT LOGIN INFORMATION');
         }
     },[loginFailed]);
 
@@ -44,12 +46,14 @@ export const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setIsSubmit(true);
         setLoginFailed(false);
         if(isInputValid()) {
             setMessage("PROCESSING LOGIN...");
             login(input, location.pathname);
             resetInput();
         }
+        setIsSubmit(false);
     }
     
     return (
@@ -57,11 +61,12 @@ export const LoginForm = () => {
             <form id='form' onSubmit={handleSubmit}>
                 <input className='input' name='username' type='text' placeholder='Username' value={input.username} onChange={handleInput}></input>
                 <input className='input' name='password' type='password' placeholder='Password' value={input.password} onChange={handleInput}></input>
-                <p className='errorMsg'>{message}</p>
+                {message && <p className='errorMsg'><SirenIcon size={15} />{message}</p>}
+                {isSubmit && <LoadingIcon />}
             </form>
             <div className='buttons'>
                 <button className='button highlight' type='submit' form='form'>SUBMIT</button>
-                <button className='button' onClick={() => navigate('/join')}>JOIN<UserListIcon size={15} /></button>
+                <button className='button' onClick={() => navigate('/join')}>JOIN<UserListIcon size={13} /></button>
             </div>
         </div>
     )

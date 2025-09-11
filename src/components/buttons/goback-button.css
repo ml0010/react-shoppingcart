@@ -1,5 +1,6 @@
 .button-wrapper {
     color: var(--grey);
+    margin: 15px 0;
 }
 .goBack-button {
     border: none;

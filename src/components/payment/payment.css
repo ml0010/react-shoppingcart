@@ -1,11 +1,12 @@
-.payment-form .payment-button {
+.payment-form .message {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.payment-form .message {
     font-size: 11px;
-    color: red;
-    margin-top: 10px;
+    font-weight: 500;
+    color: var(--red);
+    margin: 15px 0;
+}
+.payment-form .card {
+    position: relative;
 }

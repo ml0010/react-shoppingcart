@@ -51,25 +51,30 @@
 }
 .booking .info .booking-login {
     margin: 10px 0;
+    cursor: pointer;
 }
-.booking .form {
+.booking .info .booking-login .login-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.booking .guest-form {
     display: grid;
     grid-template-columns: 1fr 2.5fr;
     align-items: center;
     row-gap: 15px;
     padding: 5px;
 }
-.booking .form .input {
+.booking .guest-form .input {
     padding: 4px;
     font-size: 15px;
     border: 1px solid var(--grey-light);
 }
-.booking .form .comment {
+.booking .guest-form .comment {
     height: 100px;
     resize: none;
 }
 
-.booking .form label {
+.booking .guest-form label {
     font-size: 15px;
     font-weight: 600;
     text-align: right;

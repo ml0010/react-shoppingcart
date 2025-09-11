@@ -11,7 +11,7 @@ export const Checkout = ({ path }) => {
 
     const { cartItems, getTotalCartAmount, getCartItemNumber, isGuestInfoCompleted, setIsGuestInfoCompleted } = useContext(CartContext);
     const { name, email, phone } = useContext(BookingContext);
-    const { amount, isPaymentLoading } = useContext(PaymentContext);
+    const { amount, isProessingPayment, isPaymentInfoReady } = useContext(PaymentContext);
     
     const totalAmount = getTotalCartAmount();
     const totalCount = getCartItemNumber();
@@ -51,8 +51,8 @@ export const Checkout = ({ path }) => {
                 }
                 {(path === '/booking' && isGuestInfoCompleted) && 
                     <div className='payment-button'>
-                        <button className='button highlight' type='submit' form='payment'>
-                            {isPaymentLoading ? 'LOADING...' : `${amount} € - PAY NOW`}
+                        <button className={`button highlight ${!isPaymentInfoReady ? 'blocked' : 'active'}`} type='submit' form='payment'>
+                            {isProessingPayment ? 'PROCESSING PAYMENT...' : `${amount} € - PAY NOW`}
                         </button>
                         <button className='button' onClick={() => {setIsGuestInfoCompleted(false)}}>BACK TO GUEST INFO</button>
                     </div>

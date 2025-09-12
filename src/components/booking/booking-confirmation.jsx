@@ -5,9 +5,11 @@ import { BookingContext } from '../../contexts/booking-context';
 import { Faq } from '../faq/faq';
 import { GobackButton } from '../buttons/goback-button';
 import { XIcon } from '@phosphor-icons/react';
+import { LoadingIcon } from '../buttons/loading-icon';
 
 export const BookingConfirmation = () => {
-    
+        
+    const [ isLoading, setIsLoading ] = useState(true);
     const [ bookingDataReady, setBookingDataReady ] = useState(false);
     const [ bookingData, setBookingData] = useState(null);
     const [ newPhone, setNewPhone ] = useState(null);
@@ -49,6 +51,7 @@ export const BookingConfirmation = () => {
     const handleEditPhone = () => {
         if(!isEditPhoneDisabled) {
             updatePhone(bookingReference, newPhone);
+            setIsLoading(true);
         }
         setIsEditPhoneDisabled(!isEditPhoneDisabled);
     };
@@ -56,9 +59,16 @@ export const BookingConfirmation = () => {
     const handleEditComment = () => {
         if(!isEditCommentDisabled) {
             updateComment(bookingReference, newComment);
+            setIsLoading(true);
         }
         setIsEditCommentDisabled(!isEditCommentDisabled);
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 600);
+    }, [isLoading]);
 
     return (
         <div className='confirmation'>
@@ -66,56 +76,64 @@ export const BookingConfirmation = () => {
             <h1>BOOKING CONFIRMATION</h1>
             <h2 id='reference'>Booking Reference: {bookingReference}</h2>
             {bookingDataReady ?
-            <div className='bookingInfo'>
+            <div className='booking-info'>
+                {isLoading && <LoadingIcon />}
                 <div className='category'>
-                    <h3 className='categoryTitle'>Name</h3>
-                    <p className='categoryContent'>{bookingData.name}</p>
+                    <h3 className='category-name'>Name</h3>
+                    <p className='category-content'>{bookingData.name}</p>
                 </div>
                 <hr className='separator' />
                 <div className='category'>
-                    <h3 className='categoryTitle'>Email</h3>
-                    <p className='categoryContent'>{bookingData.email}</p>
+                    <h3 className='category-name'>Email</h3>
+                    <p className='category-content'>{bookingData.email}</p>
                 </div>
                 <hr className='separator' />
                 <div className='category'>
-                    <h3 className='categoryTitle'>Contact Number</h3>
-                    <span className='edit categoryContent'>
+                    <span className='category-title-wrapper'>
+                        <h3 className='category-name'>Contact Number</h3>
+                        <button className='edit-button' onClick={handleEditPhone}>{isEditPhoneDisabled? 'EDIT' : 'SAVE'}</button>
+                    </span>
+                    <span className='edit category-content'>
                         <input className={`phone ${isEditPhoneDisabled? 'inactive' : 'active'}`} 
                                 value={newPhone} 
                                 disabled={isEditPhoneDisabled} 
                                 onChange={(e)=>setNewPhone(e.target.value)}></input>
-                        <button className='editBttn' onClick={handleEditPhone}>{isEditPhoneDisabled? 'EDIT' : 'SAVE'}</button>
                     </span>
                 </div>
                 <hr className='separator' />
                 <div className='category'>
-                    <h3 className='categoryTitle'>Your Tours</h3>
-                    <div className='categoryContent'>
+                    <h3 className='category-name'>Your Tours</h3>
+                    <div className='category-content'>
                     {bookingData.tours.map((tour, index) => {
-                        return (<span key={index} className='tourDetail'>
-                            <p><b>{tour.tourName}</b></p>
-                            <p>Pax: {tour.pax}</p>
-                            <p>Date: {tour.date}</p>
-                            <br />
-                        </span>);
+                        return (
+                            <span key={index} className='tour-detail'>
+                                <p><b>{tour.tourName}</b></p>
+                                <p>Pax: {tour.pax}</p>
+                                <p>Date: {tour.date}</p>
+                                <br />
+                            </span>
+                        );
                     })}
                     </div>
                 </div>
                 <hr className='separator' />
                 <div className='category comment'>
-                    <h3 className='categoryTitle'>Comment</h3>
-                    <span className='edit categoryContent'>
+                    <span className='category-title-wrapper'>
+                        <h3 className='category-name'>Comment</h3>
+                        <button className='edit-button' onClick={handleEditComment}>{isEditCommentDisabled? 'EDIT' : 'SAVE'}</button>
+                    </span>
+                    <span className='edit category-content'>
                         <textarea className={`comment ${isEditCommentDisabled? 'inactive' : 'active'}`} 
                                     value={newComment} 
                                     disabled={isEditCommentDisabled} 
-                                    onChange={(e)=>setNewComment(e.target.value)}></textarea>
-                        <button className='editBttn' onClick={handleEditComment}>{isEditCommentDisabled? 'EDIT' : 'SAVE'}</button>
+                                    onChange={(e)=>setNewComment(e.target.value)}
+                        />
                     </span>
                 </div>
             </div>
             : <></>}
 
-            <div className='bttns'>
+            <div className='buttons'>
                 <button className='button' onClick={handleDeleteBooking}>CANCEL BOOKING <XIcon size={15}/></button>
                 <Link className='button' to='/home'>BACK TO HOME</Link>
             </div>

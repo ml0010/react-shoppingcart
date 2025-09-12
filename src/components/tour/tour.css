@@ -36,6 +36,11 @@
     text-align: left;
     font-size: 14px;
 }
+.tour .description {
+    font-size: 12px;
+    text-align: left;
+    margin: 10px 0;
+}
 .tour .price-warpper {
     width: 100%;
     font-size: 12px;

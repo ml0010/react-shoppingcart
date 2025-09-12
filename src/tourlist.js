@@ -5,6 +5,75 @@ const tourCategory = ["culture", "food", "nature", "sports"];
 
 export const TOURS = [
     {
+        id: 24,
+        tourName: "Wine Experience and Tasting",
+        img: [ "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/1bc487678773c62618b2c1211c5ae17c9cbbb0023f8cf5b4e73acdcdc6f9521a.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/af9e6031670b5268e23501cd758ead54a3c91be8ffb9a9d4a0229f9fa4b21bc1.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/fcd4f2e5fb8bcbef202edeeb3bf3675137221c01486dfe4b00da35e94ef68d5d.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/98226ecae5156b150cb25908b3df420f66d09872dd46813f77956956923f68d6.jpeg"],
+        description: "Join us for an unforgettable journey through the world of Mallorcan wine. It's more than just a tasting, it's an opportunity to immerse yourself in the culture, history, and flavors of Mallorca.",
+        duration: 2,
+        languages: ["English", "Spanish", "German"],
+        meetingPoint: "Santa Maria del Camí",
+        price: 43,
+        category: tourCategory[1],
+        highlights: [
+            "An immersive journey through the winemaking process",
+            "Exclusive tasting of four of the finest bodega wines",
+            "Savor the rich flavors of traditional Mallorcan specialties",
+            "Guided tour of the winery in German, English oder Spanish"
+        ],
+        includes: [
+            "Wine estate visit",
+            "Guided tour through the winery",
+            "Tasting of four different wines",
+            "Selection of local culinary delights"
+        ]
+    },{
+        id: 22,
+        tourName: "Island Tour with Boat, Tram & Train from the South",
+        img: [ "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/acd72e1eb4b61349.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/18bf08b06c70e73b.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/575ed206d4d9dcfe.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/91cd413c19e57c77.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/928080bcd5c670ea.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/98707534196ebe1d.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/4cdaa6fa01b7af5e.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/e2f0ee61e62c8c8e.jpeg"],
+        description: "Explore Mallorca on a scenic tour by bus, Tren de Soller tram, and boat. Get the best views of the magnificent coastal mountain range of Mallorca from land and water as you drive and sail.",
+        duration: 8,
+        languages: ["English", "Spanish", "Italian", "German"],
+        meetingPoint: "Palma",
+        price: 110,
+        category: tourCategory[0],
+        highlights: [
+            "Enjoy fantastic views of the island's beautiful landscapes",
+            "Explore Port of Soller on a boat trip",
+            "Visit Lluc, one of the highest-altitude towns in Mallorca",
+            "Explore La Calobra Cove on a boat trip"
+        ],
+        includes: [
+            "Bus journey",
+            "Boat trip",
+            "Tram ride",
+            "Train ride",
+            "Guide",
+            "Travel insurance"
+        ]
+    },{
+        id: 23,
+        tourName: "Sunrise or Sunset Balloon ride",
+        img: [ "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/c7d701d0b77b10dada9f91e328030d7a9c3b6ba5e0cae6c16ddfce6e8b3618d5.jpg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/53a528db5be8cb8aad8af11b2ad05f85a3dc6e5c2a30d9039e6bce4884e02962.jpg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/ad0293ea82fca3ea74be0ad65c0013824979525b1f932ee088b86632431ecc82.jpg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/af0eede6f40efe55672efedad1b8f1f325e739639d05554e32d6351aee179af4.jpg"],
+        description: "Soar over the island of Mallorca on an amazing hot air balloon flight in the afternoon. Enjoy an Air baptism with the stunning views from above.",
+        duration: 3,
+        languages: ["English", "Spanish", "Russian", "German"],
+        meetingPoint: "Manacor",
+        price: 110,
+        category: tourCategory[2],
+        highlights: [
+            "Soar over the island of Mallorca on a romantic hot air balloon flight",
+            "Take in the sights of the island from a unique vantage point in the sky",
+            "Feel the thrill of ascending into the air on a gentle hot air balloon ride",
+            "Take in the views of the island from above and below as you fly and land"
+        ],
+        includes: [
+            "50-60 minute balloon flight",
+            "Experienced pilot",
+            "Landing celebration",
+            "Certificate of flight",
+            "Transportation from the landing place to the Balloon Airport"
+        ]
+    },{
         id: 0,
         tourName: "Visit of the olive grove, olive oil tasting",
         img: [ "https://cdn.getyourguide.com/img/tour/8014747575a731e82680b178efd4d6bb55348caf19a0656024f4cb58b6671d33.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/62d6846931182.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/62d6821b118b3.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/62d683420e5d3.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/62d6837b7fe16.jpeg/99.jpg"],
@@ -13,7 +82,17 @@ export const TOURS = [
         languages: ["English", "Spanish", "Russian"],
         meetingPoint: "Caimari",
         price: 49,
-        category: tourCategory[1]
+        category: tourCategory[1],
+        highlights: [
+            "Discover the secrets of our extra virgin olive oil",
+            "The visit is made directly by the property",
+            "Enjoy a hidden place in Mallorca",
+            "Discover how a premium extra virgin olive oil is made",
+            "Learn how to tell extra virgin olive oil apart from other olive oils"
+        ],
+        includes: [
+            "The visit, guided directly by the property, includes a walk through our finca and olive grove, an oil tasting and a snack with local produce."
+        ]
     },{
         id: 1,
         tourName: "Valldemossa & Soller Tour",
@@ -23,7 +102,17 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Palma",
         price: 45,
-        category: tourCategory[0]
+        category: tourCategory[0],
+        highlights: [
+            "Be impressed by the mountains and cliff sides along the west coast",
+            "Visit the vibrant village of Sóller and enjoy a fresh orange juice",
+            "Get spectacular views of the Mediterranean and contemplate Sa Foradada",
+            "Marvel at the scenic views of the Tramuntana coastline",
+            "Wander the traditional stoned streets in Valldemossa"
+        ],
+        includes: [
+            "Hotel pickup and drop-off (if arranged in advance)"
+        ]
     },{
         id: 2,
         tourName: "Sea Cave Kayaking Tour with Snorkeling and a Snack",
@@ -33,7 +122,13 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Palma",
         price: 69,
-        category: tourCategory[3]
+        category: tourCategory[3],
+        highlights: [
+            
+        ],
+        includes: [
+           
+        ]
     },{
         id: 3,
         tourName: "Dolphin Watch Tour with Professional Marine Biologist",
@@ -43,7 +138,26 @@ export const TOURS = [
         languages: ["English", "Spanish", "Portugese"],
         meetingPoint: "Cala d'Or",
         price: 45,
-        category: tourCategory[2]
+        category: tourCategory[2],
+        highlights: [
+            "Discover the amazing sea caves of Mallorca",
+            "Snorkel and swim in turquoise waters",
+            "Benefit from the assistance of an experienced instructor",
+            "Admire the scenic views of the coastline",
+            "Extraordinary experience that blends sport and fun with moments of serenity"
+        ],
+        includes: [
+            "nstructor",
+            "Accompanying motor boat",
+            "Snack (Ham and cheese sandwich or vegetarian option by request)",
+            "Kayak full equipment",
+            "Snorkeling mask",
+            "Water shoes (please send your sizes)",
+            "Lifejacket",
+            "Neoprene suit and lycra, depending on weather conditions (please send your sizes: S/M/L/XL/XXL)",
+            "Assistance assurance",
+            "Photographs taken by the instructors"
+        ]
     },{
         id: 4,
         tourName: "Caves of Hams",
@@ -53,7 +167,13 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Porto Cristo",
         price: 40,
-        category: tourCategory[2]
+        category: tourCategory[2],
+        highlights: [
+            
+        ],
+        includes: [
+           
+        ]
     },{
         id: 5,
         tourName: "Snorkeling, and Cliff Jumping",
@@ -63,7 +183,13 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Port de Pollença",
         price: 45,
-        category: tourCategory[3]
+        category: tourCategory[3],
+        highlights: [
+            
+        ],
+        includes: [
+           
+        ]
     },{
         id: 6,
         tourName: "Guided Sea Caves Kayak & Snorkeling Expedition",
@@ -73,17 +199,40 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Cala Romantica",
         price: 69,
-        category: tourCategory[3]
+        category: tourCategory[3],
+        highlights: [
+            "Step into another world at the magically mysterious Caves of Hams",
+            "Learn about the secrets of the cave's stalactites and stalagmites formations",
+            "Stroll through illuminated caves and the Cueva Redonda's botanical garden",
+            "Visit a local shop where you can purchase Mallorca pearls and other souvenirs"
+        ],
+        includes: [
+            "Hotel pickup and drop-off",
+            "Caves of Hams entry tickets"
+        ]
     },{
         id: 7,
         tourName: "Horseback Riding Experience",
         img: [ "https://cdn.getyourguide.com/img/tour/73be6654d93dc505.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/419926d1d99d467a.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/4c945fa945b7fb82.jpeg/99.jpg", "https://cdn.getyourguide.com/img/tour/834fe18a2f21398d.jpeg/99.jpg"],
         description: "Enjoy a guided horseback ride around the bottom of the mountain or head up the slopes and admire the views. Choose the option that suits you and immerse yourself in nature while riding a horse.",
-        duration: 3,
+        duration: 2,
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Cala Romantica",
         price: 48,
-        category: tourCategory[3]
+        category: tourCategory[3],
+        highlights: [
+            "Enjoy a horseback ride",
+            "Take part in an activity suitable for beginners",
+            "Enjoy feeding the animals in the farm",
+            "See the beautiful sights of Alcudia bay",
+            "Have lunch at our ranch"
+        ],
+        includes: [
+            "Mallorcan product tasting",
+            "Pickup from Alcudia and Playa de Muro areas",
+            "Helmets",
+            "Qualified guides"
+        ]
     },{
         id: 8,
         tourName: "Cathedral of Mallorca Tour",
@@ -93,7 +242,15 @@ export const TOURS = [
         languages: ["English", "Spanish", "German", "Russian"],
         meetingPoint: "Palma",
         price: 10,
-        category: tourCategory[0]
+        category: tourCategory[0],
+        highlights: [
+            "Skip the lines to Palma Cathedral at the city's most iconic building",
+            "Marvel at ornate decorations, including one of the world's largest rose windows",
+            "Discover additions made by the architect Antoni Gaudí in the early 20th century"
+        ],
+        includes: [
+           "Skip-the-line entrance ticket to Palma Cathedral"
+        ]
     },{
         id: 9,
         tourName: "Vineyard tour and wine tasting",
@@ -103,7 +260,21 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Binissalem",
         price: 25,
-        category: tourCategory[1]
+        category: tourCategory[1],
+        highlights: [
+            "Savor the flavors of 5 local wines, each with its own unique characteristics",
+            "Enjoy the views of the vineyards and the surrounding countryside",
+            "Learn about the wine-making process and the aromas of the wines",
+            "Taste local snacks made with products from the area",
+            "Take home some of the wines at special prices"
+        ],
+        includes: [
+            "Exclusive group tour of the winery",
+            "Tasting of five wines",
+            "Nibbles made with local products",
+            "Expert wine guide",
+            "Opportunity to buy wines at special prices"
+        ]
     },{
         id: 10,
         tourName: "Mediterranean Cooking Class",
@@ -113,7 +284,20 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Palma",
         price: 89,
-        category: tourCategory[1]
+        category: tourCategory[1],
+        highlights: [
+            "Unlock the secrets of Mediterranean fusion",
+            "Make new friends and create lasting memories as you sip and taste",
+            "Learn a recipe from a chef and cook a meal with farm-to-table ingredients",
+            "Hear the history of Mediterranean fusion cooking from local chefs"
+        ],
+        includes: [
+            "Cooking class with local cuisine experts",
+            "Food",
+            "Open bar with water, soft drinks, wines and beer",
+            "Ingredients, cooking materials and recipes",
+            "Meals"
+        ]
     },{
         id: 11,
         tourName: "Gourmet Tapas and Wine Tour",
@@ -123,7 +307,19 @@ export const TOURS = [
         languages: ["English", "Spanish", "French"],
         meetingPoint: "Palma",
         price: 55,
-        category: tourCategory[1]
+        category: tourCategory[1],
+        highlights: [
+            "Savor the taste of Spain as you sample gourmet tapas at 5 eateries",
+            "Enjoy a carefully curated culinary experience in Palma de Mallorca",
+            "Explore at your own pace and discover Palma's Old Town along the way",
+            "Choose your preferred snack with two tasty tapas options at each venue",
+            "Sip a variety of beverages, including local wines and homemade sangria"
+        ],
+        includes: [
+            "Self-guided walking tour",
+            "5 tapas",
+            "5 beverages (local wine, homemade sangria, beer, soft drink, water, or coffee)"
+        ]
     },{
         id: 12,
         tourName: "Guided City Tour with a E-Bike",
@@ -133,17 +329,41 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Palma",
         price: 45,
-        category: tourCategory[0]
+        category: tourCategory[0],
+        highlights: [
+            "Experience Palma in a thrilling way on our comfortable Fat Tire e-bikes.",
+            "Our expert guides deliver engaging stories and local insights during the tour.",
+            "Explore both famous landmarks and hidden gems that many tourists overlook.",
+            "Enjoy a scenic ride along the beautiful beach promenade and bay views.",
+            "Join a small group for a personalized adventure that feels like with friends!"
+        ],
+        includes: [
+            "Fat tire e-bike",
+            "Tour guide",
+            "Helmet"
+        ]
     },{
         id: 13,
-        tourName: "Torrent de Pareis Hiking Adventure",
-        img: [ "https://cdn.getyourguide.com/img/tour/9c2fa344355062a46fcde78f5527503b2efd56d0f7ee6c9715036e12ee8db8b0.jpg/99.jpg", "https://cdn.getyourguide.com/img/tour/d77dca95896664e199b84d053f19a0535bba81b591b4caf31aea7dab15dde38b.jpg/99.jpg", "https://cdn.getyourguide.com/img/tour/09df6053d749a4669bff53031191e015bdd0284dea8d816f0f60e3bfe2fd8edf.jpg/99.jpg", "https://cdn.getyourguide.com/img/tour/4b631be40f07623988a9863c25ca211aa75fbf9a04364a0ce1bd410abf7bc437.jpg/99.jpg"],
-        description: "Experience the charm of Palma's bay on a Fat Tire e-bike. Pedal effortlessly as you take in stunning views, see top sights like the cathedral and glide along the beach promenade with your guide.",
-        duration: 5,
-        languages: ["English", "Spanish", "German"],
-        meetingPoint: "Lluc",
-        price: 90,
-        category: tourCategory[3]
+        tourName: "Deia Hiking & Snorkeling Adventure",
+        img: [ "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/644b6f12ede40.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/ebdda087a779f218f725cfddc914990047643d2ce98c33783b4dc4209a98f071.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/644a536c211bb.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/d5aec0fe350743bb9aac31a115c6b14c2a2f1be2c5a6a17d0e52b8d685972434.jpg"],
+        description: "Join me on a small-group journey hiking, snorkeling, and exploring hidden coves along Mallorca’s breathtaking north coast. Adventure made personal.",
+        duration: 8,
+        languages: ["English", "Spanish", "French"],
+        meetingPoint: "Deià",
+        price: 76,
+        category: tourCategory[3],
+        highlights: [
+            "Swim in secret coves in the most scenic area of Mallorca",
+            "Challenge yourself hiking the beautiful north coast and some epic cliff jumping",
+            "Relax and enjoy local food and drinks in the picturesque village of Deià"
+        ],
+        includes: [
+            "Central location pick up (Soller train station in Palma)",
+            "Transportation to all the sites",
+            "Tour leader",
+            "Water shoes",
+            "Goggles (snorkelling masks)"
+        ]
     },{
         id: 14,
         tourName: "Yoga & Meditation on the Beach",
@@ -153,7 +373,19 @@ export const TOURS = [
         languages: ["English"],
         meetingPoint: "Palmanova",
         price: 20,
-        category: tourCategory[3]
+        category: tourCategory[3],
+        highlights: [
+            "Start your day with a yoga and meditation session by the sea",
+            "Engage in deep, rhythmic breathing in harmony with the waves",
+            "Get refreshed, centered, and ready to embrace the day with yoga postures",
+            "Connect with nature and set your intentions for the day ahead",
+            "Enjoy a guided meditation session to bring deep relaxation and mental clarity"
+        ],
+        includes: [
+            "Morning yoga session",
+            "Guided meditation",
+            "Breathwork exercises"
+        ]
     },{
         id: 15,
         tourName: "Southern Beaches Llaut Boat Tour",
@@ -163,7 +395,21 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Colònia de Sant Jordi",
         price: 250,
-        category: tourCategory[2]
+        category: tourCategory[2],
+        highlights: [
+            "Visit all Mallorca's South beaches onboard a real LLaut. Traditional wood boat.",
+            "A refreshing experience. Under de shader surrounded by water.",
+            "You will never forget the color of the sea. Trust me!"
+        ],
+        includes: [
+            "Boat rental",
+            "Private mooring at Sa Rapita Marina",
+            "Use of snorkeling gear",
+            "Water and soft drinks",
+            "Use of toilets and shower",
+            "15 minutes marina car access",
+            "Fuel"
+        ]
     },{
         id: 16,
         tourName: "Countryside Safari & Ranch BBQ",
@@ -173,7 +419,13 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Son Serra de Marina",
         price: 66,
-        category: tourCategory[2]
+        category: tourCategory[2],
+        highlights: [
+            
+        ],
+        includes: [
+           
+        ]
     },{
         id: 17,
         tourName: "Snorkeling Tour",
@@ -183,7 +435,21 @@ export const TOURS = [
         languages: ["English", "Spanish", "German", "French"],
         meetingPoint: "Port de Sóller",
         price: 90,
-        category: tourCategory[2]
+        category: tourCategory[2],
+        highlights: [
+            "Emerge into an unforgettable adventure and make memories for a lifetime",
+            "Surprise yourself with the wonders of Mallorca, with fun, joy, and safety.",
+            "Family experience half day trip"
+        ],
+        includes: [
+            "Guide",
+            "4x4",
+            "Fuel",
+            "Water",
+            "Insurance",
+            "Juice",
+            "Biscuits"
+        ]
     },{
         id: 18,
         tourName: "Stand-Up Paddleboard Lesson",
@@ -193,7 +459,20 @@ export const TOURS = [
         languages: ["English", "Spanish", "German"],
         meetingPoint: "Platja d'Alcúdia",
         price: 55,
-        category: tourCategory[3]
+        category: tourCategory[3],
+        highlights: [
+            "Learn how to paddle on our protected area with calm water.",
+            "Enjoy a private class with our expert instructor.",
+            "Enjoy doing paddle in one of the 25 best beaches of the world."
+        ],
+        includes: [
+            "SUP lesson",
+            "Instructor",
+            "Paddleboard",
+            "Life vest",
+            "Paddle",
+            "Use of changing rooms and a locker"
+        ]
     },{
         id: 19,
         tourName: "Explore the Island Dragonera with the kayak",
@@ -203,7 +482,20 @@ export const TOURS = [
         languages: ["English", "German"],
         meetingPoint: "Sant Elm",
         price: 50,
-        category: tourCategory[2]
+        category: tourCategory[2],
+        highlights: [
+            "Nature reserve Dragonera",
+            "Magnificent views",
+            "Exciting stories",
+        ],
+        includes: [
+            "Kayaks",
+            "Paddle",
+            "Life jackets",
+            "Waterproof backs",
+            "Snorkelling gear",
+            "Water shoes"
+        ]
     },{
         id: 20,
         tourName: "Aquatic Cave Exploration",
@@ -213,6 +505,44 @@ export const TOURS = [
         languages: ["English", "Spanish"],
         meetingPoint: "Cala Romantica",
         price: 80,
-        category: tourCategory[2]
+        category: tourCategory[2],
+        highlights: [
+            "Feel in awe as you see the enchanting lakes hidden within Mallorca's caves",
+            "Marvel at the breathtaking formations that adorn the cave's interior",
+            "Take a moment to unwind as you soak in the beauty of the cave lakes",
+            "Escape the heat and find respite in the cool, crystal-clear waters of the cave",
+            "Listen to your guide share fascinating stories about the caves' formation"
+        ],
+        includes: [
+            "Live guide",
+            "Wetsuit",
+            "Lighting",
+            "Helmet",
+            "Backpack",
+            "Waterproof shoes"
+        ]
+    },{
+        id: 21,
+        tourName: "Rock climbing Tour",
+        img: [ "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/091c465f40c3d42f762ff056cb528fb8e1ce58bf4cdf18970cc5801959fedff0.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/9e4177fd930202a11114a19678d03b01e0b2c9ea16e64d66ea0fdb0d8c7266fd.jpeg", "https://cdn.getyourguide.com/image/format=auto,fit=contain,gravity=auto,quality=60,width=1440,height=650,dpr=1/tour_img/649cd94d9594c7519f948804301709149ada666b65ff38f68f9c5e95d661917c.jpeg"],
+        description: "Experience the thrill of rock climbing in Mallorca. Choose your adventure and enjoy a day of climbing tailored to your skill level and preferences.",
+        duration: 5.5,
+        languages: ["English", "Spanish", "Catalan", "German", "French"],
+        meetingPoint: "Alaró",
+        price: 250,
+        category: tourCategory[3],
+        highlights: [
+            "Feel the thrill of climbing on limestone cliffs in Mallorca",
+            "Choose between sport climbing, multipitch or bouldering",
+            "Enjoy a day of climbing tailored to your skill level and preferences",
+            "Learn climbing techniques and safety tips from a local guide",
+            "Discover remote natural spots and breathtaking views of the island"
+        ],
+        includes: [
+            "Full climbing day",
+            "Technical climbing equipment",
+            "Mountain guide",
+            "Insurance"
+        ]
     }
 ];

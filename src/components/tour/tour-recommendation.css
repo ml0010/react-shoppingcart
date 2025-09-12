@@ -1,8 +1,11 @@
 .tour-recommendations {
-    margin: 40px auto;
+    margin: 60px auto;
     max-width: 100%;
+    position: relative;
 }
-
+.tour-recommendations span {
+    font-size: 12px;
+}
 .tour-recommendations .swiper {
     padding: 0 20px;
     max-width: 800px;
@@ -18,7 +21,6 @@
 .tour-recommendations .swiper-pagination .swiper-pagination-bullet  {
     background-color: var(--dark);
 }
-
 .tour-recommendations .recommendation {
     width: 220px;
     height: 190px;

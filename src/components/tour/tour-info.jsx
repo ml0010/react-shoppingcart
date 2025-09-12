@@ -117,10 +117,14 @@ export const TourInfo = ({ data }) => {
                                 </div>
                                 <hr className='separator' />
                                 <h2>Highlights</h2>
-                                <h2>Full description</h2>
+                                {data.highlights.map((text) => {
+                                    return <p>{text}</p>
+                                })}
                                 <h2>Includes</h2>
+                                {data.includes.map((text) => {
+                                    return <p>{text}</p>
+                                })}
                                 <h2>Not suitable for</h2>
-                                <h2>Meeting point</h2>
                                 <h2>Important information</h2>
                             </div>
                         </div>
@@ -142,14 +146,15 @@ const TourForm = ({ id }) => {
 
     const navigate = useNavigate();
 
-    const { addToCart, setShowCartSummary, paxMin, paxMax } = useContext(CartContext);
+    const { addToCart, setShowCartSummary } = useContext(CartContext);
 
+    const paxMin = 1;
+    const paxMax = 12;
+    
 	const [ pax, setPax ] = useState(1);
 	const [ dateValue, setDateValue ] = useState(tomorrow.$d.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"}));
     const [ isPaxVisible, setIsPaxVisible ] = useState(false);
     const [ isDateVisible, setIsDateVisible ] = useState(false);
-
-
 
     const handleClose = () => {
 		setPax(1);

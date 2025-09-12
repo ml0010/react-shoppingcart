@@ -13,6 +13,7 @@ export const Tour = ({ data }) => {
                 <div className='top'>
                     <p className='name'>{data.tourName}</p>
                     <p className='duration'>{data.duration} hours</p>
+                    <p className='description'></p>
                 </div>
                 <div className='bottom'>
                     <span className='price-warpper'>

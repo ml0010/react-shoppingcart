@@ -4,6 +4,7 @@ import { TOURS } from '../../tourlist';
 import { TourRecommendationOutput } from './tour-recommendation-output';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { LoadingIcon } from '../buttons/loading-icon';
 
 
 
@@ -54,9 +55,9 @@ export const TourRecommendation = () => {
 
     return (
         <div className='tour-recommendations'>
-            {isRecommendationLoaded && 
+            <span className='title'>OUR TOURS YOU MIGHT BE INTERESTED IN</span>
+            {isRecommendationLoaded ?
                 <>
-                    <h3>OUR TOURS YOU MIGHT BE INTERESTED IN</h3>
                     <Swiper
                         slidesPerView={slides}
                         spaceBetween={10}
@@ -84,7 +85,8 @@ export const TourRecommendation = () => {
                             })}
                         </div>
                     </Swiper>
-                </>
+                </> :
+                <LoadingIcon />
             }
         </div>
     )

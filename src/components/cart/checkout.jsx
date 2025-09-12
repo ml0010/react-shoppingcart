@@ -30,8 +30,9 @@ export const Checkout = ({ path }) => {
 
 
     return (
-        <div className='checkout'>
+        <div className='checkout-wrapper'>
             {isLoading && <LoadingIcon />}
+        <div className='checkout'>
             
             {path !== '/cart' &&
                 <Link className='edit-basket-button' to='/cart'>EDIT</Link>
@@ -66,13 +67,15 @@ export const Checkout = ({ path }) => {
                 }
                 {(path === '/booking' && isGuestInfoCompleted) && 
                     <div className='payment-button'>
+                        {isProessingPayment && <LoadingIcon />}
                         <button className={`button highlight ${!isPaymentInfoReady ? 'blocked' : 'active'}`} type='submit' form='payment'>
-                            {isProessingPayment ? 'PROCESSING PAYMENT...' : `${amount} € - PAY NOW`}
+                            {isProessingPayment ? 'PROCESSING PAYMENT' : `${amount} € - PAY NOW`}
                         </button>
                         <button className='button' onClick={() => {setIsGuestInfoCompleted(false)}}>BACK TO GUEST INFO</button>
                     </div>
                 }
             </div>
+        </div>
         </div>
     )
 }

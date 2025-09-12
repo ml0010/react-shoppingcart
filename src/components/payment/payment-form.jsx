@@ -64,12 +64,13 @@ const PaymentForm = () => {
 
     return (
         <div className='payment-form'>
+            {(!isStripeReady || isProessingPayment) && 
+                <LoadingIcon /> 
+            }
             <form onSubmit={handleSubmit} id='payment'>
                 <div className='card'>
                     <h3>Payment Information</h3>
-                    {(!isStripeReady || isProessingPayment) && 
-                        <LoadingIcon /> 
-                    }
+                    
                     <PaymentElement 
                         onReady={() => {setIsStripeReady(true)}}
                         onChange={(e) => {handlePaymentDetail(e)}}

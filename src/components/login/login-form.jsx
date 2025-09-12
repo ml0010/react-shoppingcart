@@ -58,11 +58,11 @@ export const LoginForm = () => {
     
     return (
         <div className='login-form'>
+            {isSubmit && <LoadingIcon />}
             <form id='form' onSubmit={handleSubmit}>
                 <input className='input' name='username' type='text' placeholder='Username' value={input.username} onChange={handleInput}></input>
                 <input className='input' name='password' type='password' placeholder='Password' value={input.password} onChange={handleInput}></input>
                 {message && <p className='errorMsg'><SirenIcon size={15} />{message}</p>}
-                {isSubmit && <LoadingIcon />}
             </form>
             <div className='buttons'>
                 <button className='button highlight' type='submit' form='form'>SUBMIT</button>

@@ -1,3 +1,6 @@
+.payment-form {
+    position: relative;
+}
 .payment-form .message {
     display: flex;
     justify-content: center;
@@ -6,7 +9,4 @@
     font-weight: 500;
     color: var(--red);
     margin: 15px 0;
-}
-.payment-form .card {
-    position: relative;
 }

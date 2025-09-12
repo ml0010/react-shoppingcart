@@ -1,3 +1,7 @@
+.checkout-wrapper {
+    position: relative;
+}
+
 .checkout {
     display: flex;
     flex-direction: column;
@@ -40,6 +44,9 @@
     opacity: 0.2;
     margin: 7px 0;
     background-color: var(--grey-light);
+}
+.checkout .payment-button {
+    position: relative;
 }
 .checkout .edit-basket-button {
     font-size: 9px;

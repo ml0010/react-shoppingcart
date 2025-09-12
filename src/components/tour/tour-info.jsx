@@ -214,41 +214,41 @@ const TourForm = ({ id }) => {
     return (
         <div className='guest-info'>
             <h3>Select participants and date</h3>
-            <div className='form' ref={paxRef}>
-                <div className='label' onClick={() => setIsPaxVisible(!isPaxVisible)}>
-                    <p>Adult x {pax}</p>
-                    {isPaxVisible ? <CaretUpIcon className='caret' size={15} weight="fill" /> : <CaretDownIcon className='caret' size={15} weight="fill" />}
-                </div>
-
-
-                <span className={`input ${isPaxVisible ? 'visible' : 'hidden'}`}>
-                    <div className='input-wrapper'>
-                        <h5>Adult</h5>
-                        <div className='pax-input'>
-                            <button onClick={()=>handlePax(pax-1)}><MinusCircleIcon size={15} /></button>
-                            <input className='pax' type='number' min={paxMin} max={paxMax} value={pax} onChange={(e)=> handlePax(Number(e.target.value))}></input>
-                            <button onClick={()=>handlePax(pax+1)}><PlusCircleIcon size={15} /></button>
+            <div className='guest-form-wrapper'>
+                <div className='guest-form'>
+                    <div className='form' ref={paxRef}>
+                        <div className='label' onClick={() => setIsPaxVisible(!isPaxVisible)}>
+                            <p>Adult x {pax}</p>
+                            {isPaxVisible ? <CaretUpIcon className='caret' size={15} weight="fill" /> : <CaretDownIcon className='caret' size={15} weight="fill" />}
                         </div>
+                        <span className={`input ${isPaxVisible ? 'visible' : 'hidden'}`}>
+                            <div className='input-wrapper'>
+                                <h5>Adult</h5>
+                                <div className='pax-input'>
+                                    <button onClick={()=>handlePax(pax-1)}><MinusCircleIcon size={15} /></button>
+                                    <input className='pax' type='number' min={paxMin} max={paxMax} value={pax} onChange={(e)=> handlePax(Number(e.target.value))}></input>
+                                    <button onClick={()=>handlePax(pax+1)}><PlusCircleIcon size={15} /></button>
+                                </div>
+                            </div>
+                        </span>
                     </div>
-                </span>
-            </div>
-            <div className='form' ref={dateRef}>
-                <div className='label' onClick={() => setIsDateVisible(!isDateVisible)}>
-                    <p>{dateValue}</p>
-                    {isDateVisible ? <CaretUpIcon className='caret' size={15} weight="fill" /> : <CaretDownIcon className='caret' size={15} weight="fill" />}
-                    
+                    <div className='form' ref={dateRef}>
+                        <div className='label' onClick={() => setIsDateVisible(!isDateVisible)}>
+                            <p>{dateValue}</p>
+                            {isDateVisible ? <CaretUpIcon className='caret' size={15} weight="fill" /> : <CaretDownIcon className='caret' size={15} weight="fill" />}
+                        </div>
+                        <span className={`input ${isDateVisible ? 'visible' : 'hidden'}`}>
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <DateCalendar minDate={tomorrow} onChange={(value) => handleDate(value.$d)} />
+                            </LocalizationProvider>
+                        </span>
+                    </div>
                 </div>
-
-                <span className={`input ${isDateVisible ? 'visible' : 'hidden'}`}>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DateCalendar minDate={tomorrow} onChange={(value) => handleDate(value.$d)} />
-                    </LocalizationProvider>
-                </span>
-            </div>
-            <div className='buttons'>
-                <button className='button highlight' onClick={handleAddToCart}>
-                    ADD TO BASKET <BasketIcon size={15} />
-                </button>
+                <div className='button-wrapper'>
+                    <button className='button highlight' onClick={handleAddToCart}>
+                        ADD TO BASKET <BasketIcon size={15} />
+                    </button>
+                </div>
             </div>
         </div>
     );

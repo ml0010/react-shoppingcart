@@ -57,6 +57,7 @@
 
 .page-devider {
     display: flex;
+    flex-direction: row;
 }
 .page-devider .left, .page-devider .right{
     margin: 10px;
@@ -141,7 +142,8 @@
     margin: 15px 0;
 }
 .guest-info .form {
-    margin: 5px 0;
+    margin: 5px;
+    min-width: 180px;
 }
 .guest-info .label {
     padding: 10px;
@@ -173,6 +175,7 @@
     box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
     margin: -10px 0;
 }
+
 .guest-info .input .input-wrapper {
     min-width: 200px;
     display: grid;
@@ -213,7 +216,7 @@
     font-size: 10px;
     color: red;
 }
-.guest-info .buttons {
+.guest-info .button-wrapper {
     max-width: 260px;
     display: flex;
     flex-direction: column;
@@ -227,6 +230,29 @@
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
+    .page-devider {
+        flex-direction: column;
+    }
+    .guest-info .guest-form-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+    .guest-info .guest-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 730px) {
+    .guest-info .guest-form-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 600px) {   
+    .guest-info .guest-form {
+        flex-direction: column;
+    }
+
 }

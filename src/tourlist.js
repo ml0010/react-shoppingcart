@@ -124,10 +124,23 @@ export const TOURS = [
         price: 69,
         category: tourCategory[3],
         highlights: [
-            
+            "Discover the amazing sea caves of Mallorca", 
+            "Snorkel and swim in turquoise waters",
+            "Benefit from the assistance of an experienced instructor",
+            "Admire the scenic views of the coastline",
+            "Extraordinary experience that blends sport and fun with moments of serenity"
         ],
         includes: [
-           
+            "nstructor",
+            "Accompanying motor boat",
+            "Snack (Ham and cheese sandwich or vegetarian option by request)",
+            "Kayak full equipment",
+            "Snorkeling mask",
+            "Water shoes (please send your sizes)",
+            "Lifejacket",
+            "Neoprene suit and lycra, depending on weather conditions (please send your sizes: S/M/L/XL/XXL)",
+            "Assistance assurance",
+            "Photographs taken by the instructors",
         ]
     },{
         id: 3,
@@ -169,10 +182,17 @@ export const TOURS = [
         price: 40,
         category: tourCategory[2],
         highlights: [
-            
+            "Explore one of Majorca’s main tourist attractions - the amazing blue cave",
+            "Marvel at unique rock formations",
+            "Feel the spectacular atmosphere of the new blue lighting",
+            "Save money by booking online in advance"
         ],
         includes: [
-           
+            "Entry to Hams' Caves",
+            "Music show - Magical Mozart on The Sea of Venice",
+            "Various visuals in the caves",  
+            "Botanical garden",
+            "Access to a picnic area"
         ]
     },{
         id: 5,
@@ -185,10 +205,20 @@ export const TOURS = [
         price: 45,
         category: tourCategory[3],
         highlights: [
-            
+            "A unique experience kayaking through the Cave.",
+            "Snorkeling in crystal clear waters.",
+            "Island hopping between the sunny islands.",
+            "Relaxing and fun atmosphere.",
+            "Local experienced guides."
         ],
         includes: [
-           
+            "Kayaks",
+            "Paddles",
+            "Life vests",
+            "Snorkeling equipment",
+            "Dry bags for your personal belongings",
+            "A quick introduction and instructions for kayaking",
+            "Experienced local tour guides"
         ]
     },{
         id: 6,
@@ -421,10 +451,12 @@ export const TOURS = [
         price: 66,
         category: tourCategory[2],
         highlights: [
-            
+            "Admire the views of rural backroads and the countryside",
+            "Feel the sea breeze as you ride along the coastline"
         ],
         includes: [
-           
+            "Experienced guide",
+            "Safety instructions and equipment"
         ]
     },{
         id: 17,

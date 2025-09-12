@@ -7,6 +7,7 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { LoadingIcon } from '../buttons/loading-icon';
+import { Link } from 'react-router-dom';
 
 
 export const CartItem = (props) => {
@@ -42,6 +43,10 @@ export const CartItem = (props) => {
         changePax(id, action, paxMin, paxMax);
         setIsLoading(true);
     };
+    const handleDelete = () => {
+        setIsLoading(true);
+        setTimeout(() => deleteFromCart(id), 400);
+    };
 
     let dateRef = useRef(null);
 
@@ -60,11 +65,11 @@ export const CartItem = (props) => {
     return (
         <div className='cart-item' key={id}>
             {isLoading && <LoadingIcon />}
-            <div className='tour-img'>
+            <Link className='tour-img' to={`/tour-detail/${id}`}>
                 <img src={img[0]} alt={tourName} />
-            </div>
+            </Link>
             <div className='tour-detail'>
-                <button className='delete-button' onClick={()=>deleteFromCart(id)}><XIcon size={15} /></button>
+                <button className='delete-button' onClick={handleDelete}><XIcon size={15} /></button>
                 <p className='name'><b>{tourName}</b></p>
                 <div className='detail'>
                     <div className='date' ref={dateRef}>

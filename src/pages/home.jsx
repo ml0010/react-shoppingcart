@@ -38,7 +38,7 @@ export const Home = () => {
         <MotionRoute>
             <div className='home'>
                 <div className='pageFront'>
-                    <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})` }}></div>
+                    <div className='pageBackground' style={{ backgroundImage: `url(${MainPhoto})`}}></div>
                     <div className='pageMain'>
                         <p className='pageTitle'>MALLORCA</p>
                         <p className='pageDescription'>Discover heart of Mediterranean Sea</p>

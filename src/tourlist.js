@@ -1,7 +1,7 @@
 
 //const languageOptions = ["English", "Spanish", "German", "French", "Arabic", "Russian"];
 
-const tourCategory = ["culture", "food", "nature", "sports"];
+const tourCategory = ["culture", "food", "nature", "Adventure"];
 
 export const TOURS = [
     {
@@ -59,7 +59,7 @@ export const TOURS = [
         languages: ["English", "Spanish", "Russian", "German"],
         meetingPoint: "Manacor",
         price: 110,
-        category: tourCategory[2],
+        category: tourCategory[3],
         highlights: [
             "Soar over the island of Mallorca on a romantic hot air balloon flight",
             "Take in the sights of the island from a unique vantage point in the sky",

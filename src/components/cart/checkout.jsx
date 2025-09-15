@@ -22,6 +22,7 @@ export const Checkout = ({ path }) => {
     useEffect(() => {
         setIsLoading(true);
     }, [cartItems]);
+    
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);

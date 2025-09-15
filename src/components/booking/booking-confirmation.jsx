@@ -42,8 +42,15 @@ export const BookingConfirmation = () => {
         }
     }, []);
 
+    const delay = async (ms) => {
+        return new Promise((resolve) => 
+            setTimeout(resolve, ms));
+    };
+
     const handleDeleteBooking = async () => {
         if(window.confirm(`Your booking will be permenantly cancelled.\nPlease confirm you are happy to go ahead.`)) {
+            setIsLoading(true);
+            await delay(600);
             await deleteBooking(bookingReference);
         }
     };

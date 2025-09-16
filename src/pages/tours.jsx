@@ -115,6 +115,7 @@ const SearchBox = () => {
         </div>
     )
 };
+
 const SearchResult = ({tour, index}) => {
     return (
         <Link className='item' key={index} to={`/tour-detail/${tour.id}`}>
@@ -132,6 +133,7 @@ const TourList = () => {
     const [ tourCategorySelected, setTourCategorySelected ] = useState('all');
     const [ tourList, setTourList ] = useState(TOURS);
     const [ isLoading, setIsLoading ] = useState(true);
+    const [ categoryList, setCategoryList ] = useState([]);
 
     useEffect(() => {
         setIsLoading(true);
@@ -170,7 +172,15 @@ const TourList = () => {
         }
     }
 
-
+    const handleFilter = (category) => {
+        const index = categoryList.indexOf(category);
+        if (index > -1) {
+            const newList = categoryList.filter(item => item !== category);
+            setCategoryList(newList);
+        } else {
+            setCategoryList([...categoryList, category]);
+        }
+    };
 
     return (
         <MotionRoute>
@@ -185,6 +195,24 @@ const TourList = () => {
                             <label className='filter' key={index}>
                                 <input type='checkbox' checked={category === tourCategorySelected} value={category} onChange={(e)=>handleFilterTours(e.target.value)} />{` ${category.charAt(0).toUpperCase() + category.slice(1)} (${TOURS.filter(tour => tour.category===category).length})`}
                             </label>
+                        )
+                    })}
+                    </div>
+                </div>
+                <div className='filter-wrapper'>
+                    <div className='filter-list'>
+
+                    {getCategory().map((category, index)=> {
+                        return (
+                            <button 
+                                className={`filter-button ${categoryList.includes(category) ? 'selected' : 'notSelected'}`}
+                                key={index} 
+                                value={category} 
+                                onClick={(e)=>handleFilter(e.target.value)} 
+                            >
+                                <span>{category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                                <span>{categoryList.includes(category) && <XIcon size={15} />}</span>
+                            </button>
                         )
                     })}
                     </div>
@@ -236,9 +264,9 @@ const ToursByCategory = () => {
     };
 
     const toursByCategory = (category) => {
-        const tours = (TOURS.filter((tour) => {
-            return tour.category === category;
-        }));
+        const tours = (TOURS.filter((tour) => (
+            tour.category === category
+        )));
         return tours;
     };
     

@@ -15,7 +15,7 @@ import "swiper/css/scrollbar";
 import "swiper/css/pagination";
 import { LoadingIcon } from '../components/buttons/loading-icon'
 import { Link } from 'react-router-dom'
-import { XIcon } from '@phosphor-icons/react'
+import { CaretDownIcon, XIcon } from '@phosphor-icons/react'
 
 export const Tours = () => {
 
@@ -103,7 +103,12 @@ const SearchBox = () => {
     return (
         <div className='search' ref={searchRef}>
             <div className='input-wrapper'>
-                <input className='input' value={searchInput} placeholder='Search' onChange={(e)=>handleSearch(e.target.value)} />
+                <input 
+                    className='input' 
+                    value={searchInput} 
+                    placeholder='Search' 
+                    onChange={(e)=>handleSearch(e.target.value)} 
+                />
                 {searchInput && <XIcon className='delete-icon' size={15} onClick={handleDeleteSearchInput}/>}
             </div>
             <div className={`search-result ${searchResult.length > 0 ? 'visible' : 'hidden'}`}>
@@ -130,14 +135,15 @@ const SearchResult = ({tour, index}) => {
 
 const TourList = () => {
     
-    const [ tourCategorySelected, setTourCategorySelected ] = useState('all');
     const [ tourList, setTourList ] = useState(TOURS);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ categoryList, setCategoryList ] = useState([]);
+    const [ languageList, setLanguageList ] = useState([]);
+    const [ isLanguageListOpen, setIsLanguageListOpen ] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
-    }, [tourCategorySelected]);
+    }, [categoryList, languageList]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -157,64 +163,133 @@ const TourList = () => {
         return categoryList;
     };
 
-    const handleFilterTours = (categorySelected) => {
-
-        setTourCategorySelected(categorySelected);
-
-        if (categorySelected === 'all') {
-            setTourList(TOURS);
-        }
-        else {
-            const filteredTours = TOURS.filter((tour) => {
-                return tour.category === categorySelected
+    const getLanguage = () => {
+        const languageList = [];
+        tourList.map((tour)=> {
+            tour.languages.map((language) => {
+                if (!languageList.includes(language)) {
+                    languageList.push(language);
+                }
+                return 0;
             });
-            setTourList(filteredTours);
-        }
-    }
+        });
+        return languageList;
+    };
 
-    const handleFilter = (category) => {
+    const handleCategoryFilter = (category) => {
         const index = categoryList.indexOf(category);
+        var newCategoryList = [];
+
         if (index > -1) {
-            const newList = categoryList.filter(item => item !== category);
-            setCategoryList(newList);
+            newCategoryList = categoryList.filter(item => item !== category);
         } else {
-            setCategoryList([...categoryList, category]);
+            newCategoryList = [...categoryList, category];
+        }
+        setCategoryList(newCategoryList);
+
+        const newTourList = TOURS.filter((tour) => (
+            newCategoryList.includes(tour.category)
+        ));
+        if (newTourList.length === 0) {
+            setTourList(TOURS);
+        } else {
+            setTourList(newTourList);
+        }
+        setLanguageList([]);
+    };
+
+    const handleLanguageFilter = (language) => {
+        const index = languageList.indexOf(language);
+
+        var newLanguageList = [];
+        if (index > -1) {
+            newLanguageList = languageList.filter(item => item !== language);
+        } else {
+            newLanguageList = [...languageList, language];
+        }
+        console.log(newLanguageList);
+        setLanguageList(newLanguageList);
+
+        if (newLanguageList.length > 0) {
+            const newTourList = tourList.filter((tour) => {
+                var isLanguageInList = false;
+                tour.languages.map((language) => {
+                    if(newLanguageList.includes(language)) {
+                        isLanguageInList = true;
+                    }
+                })
+                return isLanguageInList;
+            });
+            setTourList(newTourList);
+        } else {
+
         }
     };
+
+    const handleFilterReset = () => {
+        setTourList(TOURS);
+        setCategoryList([]);
+        setLanguageList([]);
+    };
+
+    let languageRef = useRef(null);
+
+    useEffect(() => {
+        let handler = (e)=>{
+            if(languageRef.current && !languageRef.current.contains(e.target)){
+                setIsLanguageListOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
+    }, [languageRef]);
 
     return (
         <MotionRoute>
             <div className='list-all'>
                 <div className='filter-wrapper'>
-                    <div className='filters'>
-                    <label className='filter'>
-                        <input type='checkbox' checked={'all' === tourCategorySelected} value='all' onChange={(e)=>handleFilterTours(e.target.value)} /> All {`(${TOURS.length})`}
-                    </label>
-                    {getCategory().map((category, index)=> {
-                        return (
-                            <label className='filter' key={index}>
-                                <input type='checkbox' checked={category === tourCategorySelected} value={category} onChange={(e)=>handleFilterTours(e.target.value)} />{` ${category.charAt(0).toUpperCase() + category.slice(1)} (${TOURS.filter(tour => tour.category===category).length})`}
-                            </label>
-                        )
-                    })}
-                    </div>
-                </div>
-                <div className='filter-wrapper'>
                     <div className='filter-list'>
 
-                    {getCategory().map((category, index)=> {
-                        return (
+                        {getCategory().map((category, index)=> {
+                            return (
+                                <button 
+                                    className={`filter-button ${categoryList.includes(category) ? 'selected' : 'notSelected'}`}
+                                    key={index} 
+                                    value={category} 
+                                    onClick={(e)=>handleCategoryFilter(e.target.value)} 
+                                >
+                                    <span>{category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                                    <span>{categoryList.includes(category) && <XIcon size={15} />}</span>
+                                </button>
+                            )
+                        })}
+                        <button 
+                            className={`filter-button ${languageList.length > 0 ? 'selected' : 'notSelected'}`}
+                            onClick={() => setIsLanguageListOpen(!isLanguageListOpen)}
+                            ref={languageRef}
+                        >
+                            <span>{languageList.length !== 0 ? (languageList.length > 1 ? languageList[0] + ', +' + (languageList.length -1) + ' more' : languageList[0]) : 'Language'}</span>
+                            <span><CaretDownIcon size={15} /></span>
+                            <div className={`language-list ${isLanguageListOpen ? 'active' : 'closed'}`}>
+                                {getLanguage().map((language) => (
+                                    <div className='language'>
+                                        <input type='checkbox' checked={languageList.includes(language)} value={language} onChange={(e)=>handleLanguageFilter(e.target.value)}/>
+                                        {language}
+                                    </div>
+                                ))}
+                            </div>
+                        </button>
+                        {(categoryList.length > 0 || languageList.length > 0) && 
                             <button 
-                                className={`filter-button ${categoryList.includes(category) ? 'selected' : 'notSelected'}`}
-                                key={index} 
-                                value={category} 
-                                onClick={(e)=>handleFilter(e.target.value)} 
+                                className={`filter-button selected`}
+                                onClick={handleFilterReset} 
                             >
-                                <span>{category.charAt(0).toUpperCase() + category.slice(1)}</span>
-                                <span>{categoryList.includes(category) && <XIcon size={15} />}</span>
+                                <span>Reset All</span>
+                                <span><XIcon size={15} /></span>
                             </button>
-                        )
-                    })}
+                        }
                     </div>
                 </div>
                 <div className='tour-list'>

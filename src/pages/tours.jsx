@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import '../styles/tours.css'
 import { TOURS } from '../tourlist'
 import { Tour } from '../components/tour/tour'
@@ -14,6 +14,8 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/pagination";
 import { LoadingIcon } from '../components/buttons/loading-icon'
+import { Link } from 'react-router-dom'
+import { XIcon } from '@phosphor-icons/react'
 
 export const Tours = () => {
 
@@ -35,6 +37,7 @@ export const Tours = () => {
                         <h1>EXPLORE MALLORCA TOURS</h1>
                         <hr className='separator' />
                     </div>
+                    <SearchBox />
                     <div className='view-option'>
                         <button className='button' onClick={() => setIsViewOptionDefault(true)}>ALL TOURS</button>
                         <button className='button'  onClick={() => setIsViewOptionDefault(false)}>BY CATEGORY</button>
@@ -52,6 +55,77 @@ export const Tours = () => {
     )
 }
 export default Tours;
+
+
+
+const SearchBox = () => {
+
+    const [ tourList, setTourList ] = useState(TOURS);
+    const [ searchInput, setSearchInput ] = useState("");
+    const [ searchResult, setSearchResult ] = useState([]);
+    const [ isLoading, setIsLoading ] = useState(false);
+
+    useEffect(() => {
+        setIsLoading(true);
+    }, [searchResult]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400);
+    }, [isLoading]);
+
+    const handleSearch = (input) => {
+        setSearchInput(input);
+        const results = tourList.filter((tour) => (tour.tourName.toLowerCase().includes(input.toLocaleLowerCase()) || tour.description.toLowerCase().includes(input.toLocaleLowerCase()))).slice(0,5);
+        setSearchResult([...results]);
+    };
+
+    const handleDeleteSearchInput = () => {
+        setSearchInput("");
+        setSearchResult([]);
+    };
+
+    let searchRef = useRef(null);
+
+    useEffect(() => {
+        let handler = (e)=>{
+            if(searchRef.current && !searchRef.current.contains(e.target)){
+                handleDeleteSearchInput();
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
+    }, [searchRef]);
+    
+    return (
+        <div className='search' ref={searchRef}>
+            <div className='input-wrapper'>
+                <input className='input' value={searchInput} placeholder='Search' onChange={(e)=>handleSearch(e.target.value)} />
+                {searchInput && <XIcon className='delete-icon' size={15} onClick={handleDeleteSearchInput}/>}
+            </div>
+            <div className={`search-result ${searchResult.length > 0 ? 'visible' : 'hidden'}`}>
+                {isLoading && <LoadingIcon /> }
+                {searchResult.map((tour, index) => (
+                    <SearchResult tour={tour} index={index} />
+                ))}
+            </div>
+        </div>
+    )
+};
+const SearchResult = ({tour, index}) => {
+    return (
+        <Link className='item' key={index} to={`/tour-detail/${tour.id}`}>
+            <span className='detail'>
+                <img src={tour.img[0]}></img>
+                {tour.tourName}
+            </span>
+            <hr className='separator'/>
+        </Link>
+    );
+};
 
 const TourList = () => {
     
@@ -96,6 +170,8 @@ const TourList = () => {
         }
     }
 
+
+
     return (
         <MotionRoute>
             <div className='list-all'>
@@ -113,9 +189,6 @@ const TourList = () => {
                     })}
                     </div>
                 </div>
-                <div className='search'>
-                    <input></input>
-                </div>
                 <div className='tour-list'>
                     {isLoading && <LoadingIcon /> }
                     {tourList.map((tour)=> (
@@ -126,7 +199,6 @@ const TourList = () => {
         </MotionRoute>
     );
 };
-
 
 const ToursByCategory = () => {
 

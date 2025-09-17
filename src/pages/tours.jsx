@@ -136,6 +136,7 @@ const SearchResult = ({tour, index}) => {
 const TourList = () => {
     
     const [ tourList, setTourList ] = useState(TOURS);
+    const [ tourListFiltered, setTourListFiltered ] = useState(TOURS);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ categoryList, setCategoryList ] = useState([]);
     const [ languageList, setLanguageList ] = useState([]);
@@ -148,7 +149,7 @@ const TourList = () => {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
-        }, 800);
+        }, 400);
     }, [isLoading]);
 
 
@@ -192,13 +193,15 @@ const TourList = () => {
         ));
         if (newTourList.length === 0) {
             setTourList(TOURS);
+            setTourListFiltered(TOURS);
         } else {
             setTourList(newTourList);
+            setTourListFiltered(newTourList);
         }
         setLanguageList([]);
     };
 
-    const handleLanguageFilter = (language) => {
+    const handleLanguageList = (language) => {
         const index = languageList.indexOf(language);
 
         var newLanguageList = [];
@@ -207,11 +210,10 @@ const TourList = () => {
         } else {
             newLanguageList = [...languageList, language];
         }
-        console.log(newLanguageList);
         setLanguageList(newLanguageList);
 
         if (newLanguageList.length > 0) {
-            const newTourList = tourList.filter((tour) => {
+            const newTourListFiltered = tourList.filter((tour) => {
                 var isLanguageInList = false;
                 tour.languages.map((language) => {
                     if(newLanguageList.includes(language)) {
@@ -220,14 +222,15 @@ const TourList = () => {
                 })
                 return isLanguageInList;
             });
-            setTourList(newTourList);
+            setTourListFiltered(newTourListFiltered);
         } else {
-
+            setTourListFiltered(tourList);
         }
     };
 
     const handleFilterReset = () => {
         setTourList(TOURS);
+        setTourListFiltered(TOURS);
         setCategoryList([]);
         setLanguageList([]);
     };
@@ -275,8 +278,8 @@ const TourList = () => {
                             <div className={`language-list ${isLanguageListOpen ? 'active' : 'closed'}`}>
                                 {getLanguage().map((language) => (
                                     <div className='language'>
-                                        <input type='checkbox' checked={languageList.includes(language)} value={language} onChange={(e)=>handleLanguageFilter(e.target.value)}/>
-                                        {language}
+                                        <input type='checkbox' checked={languageList.includes(language)} value={language} onChange={(e)=>handleLanguageList(e.target.value)}/>
+                                        <p>{language}</p>
                                     </div>
                                 ))}
                             </div>
@@ -292,9 +295,10 @@ const TourList = () => {
                         }
                     </div>
                 </div>
+                <div className='tour-number'>Result: {tourListFiltered.length}</div>
                 <div className='tour-list'>
                     {isLoading && <LoadingIcon /> }
-                    {tourList.map((tour)=> (
+                    {tourListFiltered.map((tour)=> (
                         <Tour data={tour} key={tour.id} />
                     ))}
                 </div>

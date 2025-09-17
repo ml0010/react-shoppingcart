@@ -69,6 +69,9 @@
 .tours .view-option {
     display: flex;
 }
+.tours .filter-wrapper {
+    width: 100%;
+}
 .tours .filter-list {
     display: flex;
 }
@@ -79,7 +82,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(208, 208, 208);
+    background-color: rgb(227, 227, 227);
     font-size: 14px;
     position: relative;
 
@@ -101,13 +104,24 @@
     flex-direction: column;
     display: none;
     z-index: 10;
-    padding: 10px;
+    padding: 10px 20px;
+    border-radius: 3px;
 }
 .tours .filter-list .filter-button .language-list .language {
     display: flex;
 }
 .tours .filter-list .filter-button .language-list.active {
     display: block;
+}
+.tours .filter-list .filter-button .language-list .language {
+    gap: 0 10px;
+}
+.tours .list-all .tour-number {
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px 0;
 }
 .tours .list-all .tour-list {
     display: grid;

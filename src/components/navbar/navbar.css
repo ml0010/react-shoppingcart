@@ -40,6 +40,8 @@
     align-items: center;
     border-bottom: 1px solid var(--cream);
     transition: 0.5s ease-in-out;
+    color: var(--cream);
+
 }
 .navbar .navbar-wrapper .links:hover {
     background-color: var(--cream);
@@ -48,12 +50,18 @@
     transition: 0.2s ease-in-out;
 }
 
+.navbar .navbar-wrapper .links .link-icon {
+    cursor: pointer;
+}
+.navbar .navbar-wrapper .links .link-icon:hover {
+    color: var(--light);
+}
+
 /* hamburger button */
 .navbar .navbar-wrapper .links .menu-button {
     position: fixed;
     left: 3vw;
     top: 13px;
-    transition: 0.5s ease-in-out;
 }
 .navbar .navbar-wrapper .links .menu-button.navbar-inactive:hover {
     color: var(--cream);
@@ -80,22 +88,14 @@
     transition: 0.2s ease-in-out;
 }
 
-.navbar .navbar-wrapper .links .link-icon {
-    color: var(--cream);
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-}
-
-.navbar .navbar-wrapper .links .link-icon:hover {
-    color: var(--light);
-    transition: 0.2s ease-in-out;
-}
 
 .navbar .navbar-wrapper .links .cart-summary-button {
     margin-right: 2vw;
     width: 40px;
     height: 40px;
+}
+.navbar .navbar-wrapper .links .cart-summary-button.disabled {
+    pointer-events: none;
 }
 
 .navbar .menubar {
@@ -104,7 +104,7 @@
     height: 100%;
     width: 370px;
     left: -800px;
-    transition: 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
     background-color: var(--cream);
     opacity: 0;
 }
@@ -114,7 +114,7 @@
     z-index: 100;
     overflow: hidden;
 }
-.navbar .menubar.open {
+.navbar .menubar.close {
     pointer-events: none;
 }
 .navbar .menubar .menu-title {

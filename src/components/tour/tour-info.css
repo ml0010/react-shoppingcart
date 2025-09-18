@@ -6,18 +6,18 @@
     justify-content: center;
     align-items: center;
 }
-.info-wrapper svg {
+.tour-info-page .info-wrapper svg {
     color: var(--dark);
     margin: 0 3px;
 }
-.tour-wrapper h2 {
+.tour-info-page .tour-wrapper h2 {
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 0.05em;
     color: var(--dark);
     margin: 15px 0;
 }
-.tour-wrapper h3 {
+.tour-info-page .tour-wrapper h3 {
     font-size: 17px;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -25,10 +25,10 @@
     margin: 4px 0;
 
 }
-.tour-wrapper p {
+.tour-info-page .tour-wrapper p {
     font-size: 13px;
 }
-.tour-wrapper .separator {
+.tour-info-page .tour-wrapper .separator {
     height: 1px;
     width: 100%;
     background-color: var(--grey);
@@ -37,17 +37,23 @@
     margin: 20px 0;
 }
 
-.tour-wrapper {
+.tour-info-page .tour-wrapper {
     width: 95%;
     max-width: 1000px;
     display: block;
 }
-.tour-wrapper .tour-title {
+.tour-info-page .tour-wrapper .tour-title {
     font-weight: 700;
-    font-size: 30px;
+    font-size: 28px;
     color: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.tour-wrapper .description {
+.tour-info-page .tour-wrapper .tour-title svg {
+    margin-left: 5px;
+}
+.tour-info-page .tour-wrapper .description {
     font-size: 17px;
     font-weight: 350;
     text-align: left;
@@ -67,19 +73,19 @@
     text-align: left;
     margin: 10px 0;
 }
-.info-wrapper .info-list {
+.tour-info-page .info-wrapper .info-list {
     display: grid;
     grid-template-columns: 0.05fr 1fr;
     margin: 15px 0;
     
 }
-.info-wrapper .info-list .meeting-point {
+.tour-info-page .info-wrapper .info-list .meeting-point {
     display: flex;
     justify-content: start;
     align-items: center;
     cursor: pointer;
 }
-.info-wrapper .info-list .map-wrapper {
+.tour-info-page .info-wrapper .info-list .map-wrapper {
     background-color: var(--backdrop);
     position: fixed;
     width: 100%;
@@ -92,14 +98,14 @@
     transition: 200ms ease;
     transform: translateY(0);
 }
-.info-wrapper .info-list .map-wrapper.input.hidden {
+.tour-info-page .info-wrapper .info-list .map-wrapper.input.hidden {
     visibility: none;
     opacity: 0;
     transform: translateY(20px);
     position: relative;
 
 }
-.info-wrapper .info-list .map-wrapper .map {
+.tour-info-page .info-wrapper .info-list .map-wrapper .map {
     max-width: 800px;
     max-height: 800px;
     position: absolute;
@@ -111,17 +117,17 @@
     border-radius: 3px;
     box-shadow: 1px 1px 4px 3px rgba(142, 142, 142, 0.169);
 }
-.info-wrapper .info-list .map-wrapper .close-button {
+.tour-info-page .info-wrapper .info-list .map-wrapper .close-button {
     position: inherit;
     right: 10px;
     top: 18px;
     cursor: pointer;
 }
-.info-wrapper .info-list .map-wrapper .map iframe {
+.tour-info-page .info-wrapper .info-list .map-wrapper .map iframe {
     width: 600px;
     height: 450px;
 }
-.info-wrapper .info-list .map-wrapper .link {
+.tour-info-page .info-wrapper .info-list .map-wrapper .link {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -132,31 +138,31 @@
     margin: 10px 0;
 }
 
-.guest-info {
+.tour-info-page .guest-info {
     border-radius: 3px;
     border: 1px solid var(--grey-light);
     background-color: var(--background);
     padding: 10px 30px ;
 }
-.guest-info h3 {
+.tour-info-page .guest-info h3 {
     margin: 15px 0;
 }
-.guest-info .form {
+.tour-info-page .guest-info .form {
     margin: 5px;
     min-width: 180px;
 }
-.guest-info .label {
+.tour-info-page .guest-info .label {
     padding: 10px;
     border-radius: 50px;
     border: 1px solid var(--grey-light);
     position: relative;
     cursor: pointer;
 }
-.guest-info .label p {
+.tour-info-page .guest-info .label p {
     font-size: 16px;
     font-weight: 700;
 }
-.guest-info .label .caret {
+.tour-info-page .guest-info .label .caret {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -165,7 +171,7 @@
     right: 10px;
 }
 
-.guest-info .input {
+.tour-info-page .guest-info .input {
     display: flex;
     font-size: 14px;
     position: absolute;
@@ -176,47 +182,47 @@
     margin: -10px 0;
 }
 
-.guest-info .input .input-wrapper {
+.tour-info-page .guest-info .input .input-wrapper {
     min-width: 200px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 10px;
 }
-.guest-info .input .pax-input {
+.tour-info-page .guest-info .input .pax-input {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.guest-info .input.visible {
+.tour-info-page .guest-info .input.visible {
     visibility: visible;
     opacity: 1;
     transition: 200ms ease;
     transform: translateY(0);
 }
-.guest-info .input.hidden {
+.tour-info-page .guest-info .input.hidden {
     visibility: hidden;
     opacity: 0;
     transform: translateY(-5px);
 }
 
-.guest-info .form .pax {
+.tour-info-page .guest-info .form .pax {
     width: 30px;
     appearance: text;
     text-align: center;
 }
 
-.guest-info input::-webkit-inner-spin-button {
+.tour-info-page .guest-info input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.guest-info input[type=number] {
+.tour-info-page .guest-info input[type=number] {
     appearance: textfield; /* Firefox */
 }
-.guest-info .inputs .dateWarning {
+.tour-info-page .guest-info .inputs .dateWarning {
     font-size: 10px;
     color: red;
 }
-.guest-info .button-wrapper {
+.tour-info-page .guest-info .button-wrapper {
     max-width: 260px;
     display: flex;
     flex-direction: column;
@@ -230,14 +236,14 @@
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
-    .page-devider {
+    .tour-info-page .page-devider {
         flex-direction: column;
     }
-    .guest-info .guest-form-wrapper {
+    .tour-info-page .guest-info .guest-form-wrapper {
         display: flex;
         flex-direction: row;
     }
-    .guest-info .guest-form {
+    .tour-info-page .guest-info .guest-form {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -245,13 +251,13 @@
     }
 }
 @media only screen and (max-width: 730px) {
-    .guest-info .guest-form-wrapper {
+    .tour-info-page .guest-info .guest-form-wrapper {
         display: flex;
         flex-direction: column;
     }
 }
 @media only screen and (max-width: 600px) {   
-    .guest-info .guest-form {
+    .tour-info-page .guest-info .guest-form {
         flex-direction: column;
     }
 

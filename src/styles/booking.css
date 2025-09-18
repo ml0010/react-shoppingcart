@@ -105,6 +105,10 @@
         display: flex;
         flex-direction: column;
     }
+    .booking .summary-display {
+        width: 100%;
+        margin: auto;
+    }
 }
 @media only screen and (max-width: 600px) {
 }

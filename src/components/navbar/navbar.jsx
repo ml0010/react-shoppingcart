@@ -58,14 +58,13 @@ export const Navbar = () => {
         document.body.style.overflow = menuOpen ? 'hidden' : 'unset';
     }, [menuOpen]);
 
-    const cartRef = useRef();
+    const cartSummaryRef = useRef();
 
     useEffect(() => {
         if(showCartSummary === true) {
             let handler = (e)=>{
-                if(!cartRef.current.contains(e.target)){
-                    handleShowCartSummary();
-                    //console.log(cartSummaryRef.current);
+                if(!cartSummaryRef.current.contains(e.target)) {
+                    setShowCartSummary(false);
                 }
             };
             document.addEventListener("mousedown", handler);
@@ -89,10 +88,12 @@ export const Navbar = () => {
                         <button className='link-icon' onClick={()=>navigate('/mypage')}><UserCircleCheckIcon size={28} /></button> : 
                         <button className='link-icon' onClick={()=>navigate('/login')}><UserCircleIcon size={28} /></button>
                     }
-                    <div ref={cartRef}>
-                        <button className='link-icon cart-summary-button' onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
-                        <CartSummary />
+                    <div>
+                        <button className={`link-icon cart-summary-button ${showCartSummary ? 'disabled' : 'active'}`} onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
                     </div>
+                </div>
+                <div ref={cartSummaryRef}>
+                    <CartSummary />
                 </div>
             </div>
             <div className='menubar-wrapper' ref={menuRef}>

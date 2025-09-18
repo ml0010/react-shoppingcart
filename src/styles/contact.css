@@ -47,7 +47,15 @@
     color: var(--light);
     transition: 0.2s ease-in-out;
 }
-
+.contact .email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact .email svg {
+    margin-left: 5px;
+    cursor: pointer;
+}
 
 .contact .right {
     justify-self: start;

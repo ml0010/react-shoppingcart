@@ -1,7 +1,7 @@
 import './tour-info.css';
 import { useState, useContext, useEffect, useRef } from 'react'
 import { CartContext } from '../../contexts/cart-context';
-import { ArrowUpRightIcon, BasketIcon, CaretDownIcon, CaretUpIcon, ClockIcon, GlobeIcon, MapPinLineIcon, MapTrifoldIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
+import { ArrowUpRightIcon, BasketIcon, CaretDownIcon, CaretUpIcon, ClockIcon, CopySimpleIcon, GlobeIcon, MapPinLineIcon, MapTrifoldIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
 import { useNavigate } from 'react-router-dom';
 import { GobackButton } from '../buttons/goback-button';
@@ -59,12 +59,16 @@ export const TourInfo = ({ data }) => {
         document.body.style.overflow = isMapVisible ? 'hidden' : 'unset';
     }, [isMapVisible]);
 
+    const copyToClip = async () => {
+        await navigator.clipboard.writeText(window.location.href);
+    };
+
 	return (
         <MotionRoute>
             <div className='tour-info-page' key={data.id}>
                 <GobackButton />
                 <div className='tour-wrapper'>
-                    <h1 className='tour-title'>{data.tourName}</h1>
+                    <h1 className='tour-title'>{data.tourName}<CopySimpleIcon size={20} onClick={copyToClip} /></h1>
                     <div className='tourImages flex m-auto p-8'>
                         <Carousel images={data.img} thumbnails={true}/>
                     </div>
@@ -143,7 +147,9 @@ export const TourInfo = ({ data }) => {
 const TourForm = ({ id }) => {
 
     const tomorrow = dayjs().add(1, 'day');
-
+    const dateToText = (date) => {
+        return date.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"});
+    };
     const navigate = useNavigate();
 
     const { addToCart, setShowCartSummary } = useContext(CartContext);
@@ -152,14 +158,14 @@ const TourForm = ({ id }) => {
     const paxMax = 12;
     
 	const [ pax, setPax ] = useState(1);
-	const [ dateValue, setDateValue ] = useState(tomorrow.$d.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"}));
+	const [ dateValue, setDateValue ] = useState(dateToText(tomorrow.$d));
     const [ isPaxVisible, setIsPaxVisible ] = useState(false);
     const [ isDateVisible, setIsDateVisible ] = useState(false);
 
     const handleClose = () => {
 		setPax(1);
-		setDateValue(null);
-		navigate(-1);
+		setDateValue(dateToText(tomorrow.$d));
+		//navigate(-1);
 	}
 
     const handlePax = (input) => {
@@ -170,14 +176,14 @@ const TourForm = ({ id }) => {
     };
     const handleDate = (input) => {
         //.toISOString().replace('000Z', '').split('T')[0]
-        setDateValue(input.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"}));
+        setDateValue(dateToText(input));
         setIsDateVisible(false);
         return;
     };
 
-	const handleAddToCart = () => {
+	const handleAddToCart = async() => {
 		if(dateValue !== null) {
-			addToCart(id, pax, dateValue);
+			await addToCart(id, pax, dateValue);
 			setShowCartSummary(true);
 			handleClose();
 		}

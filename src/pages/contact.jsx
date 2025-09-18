@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../styles/contact.css'
 import MainPhoto from '../assets/door.png'
-import { EnvelopeSimpleIcon, MapPinLineIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
+import { CopySimpleIcon, EnvelopeSimpleIcon, MapPinLineIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
 import { SkipPage } from '../components/buttons/skip-page'
 import { MotionRoute } from '../components/motions'
 
@@ -36,6 +36,10 @@ export const Contact = () => {
         console.log(result);
         resetState();
     }    
+
+    const copyToClip = async (text) => {
+        await navigator.clipboard.writeText(text);
+    };
 
     return (
         <MotionRoute>
@@ -77,7 +81,10 @@ export const Contact = () => {
                                 </span>
                                 <span className='contacts'>
                                     <h3>Email</h3>
-                                    <a href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
+                                    <div className='email'>
+                                        <a href='mailto:contact@exploremallorca.com'>contact@exploremallorca.com</a>
+                                        <CopySimpleIcon size={15} onClick={() => copyToClip('contact@exploremallorca.com')}/>
+                                    </div>
                                 </span>
                             </div>
 

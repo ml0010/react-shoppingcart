@@ -12,6 +12,7 @@ import { CartContext } from '../contexts/cart-context';
 import { MotionRoute } from '../components/motions';
 import { GobackButton } from '../components/buttons/goback-button';
 import { Checkout } from '../components/cart/checkout';
+import { TourRecommendation } from '../components/tour/tour-recommendation';
 
 export const Booking = () => {
     const { getTotalCartAmount, isGuestInfoCompleted, setIsGuestInfoCompleted } = useContext(CartContext);
@@ -127,6 +128,7 @@ export const Booking = () => {
                         <Checkout path={location.pathname}/>
                     </div>
                 </div>
+                <TourRecommendation />
                 <Faq />
             </div>
         </MotionRoute>

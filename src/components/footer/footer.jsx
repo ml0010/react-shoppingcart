@@ -1,5 +1,5 @@
 import './footer.css'
-import { XLogoIcon, InstagramLogoIcon, FacebookLogoIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
+import { XLogoIcon, InstagramLogoIcon, FacebookLogoIcon, WhatsappLogoIcon, CopySimpleIcon } from '@phosphor-icons/react'
 import { Link } from 'react-router-dom'
 
 export const Footer = () => {

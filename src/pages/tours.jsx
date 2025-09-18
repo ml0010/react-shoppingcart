@@ -15,7 +15,7 @@ import "swiper/css/scrollbar";
 import "swiper/css/pagination";
 import { LoadingIcon } from '../components/buttons/loading-icon'
 import { Link } from 'react-router-dom'
-import { CaretDownIcon, XIcon } from '@phosphor-icons/react'
+import { CaretDownIcon, MagnifyingGlassIcon, XIcon } from '@phosphor-icons/react'
 
 export const Tours = () => {
 
@@ -37,16 +37,15 @@ export const Tours = () => {
                         <h1>EXPLORE MALLORCA TOURS</h1>
                         <hr className='separator' />
                     </div>
-                    <SearchBox />
                     <div className='view-option'>
                         <button className='button' onClick={() => setIsViewOptionDefault(true)}>ALL TOURS</button>
                         <button className='button'  onClick={() => setIsViewOptionDefault(false)}>BY CATEGORY</button>
                     </div>
                     <div className='list-wrapper'>
-                    {isViewOptionDefault ? 
-                        <TourList /> :
-                        <ToursByCategory />
-                    }
+                        {isViewOptionDefault ? 
+                            <TourList /> :
+                            <ToursByCategory />
+                        }
                     </div>
                     <Faq />
                 </div>
@@ -103,27 +102,28 @@ const SearchBox = () => {
     return (
         <div className='search' ref={searchRef}>
             <div className='input-wrapper'>
+                <MagnifyingGlassIcon size={20} weight="bold" />
                 <input 
                     className='input' 
                     value={searchInput} 
                     placeholder='Search' 
                     onChange={(e)=>handleSearch(e.target.value)} 
                 />
-                {searchInput && <XIcon className='delete-icon' size={15} onClick={handleDeleteSearchInput}/>}
+                {searchInput && <XIcon size={15} weight="bold" onClick={handleDeleteSearchInput}/>}
             </div>
             <div className={`search-result ${searchResult.length > 0 ? 'visible' : 'hidden'}`}>
                 {isLoading && <LoadingIcon /> }
                 {searchResult.map((tour, index) => (
-                    <SearchResult tour={tour} index={index} />
+                    <SearchResult tour={tour} key={index} />
                 ))}
             </div>
         </div>
     )
 };
 
-const SearchResult = ({tour, index}) => {
+const SearchResult = ({tour}) => {
     return (
-        <Link className='item' key={index} to={`/tour-detail/${tour.id}`}>
+        <Link className='item' to={`/tour-detail/${tour.id}`}>
             <span className='detail'>
                 <img src={tour.img[0]}></img>
                 {tour.tourName}
@@ -231,7 +231,12 @@ const TourList = () => {
     const handleFilterReset = () => {
         setTourList(TOURS);
         setTourListFiltered(TOURS);
+        setLanguageList([]);
         setCategoryList([]);
+    };
+
+    const handleLanguageReset = () => {
+        setTourListFiltered(tourList);
         setLanguageList([]);
     };
 
@@ -253,8 +258,8 @@ const TourList = () => {
         <MotionRoute>
             <div className='list-all'>
                 <div className='filter-wrapper'>
+                    <SearchBox />
                     <div className='filter-list'>
-
                         {getCategory().map((category, index)=> {
                             return (
                                 <button 
@@ -276,12 +281,13 @@ const TourList = () => {
                             <span>{languageList.length !== 0 ? (languageList.length > 1 ? languageList[0] + ', +' + (languageList.length -1) + ' more' : languageList[0]) : 'Language'}</span>
                             <span><CaretDownIcon size={15} /></span>
                             <div className={`language-list ${isLanguageListOpen ? 'active' : 'closed'}`}>
-                                {getLanguage().map((language) => (
-                                    <div className='language'>
+                                {getLanguage().map((language, index) => (
+                                    <label className='language' key={index}>
                                         <input type='checkbox' checked={languageList.includes(language)} value={language} onChange={(e)=>handleLanguageList(e.target.value)}/>
                                         <p>{language}</p>
-                                    </div>
+                                    </label>
                                 ))}
+                                <div className='reset-button' onClick={handleLanguageReset}>Reset</div>
                             </div>
                         </button>
                         {(categoryList.length > 0 || languageList.length > 0) && 
@@ -355,7 +361,7 @@ const ToursByCategory = () => {
                 <div>
                     {getCategory().map((category, index)=> {
                         return (
-                            <div className='tour-by-category'> 
+                            <div className='tour-by-category' key={index}> 
                                 <p key={index} id={category} className={`category-name`}>
                                     {` ${category.charAt(0).toUpperCase() + category.slice(1)} (${TOURS.filter(tour => tour.category===category).length})`}
                                 </p>

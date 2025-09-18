@@ -33,6 +33,13 @@ export const CartSummary = () => {
         }
     }, [showCartSummary, handleShowCartSummary]);
    
+    useEffect(() => {
+        setTimeout(() => {
+            handleShowCartSummary();
+        }, 15000);
+    }, [showCartSummary]);
+
+
     return (
         <div className={`cartSummary ${showCartSummary? 'active' : 'inactive'}`} ref={cartSummaryRef}>
             <div className='header'>

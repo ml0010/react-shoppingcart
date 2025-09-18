@@ -1,19 +1,20 @@
 .cartSummary {
     background-color: rgba(255, 255, 255, 0.957);
     position: fixed;
-    top: 0px;
-    right: 0px;
+    top: 80px;
+    right: 10px;
     padding: 10px;
     width: 380px;
     z-index: 100;
-    color: var(--grey);
+    border-radius: 3px;
+    border: 1px solid var(--grey);
+    transition: 500ms ease-in-out;
 }
 
 .cartSummary.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    transition: 500ms ease;
 }
 .cartSummary.inactive{
     opacity: 0;

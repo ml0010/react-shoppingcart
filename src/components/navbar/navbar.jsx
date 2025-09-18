@@ -5,21 +5,17 @@ import { FacebookLogoIcon, InstagramLogoIcon, ListIcon, ShoppingBagIcon, UserCir
 import { CartContext } from '../../contexts/cart-context'
 import { AuthenticationContext } from '../../contexts/authentication-context'
 import { ScrollToTop } from '../buttons/scroll-to-top'
+import { CartSummary } from '../cart/cart-summary'
 
 export const Navbar = () => {
 
-    const { showCartSummary, setShowCartSummary, isButtonActive, setIsButtonActive } = useContext(CartContext);
+    const { showCartSummary, setShowCartSummary } = useContext(CartContext);
     const { isLoggedIn, navigate } = useContext(AuthenticationContext);
-    const [ scroll, setScroll ] = useState(false);
+    const [ isScrollDown, setIsScrollDown ] = useState(false);
     const [ menuOpen, setMenuOpen] = useState(false);
 
     const handleShowCartSummary = () => {
-        if(isButtonActive === true && showCartSummary === false) {
-            setIsButtonActive(false);
-            setShowCartSummary(true);
-        } else {
-            setIsButtonActive(true);
-        }
+        setShowCartSummary(!showCartSummary);
         //console.log("button clicked :" + isButtonActive);
         //console.log("cart show :" + showCartSummary);
     };
@@ -32,7 +28,7 @@ export const Navbar = () => {
     // scroll menu bar
     useEffect(() => {
         const handleChangeNavbar = () => {
-            window.pageYOffset > 250 ? setScroll(true) : setScroll(false);
+            window.pageYOffset > 250 ? setIsScrollDown(true) : setIsScrollDown(false);
         };
         window.addEventListener('scroll', handleChangeNavbar);
         return () => {
@@ -62,38 +58,61 @@ export const Navbar = () => {
         document.body.style.overflow = menuOpen ? 'hidden' : 'unset';
     }, [menuOpen]);
 
+    const cartRef = useRef();
+
+    useEffect(() => {
+        if(showCartSummary === true) {
+            let handler = (e)=>{
+                if(!cartRef.current.contains(e.target)){
+                    handleShowCartSummary();
+                    //console.log(cartSummaryRef.current);
+                }
+            };
+            document.addEventListener("mousedown", handler);
+            return() =>{
+                document.removeEventListener("mousedown", handler);
+            }
+        }
+    }, [showCartSummary, handleShowCartSummary]);
+
     return (
         <div className='navbar'>
             {menuOpen && <div className='backdrop'></div>}
-            <div className={`navbarWrapper ${scroll ? 'active' : 'inactive'} ${menuOpen ? 'menuOpen' : 'menuClosed'}`}>
-                <div className='backgroundGradient'></div>
+            <div className={`navbar-wrapper ${isScrollDown ? 'active' : 'inactive'} ${menuOpen ? 'menuOpen' : 'menuClosed'}`}>
+                <div className='background-gradient'></div>
                 <div className='links'>
-                    <button className={`menuBttn ${scroll ? 'menubar' : 'navbar'}`} onClick={handleMenuClick}><ListIcon size={33} /></button>
-                    <Link to='/home'>ABOUT</Link>
-                    <Link to='/tours'>TOURS</Link>
-                    <Link to='/contact'>CONTACT</Link>
+                    <div className={`link-icon menu-button ${isScrollDown ? 'navbar-inactive' : 'navbar-active'}`} onClick={handleMenuClick}><ListIcon size={33} /></div>
+                    <Link className='link' to='/home'>ABOUT</Link>
+                    <Link className='link' to='/tours'>TOURS</Link>
+                    <Link className='link' to='/contact'>CONTACT</Link>
                     {isLoggedIn? 
-                        <button className='loginBttn' onClick={()=>navigate('/mypage')}><UserCircleCheckIcon size={28} /></button> : 
-                        <button className='loginBttn' onClick={()=>navigate('/login')}><UserCircleIcon size={28} /></button>
+                        <button className='link-icon' onClick={()=>navigate('/mypage')}><UserCircleCheckIcon size={28} /></button> : 
+                        <button className='link-icon' onClick={()=>navigate('/login')}><UserCircleIcon size={28} /></button>
                     }
-                    <button className='cartSummaryBttn' disabled={!isButtonActive} onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
+                    <div ref={cartRef}>
+                        <button className='link-icon cart-summary-button' onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
+                        <CartSummary />
+                    </div>
                 </div>
             </div>
-            <div className='menubarWrapper' ref={menuRef}>
-                <div className={`menuContent ${menuOpen ? 'open' : 'closed'}`}>
+            <div className='menubar-wrapper' ref={menuRef}>
+                <div className={`menubar ${menuOpen ? 'open' : 'closed'}`}>
                     <button onClick={handleMenuClick}>
                         <XIcon size={15} weight="bold" />
                     </button>
-                    <span className='menuLinks'>
-                        <p className='menuTitle'>EXPLORE MALLORCA</p>
-                        <Link to='/home' onClick={handleMenuClick}> ABOUT </Link>
-                        <Link to='/tours' onClick={handleMenuClick}> TOURS </Link>
-                        <Link to='/contact' onClick={handleMenuClick}> CONTACT </Link>
-                        <Link to='/cart' onClick={handleMenuClick}> BASKET </Link>
-                        {isLoggedIn? <Link to='/mypage' onClick={handleMenuClick}> MY PAGE </Link> : <Link to='/login' onClick={handleMenuClick}> MY ACCOUNT </Link>}
-                        <Link to='/mybooking' onClick={handleMenuClick}> MY RESERVATION </Link>
+                    <span className='links'>
+                        <p className='menu-title'>EXPLORE MALLORCA</p>
+                        <Link className='link' to='/home' onClick={handleMenuClick}> ABOUT </Link>
+                        <Link className='link' to='/tours' onClick={handleMenuClick}> TOURS </Link>
+                        <Link className='link' to='/contact' onClick={handleMenuClick}> CONTACT </Link>
+                        <Link className='link' to='/cart' onClick={handleMenuClick}> BASKET </Link>
+                        {isLoggedIn? 
+                            <Link className='link' to='/mypage' onClick={handleMenuClick}> MY PAGE </Link> : 
+                            <Link className='link' to='/login' onClick={handleMenuClick}> MY ACCOUNT </Link>
+                        }
+                        <Link className='link' to='/mybooking' onClick={handleMenuClick}> MY RESERVATION </Link>
                     </span>
-                    <span className="socialMedia">
+                    <span className="social-media">
                         <a href='https://www.instagram.com' target='_blank' rel='noreferrer'><InstagramLogoIcon size={20} /></a>
                         <a href='https://www.facebook.com' target='_blank' rel='noreferrer'><FacebookLogoIcon size={20} /></a>
                         <a href='https://x.com' target='_blank' rel='noreferrer'><XLogoIcon size={20} /></a>

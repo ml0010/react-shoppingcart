@@ -1,4 +1,4 @@
-.cartSummary {
+.cart-summary {
     background-color: rgba(255, 255, 255, 0.957);
     position: fixed;
     top: 80px;
@@ -7,27 +7,27 @@
     width: 380px;
     z-index: 100;
     border-radius: 3px;
-    border: 1px solid var(--grey);
+    border: 1px solid var(--grey-light);
     transition: 500ms ease-in-out;
 }
 
-.cartSummary.active {
+.cart-summary.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
-.cartSummary.inactive{
+.cart-summary.inactive{
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
 }
-.cartSummary .header {
+.cart-summary .header {
     display: flex;
 }
-.cartSummary h1 {
+.cart-summary h1 {
     width: 100%;
 }
-.cartSummary .closeCartSummaryBttn {
+.cart-summary .closeCartSummaryBttn {
     width: 10%;
     background-color: transparent;
     color: var(--dark);
@@ -35,33 +35,44 @@
     position: absolute;
     right: 0;
 }
-.cartSummary .closeCartSummaryBttn:hover {
+.cart-summary .closeCartSummaryBttn:hover {
     cursor: pointer;
     color: var(--light);
     transition: 0.2s ease-in;
 }
-
-.cartSummary .total {
+.cart-summary .cart-summary-items {
+    display: flex;
+    flex-direction: column;
+}
+.cart-summary .cart-summary-items .cart-summary-item {
+    display: flex;
+    flex-direction: column;
+}
+.cart-summary .cart-summary-items .cart-summary-item .name {
+    font-size: 14px;
+    font-weight: 600;
+}
+.cart-summary .cart-summary-items .cart-summary-item .pax {
+}
+.cart-summary .cart-summary-items .cart-summary-item .date {
+}
+.cart-summary .total {
     font-weight: 600;
     margin: 15px;
     text-align: right;
 }
-.cartSummaryItem p {
-    font-size: 14px;
-    color: var(--grey);
-}
 
-.cartSummary h1 {
+.cart-summary h1 {
     font-size: 25px;
     font-family: var(--font1);
     color: var(--grey);
 }
 
-.cartSummary a {
+.cart-summary a {
     text-decoration: none;
 }
 
-.cartSummary .separator {
+.cart-summary .separator {
     height: 1px;
     background-color: var(--grey);
     border: none;
@@ -72,7 +83,7 @@
 @media only screen and (max-width: 900px) {
 }
 @media only screen and (max-width: 600px) {
-    .cartSummary {
+    .cart-summary {
         width: 100%;
         height: 100%;
         padding: 0px;

@@ -7,62 +7,36 @@ import './cart-summary.css'
 
 export const CartSummary = () => {
 
-    const { showCartSummary, setShowCartSummary, setIsButtonActive, cartItems, getTotalCartAmount } = useContext(CartContext);
+    const { showCartSummary, setShowCartSummary, cartItems, getTotalCartAmount } = useContext(CartContext);
     
     const totalAmount = getTotalCartAmount();
 
     const handleShowCartSummary = useCallback(() => {
         setShowCartSummary(false);
-        setIsButtonActive(true);
-    }, [setIsButtonActive, setShowCartSummary]);
-
-    let cartSummaryRef = useRef();
-
-    useEffect(() => {
-        if(showCartSummary === true) {
-            let handler = (e)=>{
-                if(!cartSummaryRef.current.contains(e.target)){
-                    handleShowCartSummary();
-                    //console.log(cartSummaryRef.current);
-                }
-            };
-            document.addEventListener("mousedown", handler);
-            return() =>{
-                document.removeEventListener("mousedown", handler);
-            }
-        }
-    }, [showCartSummary, handleShowCartSummary]);
-   
-    useEffect(() => {
-        setTimeout(() => {
-            handleShowCartSummary();
-        }, 15000);
-    }, [showCartSummary]);
-
+    }, [setShowCartSummary]);
 
     return (
-        <div className={`cartSummary ${showCartSummary? 'active' : 'inactive'}`} ref={cartSummaryRef}>
+        <div className={`cart-summary ${showCartSummary? 'active' : 'inactive'}`} >
             <div className='header'>
                 <h1>Your Basket</h1>
                 <button className='closeCartSummaryBttn' onClick={handleShowCartSummary}><XIcon size={15} /></button>
             </div>
+            <hr className='separator'/>
             {totalAmount > 0 ? (
-            <div className='cartSummaryItems'>
-                <hr className='separator'/>
-                <div className='cartSummaryItem'>
-                    {TOURS.map((tour, index) => {
-                        if (cartItems[tour.id]["pax"] > 0) {
-                            //console.log(cartItems[tour.id]);
-                            return (
-                                <div key={index}>
-                                    <p><b>{tour.tourName}</b> X {cartItems[tour.id]["pax"]}</p>
-                                    <p>Date: {cartItems[tour.id].date}</p>
-                                    <hr className='separator' />
-                                </div>
-                            );
-                        } else { return null; }
-                    })}
-                </div>
+            <div className='cart-summary-items'>
+                {TOURS.map((tour, index) => {
+                    if (cartItems[tour.id]["pax"] > 0) {
+                        //console.log(cartItems[tour.id]);
+                        return (
+                            <div className='cart-summary-item' key={index}>
+                                <span className='name'>{tour.tourName}</span>
+                                <span className='pax'>X {cartItems[tour.id]["pax"]}</span>
+                                <span className='date'>Date: {cartItems[tour.id].date}</span>
+                                <hr className='separator' />
+                            </div>
+                        );
+                    } else { return null; }
+                })}
                 <p className='total'>Total: {totalAmount} €</p>
             </div>) : (
             <>

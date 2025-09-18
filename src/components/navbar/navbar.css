@@ -2,7 +2,19 @@
     font-family: var(--font3);
     z-index: 10;
 }
-.backgroundGradient {
+.navbar .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backdrop);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+.navbar .background-gradient {
     width: 100%;
     height: 90px;
     position: fixed;
@@ -11,7 +23,14 @@
     opacity: 70%;
 }
 
-.navbar .links {
+.navbar .navbar-wrapper.active .links{
+    top: -80px;
+}
+.navbar .navbar-wrapper.menuOpen .links{
+    top: -80px;
+}
+
+.navbar .navbar-wrapper .links {
     width: 100%;
     height: 60px;    
     position: fixed;
@@ -22,26 +41,31 @@
     border-bottom: 1px solid var(--cream);
     transition: 0.5s ease-in-out;
 }
-
-
-.links:hover {
+.navbar .navbar-wrapper .links:hover {
     background-color: var(--cream);
     color: var(--dark);
     border-bottom: 1px solid black;
     transition: 0.2s ease-in-out;
 }
 
-.links:hover a {
+/* hamburger button */
+.navbar .navbar-wrapper .links .menu-button {
+    position: fixed;
+    left: 3vw;
+    top: 13px;
+    transition: 0.5s ease-in-out;
+}
+.navbar .navbar-wrapper .links .menu-button.navbar-inactive:hover {
+    color: var(--cream);
+}
+
+/* link and buttons */
+.navbar .navbar-wrapper .links:hover .link, .navbar .navbar-wrapper .links:hover button {
     transition: 0.2s ease-in-out;
     color: var(--dark);
 }
 
-.links:hover button {
-    transition: 0.2s ease-in-out;
-    color: var(--dark);
-}
-
-.links a {
+.navbar .navbar-wrapper .links .link {
     margin-right: 40px;
     font-size: 15px;
     text-decoration: none;
@@ -50,69 +74,56 @@
     letter-spacing: 0.2em;
 }
 
-.links a:hover {
+.navbar .navbar-wrapper .links .link:hover {
     color: var(--light);
     border-bottom: var(--light) 0.125em solid;
     transition: 0.2s ease-in-out;
 }
 
-.links button {
+.navbar .navbar-wrapper .links .link-icon {
     color: var(--cream);
     background-color: transparent;
     cursor: pointer;
     border: none;
 }
 
-.links button:hover {
+.navbar .navbar-wrapper .links .link-icon:hover {
     color: var(--light);
     transition: 0.2s ease-in-out;
 }
-.links .menuBttn {
-    position: fixed;
-    left: 3vw;
-    top: 10px;
-    transition: 0.5s ease-in-out;
-}
-.menuBttn.menubar:hover {
-    color: var(--cream);
-}
-.links .cartSummaryBttn {
-    margin-right: 3vw;
+
+.navbar .navbar-wrapper .links .cart-summary-button {
+    margin-right: 2vw;
     width: 40px;
     height: 40px;
 }
 
-.navbarWrapper.active .links{
-    top: -80px;
-}
-.navbarWrapper.menuOpen .links{
-    top: -80px;
-}
-
-.menuContent {
+.navbar .menubar {
     position: fixed;
     top: 0px;
     height: 100%;
     width: 370px;
-    left: -400px;
+    left: -800px;
     transition: 0.5s ease-in-out;
     background-color: var(--cream);
     opacity: 0;
-
 }
-.menuContent.open {
+.navbar .menubar.open {
     opacity: 1;
     left: 0px;
     z-index: 100;
     overflow: hidden;
 }
-.menuContent .menuTitle {
+.navbar .menubar.open {
+    pointer-events: none;
+}
+.navbar .menubar .menu-title {
     color: var(--light);
     font-size: 40px;
     font-weight: 500;
     margin-top: 0px;
 }
-.menuContent button {
+.navbar .menubar button {
     float: right;
     padding: 10px;
     transition: 0.5s ease-in-out;
@@ -120,11 +131,11 @@
     background-color: transparent;
     border: none;
 }
-.menuContent button:hover {
+.navbar .menubar button:hover {
     color: var(--light);
 }
 
-.menuContent .menuLinks {
+.navbar .menubar .links {
     padding-top: 50px;
     padding-left: 30px;
     display: flex;
@@ -132,7 +143,7 @@
     align-items: center;
 }
 
-.menuContent .menuLinks a {
+.navbar .menubar .links .link {
     padding-top:23px;
     font-size: 16px;
     font-weight: 500;
@@ -143,7 +154,7 @@
     display: inline-block;
     position: relative;
 }
-.menuContent .menuLinks a::after {
+.navbar .menubar .links .link::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -156,28 +167,16 @@
     transform-origin: bottom right;
 }
 
-.menuContent .menuLinks a:hover{
+.navbar .menubar .links .link:hover{
     transition: 0.15s ease-in-out;
 }
 
-.menuContent .menuLinks a:hover::after {
+.navbar .menubar .links .link:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-.backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--backdrop);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-}
 
-.navbar .socialMedia {
+.navbar .social-media {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -185,8 +184,7 @@
     position: absolute;
     bottom: 30px;
 }
-.navbar .socialMedia svg {
-    color: var(--grey);
+.navbar .social-media svg {
     margin: 15px;
     cursor: pointer;
 }
@@ -197,19 +195,19 @@
 }
   
 @media only screen and (max-width: 600px) {
-    .links a {
+    .navbar .navbar-wrapper .links .link {
         display: none;
     }
 }
   
 @media only screen and (max-width: 600px) {
-    .navbar .menuContent {
+    .navbar .menubar {
         width: 100%;
     }
-    .navbar .menuContent .menuTitle {
+    .navbar .menubar .menu-title {
         font-size: 33px;
     }
-    .menuContent .menuLinks a {
+    .navbar .menubar .links a {
         padding-top:23px;
         font-size: 18px;
         font-weight: 500;
@@ -221,7 +219,7 @@
 
 }
 @media only screen and (max-height: 600px) {
-    .socialMedia {
+    .navbar .social-media {
         display: none;
     }
 }

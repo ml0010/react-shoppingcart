@@ -4,7 +4,6 @@ import { Navbar } from './components/navbar/navbar';
 import { Footer } from './components/footer/footer.jsx';
 
 import { CartContextProvider } from './contexts/cart-context.jsx';
-import { CartSummary } from './components/cart/cart-summary.jsx';
 import { useLayoutEffect } from 'react';
 
 import { BookingContextProvider } from './contexts/booking-context.jsx';
@@ -37,7 +36,6 @@ function App() {
                             </PaymentContextProvider>
                             <Footer />
                             <Navbar />
-                            <CartSummary />
                         </BookingContextProvider>
                     </CartContextProvider>
                 </AuthenticationContextProvider>

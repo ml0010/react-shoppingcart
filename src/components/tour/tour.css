@@ -19,13 +19,11 @@
 
 .tour .tour-detail {
     position: relative;
-    width: 80%;
-}
-.tour .tour-detail .top {
-    min-height: 75px;
-}
-.tour .tour-detail .bottom {
-    margin: 15px 0;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .tour .name {
     font-size: 18px;

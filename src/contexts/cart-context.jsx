@@ -1,15 +1,13 @@
-import React, { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { TOURS } from '../tourlist';
 
 export const CartContext =  createContext(null);
 
-
 export const CartContextProvider = (props) => {
 
     const [ showCartSummary, setShowCartSummary ] = useState(false);
-    const [ isButtonActive, setIsButtonActive ] = useState(true);
     const [ isGuestInfoCompleted, setIsGuestInfoCompleted ] = useState(false);
-
+    const [ isCartSummaryTimerSet, setIsCartSummaryTimerSet ] = useState(false);
 
     const defaultValue = {pax: 0, date: null};
 
@@ -22,8 +20,18 @@ export const CartContextProvider = (props) => {
     }
     const [cartItems, setCartItems] = useState(cartDefault);
 
+    useEffect(() => {
+        setTimeout(() => {
+            if(isCartSummaryTimerSet === true) {
+                setShowCartSummary(false);
+                setIsCartSummaryTimerSet(false);
+            }
+        }, 10000);
+    }, [isCartSummaryTimerSet]);
+
     const addToCart = (tourId, paxValue, dateValue) => {
         setCartItems((prev) => ({...prev, [tourId]: {pax: paxValue, date: dateValue}}));
+        setIsCartSummaryTimerSet(true);
     }    
     /*
     const removeFromCart = (tourId) => {
@@ -96,7 +104,7 @@ export const CartContextProvider = (props) => {
 
 
     
-    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, getCartItemNumber, showCartSummary, setShowCartSummary, isButtonActive, setIsButtonActive, changePax, changeDate, isGuestInfoCompleted, setIsGuestInfoCompleted, getCartList, cartDefault };
+    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, getCartItemNumber, showCartSummary, setShowCartSummary, changePax, changeDate, isGuestInfoCompleted, setIsGuestInfoCompleted, getCartList, cartDefault };
 
     return (
         <CartContext.Provider value={contextValue}>{props.children}</CartContext.Provider>

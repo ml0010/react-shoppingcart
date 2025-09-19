@@ -15,10 +15,12 @@
     transition: 0.5s ease-in-out;
     padding: 15px;
     box-shadow: 1px 1px 10px 3px rgba(175, 175, 175, 0.169);
+    pointer-events: none;
 }
 .popup-message.active {
     right: 50%;
     opacity: 0.9;
+    pointer-events: unset;
 }
 .popup-message.active:hover {
     opacity: 1;

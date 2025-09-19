@@ -6,16 +6,20 @@ import { GobackButton } from '../components/buttons/goback-button';
 import { GearIcon, SignOutIcon } from '@phosphor-icons/react';
 import { Faq } from '../components/faq/faq';
 import { TourRecommendation } from '../components/tour/tour-recommendation';
+import { PopupContext } from '../contexts/popup-context';
 
 export const MyPage = () => {
     const { user, logout, navigate } = useContext(AuthenticationContext);
+    const { showPopupMessage } = useContext(PopupContext);
+
     const [ name, setName ] = useState(user.name);
     const [ booking, setBooking ] = useState([...user.booking]);
     
     useEffect(()=>{
         setName(user.name);
         setBooking([...user.booking]);
-    }, [user]);
+        showPopupMessage(`Welcome back, ${user.name}!`, 'positive');
+    }, []);
 
     return (
         <div className='mypage'>

@@ -6,6 +6,7 @@ import './popup-message.css';
 export const PopupMessage = () => {
 
     const { isMessageActive, setIsMessageActive, text, type } = useContext(PopupContext);
+    
     const popupRef = useRef();
 
     useEffect(() => {

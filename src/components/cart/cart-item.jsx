@@ -8,12 +8,14 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { LoadingIcon } from '../buttons/loading-icon';
 import { Link } from 'react-router-dom';
+import { PopupContext } from '../../contexts/popup-context';
 
 
 export const CartItem = (props) => {
     const { id, tourName, img, price } = props.data;
     const { cartItems, deleteFromCart, changePax, changeDate } = useContext(CartContext);
-
+    const { showPopupMessage } = useContext(PopupContext);
+    
     const [ isLoading, setIsLoading ] = useState(true);
     const [ isDateChange, setIsDateChange ] = useState(false);
     
@@ -38,14 +40,19 @@ export const CartItem = (props) => {
         changeDate(id, date);
         setIsDateChange(false);
         setIsLoading(true);
+        showPopupMessage(`Date Modified - ${tourName}`, 'positive');
     };
     const handlePaxChange = (action) => {
         changePax(id, action, paxMin, paxMax);
         setIsLoading(true);
+        showPopupMessage(`Number of Guests Modified - ${tourName}`, 'positive');
     };
     const handleDelete = () => {
         setIsLoading(true);
-        setTimeout(() => deleteFromCart(id), 400);
+        setTimeout(() => {
+            showPopupMessage(`Deleted - ${tourName}`, 'positive');
+            deleteFromCart(id)
+        }, 400);
     };
 
     let dateRef = useRef(null);

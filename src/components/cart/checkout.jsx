@@ -32,7 +32,7 @@ export const Checkout = ({ path }) => {
 
     return (
         <div className='checkout-wrapper'>
-            {isLoading && <LoadingIcon />}
+        {isLoading && <LoadingIcon />}
         <div className='checkout'>
             
             {path !== '/cart' &&

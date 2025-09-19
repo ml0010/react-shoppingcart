@@ -13,6 +13,7 @@ import dayjs from 'dayjs';
 import { TourRecommendation } from './tour-recommendation';
 import { Faq } from '../faq/faq';
 import axios from 'axios';
+import { PopupContext } from '../../contexts/popup-context';
 
 export const TourInfo = ({ data }) => {
     
@@ -150,9 +151,9 @@ const TourForm = ({ id }) => {
     const dateToText = (date) => {
         return date.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"});
     };
-    const navigate = useNavigate();
 
     const { addToCart, setShowCartSummary } = useContext(CartContext);
+    const { showPopupMessage } = useContext(PopupContext);
 
     const paxMin = 1;
     const paxMax = 12;
@@ -186,6 +187,7 @@ const TourForm = ({ id }) => {
 			await addToCart(id, pax, dateValue);
 			setShowCartSummary(true);
 			handleClose();
+            showPopupMessage('Added to basket', 'positive');
 		}
 	}
 

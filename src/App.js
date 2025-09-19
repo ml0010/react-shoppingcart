@@ -2,15 +2,13 @@ import './App.css';
 import { BrowserRouter, useLocation } from 'react-router-dom';
 import { Navbar } from './components/navbar/navbar';
 import { Footer } from './components/footer/footer.jsx';
-
 import { CartContextProvider } from './contexts/cart-context.jsx';
 import { useLayoutEffect } from 'react';
-
 import { BookingContextProvider } from './contexts/booking-context.jsx';
 import { AuthenticationContextProvider } from './contexts/authentication-context.jsx';
-
-import { PaymentContextProvider } from './contexts/payment-context.jsx';
 import { RoutesWithAnimation } from './components/routes.jsx';
+import PopupMessage from './components/popup/popup-message.js';
+import { PopupContextProvider } from './contexts/popup-context.jsx';
 
 function App() {
     
@@ -29,13 +27,14 @@ function App() {
                 <AuthenticationContextProvider>
                     <CartContextProvider>
                         <BookingContextProvider>
-                            <PaymentContextProvider>
+                            <PopupContextProvider>
                                 <PageTopWrapper>
                                     <RoutesWithAnimation />
                                 </PageTopWrapper>
-                            </PaymentContextProvider>
-                            <Footer />
-                            <Navbar />
+                                <Footer />
+                                <Navbar />
+                                <PopupMessage />
+                            </PopupContextProvider>
                         </BookingContextProvider>
                     </CartContextProvider>
                 </AuthenticationContextProvider>

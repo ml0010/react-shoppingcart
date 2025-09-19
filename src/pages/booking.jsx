@@ -13,12 +13,14 @@ import { MotionRoute } from '../components/motions';
 import { GobackButton } from '../components/buttons/goback-button';
 import { Checkout } from '../components/cart/checkout';
 import { TourRecommendation } from '../components/tour/tour-recommendation';
+import { PopupContext } from '../contexts/popup-context';
 
 export const Booking = () => {
     const { getTotalCartAmount, isGuestInfoCompleted, setIsGuestInfoCompleted } = useContext(CartContext);
     const { user, isLoggedIn } = useContext(AuthenticationContext);
     const { name, setName, email, setEmail, phone, setPhone, comment, setComment } = useContext(BookingContext);
     const { setAmount, setReference } = useContext(PaymentContext);
+    const { showPopupMessage } = useContext(PopupContext);
     
     const [ isLoginOpen, setIsLoginOpen ] = useState(false);
 
@@ -33,6 +35,12 @@ export const Booking = () => {
         setEmail(user.email);
         setPhone(user.telephone);
     }, [user]);
+
+    useEffect(() => {
+        if (name && email && phone) {
+            showPopupMessage('Click Payment button and complete your reservation.', 'positive');
+        }
+    });
 
     const generateBookingReference = (digits) => {
         let str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXZ';

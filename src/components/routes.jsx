@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation, Navigate } from "react-router-dom"
+import { Routes, Route, useLocation, Navigate, Outlet } from "react-router-dom"
 import Home from "../pages/home";
 import Tours from "../pages/tours";
 import Contact from "../pages/contact";
@@ -13,6 +13,7 @@ import BookingSearch from "../pages/booking-search";
 import { AnimatePresence } from "framer-motion";
 import { TourInfo } from "./tour/tour-info";
 import { TOURS } from "../tourlist";
+import { PaymentContextProvider } from "../contexts/payment-context";
 
 export const RoutesWithAnimation = () => {
 
@@ -26,8 +27,10 @@ export const RoutesWithAnimation = () => {
                 <Route path='/tours' element={<Tours />} />
                 <Route path='/tour-detail' element={<TourInfo />} />
                 <Route path='/contact' element={<Contact />} />
-                <Route path='/cart' element={<Cart />} />
-                <Route path='/booking' element={<Booking />} />
+                <Route element={<PaymentContextLayout />}>
+                    <Route path='/cart' element={<Cart />} />
+                    <Route path='/booking' element={<Booking />} />
+                </Route>
                 <Route path='/confirmation' element={<BookingConfirmation />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/join' element={<Join />} />
@@ -42,3 +45,11 @@ export const RoutesWithAnimation = () => {
         </AnimatePresence>
     )
 }
+
+const PaymentContextLayout = () => {
+    return (
+        <PaymentContextProvider>
+            <Outlet />
+        </PaymentContextProvider>
+    );
+};

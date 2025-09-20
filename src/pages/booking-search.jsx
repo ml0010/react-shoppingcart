@@ -6,11 +6,10 @@ import { BookingContext } from '../contexts/booking-context';
 import { LoadingIcon } from '../components/buttons/loading-icon';
 
 export const BookingSearch = () => {
+    const { searchFailed, setSearchFailed, navigate, checkBookingReference } = useContext(BookingContext);
 
     const [ bookingReference, setBookingReference ] = useState("");
     const [ isSubmit, setIsSubmit ] = useState(false);
-
-    const { searchFailed, setSearchFailed, navigate, checkBookingReference } = useContext(BookingContext);
 
     const location = useLocation();
 

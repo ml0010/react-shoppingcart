@@ -36,7 +36,7 @@ export const MyAccount = () => {
         if(isEditEmail) {
             await editEmail(user.username, newEmail);
             setIsLoading(true);
-            setMessage('YOUR EMAIL ADDRESS IS UPDATED');
+            //setMessage('YOUR EMAIL ADDRESS IS UPDATED');
             showPopupMessage('Email address updated', 'positive');
         }
         setIsEditEmail(!isEditEmail);
@@ -48,7 +48,7 @@ export const MyAccount = () => {
         if(isEditPhone) {
             await editPhone(user.username, newPhone);
             setIsLoading(true);
-            setMessage('YOUR TELEPHONE IS UPDATED');
+            //setMessage('YOUR TELEPHONE IS UPDATED');
             showPopupMessage('Telephone updated', 'positive');
 
         }
@@ -61,20 +61,20 @@ export const MyAccount = () => {
         if(isEditPassword) {
             if (!(newPassword.length > 3 && newPasswordRepeat.length > 3 )) {
                 showPopupMessage('Password - 4 letters or more', 'negative');
-                setMessage("PASSWORD MINIMUM 4 LETTERS");
+                //setMessage("PASSWORD MINIMUM 4 LETTERS");
                 return;
             } else if (!await checkPassword(user.username, currentPassword)) {
                 showPopupMessage('Incorrect current password', 'negative');
-                setMessage("YOUR CURRENT PASSWORD IS NOT CORRECT");
+                //setMessage("YOUR CURRENT PASSWORD IS NOT CORRECT");
                 return;
             } else if (newPassword !== newPasswordRepeat) {
                 showPopupMessage('New passwords do not match', 'negative');
-                setMessage("YOUR NEW PASSWORDS DO NOT MATCH");
+                //setMessage("YOUR NEW PASSWORDS DO NOT MATCH");
                 return;
             }
             await editPassword(user.username, newPassword);
             setIsLoading(true);
-            setMessage('YOUR PASSWORD IS UPDATED');
+            //setMessage('YOUR PASSWORD IS UPDATED');
             showPopupMessage('Password updated', 'positive');
 
             setCurrentPassword('');
@@ -103,12 +103,12 @@ export const MyAccount = () => {
                         <h3 className='categoty-title'>Email</h3>
                         <div className='content'>
                             <input className={`input ${isEditEmail ? 'edit' : ''}`} disabled={!isEditEmail} value={newEmail} onChange={(e)=>setNewEmail(e.target.value)}></input>
-                            <button onClick={()=>handleEditEmail()}>{isEditEmail? 'SAVE' : 'EDIT'}</button>
+                            <button className='edit-button' onClick={()=>handleEditEmail()}>{isEditEmail? 'SAVE' : 'EDIT'}</button>
                         </div>
                         <h3 className='categoty-title'>Telephone</h3>
                         <div className='content'>
                             <input className={`input ${isEditPhone ? 'edit' : ''}`} disabled={!isEditPhone} value={newPhone} onChange={(e)=>setNewPhone(e.target.value)}></input>
-                            <button onClick={()=>handleEditPhone()}>{isEditPhone? 'SAVE' : 'EDIT'}</button>
+                            <button className='edit-button' onClick={()=>handleEditPhone()}>{isEditPhone? 'SAVE' : 'EDIT'}</button>
                         </div>
                         <h3 className='categoty-title'>Password</h3>
                         <div className='content'>
@@ -119,7 +119,7 @@ export const MyAccount = () => {
                                 <input className='input edit' type='password' placeholder='Repeat New Password' minLength={4} value={newPasswordRepeat} onChange={(e)=>setNewPasswordRepeat(e.target.value)}></input>
                             </form> :
                             <ProhibitIcon size={23} />}
-                            <button onClick={()=>handleEditPassword()}>{isEditPassword? 'SAVE' : 'EDIT'}</button>
+                            <button className='edit-button' onClick={()=>handleEditPassword()}>{isEditPassword? 'SAVE' : 'EDIT'}</button>
                         </div>
                     </div>
                     <p className='errorMsg'>{message}</p>

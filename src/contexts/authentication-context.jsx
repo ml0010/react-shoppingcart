@@ -1,9 +1,13 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { PopupContext } from './popup-context';
 
 export const AuthenticationContext = createContext();
 
 export const AuthenticationContextProvider = (props) => {
+
+    const { showPopupMessage } = useContext(PopupContext);
+
     const [ user, setUser ] = useState({
                             name: "",
                             email: "",
@@ -167,13 +171,16 @@ export const AuthenticationContextProvider = (props) => {
             setUser((prev) => ({...prev, name: data.name, email: data.email, telephone: data.telephone, username: data.username, booking: data.booking}));
             //setToken(response.token);
             //console.log(data);
-            console.log('LOGIN SUCCESSFUL: ' + data.username);
+            //console.log('LOGIN SUCCESSFUL: ' + data.username);
+            showPopupMessage(`Welcome back, ${data.name}!`, 'positive');
             if(path === '/login') {
                 navigate('/mypage');
             }
         } catch (err) {
             //console.log(err);
             setLoginFailed(true);
+            showPopupMessage(`Login failed`, 'negative');
+
             console.log('LOGIN FAILED');
         }
     }

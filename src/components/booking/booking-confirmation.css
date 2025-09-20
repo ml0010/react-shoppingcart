@@ -14,22 +14,22 @@
 .confirmation h2 {
     font-size: 23px;
 }
-.confirmation .booking-info {
+.confirmation .booking-info-wrapper {
     background-color: var(--background);
     box-shadow: 3px 3px 7px 4px rgba(142, 142, 142, 0.169);
     border-radius: 3px;
     border: 1px solid var(--grey-light);
-    margin: 20px;
-    padding: 10px 0;
     min-width: 700px;
     position: relative;
-    overflow: hidden;
+    margin: 20px;
+}
+.confirmation .booking-info {
+    padding: 15px;
 }
 .confirmation .booking-info .category {
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 20px;
     font-size: 16px;
 }
 .confirmation .booking-info .category .category-title-wrapper {
@@ -96,10 +96,12 @@
 @media only screen and (max-width: 1300px) {
 }
 @media only screen and (max-width: 900px) {
-    .confirmation .booking-info {
+    .confirmation .booking-info-wrapper {
         width: 90vw;
-        margin: 10px;
         min-width: 0;
+    }
+    .confirmation .booking-info {
+        margin: 10px;
     }
 }
 @media only screen and (max-width: 600px) {

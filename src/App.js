@@ -24,20 +24,20 @@ function App() {
     return (
         <div className="App">
             <BrowserRouter basename="/react-shoppingcart">
-                <AuthenticationContextProvider>
-                    <CartContextProvider>
-                        <BookingContextProvider>
-                            <PopupContextProvider>
-                                <PageTopWrapper>
-                                    <RoutesWithAnimation />
-                                </PageTopWrapper>
-                                <Footer />
-                                <Navbar />
-                                <PopupMessage />
-                            </PopupContextProvider>
-                        </BookingContextProvider>
-                    </CartContextProvider>
-                </AuthenticationContextProvider>
+                <PopupContextProvider>
+                    <AuthenticationContextProvider>
+                        <CartContextProvider>
+                            <BookingContextProvider>
+                                    <PageTopWrapper>
+                                        <RoutesWithAnimation />
+                                    </PageTopWrapper>
+                                    <Footer />
+                                    <Navbar />
+                                    <PopupMessage />
+                            </BookingContextProvider>
+                        </CartContextProvider>
+                    </AuthenticationContextProvider>
+                </PopupContextProvider>
             </BrowserRouter>
         </div>
     );

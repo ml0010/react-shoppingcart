@@ -26,10 +26,19 @@
     opacity: 1;
 
 }
+.popup-message svg {
+    margin: 0 10px;
+}
 .popup-message .icon {
     position: absolute;
     left: 0;
     margin: 5px;
+}
+.popup-message .icon .positive {
+    color: rgba(0, 128, 0, 0.616);
+}
+.popup-message .icon .nagative {
+    color: rgba(206, 11, 11, 0.666);
 }
 .popup-message .text {
     font-size: 15px;

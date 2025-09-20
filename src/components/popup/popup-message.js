@@ -1,4 +1,4 @@
-import { CheckCircleIcon, WarningDiamondIcon, XIcon } from '@phosphor-icons/react';
+import { CheckCircleIcon, WarningIcon, XIcon } from '@phosphor-icons/react';
 import { useContext, useEffect, useRef } from 'react';
 import { PopupContext } from '../../contexts/popup-context';
 import './popup-message.css';
@@ -26,11 +26,11 @@ export const PopupMessage = () => {
     return (
         <div className={`popup-message ${isMessageActive ? 'active' : 'inactive'}`} ref={popupRef}>
             <span className='icon'>
-                {type === 'positive' ? <CheckCircleIcon size={20} /> : <WarningDiamondIcon size={20} />}
+                {type === 'positive' ? <CheckCircleIcon className='positive' size={20} weight='fill' /> : <WarningIcon size={20} className='nagative' weight='fill' />}
             </span>
             <span className='text'>{text}</span>
             <span className='close-button' onClick={() => setIsMessageActive(false)}>
-                <XIcon size={15} />
+                <XIcon size={15} weight="bold" />
             </span>
         </div>
     )

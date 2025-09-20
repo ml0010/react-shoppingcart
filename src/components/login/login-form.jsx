@@ -4,10 +4,12 @@ import { AuthenticationContext } from '../../contexts/authentication-context';
 import { SirenIcon, UserListIcon } from '@phosphor-icons/react';
 import { useLocation } from 'react-router-dom';
 import { LoadingIcon } from '../buttons/loading-icon';
+import { PopupContext } from '../../contexts/popup-context';
 
 export const LoginForm = () => {
 
     const { login, navigate, loginFailed, setLoginFailed } = useContext(AuthenticationContext);
+    const { showPopupMessage } = useContext(PopupContext);
     
     const [ input, setInput ] = useState({username: "", password: ""});
     const [ message, setMessage ] = useState("");
@@ -22,6 +24,7 @@ export const LoginForm = () => {
         
     useEffect(()=>{
         if(loginFailed) {
+            showPopupMessage(`Incorrect login detail`, 'nagative');
             setMessage('INCORRECT LOGIN INFORMATION');
         }
     },[loginFailed]);
@@ -39,6 +42,7 @@ export const LoginForm = () => {
         if(input.username !== "" && input.password !== "" ) {
             return true;
         } else {
+            showPopupMessage(`Please fill in the form`, 'nagative');
             setMessage('PLEASE FILL IN THE FORM');
             return false;
         }

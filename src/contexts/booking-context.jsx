@@ -1,11 +1,15 @@
 import { createContext, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthenticationContext } from './authentication-context';
+import { PopupContext } from './popup-context';
 
 export const BookingContext =  createContext(null);
 
 export const BookingContextProvider = (props) => {
 
+    const { isLoggedIn, refreshUserInfo } = useContext(AuthenticationContext);
+    const { showPopupMessage } = useContext(PopupContext);
+   
     const [ searchFailed, setSearchFailed ] = useState(false);
 
     const [name, setName] = useState("");
@@ -13,8 +17,7 @@ export const BookingContextProvider = (props) => {
     const [phone, setPhone] = useState("");
     const [comment, setComment] = useState("");
 
-    const { isLoggedIn, refreshUserInfo } = useContext(AuthenticationContext);
-    
+ 
     const navigate = useNavigate();
 
     const resetBookingInfo = () => {
@@ -39,6 +42,8 @@ export const BookingContextProvider = (props) => {
         }
         catch (err) {
             //console.log(err);
+            showPopupMessage('Incorrect booking reference', 'negative');
+            setSearchFailed(true);
             return false;
         }
     };
@@ -49,7 +54,6 @@ export const BookingContextProvider = (props) => {
             const data = await response.json();
             if(data === null) { 
                 console.log("Booking reference not found");
-                setSearchFailed(true);
                 return null;
             } else {
                 return data;
@@ -97,6 +101,7 @@ export const BookingContextProvider = (props) => {
             const response = await fetch(`https://react-shoppingcart-q31i.onrender.com/confirmation/${reference}/delete`, {mode:'cors'});
             //console.log(response);
             refreshUserInfo();
+            showPopupMessage(`Booking Canceled - ${reference}`, 'negative');
             if(isLoggedIn) {
                 navigate('/mypage');
             } else {

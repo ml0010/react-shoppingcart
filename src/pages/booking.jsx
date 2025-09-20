@@ -36,11 +36,6 @@ export const Booking = () => {
         setPhone(user.telephone);
     }, [user]);
 
-    useEffect(() => {
-        if (name && email && phone) {
-            showPopupMessage('Click Payment button and complete your reservation.', 'positive');
-        }
-    });
 
     const generateBookingReference = (digits) => {
         let str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXZ';

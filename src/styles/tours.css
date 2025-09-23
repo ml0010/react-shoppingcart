@@ -33,32 +33,39 @@
     margin: 0 5px;
 }
 .tours .search .search-result {
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    align-items: start;
     position: absolute;
     z-index: 10;
     background-color: white;
     border-radius: 3px;
-    padding: 5px 10px;
     min-width: 100%;
 }
 .tours .search .search-result.hidden {
     opacity: 0;
 }
-.tours .search .search-result .item {
+.tours .search .search-result .result-list {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: start;
+    padding: 10px 20px;
+
+}
+.tours .search .search-result .result-list .item {
     width: 100%;
 }
-.tours .search .search-result .item .detail {
+.tours .search .search-result .result-list .item .detail {
     display: flex;
     text-align: left;
 }
-.tours .search .search-result .item img {
+.tours .search .search-result .result-list .item img {
     width: 40px;
     height: 40px;
     border-radius: 8px;
     margin-right: 10px;
+}
+.tours .search .search-result .result-list .empty-list {
+    width: 100%;
+    height: 100%;
 }
 
 .tours .list-wrapper {

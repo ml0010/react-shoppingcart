@@ -111,11 +111,22 @@ const SearchBox = () => {
                 />
                 {searchInput && <XIcon size={15} weight="bold" onClick={handleDeleteSearchInput}/>}
             </div>
-            <div className={`search-result ${searchResult.length > 0 ? 'visible' : 'hidden'}`}>
+            <div>
+            <div className={`search-result ${searchInput.length > 0 ? 'visible' : 'hidden'}`}>
                 {isLoading && <LoadingIcon /> }
-                {searchResult.map((tour, index) => (
-                    <SearchResult tour={tour} key={index} />
-                ))}
+                <div className='result-list'>
+                {searchResult.length > 0 ?
+                    <>
+                        {searchResult.map((tour, index) => (
+                            <SearchResult tour={tour} key={index} />
+                        ))}
+                    </> :
+                    <>
+                        <span className='empty-list'>No Matching Result</span>
+                    </>
+                }
+                </div>
+            </div>
             </div>
         </div>
     )

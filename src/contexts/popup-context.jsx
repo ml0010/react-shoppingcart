@@ -15,13 +15,12 @@ export const PopupContextProvider = (props) => {
     };
 
     useEffect(() => {
-        setTimeout(() => {
-            if (isMessageActive) {
-                setIsMessageActive(false);
-                setText('');
-                setType('');
-            }
-        }, 10000);
+            const timer = setTimeout(() => {
+                    setIsMessageActive(false);
+                    setText('');
+                    //setType('');
+            }, 4000);
+            return () => clearTimeout(timer);
     }, [isMessageActive]);
 
     const contextValue = { isMessageActive, setIsMessageActive, text, type, showPopupMessage };

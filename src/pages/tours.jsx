@@ -99,6 +99,12 @@ const SearchBox = () => {
         }
     }, [searchRef]);
     
+    const handleKeyPress = (e) => {
+        if(e.key === 'Enter' && searchResult.length > 0) {
+            console.log("Enter Key Pressed!");
+        }
+
+    };
     return (
         <div className='search' ref={searchRef}>
             <div className='input-wrapper'>
@@ -108,6 +114,7 @@ const SearchBox = () => {
                     value={searchInput} 
                     placeholder='Search' 
                     onChange={(e)=>handleSearch(e.target.value)} 
+                    onKeyDown={handleKeyPress}
                 />
                 {searchInput && <XIcon size={15} weight="bold" onClick={handleDeleteSearchInput}/>}
             </div>

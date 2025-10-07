@@ -1,7 +1,29 @@
 import { CheckCircleIcon, WarningIcon, XIcon } from '@phosphor-icons/react';
-import { useContext, useEffect, useRef } from 'react';
+import { useContext } from 'react';
 import { PopupContext } from '../../contexts/popup-context';
 import './popup-message.css';
+
+export const PopupMessage = () => {
+
+    const { isMessageActive, setIsMessageActive, text, type } = useContext(PopupContext);
+
+    return (
+        <div className={`popup-message ${isMessageActive ? 'active' : 'inactive'}`}>
+            <span className='icon'>
+                {type === 'positive' ? <CheckCircleIcon className='positive' size={20} weight='fill' /> : <WarningIcon size={20} className='nagative' weight='fill' />}
+            </span>
+            <span className='text'>{text}</span>
+            <span className='close-button' onClick={() => setIsMessageActive(false)}>
+                <XIcon size={15} weight="bold" />
+            </span>
+        </div>
+    )
+}
+export default PopupMessage;
+
+
+/*
+//with outside click
 
 export const PopupMessage = () => {
 
@@ -36,3 +58,5 @@ export const PopupMessage = () => {
     )
 }
 export default PopupMessage;
+
+*/

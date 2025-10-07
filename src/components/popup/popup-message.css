@@ -1,8 +1,8 @@
 .popup-message {
     background-color: rgba(255, 255, 255, 0.957);
     position: fixed;
-    top: 50%;
-    right: 40%;
+    bottom: 8%;
+    right: 45%;
     transform: translate(50%, 50%);
     z-index: 1000;
     min-width: 300px;
@@ -12,19 +12,18 @@
     align-items: center;
     border-radius: 3px;
     opacity: 0;
-    transition: 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
     padding: 15px;
     box-shadow: 1px 1px 10px 3px rgba(175, 175, 175, 0.169);
     pointer-events: none;
 }
 .popup-message.active {
     right: 50%;
-    opacity: 0.9;
+    opacity: 0.95;
     pointer-events: unset;
 }
 .popup-message.active:hover {
     opacity: 1;
-
 }
 .popup-message svg {
     margin: 0 10px;

@@ -261,7 +261,7 @@ const SearchBox = ({tourList, setTourList, setIsSearched, setSearchText}) => {
 
     const handleSearch = (input) => {
         setSearchInput(input);
-        const results = tourList.filter((tour) => (tour.tourName.toLowerCase().includes(input.toLocaleLowerCase()) || tour.description.toLowerCase().includes(input.toLocaleLowerCase()))).slice(0,5);
+        const results = TOURS.filter((tour) => (tour.tourName.toLowerCase().includes(input.toLocaleLowerCase()) || tour.description.toLowerCase().includes(input.toLocaleLowerCase())));
         setSearchResult([...results]);
     };
 
@@ -287,11 +287,15 @@ const SearchBox = ({tourList, setTourList, setIsSearched, setSearchText}) => {
     const handleKeyPress = (e) => {
         if(e.key === 'Enter' && searchResult.length > 0) {
             console.log("Enter Key Pressed!: ", e.target.value);
+            handleTextSearch(e.target.value);
+        }
+    };
+
+    const handleTextSearch = (text) => {
             setTourList(searchResult);
-            setSearchText(e.target.value);
+            setSearchText(text);
             handleDeleteSearchInput();
             setIsSearched(true);
-        }
     };
 
     const SearchResult = ({tour}) => {
@@ -325,9 +329,12 @@ const SearchBox = ({tourList, setTourList, setIsSearched, setSearchText}) => {
                 <div className='result-list'>
                 {searchResult.length > 0 ?
                     <>
-                        {searchResult.map((tour, index) => (
+                        {searchResult.slice(0,5).map((tour, index) => (
                             <SearchResult tour={tour} key={index} />
                         ))}
+                        {searchResult.length > 5 && 
+                            <span onClick={() => handleTextSearch(searchInput)}>View All Results ({searchResult.length})</span>
+                        }
                     </> :
                     <>
                         <span className='empty-list'>No Matching Result</span>

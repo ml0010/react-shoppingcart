@@ -161,10 +161,13 @@ const TourList = () => {
         setIsSearched(false);
         setSearchText("");
         setTourListFiltered(TOURS);
+        setTourListSearched(TOURS);
+        setLanguageList([]);
+        setCategoryList([]);
     };
 
     const handleLanguageReset = () => {
-        setTourListFiltered(getSearchList());
+        setTourListFiltered(tourListSearched);
         setLanguageList([]);
     };
 

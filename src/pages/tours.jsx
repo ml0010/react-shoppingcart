@@ -41,7 +41,6 @@ export const Tours = () => {
 export default Tours;
 
 
-
 const TourList = () => {
     
     const [ tourListSearched, setTourListSearched ] = useState(TOURS);
@@ -75,7 +74,7 @@ const TourList = () => {
 
     const getCategory = () => {
         const categoryList = [];
-        tourListFiltered.map((tour)=> {
+        tourListSearched.map((tour)=> {
             if (!categoryList.includes(tour.category)) {
                 categoryList.push(tour.category);
             }
@@ -86,7 +85,7 @@ const TourList = () => {
 
     const getLanguage = () => {
         const languageList = [];
-        tourListFiltered.map((tour)=> {
+        tourListSearched.map((tour)=> {
             tour.languages.map((language) => {
                 if (!languageList.includes(language)) {
                     languageList.push(language);
@@ -151,6 +150,7 @@ const TourList = () => {
 
     const handleFilterReset = () => {
         setTourListFiltered(TOURS);
+        setTourListSearched(TOURS);
         setLanguageList([]);
         setCategoryList([]);
         setIsSearched(false);
@@ -220,6 +220,7 @@ const TourList = () => {
         };
         const handleTextSearch = (text) => {
             setTourListFiltered(searchResult);
+            setTourListSearched(searchResult);
             setSearchText(text);
             handleDeleteSearchInput();
             setIsSearched(true);

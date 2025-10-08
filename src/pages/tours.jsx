@@ -144,7 +144,8 @@ const TourList = () => {
             });
             setTourListFiltered(newTourListFiltered);
         } else {
-            setTourListFiltered(TOURS);
+            console.log("no language");
+            setTourListFiltered(tourListSearched);
         }
     };
 
@@ -219,6 +220,8 @@ const TourList = () => {
             if(e.key === 'Enter' && searchResult.length > 0) {
                 console.log("Enter Key Pressed!: ", e.target.value);
                 handleTextSearch(e.target.value);
+                setLanguageList([]);
+                setCategoryList([]);
             }
         };
         const handleTextSearch = (text) => {

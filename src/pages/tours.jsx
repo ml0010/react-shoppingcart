@@ -43,8 +43,9 @@ export default Tours;
 
 
 
-const TourList = ({tourList, setTourList}) => {
+const TourList = ({tourList}) => {
     
+    const [ tourListSearched, setTourListSearched ] = useState(tourList);
     const [ tourListFiltered, setTourListFiltered ] = useState(tourList);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ isSearched, setIsSearched ] = useState(false);
@@ -64,9 +65,15 @@ const TourList = ({tourList, setTourList}) => {
     }, [isLoading]);
 
 
+    const getSearchList = () => {
+        const results = TOURS.filter((tour) => (tour.tourName.toLowerCase().includes(searchText.toLocaleLowerCase()) || tour.description.toLowerCase().includes(searchText.toLocaleLowerCase())));
+        setTourListFiltered([...results]);
+        return results;
+    };
+
     const getCategory = () => {
         const categoryList = [];
-        TOURS.map((tour)=> {
+        tourListFiltered.map((tour)=> {
             if (!categoryList.includes(tour.category)) {
                 categoryList.push(tour.category);
             }
@@ -77,7 +84,7 @@ const TourList = ({tourList, setTourList}) => {
 
     const getLanguage = () => {
         const languageList = [];
-        tourList.map((tour)=> {
+        tourListFiltered.map((tour)=> {
             tour.languages.map((language) => {
                 if (!languageList.includes(language)) {
                     languageList.push(language);
@@ -89,6 +96,7 @@ const TourList = ({tourList, setTourList}) => {
     };
 
     const handleCategoryFilter = (category) => {
+        const searchedList = getSearchList();
         const index = categoryList.indexOf(category);
         var newCategoryList = [];
 
@@ -99,15 +107,13 @@ const TourList = ({tourList, setTourList}) => {
         }
         setCategoryList(newCategoryList);
 
-        const newTourList = TOURS.filter((tour) => (
+        const newTourList = searchedList.filter((tour) => (
             newCategoryList.includes(tour.category)
         ));
 
         if (newTourList.length === 0) {
-            setTourList(TOURS);
-            setTourListFiltered(TOURS);
+            setTourListFiltered(searchedList);
         } else {
-            setTourList(newTourList);
             setTourListFiltered(newTourList);
         }
         setLanguageList([]);
@@ -115,6 +121,7 @@ const TourList = ({tourList, setTourList}) => {
 
     const handleLanguageList = (language) => {
         const index = languageList.indexOf(language);
+        const searchedList = getSearchList();
 
         var newLanguageList = [];
         if (index > -1) {
@@ -125,14 +132,14 @@ const TourList = ({tourList, setTourList}) => {
         setLanguageList(newLanguageList);
 
         if (newLanguageList.length > 0) {
-            const newTourListFiltered = tourList.filter((tour) => {
-                var isLanguageInList = false;
+            const newTourListFiltered = searchedList.filter((tour) => {
+                var isListed = false;
                 tour.languages.map((language) => {
                     if(newLanguageList.includes(language)) {
-                        isLanguageInList = true;
+                        isListed = true;
                     }
                 })
-                return isLanguageInList;
+                return isListed;
             });
             setTourListFiltered(newTourListFiltered);
         } else {
@@ -141,8 +148,7 @@ const TourList = ({tourList, setTourList}) => {
     };
 
     const handleFilterReset = () => {
-        setTourList(TOURS);
-        setTourListFiltered(TOURS);
+        setTourListFiltered(tourList);
         setLanguageList([]);
         setCategoryList([]);
         setIsSearched(false);
@@ -156,7 +162,7 @@ const TourList = ({tourList, setTourList}) => {
     };
 
     const handleLanguageReset = () => {
-        setTourListFiltered(tourList);
+        setTourListFiltered(getSearchList());
         setLanguageList([]);
     };
 

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-shoppingcart/static/css/main.99b49178.css",
-    "main.js": "/react-shoppingcart/static/js/main.2acacc13.js",
+    "main.js": "/react-shoppingcart/static/js/main.72618b95.js",
     "static/js/453.e5f97dca.chunk.js": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js",
     "static/media/main-home.png": "/react-shoppingcart/static/media/main-home.f7ce30fc0cc88e7e0c56.png",
     "static/media/calos-des-moro.png": "/react-shoppingcart/static/media/calos-des-moro.6a2fe40b5bf9e3fda787.png",
@@ -22,11 +22,11 @@
     "static/media/clear-day.svg": "/react-shoppingcart/static/media/clear-day.54288da67b71b4b19483d373d683257f.svg",
     "static/media/cloudy.svg": "/react-shoppingcart/static/media/cloudy.f6e6108ec3b4605bda2aca61f011e8e8.svg",
     "main.99b49178.css.map": "/react-shoppingcart/static/css/main.99b49178.css.map",
-    "main.2acacc13.js.map": "/react-shoppingcart/static/js/main.2acacc13.js.map",
+    "main.72618b95.js.map": "/react-shoppingcart/static/js/main.72618b95.js.map",
     "453.e5f97dca.chunk.js.map": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.99b49178.css",
-    "static/js/main.2acacc13.js"
+    "static/js/main.72618b95.js"
   ]
 }

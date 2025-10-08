@@ -30,7 +30,7 @@ export const Tours = () => {
                         <hr className='separator' />
                     </div>
                    <div className='list-wrapper'>
-                        <TourList /> :
+                        <TourList />
                     </div>
                     <Faq />
                 </div>
@@ -150,6 +150,7 @@ const TourList = () => {
             setList(tourListFiltered);
             setLanguageList([]);
         }
+        setIsLanguageListOpen(false);
     };
 
     const handleFilterReset = () => {
@@ -336,7 +337,7 @@ const TourList = () => {
                         }
                     </div>
                 </div>
-                <div className='tour-number'>Result: {tourListFiltered.length}</div>
+                <div className='tour-number'>Result: {list.length}</div>
                 <div className='tour-list'>
                     {isLoading && <LoadingIcon /> }
                     {list.map((tour)=> (

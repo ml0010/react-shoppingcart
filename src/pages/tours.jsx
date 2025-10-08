@@ -45,6 +45,7 @@ const TourList = () => {
     
     const [ tourListSearched, setTourListSearched ] = useState(TOURS);
     const [ tourListFiltered, setTourListFiltered ] = useState(TOURS);
+    const [ list, setList ] = useState(TOURS);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ isSearched, setIsSearched ] = useState(false);
     const [ searchText, setSearchText ] = useState("");
@@ -57,7 +58,7 @@ const TourList = () => {
 
     useEffect(() => {
         setIsLoading(true);
-    }, [tourListFiltered]);
+    }, [list]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -85,7 +86,7 @@ const TourList = () => {
 
     const getLanguage = () => {
         const languageList = [];
-        tourListSearched.map((tour)=> {
+        tourListFiltered.map((tour)=> {
             tour.languages.map((language) => {
                 if (!languageList.includes(language)) {
                     languageList.push(language);
@@ -114,15 +115,16 @@ const TourList = () => {
 
         if (newTourList.length === 0) {
             setTourListFiltered(searchedList);
+            setList(searchedList);
         } else {
             setTourListFiltered(newTourList);
+            setList(newTourList);
         }
         setLanguageList([]);
     };
 
     const handleLanguageList = (language) => {
         const index = languageList.indexOf(language);
-        const searchedList = getSearchList();
 
         var newLanguageList = [];
         if (index > -1) {
@@ -133,7 +135,7 @@ const TourList = () => {
         setLanguageList(newLanguageList);
 
         if (newLanguageList.length > 0) {
-            const newTourListFiltered = searchedList.filter((tour) => {
+            const newTourListFiltered = tourListFiltered.filter((tour) => {
                 var isListed = false;
                 tour.languages.map((language) => {
                     if(newLanguageList.includes(language)) {
@@ -142,33 +144,26 @@ const TourList = () => {
                 })
                 return isListed;
             });
-            setTourListFiltered(newTourListFiltered);
+            setList(newTourListFiltered);
         } else {
             console.log("no language");
-            setTourListFiltered(tourListSearched);
+            setList(tourListFiltered);
+            setLanguageList([]);
         }
     };
 
     const handleFilterReset = () => {
-        setTourListFiltered(TOURS);
         setTourListSearched(TOURS);
+        setTourListFiltered(TOURS);
+        setList(TOURS);
         setLanguageList([]);
         setCategoryList([]);
         setIsSearched(false);
         setSearchText("");
-    };
-
-    const handleTextSearchReset = () => {
-        setIsSearched(false);
-        setSearchText("");
-        setTourListFiltered(TOURS);
-        setTourListSearched(TOURS);
-        setLanguageList([]);
-        setCategoryList([]);
     };
 
     const handleLanguageReset = () => {
-        setTourListFiltered(tourListSearched);
+        setList(tourListFiltered);
         setLanguageList([]);
     };
 
@@ -227,6 +222,7 @@ const TourList = () => {
         const handleTextSearch = (text) => {
             setTourListFiltered(searchResult);
             setTourListSearched(searchResult);
+            setList(searchResult);
             setSearchText(text);
             handleDeleteSearchInput();
             setIsSearched(true);
@@ -293,7 +289,7 @@ const TourList = () => {
                             <button 
                                 className={`filter-button selected`}
                                 value={searchText} 
-                                onClick={handleTextSearchReset} 
+                                onClick={handleFilterReset} 
                             >
                                 <span>Search: {searchText.charAt(0).toUpperCase() + searchText.slice(1)}</span>
                                 <span><XIcon size={15} /></span>
@@ -343,7 +339,7 @@ const TourList = () => {
                 <div className='tour-number'>Result: {tourListFiltered.length}</div>
                 <div className='tour-list'>
                     {isLoading && <LoadingIcon /> }
-                    {tourListFiltered.map((tour)=> (
+                    {list.map((tour)=> (
                         <Tour data={tour} key={tour.id} />
                     ))}
                 </div>

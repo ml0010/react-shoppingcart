@@ -18,6 +18,7 @@ export const CartItem = (props) => {
     
     const [ isLoading, setIsLoading ] = useState(true);
     const [ isDateChange, setIsDateChange ] = useState(false);
+    const [ isPaxEdit, setIsPaxEdit ] = useState(false);
     
     const paxMin = 1;
     const paxMax = 12;
@@ -89,7 +90,7 @@ export const CartItem = (props) => {
                     </div>
                     <span className='pax'>
                         <MinusCircleIcon className={`icon ${cartItems[id].pax === paxMin && 'disabled'}`} size={15} onClick={() => handlePaxChange('minus')} />
-                        <span className='pax-value'>{cartItems[id].pax}</span>
+                        <input className={`pax-value ${isPaxEdit && 'edit'}`} value={cartItems[id].pax} onClick={()=>{setIsPaxEdit(!isPaxEdit)}}></input>
                         <PlusCircleIcon className={`icon ${cartItems[id].pax === paxMax && 'disabled'}`} size={15} onClick={() => handlePaxChange('plus')} />
                         {cartItems[id].pax > 1 ? ` people ` : ` person `}
                         ({price}€ per person)

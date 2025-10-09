@@ -3,7 +3,6 @@ import { useState, useContext, useEffect, useRef } from 'react'
 import { CartContext } from '../../contexts/cart-context';
 import { ArrowUpRightIcon, BasketIcon, CaretDownIcon, CaretUpIcon, ClockIcon, CopySimpleIcon, GlobeIcon, MapPinLineIcon, MapTrifoldIcon, MinusCircleIcon, PiggyBankIcon, PlusCircleIcon, XIcon } from '@phosphor-icons/react';
 import { Carousel } from './carousel';
-import { useNavigate } from 'react-router-dom';
 import { GobackButton } from '../buttons/goback-button';
 import { MotionRoute } from '../motions';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';

@@ -48,16 +48,20 @@
 .cart-summary .cart-summary-items .cart-summary-item {
     display: flex;
     flex-direction: column;
+    margin: 0 10px;
 }
 .cart-summary .cart-summary-items .cart-summary-item .name {
     font-size: 14px;
     font-weight: 600;
+    text-align: left;
 }
 .cart-summary .cart-summary-items .cart-summary-item .pax {
     font-size: 13px;
+    text-align: left;
 }
 .cart-summary .cart-summary-items .cart-summary-item .date {
     font-size: 13px;
+    text-align: left;
 }
 .cart-summary .total {
     font-weight: 600;
@@ -80,7 +84,7 @@
     background-color: var(--grey);
     border: none;
     opacity: 0.2;
-    margin: 14px;
+    margin: 14px 0;
 }
 
 @media only screen and (max-width: 900px) {

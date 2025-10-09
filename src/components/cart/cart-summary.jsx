@@ -28,12 +28,14 @@ export const CartSummary = () => {
                     if (cartItems[tour.id]["pax"] > 0) {
                         //console.log(cartItems[tour.id]);
                         return (
-                            <div className='cart-summary-item' key={index}>
-                                <span className='name'>{tour.tourName}</span>
-                                <span className='pax'>X {cartItems[tour.id]["pax"]}</span>
-                                <span className='date'>Date: {cartItems[tour.id].date}</span>
+                            <>
+                                <div className='cart-summary-item' key={index}>
+                                    <span className='name'>{tour.tourName}</span>
+                                    <span className='date'>Date: {cartItems[tour.id].date}</span>
+                                    <span className='pax'>{cartItems[tour.id]["pax"]}{cartItems[tour.id]["pax"] > 1 ? ' people' : ' person'}</span>
+                                </div>
                                 <hr className='separator' />
-                            </div>
+                            </>
                         );
                     } else { return null; }
                 })}

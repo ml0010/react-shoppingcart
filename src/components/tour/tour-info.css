@@ -193,6 +193,12 @@
     justify-content: center;
     align-items: center;
 }
+.tour-info-page .guest-info .input .pax-input .pax {
+    border: 1px;
+    border-color: var(--grey);
+    width: 30px;
+    text-align: center;
+}
 .tour-info-page .guest-info .input.visible {
     visibility: visible;
     opacity: 1;
@@ -203,12 +209,6 @@
     visibility: hidden;
     opacity: 0;
     transform: translateY(-5px);
-}
-
-.tour-info-page .guest-info .form .pax {
-    width: 30px;
-    appearance: text;
-    text-align: center;
 }
 
 .tour-info-page .guest-info input::-webkit-inner-spin-button {

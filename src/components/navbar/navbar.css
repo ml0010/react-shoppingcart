@@ -89,15 +89,34 @@
 }
 
 
-.navbar .navbar-wrapper .links .cart-summary-button {
+.navbar .navbar-wrapper .links .cart-icon-wrapper {
+    position: relative;
     margin-right: 2vw;
-    width: 40px;
-    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar .navbar-wrapper .links .cart-icon-wrapper .basket-item-number {
+    position: absolute;
+    left: 100%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--dark);
+    color: var(--background);
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar .navbar-wrapper .links .cart-summary-button {
+
 }
 .navbar .navbar-wrapper .links .cart-summary-button.disabled {
     pointer-events: none;
 }
-
 .navbar .menubar {
     position: fixed;
     top: 0px;

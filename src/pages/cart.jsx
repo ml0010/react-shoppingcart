@@ -13,7 +13,7 @@ import { Checkout } from '../components/cart/checkout';
 
 export const Cart = () => {
 
-    const { cartItems, getTotalCartAmount } = useContext (CartContext);
+    const { cartItems, setCartItems, getTotalCartAmount, cartDefault } = useContext (CartContext);
     const totalAmount = getTotalCartAmount();
     const location = useLocation();
 
@@ -35,7 +35,7 @@ export const Cart = () => {
                                     })}
                                 </div>
                                 <div className='bttns'>
-                                    <button className='button'>EMPTY BASKET</button>
+                                    <button className='button' onClick={() => {setCartItems(cartDefault())}}>EMPTY BASKET</button>
                                     <Link className='button' to={'/tours'}>MORE TOURS</Link>
                                 </div>
                             </div>

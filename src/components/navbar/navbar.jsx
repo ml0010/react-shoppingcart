@@ -9,7 +9,7 @@ import { CartSummary } from '../cart/cart-summary'
 
 export const Navbar = () => {
 
-    const { showCartSummary, setShowCartSummary } = useContext(CartContext);
+    const { getCartItemNumber, showCartSummary, setShowCartSummary } = useContext(CartContext);
     const { isLoggedIn, navigate } = useContext(AuthenticationContext);
     const [ isScrollDown, setIsScrollDown ] = useState(false);
     const [ menuOpen, setMenuOpen] = useState(false);
@@ -85,11 +85,14 @@ export const Navbar = () => {
                     <Link className='link' to='/tours'>TOURS</Link>
                     <Link className='link' to='/contact'>CONTACT</Link>
                     {isLoggedIn? 
-                        <button className='link-icon' onClick={()=>navigate('/mypage')}><UserCircleCheckIcon size={28} /></button> : 
-                        <button className='link-icon' onClick={()=>navigate('/login')}><UserCircleIcon size={28} /></button>
+                        <button className='link-icon' onClick={()=>navigate('/mypage')}><UserCircleCheckIcon size={30} /></button> : 
+                        <button className='link-icon' onClick={()=>navigate('/login')}><UserCircleIcon size={30} /></button>
                     }
-                    <div>
-                        <button className={`link-icon cart-summary-button ${showCartSummary ? 'disabled' : 'active'}`} onClick={handleShowCartSummary}><ShoppingBagIcon size={28} /></button>
+                    <div className='cart-icon-wrapper'>
+                        {getCartItemNumber() > 0 && 
+                            <span className='basket-item-number'>{getCartItemNumber()}</span>
+                        }
+                        <button className={`link-icon cart-summary-button ${showCartSummary ? 'disabled' : 'active'}`} onClick={handleShowCartSummary}><ShoppingBagIcon size={30} /></button>
                     </div>
                 </div>
                 <div ref={cartSummaryRef}>

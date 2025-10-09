@@ -1,5 +1,5 @@
 import './booking-confirmation.css'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { BookingContext } from '../../contexts/booking-context';
 import { Faq } from '../faq/faq';
@@ -58,7 +58,9 @@ export const BookingConfirmation = () => {
     };
 
     const handleEditPhone = () => {
-        if(!isEditPhoneDisabled) {
+        console.log("Edit Phone: ",isEditPhoneDisabled);
+        if(!isEditPhoneDisabled && bookingData.phone !== newPhone && !isEditPhoneDisabled) {
+            console.log("updating the phone number");
             updatePhone(bookingReference, newPhone);
             showPopupMessage('Edited - Contact Number', 'positive');
             setIsLoading(true);
@@ -67,7 +69,7 @@ export const BookingConfirmation = () => {
     };
 
     const handleEditComment = () => {
-        if(!isEditCommentDisabled) {
+        if(!isEditCommentDisabled && bookingData.comment !== newComment) {
             showPopupMessage('Edited - Comment', 'positive');
             updateComment(bookingReference, newComment);
             setIsLoading(true);
@@ -80,6 +82,20 @@ export const BookingConfirmation = () => {
             setIsLoading(false);
         }, 600);
     }, [isLoading]);
+
+    const phoneRef = useRef();
+
+    useEffect(() => {
+        let handler = (e)=>{
+            if(phoneRef.current && !phoneRef.current.contains(e.target)){
+                handleEditPhone();
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
+    }, [phoneRef]);
 
     return (
         <div className='confirmation'>
@@ -100,16 +116,18 @@ export const BookingConfirmation = () => {
                         <p className='category-content'>{bookingData.email}</p>
                     </div>
                     <hr className='separator' />
-                    <div className='category'>
+                    <div className='category phone'>
                         <span className='category-title-wrapper'>
                             <h3 className='category-name'>Contact Number</h3>
-                            <button className='edit-button' onClick={handleEditPhone}>{isEditPhoneDisabled? 'EDIT' : 'SAVE'}</button>
+                            <button className='edit-button' onClick={() => {setIsEditPhoneDisabled(!isEditPhoneDisabled)}}>{isEditPhoneDisabled? 'EDIT' : 'SAVE'}</button>
                         </span>
                         <span className='edit category-content'>
                             <input className={`phone ${isEditPhoneDisabled? 'inactive' : 'active'}`} 
                                     value={newPhone} 
                                     disabled={isEditPhoneDisabled} 
-                                    onChange={(e)=>setNewPhone(e.target.value)}></input>
+                                    onChange={(e)=>setNewPhone(e.target.value)}
+                                    ref={phoneRef}
+                            />
                         </span>
                     </div>
                     <hr className='separator' />

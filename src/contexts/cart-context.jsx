@@ -18,7 +18,7 @@ export const CartContextProvider = (props) => {
         })
         return cart;
     }
-    const [cartItems, setCartItems] = useState(cartDefault);
+    const [ cartItems, setCartItems ] = useState(cartDefault);
 
     useEffect(() => {
         setTimeout(() => {
@@ -104,7 +104,7 @@ export const CartContextProvider = (props) => {
 
 
     
-    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, getCartItemNumber, showCartSummary, setShowCartSummary, changePax, changeDate, isGuestInfoCompleted, setIsGuestInfoCompleted, getCartList, cartDefault };
+    const contextValue = {cartItems, setCartItems, addToCart, deleteFromCart, getTotalCartAmount, getCartItemNumber, showCartSummary, setShowCartSummary, changePax, changeDate, isGuestInfoCompleted, setIsGuestInfoCompleted, getCartList, cartDefault};
 
     return (
         <CartContext.Provider value={contextValue}>{props.children}</CartContext.Provider>

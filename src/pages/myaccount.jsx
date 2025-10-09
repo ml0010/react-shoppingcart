@@ -94,11 +94,11 @@ export const MyAccount = () => {
                     <div className='account-info'>
                         <h3 className='categoty-title'>Username</h3>
                         <div className='content'>
-                            <p>{user.username}</p>
+                            <p className='input'>{user.username}</p>
                         </div>
                         <h3 className='categoty-title'>Name</h3>
                         <div className='content'>
-                            <p>{user.name}</p>
+                            <p className='input'>{user.name}</p>
                         </div>
                         <h3 className='categoty-title'>Email</h3>
                         <div className='content'>
@@ -118,7 +118,7 @@ export const MyAccount = () => {
                                 <input className='input edit' type='password' placeholder='New Password' minLength={4} value={newPassword} onChange={(e)=>setNewPassword(e.target.value)}></input>
                                 <input className='input edit' type='password' placeholder='Repeat New Password' minLength={4} value={newPasswordRepeat} onChange={(e)=>setNewPasswordRepeat(e.target.value)}></input>
                             </form> :
-                            <ProhibitIcon size={23} />}
+                            <ProhibitIcon className='input' size={28} />}
                             <button className='edit-button' onClick={()=>handleEditPassword()}>{isEditPassword? 'SAVE' : 'EDIT'}</button>
                         </div>
                     </div>

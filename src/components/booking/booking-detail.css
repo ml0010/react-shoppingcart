@@ -21,8 +21,8 @@
     margin-left: auto;
 }
 .booking-detail .booking-ref h3 {
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 17px;
 }
 .booking-detail .detail {
     text-align: left;
@@ -46,7 +46,7 @@
 .booking-detail .detail h4 {
     font-size: 13px;
     letter-spacing: 0.03rem;
-    font-weight: 600;
+    font-weight: 500;
     margin: 10px 0;
     display: flex;
     justify-content: start;
@@ -54,9 +54,8 @@
     text-decoration: underline;
 }
 .booking-detail .detail p {
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 0.03rem;
-
 }
 .booking-detail .detail .edit-button-wrapper {
     position: absolute;

@@ -29,15 +29,20 @@
 }
 
 .myaccount .categoty-title {
-    text-align: right;
     padding-right: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 .myaccount .content {
     text-align: left;
     padding-left: 20px;
     display: flex;
     justify-content: space-between;
-    place-items: center;
+    align-items: center;
+    font-size: 14px;
 }
 .myaccount .content .input {
     border: 1px solid transparent;

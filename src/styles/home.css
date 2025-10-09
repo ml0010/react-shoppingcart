@@ -104,17 +104,7 @@
     display: grid;
     justify-content: center;
 }
-.home .pageContent .terms .refund {
-    border: 1px solid rgba(0, 0, 0, 0.138);
-}
-.home .pageContent .services {
-    display: grid;
-    justify-content: center;
-}
-.home .pageContent .services .service {
-    border: 1px solid rgba(0, 0, 0, 0.138);
-    padding: 10px;
-}
+
 .home .pageContent .weather-wrapper{
     display: grid;
     justify-content: center;
@@ -123,14 +113,6 @@
     width: 100%;
 }
 
-.home .refund {
-    background-color: var(--cream);
-    border: 1px solid var(--grey);
-}
-.home .service {
-    background-color: var(--cream);
-    border: 1px solid var(--grey);
-}
 
 
 @media only screen and (max-width: 1100px) {
@@ -154,14 +136,10 @@
     .home .service p {
         font-size: 12px;
     }
-    .home .logo {
-        max-width: 550px;
-    }
+
 }
 @media only screen and (max-width: 600px) {
-    .home .logo {
-        max-width: 380px;
-    }
+
 
     .home h2 {
         font-size: 16px;

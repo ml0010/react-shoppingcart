@@ -4,10 +4,12 @@ import { Services } from '../services/services';
 import { RefundPolicy } from '../refund-policy/refund-policy';
 import { CaretDownIcon, CaretRightIcon, WhatsappLogoIcon } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
+import { BookingConditions } from '../conditions/conditions';
 
 export const Faq = () => {
 
     const [ showServices, setShowServices ] = useState(false);
+    const [ showBookingConditions, setShowBookingConditions ] = useState(false);
     const [ showRefundPolicy, setShowRefundPolicy ] = useState(false);
     const [ showContactInfo, setShowContactInfo ] = useState(false);
 
@@ -20,6 +22,15 @@ export const Faq = () => {
                 </span>
                 <span className={`answer ${showServices && 'active'}`}>
                     <Services />
+                </span>
+            </div>
+            <div className='faq-list'>
+                <span className='question' onClick={()=>setShowBookingConditions(!showBookingConditions)}>
+                    {showBookingConditions? <CaretDownIcon size={12} weight="fill" /> : <CaretRightIcon size={12} weight="fill" />}
+                    <p>BOOKING CONDITIONS</p>
+                </span>
+                <span className={`answer ${showBookingConditions && 'active'}`}>
+                    <BookingConditions />
                 </span>
             </div>
             <div className='faq-list'>
@@ -47,3 +58,4 @@ export const Faq = () => {
         </div>
     )
 }
+

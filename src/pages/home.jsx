@@ -62,23 +62,6 @@ export const Home = () => {
                         </div>
                     </RevealOnScroll>
                     <RevealOnScroll>
-                        <div className='terms content'>
-                            <h2>BOOKING CONDITIONS</h2>
-                            <div>
-                                <p>When making reservation, you will only need to fill in the name, contact information of primary guest.</p>
-                                <p>All tours guests must be 16 years old or more. Some tours may offer some exceptions. (Please consult with us ahead)</p>
-                                <p>In case of no-show, we do not offer any compensation or refund.</p>
-                            </div>
-                            <RefundPolicy />
-                        </div>
-                    </RevealOnScroll>
-                    <RevealOnScroll>
-                        <div className='services content'>
-                            <h2>ALL OUR TOURS INCLUDE</h2>
-                            <Services />
-                        </div>
-                    </RevealOnScroll>
-                    <RevealOnScroll>
                     <div className='weather-wrapper content'>
                         <Weather />
                     </div>

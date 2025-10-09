@@ -5,7 +5,10 @@ import { TourRecommendationOutput } from './tour-recommendation-output';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { LoadingIcon } from '../buttons/loading-icon';
-
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import "swiper/css/pagination";
 
 
 export const TourRecommendation = () => {

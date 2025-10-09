@@ -1,8 +1,6 @@
 .service {
     padding: 20px;
-    margin: 10px 0;
-    border-radius: 3px;
-    border: 1px solid var(--grey-light);
+    margin: 10px 20px;
 }
 
 .service .service-list {
@@ -12,6 +10,7 @@
     grid-row-gap: 15px;
     padding: 15px;
     max-width: 550px;
+    margin: auto;
 }
 .service .service-list .service-item {
     display: flex;
@@ -20,20 +19,15 @@
     align-items: center;
 }
 .service .service-list .service-item p {
-    font-size: 13px;
-    font-weight: 300;
+    font-size: 11px;
+    font-weight: 500;
 }
 .service h3 {
     font-size: 10px;
-    font-weight: 300;
+    font-weight: 400;
 }
-
-.service-list p {
-    font-size: 12px;
-}
-
 .service .separator {
-    height: 0.5px;
+    height: 1px;
     width: 100%;
     background-color: var(--grey-light);
     border: none;

@@ -40,9 +40,9 @@ export const MyPage = () => {
                 </div> : 
                 <div className='booking-empty'>
                     <h2>No Booking History</h2>
-                    <p>Click TOURS button below to discover.</p>
+                    <p>Click TOURS button below to discover more.</p>
                     <div className='buttons'>
-                        <button className='button' onClick={()=>navigate('/tours')}>TOURS</button>
+                        <button className='button highlight' onClick={()=>navigate('/tours')}>TOURS</button>
                         <button className='button' onClick={()=>navigate('/home')}>BACK TO HOME</button>
                     </div>
                 </div>

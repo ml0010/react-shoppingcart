@@ -4,20 +4,24 @@ import '../styles/booking-search.css';
 import { MagnifyingGlassIcon, SirenIcon } from '@phosphor-icons/react';
 import { BookingContext } from '../contexts/booking-context';
 import { LoadingIcon } from '../components/buttons/loading-icon';
+import { PopupContext } from '../contexts/popup-context';
 
 export const BookingSearch = () => {
     const { searchFailed, setSearchFailed, navigate, checkBookingReference } = useContext(BookingContext);
+    const { showPopupMessage } = useContext(PopupContext);
 
     const [ bookingReference, setBookingReference ] = useState("");
     const [ isSubmit, setIsSubmit ] = useState(false);
 
     const location = useLocation();
 
+    /*
     useEffect(()=>{
         if (location.state === null) {
             setSearchFailed(false);
         }
     },[]);
+    */
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
@@ -26,7 +30,9 @@ export const BookingSearch = () => {
         if(searchResult) {
             navigate('/confirmation', {state: {reference: bookingReference}});
         } else {
-            setSearchFailed(true);
+            //setSearchFailed(true);
+            showPopupMessage('Incorrect booking reference', 'nagative');
+
         }
         setIsSubmit(false);
     }

@@ -6,6 +6,7 @@ import { AuthenticationContext } from "../../contexts/authentication-context";
 import { CartContext } from "../../contexts/cart-context";
 import { LoadingIcon } from "../buttons/loading-icon";
 import { SirenIcon } from "@phosphor-icons/react";
+import { PopupContext } from "../../contexts/popup-context";
 
 
 const PaymentForm = () => {
@@ -16,6 +17,7 @@ const PaymentForm = () => {
     const { addBooking, name, email, phone, comment, resetBookingInfo } = useContext(BookingContext);
     const { user } = useContext(AuthenticationContext);
     const { setCartItems, cartDefault, getCartList, setIsGuestInfoCompleted } = useContext(CartContext);
+    const { showPopupMessage } = useContext(PopupContext);
     
     const [ message, setMessage ] = useState(null);
 
@@ -47,6 +49,7 @@ const PaymentForm = () => {
             await setIsProcessingPayment(false);
             await setIsGuestInfoCompleted(false);
             await setIsPaymentInfoReady(false);
+            showPopupMessage(`Booking successful - ${reference}`, 'positive');
             navigate('/confirmation', {state: {reference: reference}});
         }
     };

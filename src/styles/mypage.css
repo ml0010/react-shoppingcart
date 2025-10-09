@@ -26,11 +26,12 @@
     display: flex;
 }
 .mypage .booking-empty {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 .mypage .booking-empty p {
     margin: 20px 0;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
 }
 .mypage .bookings .buttons {
     display: grid;

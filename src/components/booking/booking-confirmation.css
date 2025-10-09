@@ -12,7 +12,8 @@
     color: black;
 }
 .confirmation h2 {
-    font-size: 23px;
+    font-size: 20px;
+    font-weight: 600;
 }
 .confirmation .booking-info-wrapper {
     background-color: var(--background);
@@ -30,7 +31,7 @@
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    font-size: 16px;
+    font-size: 14px;
 }
 .confirmation .booking-info .category .category-title-wrapper {
     display: flex;
@@ -43,8 +44,8 @@
 }
 
 .confirmation .category-name {
-    color: var(--light);
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 14px;
 }
 .confirmation .category-content {
     text-align: left;
@@ -115,20 +116,13 @@
     }
     .confirmation .category-name {
         text-align: left;
-        font-size: 14px;
-    }
-    .confirmation .category p {
-        font-size: 14px;
     }
     .confirmation .category input {
-        font-size: 14px;
         width: 100%;
         margin-right: 10px;
-
     }
     .confirmation .category textarea {
         height: 40px;
-        font-size: 14px;
         width: 100%;
         margin-right: 10px;
     }

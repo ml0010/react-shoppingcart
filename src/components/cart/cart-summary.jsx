@@ -27,12 +27,14 @@ export const CartSummary = () => {
                 {TOURS.map((tour, index) => {
                     if (cartItems[tour.id]["pax"] > 0) {
                         //console.log(cartItems[tour.id]);
+                        const price = tour.price * cartItems[tour.id]["pax"];
                         return (
                             <>
                                 <div className='cart-summary-item' key={index}>
                                     <span className='name'>{tour.tourName}</span>
                                     <span className='date'>Date: {cartItems[tour.id].date}</span>
                                     <span className='pax'>{cartItems[tour.id]["pax"]}{cartItems[tour.id]["pax"] > 1 ? ' people' : ' person'}</span>
+                                    <span className='sum'>{price} €</span>
                                 </div>
                                 <hr className='separator' />
                             </>

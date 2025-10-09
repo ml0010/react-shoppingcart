@@ -77,11 +77,6 @@
 .cart-item .tour-detail .detail .pax .pax-value {
     border: 1px solid var(--grey-light);
     padding: 3px 10px;
-    width: 35px;
-    text-align: center;
-}
-.cart-item .tour-detail .detail .pax .pax-value.edit {
-    background-color: red;
 }
 .cart-item .tour-detail .detail .icon.disabled {
     color: var(--grey-light);

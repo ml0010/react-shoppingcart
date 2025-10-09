@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-shoppingcart/static/css/main.643a8b05.css",
-    "main.js": "/react-shoppingcart/static/js/main.c9044e0d.js",
+    "main.css": "/react-shoppingcart/static/css/main.b69bca2a.css",
+    "main.js": "/react-shoppingcart/static/js/main.a2beaef7.js",
     "static/js/453.e5f97dca.chunk.js": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js",
     "static/media/main-home.png": "/react-shoppingcart/static/media/main-home.f7ce30fc0cc88e7e0c56.png",
     "static/media/calos-des-moro.png": "/react-shoppingcart/static/media/calos-des-moro.6a2fe40b5bf9e3fda787.png",
@@ -21,12 +21,12 @@
     "index.html": "/react-shoppingcart/index.html",
     "static/media/clear-day.svg": "/react-shoppingcart/static/media/clear-day.54288da67b71b4b19483d373d683257f.svg",
     "static/media/cloudy.svg": "/react-shoppingcart/static/media/cloudy.f6e6108ec3b4605bda2aca61f011e8e8.svg",
-    "main.643a8b05.css.map": "/react-shoppingcart/static/css/main.643a8b05.css.map",
-    "main.c9044e0d.js.map": "/react-shoppingcart/static/js/main.c9044e0d.js.map",
+    "main.b69bca2a.css.map": "/react-shoppingcart/static/css/main.b69bca2a.css.map",
+    "main.a2beaef7.js.map": "/react-shoppingcart/static/js/main.a2beaef7.js.map",
     "453.e5f97dca.chunk.js.map": "/react-shoppingcart/static/js/453.e5f97dca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.643a8b05.css",
-    "static/js/main.c9044e0d.js"
+    "static/css/main.b69bca2a.css",
+    "static/js/main.a2beaef7.js"
   ]
 }

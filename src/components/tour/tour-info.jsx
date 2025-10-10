@@ -121,12 +121,12 @@ export const TourInfo = ({ data }) => {
                                 </div>
                                 <hr className='separator' />
                                 <h2>Highlights</h2>
-                                {data.highlights.map((text) => {
-                                    return <p>{text}</p>
+                                {data.highlights.map((text, index) => {
+                                    return <p key={index}>{text}</p>
                                 })}
                                 <h2>Includes</h2>
-                                {data.includes.map((text) => {
-                                    return <p>{text}</p>
+                                {data.includes.map((text, index) => {
+                                    return <p key={index}>{text}</p>
                                 })}
                                 <h2>Not suitable for</h2>
                                 <h2>Important information</h2>
@@ -156,9 +156,11 @@ const TourForm = ({ id }) => {
 
     const paxMin = 1;
     const paxMax = 12;
+    const defaultDate = 'Select your date';
     
 	const [ pax, setPax ] = useState(1);
-	const [ dateValue, setDateValue ] = useState(dateToText(tomorrow.$d));
+	const [ dateValue, setDateValue ] = useState(null);
+    const [ dateSelected, setDateSelected ] = useState(null);
     const [ isPaxVisible, setIsPaxVisible ] = useState(false);
     const [ isDateVisible, setIsDateVisible ] = useState(false);
 
@@ -174,20 +176,25 @@ const TourForm = ({ id }) => {
         }
         return;
     };
-    const handleDate = (input) => {
+    const handleDate = (value) => {
         //.toISOString().replace('000Z', '').split('T')[0]
-        setDateValue(dateToText(input));
+        setDateSelected(value);
+        setDateValue(dateToText(value.$d));
         setIsDateVisible(false);
         return;
     };
 
 	const handleAddToCart = async() => {
-		if(dateValue !== null) {
+		if(dateSelected) {
 			await addToCart(id, pax, dateValue);
 			setShowCartSummary(true);
 			handleClose();
             showPopupMessage('Added to basket', 'positive');
-		}
+            setDateSelected(null);
+            setDateValue('');
+		} else {
+            showPopupMessage('Please select date', 'negative');
+        }
 	}
 
     // tour-info outside click close
@@ -225,7 +232,7 @@ const TourForm = ({ id }) => {
                 <div className='guest-form'>
                     <div className='form' ref={paxRef}>
                         <div className='label' onClick={() => setIsPaxVisible(!isPaxVisible)}>
-                            <p>Adult x {pax}</p>
+                            <p className='input-display'>Adult x {pax}</p>
                             {isPaxVisible ? <CaretUpIcon className='caret' size={15} weight="fill" /> : <CaretDownIcon className='caret' size={15} weight="fill" />}
                         </div>
                         <span className={`input ${isPaxVisible ? 'visible' : 'hidden'}`}>
@@ -241,12 +248,16 @@ const TourForm = ({ id }) => {
                     </div>
                     <div className='form' ref={dateRef}>
                         <div className='label' onClick={() => setIsDateVisible(!isDateVisible)}>
-                            <p>{dateValue}</p>
+                            <p className={`input-display ${!dateSelected && 'invalid'}`}>{dateSelected ? dateValue : defaultDate}</p>
                             {isDateVisible ? <CaretUpIcon className='caret' size={15} weight="fill" /> : <CaretDownIcon className='caret' size={15} weight="fill" />}
                         </div>
                         <span className={`input ${isDateVisible ? 'visible' : 'hidden'}`}>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DateCalendar minDate={tomorrow} onChange={(value) => handleDate(value.$d)} />
+                                <DateCalendar 
+                                    minDate={tomorrow} 
+                                    onChange={(value) => {handleDate(value)}}
+                                    value={dateSelected}
+                                />
                             </LocalizationProvider>
                         </span>
                     </div>

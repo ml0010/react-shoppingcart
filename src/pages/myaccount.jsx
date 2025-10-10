@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import '../styles/myaccount.css';
 import { AuthenticationContext } from '../contexts/authentication-context';
 import { GobackButton } from '../components/buttons/goback-button';
@@ -33,7 +33,7 @@ export const MyAccount = () => {
         setIsEditPhone(false);
         setIsEditPassword(false);
         setMessage("");
-        if(isEditEmail) {
+        if(isEditEmail && newEmail !== user.email) {
             await editEmail(user.username, newEmail);
             setIsLoading(true);
             //setMessage('YOUR EMAIL ADDRESS IS UPDATED');
@@ -45,7 +45,7 @@ export const MyAccount = () => {
         setIsEditEmail(false);
         setIsEditPassword(false);
         setMessage("");
-        if(isEditPhone) {
+        if(isEditPhone && newPhone !== user.telephone) {
             await editPhone(user.username, newPhone);
             setIsLoading(true);
             //setMessage('YOUR TELEPHONE IS UPDATED');
@@ -84,6 +84,12 @@ export const MyAccount = () => {
         setIsEditPassword(!isEditPassword);
     };
 
+    const emailRef = useRef();
+    const phoneRef = useRef();
+    const pswdRef = useRef();
+
+    
+
     return (
         <div className='myaccount'>
             <GobackButton />
@@ -103,12 +109,12 @@ export const MyAccount = () => {
                         <h3 className='categoty-title'>Email</h3>
                         <div className='content'>
                             <input className={`input ${isEditEmail ? 'edit' : ''}`} disabled={!isEditEmail} value={newEmail} onChange={(e)=>setNewEmail(e.target.value)}></input>
-                            <button className='edit-button' onClick={()=>handleEditEmail()}>{isEditEmail? 'SAVE' : 'EDIT'}</button>
+                            <button className='edit-button' onClick={handleEditEmail}>{isEditEmail? 'SAVE' : 'EDIT'}</button>
                         </div>
                         <h3 className='categoty-title'>Telephone</h3>
                         <div className='content'>
                             <input className={`input ${isEditPhone ? 'edit' : ''}`} disabled={!isEditPhone} value={newPhone} onChange={(e)=>setNewPhone(e.target.value)}></input>
-                            <button className='edit-button' onClick={()=>handleEditPhone()}>{isEditPhone? 'SAVE' : 'EDIT'}</button>
+                            <button className='edit-button' onClick={handleEditPhone}>{isEditPhone? 'SAVE' : 'EDIT'}</button>
                         </div>
                         <h3 className='categoty-title'>Password</h3>
                         <div className='content'>
@@ -119,7 +125,7 @@ export const MyAccount = () => {
                                 <input className='input edit' type='password' placeholder='Repeat New Password' minLength={4} value={newPasswordRepeat} onChange={(e)=>setNewPasswordRepeat(e.target.value)}></input>
                             </form> :
                             <ProhibitIcon className='input' size={28} />}
-                            <button className='edit-button' onClick={()=>handleEditPassword()}>{isEditPassword? 'SAVE' : 'EDIT'}</button>
+                            <button className='edit-button' onClick={handleEditPassword}>{isEditPassword? 'SAVE' : 'EDIT'}</button>
                         </div>
                     </div>
                     <p className='errorMsg'>{message}</p>

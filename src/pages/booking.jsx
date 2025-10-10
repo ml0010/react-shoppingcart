@@ -78,7 +78,7 @@ export const Booking = () => {
                                                 </div>
                                             }
                                         </div>
-                                        <h4>Alternatively, enter your information below</h4>
+                                        <h4><CaretDownIcon size={13} weight='fill' />Alternatively, enter your information below</h4>
                                     </div>
                                 }
                                 <form className='guest-form' id='guestInfo' onSubmit={handleGuestInfo}>

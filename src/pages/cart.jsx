@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link, useLocation } from "react-router-dom";
 import { TOURS } from '../tourlist'
 import { CartItem } from '../components/cart/cart-item';
@@ -10,12 +10,26 @@ import { CartContext } from '../contexts/cart-context';
 import { TourRecommendation } from '../components/tour/tour-recommendation';
 import { MotionRoute } from '../components/motions';
 import { Checkout } from '../components/cart/checkout';
+import { PopupContext } from '../contexts/popup-context';
+import { LoadingIcon } from '../components/buttons/loading-icon';
 
 export const Cart = () => {
 
     const { cartItems, setCartItems, getTotalCartAmount, cartDefault } = useContext (CartContext);
+    const { showPopupMessage } = useContext(PopupContext);
+
+    const [ isLoading, setIsLoading ] = useState(false);
+
     const totalAmount = getTotalCartAmount();
     const location = useLocation();
+
+    const handleEmptyBasket = () => {
+        setIsLoading(true);
+        setTimeout(() => {
+            showPopupMessage(`Your basket is now empty`, 'positive');
+            setCartItems(cartDefault());
+        }, 1400);
+    };
 
     return (
         <MotionRoute>
@@ -26,16 +40,16 @@ export const Cart = () => {
                         <h1>Your basket</h1>
                         <div className='section'>
                             <div className='cart-display'>
-
                                 <div className='cart-items'>
                                     {TOURS.map((tour) => {
                                     if (cartItems[tour.id]["pax"] > 0) {
                                         return <CartItem data={tour} key={tour.id} />;
                                     } else { return null; }
                                     })}
+                                    {isLoading && <LoadingIcon />}
                                 </div>
                                 <div className='bttns'>
-                                    <button className='button' onClick={() => {setCartItems(cartDefault())}}>EMPTY BASKET</button>
+                                    <button className='button' onClick={handleEmptyBasket}>EMPTY BASKET</button>
                                     <Link className='button' to={'/tours'}>MORE TOURS</Link>
                                 </div>
                             </div>

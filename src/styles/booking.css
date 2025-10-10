@@ -22,7 +22,6 @@
 }
 .booking .info h4 {
     font-size: 14px;
-    margin: 5px 0;
     font-weight: 500;
     color: var(--light);
     display: flex;
@@ -56,6 +55,7 @@
 .booking .info .booking-login .login-wrapper {
     display: flex;
     justify-content: center;
+    margin-bottom: 15px;
 }
 .booking .guest-form {
     display: grid;
@@ -63,23 +63,21 @@
     align-items: center;
     row-gap: 15px;
     padding: 5px;
+    font-size: 14px;
+}
+
+.booking .guest-form label {
+    font-weight: 600;
+    text-align: right;
+    margin-right: 15px;
 }
 .booking .guest-form .input {
     padding: 4px;
-    font-size: 15px;
     border: 1px solid var(--grey-light);
 }
 .booking .guest-form .comment {
     height: 100px;
     resize: none;
-}
-
-.booking .guest-form label {
-    font-size: 15px;
-    font-weight: 600;
-    text-align: right;
-    margin-right: 15px;
-    color: var(--light);
 }
 
 .booking a {

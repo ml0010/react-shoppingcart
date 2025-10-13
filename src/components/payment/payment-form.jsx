@@ -13,7 +13,7 @@ const PaymentForm = () => {
     const stripe = useStripe();
     const elements = useElements();
 
-    const { navigate, reference, isStripeReady, setIsStripeReady, isPaymentInfoReady, setIsPaymentInfoReady, isProessingPayment, setIsProcessingPayment } = useContext(PaymentContext);
+    const { amount, navigate, reference, isStripeReady, setIsStripeReady, isPaymentInfoReady, setIsPaymentInfoReady, isProessingPayment, setIsProcessingPayment } = useContext(PaymentContext);
     const { addBooking, name, email, phone, comment, resetBookingInfo } = useContext(BookingContext);
     const { user } = useContext(AuthenticationContext);
     const { setCartItems, cartDefault, getCartList, setIsGuestInfoCompleted } = useContext(CartContext);
@@ -43,7 +43,7 @@ const PaymentForm = () => {
                 setIsProcessingPayment(false);
                 return;
             }
-            await addBooking(user.username, reference, name, email, phone, comment, tours);
+            await addBooking(user.username, reference, name, email, phone, comment, tours, amount);
             await resetBookingInfo();
             await setCartItems(cartDefault);
             await setIsProcessingPayment(false);

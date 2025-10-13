@@ -64,10 +64,10 @@ export const BookingContextProvider = (props) => {
         }
     }
 
-    const addBooking = async (username, reference, name, email, phone, comment, tours, payment) => {
+    const addBooking = async (username, reference, name, email, phone, comment, tours, payment, paymentId) => {
         let result = await fetch('https://react-shoppingcart-q31i.onrender.com/booking', {
             method: "post",
-            body: JSON.stringify({ reference, name, email, phone, comment, tours, payment }),
+            body: JSON.stringify({ reference, name, email, phone, comment, tours, payment, paymentId }),
             headers: {
                 'Content-Type': 'application/json'
             }

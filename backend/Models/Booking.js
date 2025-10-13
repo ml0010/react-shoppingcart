@@ -12,6 +12,7 @@ const bookingSchema = new mongoose.Schema({
         default: Date.now,
     },
     payment: Number,
+    payment_id: String,
 });
 
 module.exports = mongoose.model('Tour-Bookings', bookingSchema);

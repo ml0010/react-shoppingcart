@@ -37,13 +37,13 @@ const PaymentForm = () => {
                 },
                 redirect: 'if_required'
             });
-            //console.log(response);
+            console.log(response.paymentIntent);
             if (response.error) {
                 setMessage('PAYMENT FAILED');
                 setIsProcessingPayment(false);
                 return;
             }
-            await addBooking(user.username, reference, name, email, phone, comment, tours, amount);
+            await addBooking(user.username, reference, name, email, phone, comment, tours, response.paymentIntent.amount/100, response.paymentIntent.id);
             await resetBookingInfo();
             await setCartItems(cartDefault);
             await setIsProcessingPayment(false);

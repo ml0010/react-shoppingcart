@@ -61,6 +61,19 @@
     position: absolute;
     right: 0;
 }
+.booking-detail .detail .payment {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+.booking-detail .detail .payment h5 {
+    font-weight: 600;
+    margin-right: 5px;
+
+}
+.booking-detail .detail .payment p {
+    font-size: 10px;
+}
 .booking-detail .separator {
     height: 1px;
     width: 100%;
@@ -84,5 +97,9 @@
 
     .booking-detail .detail {
         display: block;
+    }
+    .booking-detail .detail .payment {
+        flex-direction: column;
+        align-items: start;
     }
 }

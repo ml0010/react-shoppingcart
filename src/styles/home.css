@@ -42,10 +42,11 @@
     margin: 0 30px;
 }
 .home .pageContent .line {
-    height: 0.8px;
+    height: 1px;
     width: 100%;
-    background-color: var(--grey);
+    background-color: var(--grey-light);
     border: none;
+    margin: 60px 0 ;
 }
 
 

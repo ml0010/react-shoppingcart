@@ -21,7 +21,7 @@ export const MyPage = () => {
     return (
         <div className='mypage'>
             <GobackButton />
-            <div className='myInfo'>
+            <div className='my-info'>
                 <h1>Hello, {name}</h1>
                 <div className='buttons'>
                     <button className='button' onClick={()=>navigate('/myaccount')}>MY ACCOUNT<GearIcon size={15} /></button>

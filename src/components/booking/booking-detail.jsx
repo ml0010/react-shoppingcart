@@ -31,7 +31,7 @@ export const BookingDetail = ({reference, index}) => {
             setComment(data.comment);
             setTours([...data.tours]);
             setDate(data.date.toString().slice(0,10));
-            setPayment(data.payment);
+            setPayment({amount: data.payment, id: data.payment_id});
         }
     };
 
@@ -78,7 +78,10 @@ export const BookingDetail = ({reference, index}) => {
                         </>
                     )}
                     <hr className='separator'/>
-                    <h5>Payment: {payment}€</h5>
+                    <span className='payment'>
+                        <h5>Payment: {payment.amount}€ </h5>
+                        <p>({payment.id})</p>
+                    </span>
                 </div>
             </div>
         </div>

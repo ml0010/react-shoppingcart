@@ -16,13 +16,13 @@
     padding: 20px;
 }
 
-.mypage .myInfo {
+.mypage .my-info {
     margin-bottom: 40px;
 }
 .mypage h1 {
     color: var(--light);
 }
-.mypage .myInfo .buttons {
+.mypage .my-info .buttons {
     display: flex;
 }
 .mypage .booking-empty {
@@ -49,6 +49,9 @@
 
 }
 @media only screen and (max-width: 600px) {
+    .mypage .my-info .buttons {
+        flex-direction: column;
+    }
     .mypage .buttons {
         grid-template-columns: 1fr;
     }

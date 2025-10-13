@@ -13,6 +13,7 @@ export const BookingDetail = ({reference, index}) => {
     const [ comment, setComment ] = useState("");
     const [ tours, setTours ] = useState([]);
     const [ date, setDate ] = useState("");
+    const [ payment, setPayment ] = useState("");
     const [ showInfo, setShowInfo ] = useState(false);
 
     const { getBookingDetail, navigate } = useContext(BookingContext);
@@ -30,6 +31,7 @@ export const BookingDetail = ({reference, index}) => {
             setComment(data.comment);
             setTours([...data.tours]);
             setDate(data.date.toString().slice(0,10));
+            setPayment(data.payment);
         }
     };
 
@@ -75,10 +77,9 @@ export const BookingDetail = ({reference, index}) => {
                             <p>Price: {tour.pax} X {tour.price}€</p>
                         </>
                     )}
-                    <h5>Payment: €</h5>
+                    <hr className='separator'/>
+                    <h5>Payment: {payment}€</h5>
                 </div>
-                
-
             </div>
         </div>
     )

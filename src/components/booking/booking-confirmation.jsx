@@ -144,6 +144,7 @@ export const BookingConfirmation = () => {
                                 </span>
                             );
                         })}
+                        <h4>Payment: {bookingData.payment} €</h4>
                         </div>
                     </div>
                     <hr className='separator' />

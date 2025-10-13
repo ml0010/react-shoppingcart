@@ -72,8 +72,10 @@ export const BookingDetail = ({reference, index}) => {
                             <p>Title: {tour.tourName}</p>
                             <p>Pax: {tour.pax}</p>
                             <p>Date: {tour.date}</p>
+                            <p>Price: {tour.pax} X {tour.price}€</p>
                         </>
                     )}
+                    <h5>Payment: €</h5>
                 </div>
                 
 

@@ -9,7 +9,7 @@ export const CartContextProvider = (props) => {
     const [ isGuestInfoCompleted, setIsGuestInfoCompleted ] = useState(false);
     const [ isCartSummaryTimerSet, setIsCartSummaryTimerSet ] = useState(false);
 
-    const defaultValue = {pax: 0, date: null};
+    const defaultValue = {pax: 0, date: null, price: null};
 
     const cartDefault = () => {
         let cart = {};
@@ -18,6 +18,7 @@ export const CartContextProvider = (props) => {
         })
         return cart;
     }
+    
     const [ cartItems, setCartItems ] = useState(cartDefault);
 
     useEffect(() => {
@@ -30,8 +31,9 @@ export const CartContextProvider = (props) => {
     }, [isCartSummaryTimerSet]);
 
     const addToCart = (tourId, paxValue, dateValue) => {
-        setCartItems((prev) => ({...prev, [tourId]: {pax: paxValue, date: dateValue}}));
+        setCartItems((prev) => ({...prev, [tourId]: {pax: paxValue, date: dateValue, price: TOURS[tourId].price}}));
         setIsCartSummaryTimerSet(true);
+        console.log(cartItems);
     }    
     /*
     const removeFromCart = (tourId) => {
@@ -53,7 +55,7 @@ export const CartContextProvider = (props) => {
         }
 
         if (newPax <= paxMax) {
-            setCartItems((prev) => ({...prev, [tourId]: {pax: newPax, date: cartItems[tourId].date} }));
+            setCartItems((prev) => ({...prev, [tourId]: {pax: newPax, date: cartItems[tourId].date, price: cartItems[tourId].price} }));
         } else if (newPax < paxMin) {
             setCartItems((prev) => ({...prev, [tourId]: defaultValue }));
         }
@@ -61,7 +63,7 @@ export const CartContextProvider = (props) => {
 
     const changeDate = (tourId, date) => {
         var newDate = date.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"});
-        setCartItems((prev) => ({...prev, [tourId]: {pax: cartItems[tourId].pax, date: newDate} }));
+        setCartItems((prev) => ({...prev, [tourId]: {pax: cartItems[tourId].pax, date: newDate, price: cartItems[tourId].price} }));
 
     };
 
@@ -69,8 +71,8 @@ export const CartContextProvider = (props) => {
         let totalAmount = 0;
         for (const item in cartItems) {
             if (cartItems[item].pax > 0) {
-                let tourInfo = TOURS.find((tour) => (tour.id === Number(item)));
-                totalAmount += cartItems[item].pax * tourInfo.price;
+                //let tourInfo = TOURS.find((tour) => (tour.id === Number(item)));
+                totalAmount += cartItems[item].pax * cartItems[item].price;
             }
         }
         return totalAmount;
@@ -95,7 +97,8 @@ export const CartContextProvider = (props) => {
                     "tourId": tour.id,
                     "tourName": tour.tourName,
                     "pax": cartItems[tour.id]["pax"],
-                    "date": cartItems[tour.id]["date"]
+                    "date": cartItems[tour.id]["date"],
+                    "price": cartItems[tour.id]["price"]
                 });
             } else { return null; }
         });

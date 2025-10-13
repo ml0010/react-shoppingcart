@@ -16,7 +16,7 @@ export const MyPage = () => {
     useEffect(()=>{
         setName(user.name);
         setBooking([...user.booking]);
-    }, []);
+    }, [user]);
 
     return (
         <div className='mypage'>

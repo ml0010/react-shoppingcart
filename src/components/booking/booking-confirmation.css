@@ -77,13 +77,19 @@
     color: green;
     border: 1px solid var(--grey-light);
 }
+.confirmation .category .payment .payment-amount {
+    font-weight: 600;
+}
+.confirmation .category .payment .payment-id {
+    font-size: 10px;
+}
 
 .confirmation .separator {
     height: 1px;
     background-color: var(--grey);
     border: none;
     opacity: 0.2;
-    margin: 10px;
+    margin: 15px 0;
 }
 
 .confirmation .buttons {

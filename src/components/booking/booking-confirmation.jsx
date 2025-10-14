@@ -30,7 +30,7 @@ export const BookingConfirmation = () => {
         if(data === null) {
             navigate('/mybooking', {state: {fetch: 'failed'}});
         } else {
-            //console.log(data);
+            console.log(data);
             setBookingData(data);
             setNewPhone(data.phone);
             setNewComment(data.comment);
@@ -140,11 +140,14 @@ export const BookingConfirmation = () => {
                                     <p><b>{tour.tourName}</b></p>
                                     <p>Pax: {tour.pax}</p>
                                     <p>Date: {tour.date}</p>
-                                    <br />
+                                    <hr className='separator' />
                                 </span>
                             );
                         })}
-                        <h4>Payment: {bookingData.payment} €</h4>
+                        <span className='payment'>
+                            <p className='payment-amount'>Payment: {bookingData.payment} €</p>
+                            <p className='payment-id'>({bookingData.payment_id})</p>
+                        </span>
                         </div>
                     </div>
                     <hr className='separator' />

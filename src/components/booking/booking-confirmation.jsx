@@ -15,8 +15,8 @@ export const BookingConfirmation = () => {
     const [ bookingData, setBookingData] = useState(null);
     const [ newPhone, setNewPhone ] = useState(null);
     const [ newComment, setNewComment ] = useState(null);
-    const [ isEditPhoneDisabled, setIsEditPhoneDisabled ] = useState(true);
-    const [ isEditCommentDisabled, setIsEditCommentDisabled] = useState(true);
+    const [ isEditPhone, setIsEditPhone ] = useState(false);
+    const [ isEditComment, setIsEditComment] = useState(false);
 
     const { navigate, getBookingDetail, deleteBooking, updatePhone, updateComment } = useContext(BookingContext);
     const { showPopupMessage } = useContext(PopupContext);
@@ -30,7 +30,7 @@ export const BookingConfirmation = () => {
         if(data === null) {
             navigate('/mybooking', {state: {fetch: 'failed'}});
         } else {
-            console.log(data);
+            //console.log(data);
             setBookingData(data);
             setNewPhone(data.phone);
             setNewComment(data.comment);
@@ -42,7 +42,7 @@ export const BookingConfirmation = () => {
         if(!bookingDataReady) {
             getBookingInfo();
         }
-    }, []);
+    }, [bookingDataReady]);
 
     const delay = async (ms) => {
         return new Promise((resolve) => 
@@ -58,23 +58,26 @@ export const BookingConfirmation = () => {
     };
 
     const handleEditPhone = () => {
-        console.log("Edit Phone: ",isEditPhoneDisabled);
-        if(!isEditPhoneDisabled && bookingData.phone !== newPhone && !isEditPhoneDisabled) {
+        if(isEditPhone && bookingData.phone !== newPhone) {
             console.log("updating the phone number");
             updatePhone(bookingReference, newPhone);
             showPopupMessage('Edited - Contact Number', 'positive');
             setIsLoading(true);
+            setBookingDataReady(false);
         }
-        setIsEditPhoneDisabled(!isEditPhoneDisabled);
+        setIsEditPhone(!isEditPhone);
+
     };
 
     const handleEditComment = () => {
-        if(!isEditCommentDisabled && bookingData.comment !== newComment) {
+        if(isEditComment && bookingData.comment !== newComment) {
             showPopupMessage('Edited - Comment', 'positive');
             updateComment(bookingReference, newComment);
             setIsLoading(true);
+            setBookingDataReady(false);
+
         }
-        setIsEditCommentDisabled(!isEditCommentDisabled);
+        setIsEditComment(!isEditComment);
     };
 
     useEffect(() => {
@@ -119,14 +122,13 @@ export const BookingConfirmation = () => {
                     <div className='category phone'>
                         <span className='category-title-wrapper'>
                             <h3 className='category-name'>Contact Number</h3>
-                            <button className='edit-button' onClick={() => {setIsEditPhoneDisabled(!isEditPhoneDisabled)}}>{isEditPhoneDisabled? 'EDIT' : 'SAVE'}</button>
+                            <button className='edit-button' onClick={handleEditPhone}>{!isEditPhone? 'EDIT' : 'SAVE'}</button>
                         </span>
                         <span className='edit category-content'>
-                            <input className={`phone ${isEditPhoneDisabled? 'inactive' : 'active'}`} 
+                            <input className={`phone ${!isEditPhone? 'inactive' : 'active'}`} 
                                     value={newPhone} 
-                                    disabled={isEditPhoneDisabled} 
+                                    disabled={!isEditPhone} 
                                     onChange={(e)=>setNewPhone(e.target.value)}
-                                    ref={phoneRef}
                             />
                         </span>
                     </div>
@@ -154,12 +156,12 @@ export const BookingConfirmation = () => {
                     <div className='category comment'>
                         <span className='category-title-wrapper'>
                             <h3 className='category-name'>Comment</h3>
-                            <button className='edit-button' onClick={handleEditComment}>{isEditCommentDisabled? 'EDIT' : 'SAVE'}</button>
+                            <button className='edit-button' onClick={handleEditComment}>{!isEditComment? 'EDIT' : 'SAVE'}</button>
                         </span>
                         <span className='edit category-content'>
-                            <textarea className={`comment ${isEditCommentDisabled? 'inactive' : 'active'}`} 
+                            <textarea className={`comment ${!isEditComment? 'inactive' : 'active'}`} 
                                         value={newComment} 
-                                        disabled={isEditCommentDisabled} 
+                                        disabled={!isEditComment} 
                                         onChange={(e)=>setNewComment(e.target.value)}
                             />
                         </span>

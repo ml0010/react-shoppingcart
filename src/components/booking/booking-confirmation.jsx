@@ -30,7 +30,7 @@ export const BookingConfirmation = () => {
         if(data === null) {
             navigate('/mybooking', {state: {fetch: 'failed'}});
         } else {
-            //console.log(data);
+            console.log(data);
             setBookingData(data);
             setNewPhone(data.phone);
             setNewComment(data.comment);
@@ -91,7 +91,14 @@ export const BookingConfirmation = () => {
     useEffect(() => {
         let handler = (e)=>{
             if(phoneRef.current && !phoneRef.current.contains(e.target)){
-                handleEditPhone();
+                console.log(isEditPhone);
+                if(bookingData.phone !== newPhone) {
+                    setIsEditPhone(false);
+                    setNewPhone(bookingData.phone);
+                    return;
+                } else {
+                    handleEditPhone();
+                }
             }
         };
         document.addEventListener("mousedown", handler);
@@ -119,10 +126,11 @@ export const BookingConfirmation = () => {
                         <p className='category-content'>{bookingData.email}</p>
                     </div>
                     <hr className='separator' />
-                    <div className='category phone'>
+                    <div className='category phone' ref={phoneRef}>
                         <span className='category-title-wrapper'>
                             <h3 className='category-name'>Contact Number</h3>
                             <button className='edit-button' onClick={handleEditPhone}>{!isEditPhone? 'EDIT' : 'SAVE'}</button>
+                            {isEditPhone ? 'true' : 'false'}
                         </span>
                         <span className='edit category-content'>
                             <input className={`phone ${!isEditPhone? 'inactive' : 'active'}`} 
